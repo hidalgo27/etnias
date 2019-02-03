@@ -1,0 +1,261 @@
+//header
+header{
+    position: absolute;
+    width: 100%;
+    //top: 5vh;
+    z-index: 1;
+}
+@keyframes zoom {
+    from {
+        -moz-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.0, M12=0, M21=0, M22=1.0, SizingMethod='auto expand')";
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=1.0, M12=0, M21=0, M22=1.0, SizingMethod='auto expand');
+    }
+    to {
+        -moz-transform: scale(1.5);
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.5, M12=0, M21=0, M22=1.5, SizingMethod='auto expand')";
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=1.5, M12=0, M21=0, M22=1.5, SizingMethod='auto expand');
+    }
+}
+#home-slider-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+#home-slider-container .container {
+    height: 100vh;
+}
+#home-slider-container .container .slider-controls {
+    position: relative;
+    height: 100vh;
+}
+#home-slider-container .container .slider-controls .slider-next, #home-slider-container .container .slider-controls .slider-prev {
+    position: absolute;
+    margin-top: -20px;
+    top: 50%;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    opacity: 0.5;
+    text-decoration: none;
+}
+#home-slider-container .container .slider-controls .slider-next:focus, #home-slider-container .container .slider-controls .slider-prev:focus {
+    outline: none;
+}
+#home-slider-container .container .slider-controls .slider-next:hover, #home-slider-container .container .slider-controls .slider-prev:hover {
+    opacity: 1;
+}
+#home-slider-container .container .slider-controls .slider-next i, #home-slider-container .container .slider-controls .slider-prev i {
+    font-size: 100px;
+    color: #000;
+}
+#home-slider-container .container .slider-controls .slider-prev {
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    margin-left: 20px;
+    left: 0;
+}
+#home-slider-container .container .slider-controls .slider-next {
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    margin-right: 20px;
+    right: 0;
+}
+#home-slider-container #home-slider {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+#home-slider-container #home-slider .slick-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+#home-slider-container #home-slider .slick-dots li {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    margin: 0px 5px;
+}
+#home-slider-container #home-slider .slick-dots li.slick-active:after, #home-slider-container #home-slider .slick-dots li:hover:after {
+    background-color: #fff;
+}
+#home-slider-container #home-slider .slick-dots li button {
+    display: none;
+}
+#home-slider-container #home-slider .slick-dots li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+    -ms-transition: background-color 0.4s ease;
+}
+#home-slider-container #home-slider .slider-item {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+#home-slider-container #home-slider .slider-item img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-width: 100%;
+    //height: 100%;
+    //min-height: 100%;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    -moz-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation: zoom 15s ease-in-out infinite alternate;
+    -moz-animation: zoom 15s ease-in-out infinite alternate;
+    -o-animation: zoom 15s ease-in-out infinite alternate;
+    -ms-animation: zoom 15s ease-in-out infinite alternate;
+    animation: zoom 15s ease-in-out infinite alternate;
+}
+.form-header{
+    position: absolute;
+    bottom: 10%;
+    z-index: 1;
+    width: 100%;
+}
+
+//bg-rgba
+.bg-rgba-white-8{
+    background: rgba(255,255,255, .8);
+}
+.bg-rgba-white-7{
+    background: rgba(255,255,255, .7);
+}
+.bg-rgba-white-6{
+    background: rgba(255,255,255, .6);
+}
+.bg-rgba-white-5{
+    background: rgba(255,255,255, .5);
+}
+.bg-rgba-white-4{
+    background: rgba(255,255,255, .4);
+}
+.bg-rgba-white-3{
+    background: rgba(255,255,255, .3);
+}
+
+.bg-rgba-dark-8{
+    background: rgba(0,0 ,0, .8);
+}
+.bg-rgba-dark-7{
+    background: rgba(0,0 ,0, .7);
+}
+.bg-rgba-dark-6{
+    background: rgba(0,0 ,0, .6);
+}
+.bg-rgba-dark-5{
+    background: rgba(0,0 ,0, .5);
+}
+.bg-rgba-dark-4{
+    background: rgba(0,0 ,0, .4);
+}
+.bg-rgba-dark-3{
+    background: rgba(0,0 ,0, .3);
+}
+//end bg-rgba
+
+//modal
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+    padding: 15px 15px 80px;
+}
+
+/*Left*/
+.modal.left.fade .modal-dialog{
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.show .modal-dialog{
+    left: 0 !important;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+    right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-header {
+    border-bottom-color: #EEEEEE;
+    background-color: #FAFAFA;
+}
+
+
+//end modal
+
+.line-title{
+    width: 100px;
+    height: 2px;
+    background: #00b4e9;
+    margin: 15px auto 10px;
+}
