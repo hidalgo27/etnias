@@ -130,22 +130,167 @@
     </div>
 </section>
 
-<section class="mt-5">
+<section class="my-5">
     <div class="container">
         <div class="row">
             <div class="col text-center">
                 <h1 class="font-weight-bold text-secondary">WHAT IT CAN DO FOR YOU</h1>
                 <div class="line-title"></div>
-                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
+                <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
             </div>
         </div>
     </div>
 </section>
 
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="font-weight-bold text-secondary"><i class="fas fa-angle-right text-info"></i> Comunidad Huilloq</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div class="position-relative w-100">
+                    <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                    <div class="position-absolute w-100 top-50">
+                        <a href="" class="btn bg-white font-weight-bold text-secondary btn-outline-secondary shadow">Saber mas de la comunidad <i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="" class="font-weight-bold text-info">View More</a>
+            </div>
+            <div class="col">
+                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="" class="font-weight-bold text-info">View More</a>
+            </div>
+            <div class="col">
+                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="" class="font-weight-bold text-info">View More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="my-5 bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="font-weight-bold text-secondary"><i class="fas fa-angle-right text-info"></i> Comunidad Taucca</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <h5>Comunidad Taucca titulo</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor excepturi illum mollitia placeat porro sapiente sequi? Aspernatur natus nihil non, repellendus sunt tempora ut vero. Illum nulla sunt voluptates.</p>
+            </div>
+            <div class="col text-center">
+                <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
+                    <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                </a>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="{{asset('images/taucca1.jpg')}}" alt="" class="w-100 rounded shadow">
+                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="" class="font-weight-bold text-info">View More</a>
+            </div>
+            <div class="col">
+                <img src="{{asset('images/taucca2.jpg')}}" alt="" class="w-100 rounded shadow">
+                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="" class="font-weight-bold text-info">View More</a>
+            </div>
+            <div class="col">
+                <img src="{{asset('images/taucca4.jpg')}}" alt="" class="w-100 rounded shadow">
+                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <a href="" class="font-weight-bold text-info">View More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="item footer" id="footer">
+
+        <div class="container"><!-- container -->
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-box text-center">
+                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="footer-title">
+                            <h5>ADDRESS</h5>
+                        </div>
+                        <div class="footer-disc">
+                            <p>250 Av.Sol Cusco sur plaza</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-box text-center">
+                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="footer-title">
+                            <h5>ADDRESS</h5>
+                        </div>
+                        <div class="footer-disc">
+                            <p>250 Av.Sol Cusco sur plaza</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-box text-center">
+                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
+                        <div class="footer-title">
+                            <h5>ADDRESS</h5>
+                        </div>
+                        <div class="footer-disc">
+                            <p>250 Av.Sol Cusco sur plaza</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-social text-center">
+                <ul>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                </ul>
+            </div>
+            <div class="copyright-text text-center">
+                <p>© Travel 2019, All Rights Reserved, Developed by pandaninja</p>
+            </div>
+        </div><!-- /.container -->
+
+</footer><!-- /.item -->
 </body>
 {{--script--}}
 <script src="{{asset("js/app.js")}}"></script>
-{{--<script src="{{asset("js/plugins.js")}}"></script>--}}
+<script src="{{asset("js/plugins.js")}}"></script>
 
 <script>
     var $slider = $('#home-slider');
@@ -172,5 +317,10 @@
     $(window).resize(function(){
         $slider.find(".slider-content").css({"height":$(window).height(),"eidth":$(window).width()});
     })
+
+    //venobox
+    $(document).ready(function(){
+        $('.venobox').venobox();
+    });
 </script>
 </html>

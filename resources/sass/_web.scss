@@ -259,3 +259,19 @@ header{
     background: #00b4e9;
     margin: 15px auto 10px;
 }
+//
+.top-50{
+    top: 50%;
+}
+//footer
+.footer{background:#222;padding:120px 15px 70px;}
+.footer-title h5{color:#777;text-transform:uppercase;}
+.footer-box{border:1px solid #444;padding-bottom:20px;margin-bottom:70px;}
+.footer-icon{color:#777;font-size:40px;border:1px solid #444;margin:-50px auto 30px;width:100px;height:100px;background:#222;line-height:2.4;}
+.footer-icon i{line-height:2.4;}
+.footer-disc p{color:#888;}
+.footer-social{}
+.footer-social ul li{display:inline-block;margin-right:5px;}
+.footer-social ul li a{font-size:20px;color:#666;border:2px solid #777;border-radius:50%;padding: 5px 9px;}
+.footer-social ul li a i{line-height:1.8;}
+.copyright-text p{color:#666;font-size:12px;text-transform:uppercase;font-weight:700;}
