@@ -60,7 +60,7 @@
                     <form class="bg-rgba-white-8 p-4 rounded">
                         <div class="row">
                             <div class="col">
-                                <h2 class="font-weight-bold text-secondary">Reserva de comunidades y actividades.</h2>
+                                <h2 class="font-weight-bold text-secondary">Reserva de comunidades y actividades en Cusco.</h2>
                                 <hr>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                 <div class="form-group">
                                     <label for="" class="text-secondary small font-weight-bold">COMUNIDAD</label>
                                     {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
-                                    <select id="inputState" class="form-control font-weight-bold">
+                                    <select id="inputState" class="form-control">
                                         <option selected>Seleccione...</option>
                                         <option>...</option>
                                     </select>
@@ -80,13 +80,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="" class="text-secondary small font-weight-bold">LLEGADA</label>
-                                    <input type="date" class="form-control font-weight-bold" id="formGroupExampleInput" placeholder="TRAVEL DATE">
+                                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="TRAVEL DATE">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="" class="text-secondary small font-weight-bold">SALIDA</label>
-                                    <input type="date" class="form-control font-weight-bold" id="formGroupExampleInput" placeholder="To*">
+                                    <input type="date" class="form-control" id="formGroupExampleInput" placeholder="To*">
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="" class="text-secondary small font-weight-bold">HUÉSPEDES</label>
-                                    <select id="inputState" class="form-control font-weight-bold">
+                                    <select id="inputState" class="form-control">
                                         <option selected>Seleccione...</option>
                                         <option>...</option>
                                     </select>
@@ -232,40 +232,40 @@
             <div class="col">
                 <div class="row slider-for mb-4">
                     <div class="col">
-                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/huilloq1.jpg')}}" alt="" class="w-100 rounded shadow">
                     </div>
                     <div class="col">
-                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/huilloq2.jpg')}}" alt="" class="w-100 rounded shadow">
                     </div>
                     <div class="col">
-                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/huilloq3.jpg')}}" alt="" class="w-100 rounded shadow">
                     </div>
                     <div class="col">
-                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/huilloq4.jpg')}}" alt="" class="w-100 rounded shadow">
                     </div>
 
                 </div>
                 <div class="row slider-nav px-3">
                     <div class="col">
-                        <img src="{{asset('images/taucca1.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded shadow">
                         <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="" class="font-weight-bold text-info">View More</a>
                     </div>
                     <div class="col">
-                        <img src="{{asset('images/taucca2.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/thumbnail/huilloq2.jpg')}}" alt="" class="w-100 rounded shadow">
                         <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="" class="font-weight-bold text-info">View More</a>
                     </div>
                     <div class="col">
-                        <img src="{{asset('images/taucca4.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/thumbnail/huilloq3.jpg')}}" alt="" class="w-100 rounded shadow">
                         <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="" class="font-weight-bold text-info">View More</a>
                     </div>
                     <div class="col">
-                        <img src="{{asset('images/taucca4.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <img src="{{asset('images/huilloq/thumbnail/huilloq4.jpg')}}" alt="" class="w-100 rounded shadow">
                         <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="" class="font-weight-bold text-info">View More</a>
@@ -415,7 +415,6 @@
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.slider-for',
-
         // dots: true,
         centerMode: true,
         focusOnSelect: true,
