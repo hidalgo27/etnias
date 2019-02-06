@@ -275,3 +275,16 @@ header{
 .footer-social ul li a{font-size:20px;color:#666;border:2px solid #777;border-radius:50%;padding: 5px 9px;}
 .footer-social ul li a i{line-height:1.8;}
 .copyright-text p{color:#666;font-size:12px;text-transform:uppercase;font-weight:700;}
+
+.slick-slide{
+    outline: none;
+}
+.slick-prev:before, .slick-next:before {
+    //font-family: "slick";
+    //font-size: 20px;
+    //line-height: 1;
+    color: #00b4e9;
+    //opacity: 0.75;
+    //-webkit-font-smoothing: antialiased;
+    //-moz-osx-font-smoothing: grayscale;
+}

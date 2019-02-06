@@ -165,24 +165,38 @@
                 <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
-                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="" class="font-weight-bold text-info">View More</a>
-            </div>
-            <div class="col">
-                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="" class="font-weight-bold text-info">View More</a>
-            </div>
-            <div class="col">
-                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="" class="font-weight-bold text-info">View More</a>
+
+                <div class="row slider-huilloq">
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -191,7 +205,7 @@
 
 <section class="my-5 bg-light py-5">
     <div class="container">
-        <div class="row">
+        <div class="row mb-4">
             <div class="col">
                 <h3 class="font-weight-bold text-secondary"><i class="fas fa-angle-right text-info"></i> Comunidad Taucca</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
@@ -213,26 +227,53 @@
                 <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
-                <img src="{{asset('images/taucca1.jpg')}}" alt="" class="w-100 rounded shadow">
-                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="" class="font-weight-bold text-info">View More</a>
-            </div>
-            <div class="col">
-                <img src="{{asset('images/taucca2.jpg')}}" alt="" class="w-100 rounded shadow">
-                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="" class="font-weight-bold text-info">View More</a>
-            </div>
-            <div class="col">
-                <img src="{{asset('images/taucca4.jpg')}}" alt="" class="w-100 rounded shadow">
-                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <a href="" class="font-weight-bold text-info">View More</a>
+                <div class="row slider-for mb-4">
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/sliders/slider-1.jpg')}}" alt="" class="w-100 rounded shadow">
+                    </div>
+
+                </div>
+                <div class="row slider-nav px-3">
+                    <div class="col">
+                        <img src="{{asset('images/taucca1.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/taucca2.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/taucca4.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                    <div class="col">
+                        <img src="{{asset('images/taucca4.jpg')}}" alt="" class="w-100 rounded shadow">
+                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <a href="" class="font-weight-bold text-info">View More</a>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -316,11 +357,96 @@
 
     $(window).resize(function(){
         $slider.find(".slider-content").css({"height":$(window).height(),"eidth":$(window).width()});
-    })
+    });
 
     //venobox
     $(document).ready(function(){
         $('.venobox').venobox();
     });
+
+    //slick
+
+    $('.slider-huilloq').slick({
+        // dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+
+        // dots: true,
+        centerMode: true,
+        focusOnSelect: true,
+
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+                }
+            }
+        ]
+    });
+
 </script>
 </html>
