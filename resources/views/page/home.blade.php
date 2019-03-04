@@ -14,14 +14,14 @@
     <div class="">
         <div class="container-fluid">
             <div class="row justify-content-between align-items-center">
-                <div class="col-2 align-items-center">
-                    <a href="{{route('home_path')}}"><img src="{{asset('images/logo-etnias.png')}}" alt="" class="w-100"></a>
+                <div class="col-3 align-items-center">
+                    <a href="{{route('home_path')}}"><img src="{{asset('images/etnias-peru.png')}}" alt="" class="w-100 pink"></a>
                 </div>
                 <div class="col">
                     {{--<p class="m-0 font-kalam h5 text-info">Perú & Ecuador Especialist!</p>--}}
                 </div>
                 <div class="col-auto text-right">
-                    <a href="#" class="text-secondary" data-toggle="modal" data-target="#myModal">
+                    <a href="#" class="text-g-red-light" data-toggle="modal" data-target="#myModal">
                         <i class="fas fa-bars h1 m-0 p-0"></i>
                         <small class="d-block">MENU</small>
                     </a>
@@ -60,7 +60,7 @@
                     <form class="bg-rgba-white-8 p-4 rounded">
                         <div class="row">
                             <div class="col">
-                                <h2 class="font-weight-bold text-secondary">Reserva de comunidades y actividades en Cusco.</h2>
+                                <h2 class="font-weight-bold text-g-grey-light">Reserva de comunidades y actividades en Cusco.</h2>
                                 <hr>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-block btn-info"><span class="font-weight-bold text-white">SEARCH</span></button>
+                                <button type="submit" class="btn btn-block btn-g-green-light"><span class="font-weight-bold">SEARCH</span></button>
                             </div>
                         </div>
                     </form>
@@ -134,7 +134,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h1 class="font-weight-bold text-secondary">WHAT IT CAN DO FOR YOU</h1>
+                <h1 class="font-weight-bold text-g-grey-light">WHAT IT CAN DO FOR YOU</h1>
                 <div class="line-title"></div>
                 <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
             </div>
@@ -146,7 +146,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h3 class="font-weight-bold text-secondary"><i class="fas fa-angle-right text-info"></i> Comunidad Huilloq</h3>
+                <h3 class="font-weight-bold text-g-grey-light"><i class="fas fa-angle-right text-g-red-light"></i> Comunidad Huilloq</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
             </div>
         </div>
@@ -155,9 +155,96 @@
                 <div class="position-relative w-100">
                     <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                     <div class="position-absolute w-100 top-50">
-                        <a href="" class="btn bg-white font-weight-bold text-secondary btn-outline-secondary shadow">Saber mas de la comunidad <i class="fas fa-angle-right"></i></a>
+                        <a href="" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber mas de la comunidad <i class="fas fa-angle-right"></i></a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <div class="row slider-huilloq">
+                    <div class="col d-flex">
+                        <div class="card">
+                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
+                            <div class="card-body">
+                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="" class="font-weight-bold text-info">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex">
+                        <div class="card">
+                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
+                            <div class="card-body">
+                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="" class="font-weight-bold text-info">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex">
+                        <div class="card">
+                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
+                            <div class="card-body">
+                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="" class="font-weight-bold text-info">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex">
+                        <div class="card">
+                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
+                            <div class="card-body">
+                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="" class="font-weight-bold text-info">View More</a>
+                            </div>
+                        </div>
+                    </div>
+              
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="my-5 bg-light py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col">
+                <h3 class="font-weight-bold text-g-grey-light"><i class="fas fa-angle-right text-g-red-light"></i> Comunidad Taucca</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <h5>Comunidad Taucca titulo</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor excepturi illum mollitia placeat porro sapiente sequi? Aspernatur natus nihil non, repellendus sunt tempora ut vero. Illum nulla sunt voluptates.</p>
+            </div>
+            <div class="col text-center">
+                <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
+                    <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                </a>
             </div>
         </div>
         <div class="row my-4">
@@ -197,80 +284,6 @@
 
                 </div>
 
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="my-5 bg-light py-5">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col">
-                <h3 class="font-weight-bold text-secondary"><i class="fas fa-angle-right text-info"></i> Comunidad Taucca</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                <h5>Comunidad Taucca titulo</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor excepturi illum mollitia placeat porro sapiente sequi? Aspernatur natus nihil non, repellendus sunt tempora ut vero. Illum nulla sunt voluptates.</p>
-            </div>
-            <div class="col text-center">
-                <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                    <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                </a>
-            </div>
-        </div>
-        <div class="row my-4">
-            <div class="col">
-                <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="row slider-for mb-4">
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/huilloq1.jpg')}}" alt="" class="w-100 rounded shadow">
-                    </div>
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/huilloq2.jpg')}}" alt="" class="w-100 rounded shadow">
-                    </div>
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/huilloq3.jpg')}}" alt="" class="w-100 rounded shadow">
-                    </div>
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/huilloq4.jpg')}}" alt="" class="w-100 rounded shadow">
-                    </div>
-
-                </div>
-                <div class="row slider-nav px-3">
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="" class="font-weight-bold text-info">View More</a>
-                    </div>
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/thumbnail/huilloq2.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="" class="font-weight-bold text-info">View More</a>
-                    </div>
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/thumbnail/huilloq3.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="" class="font-weight-bold text-info">View More</a>
-                    </div>
-                    <div class="col">
-                        <img src="{{asset('images/huilloq/thumbnail/huilloq4.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <a href="" class="font-weight-bold text-info">View More</a>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -370,7 +383,7 @@
         // dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,

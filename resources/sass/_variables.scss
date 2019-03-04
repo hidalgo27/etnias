@@ -21,3 +21,28 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $info: #00b4e9;
+
+$g-green-primary:    #004137 !default;
+$g-green-dark:    #001c11 !default;
+$g-green-light:    #356c61 !default;
+
+$g-red-primary:   #83052a !default;
+$g-red-dark:   #500000 !default;
+$g-red-light:   #b84152 !default;
+
+$g-grey-primary:   #333333 !default;
+$g-grey-dark:   #0c0c0c !default;
+$g-grey-light:   #5c5c5c !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+    "g-green-primary": $g-green-primary,
+    "g-green-dark": $g-green-dark,
+    "g-green-light": $g-green-light,
+    "g-red-primary": $g-red-primary,
+    "g-red-dark": $g-red-dark,
+    "g-red-light": $g-red-light,
+    "g-grey-primary": $g-grey-primary,
+    "g-grey-dark": $g-grey-dark,
+    "g-grey-light": $g-grey-light
+), $theme-colors);
