@@ -130,26 +130,133 @@
     </div>
 </section>
 
-<section class="my-5">
+<section class="mt-5">
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h1 class="font-weight-bold text-g-grey-light">WHAT IT CAN DO FOR YOU</h1>
-                <div class="line-title"></div>
+                <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Huilloq</span></h1>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                {{--<div class="line-title"></div>--}}
                 <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="my-5">
+<section>
     <div class="container">
-        <div class="row">
+        {{--<div class="row">--}}
+            {{--<div class="col">--}}
+                {{--<h3 class="font-weight-bold text-g-grey-light"><i class="fas fa-angle-right text-g-red-light"></i> Comunidad Huilloq</h3>--}}
+                {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        <div class="row my-3">
             <div class="col">
-                <h3 class="font-weight-bold text-g-grey-light"><i class="fas fa-angle-right text-g-red-light"></i> Comunidad Huilloq</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
+                <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
             </div>
         </div>
+
+        <div class="row slider-huilloq">
+            <div class="col mb-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="header-img-actividades">
+                            <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-box-actividades row m-0">
+                    <div class="col-8">
+                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                    </div>
+                    <div class="col-4 actividad_icon">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="header-img-actividades">
+                            <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-box-actividades row m-0">
+                    <div class="col-8">
+                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                    </div>
+                    <div class="col-4 actividad_icon">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {{--http://rn53themes.net/themes/demo/travelz/main.html#--}}
+            <div class="col mb-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="header-img-actividades">
+                            <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-box-actividades row m-0">
+                    <div class="col-8">
+                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                    </div>
+                    <div class="col-4 actividad_icon">
+                        <ul>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="row">
             <div class="col text-center">
                 <div class="position-relative w-100">
@@ -160,83 +267,25 @@
                 </div>
             </div>
         </div>
-        <div class="row my-4">
-            <div class="col">
-                <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-
-                <div class="row slider-huilloq">
-                    <div class="col d-flex">
-                        <div class="card">
-                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
-                            <div class="card-body">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col d-flex">
-                        <div class="card">
-                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
-                            <div class="card-body">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col d-flex">
-                        <div class="card">
-                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
-                            <div class="card-body">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col d-flex">
-                        <div class="card">
-                            <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded-top shadow">
-                            <div class="card-body">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                        </div>
-                    </div>
-              
-
-                </div>
-
-            </div>
-        </div>
     </div>
 </section>
 
 
 <section class="my-5 bg-light py-5">
     <div class="container">
-        <div class="row mb-4">
-            <div class="col">
-                <h3 class="font-weight-bold text-g-grey-light"><i class="fas fa-angle-right text-g-red-light"></i> Comunidad Taucca</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugiat laboriosam maiores obcaecati perferendis quis.</p>
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Taucca</span></h1>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                {{--<div class="line-title"></div>--}}
+                <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
             </div>
         </div>
-        <div class="row align-items-center">
+        <div class="row align-items-center mt-4">
             <div class="col">
                 <h5>Comunidad Taucca titulo</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor excepturi illum mollitia placeat porro sapiente sequi? Aspernatur natus nihil non, repellendus sunt tempora ut vero. Illum nulla sunt voluptates.</p>
@@ -287,6 +336,53 @@
             </div>
         </div>
 
+    </div>
+</section>
+
+<section class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="font-weight-bold text-g-grey-primary">Actividades <span class="text-g-red-dark">Popular</span></h1>
+                <div class="title-line">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                {{--<div class="line-title"></div>--}}
+                <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <a href="">
+                    <div class="top-actividades">
+                        <img src="{{asset('images/top/home.jpg')}}" alt="" class="w-100 rounded">
+                        <div class="top-actividades-footer text-white">
+                            <h4 class="font-weight-bold">Hola</h4>
+                            <p class="text-left h6 font-weight-bold">12 Packages <span class="float-right font-weight-normal text-right">Starting from $2400</span></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-6">
+                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-6">
+                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -383,7 +479,7 @@
         // dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
