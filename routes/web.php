@@ -18,3 +18,7 @@ Route::get('/', [
     'uses' => 'HomeController@index',
     'as' => 'home_path',
 ]);
+Route::get('/detail', [
+    'uses' => 'DetailController@index',
+    'as' => 'detail_path',
+]);

@@ -180,12 +180,12 @@
     </div>
 </section>
 
-<section class="mt-5">
+<section class="mt-4">
     <div class="container">
         <div class="row">
             <div class="col text-center">
                 <h1 class="font-weight-bold display-4 text-g-grey-primary">TURISMO <span class="text-g-red-dark">VIVENCIAL</span></h1>
-                <h4 class="text-g-grey-light">Una experiencia inolbidable y la oportunidad de conocer el interior del <stong class="text-g-grey-dark">país de los Incas.</stong></h4>
+                <h4 class="text-g-grey-light">Una experiencia inolvidable y la oportunidad de conocer el interior del <stong class="text-g-grey-dark">país de los Incas.</stong></h4>
                 <div class="title-line">
                     <div class="tl-1"></div>
                     <div class="tl-2"></div>
@@ -196,7 +196,7 @@
         <div class="row mt-4">
             <div class="col">
                 <div class="alert alert-g-green-light text-center">
-                    <p class="lead font-weight-bold m-0">Ofrecemos tours y actividades vivenciales en comunidades de la region del Cusco.</p>
+                    <p class="lead font-weight-bold m-0">Tours y actividades vivenciales en comunidades de la region del Cusco.</p>
                 </div>
             </div>
         </div>
@@ -250,7 +250,7 @@
                 </div>
                 <div class="footer-box-actividades row m-0">
                     <div class="col-8">
-                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                        <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">ACTIVIsdDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                     </div>
                     <div class="col-4 actividad_icon">
                         <ul>
@@ -923,8 +923,10 @@
     </div>
 </section>
 
-<div>
-    <img src="{{asset('images/pasto.png')}}" alt="" class="w-100">
+<div class="position-relative w-100">
+    <div class="footer-pasto">
+        <img src="{{asset('images/pasto.png')}}" alt="" class="w-100">
+    </div>
 </div>
 <footer class="item footer" id="footer">
 

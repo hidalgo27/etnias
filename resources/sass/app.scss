@@ -2,6 +2,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700');
 
 // Variables
 @import 'variables';
@@ -27,3 +28,10 @@
 
 // Web
 @import "web";
+
+//
+.font-poppins{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    line-height: 24px;
+}
