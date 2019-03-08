@@ -889,3 +889,20 @@ header{
     background-color: #545b62;
     border-color: #4e555b;
 }
+
+.dp-note {
+    position: absolute;
+    background: #a5e2d6;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    left: 50%;
+    color: white;
+    bottom: 3px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.datepicker-inline .datepicker{
+    width: 100%;
+}
