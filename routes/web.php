@@ -22,3 +22,29 @@ Route::get('/detail', [
     'uses' => 'DetailController@index',
     'as' => 'detail_path',
 ]);
+Route::get('/book', [
+    'uses' => 'BookController@index',
+    'as' => 'book_path',
+]);
+Route::get('/payment', [
+    'uses' => 'PaymentController@index',
+    'as' => 'payment_path',
+]);
+Route::get('/comunidades', [
+    'uses' => 'ComunidadController@index',
+    'as' => 'comunidad_path',
+]);
+Route::get('/comunidades/show', [
+    'uses' => 'ComunidadController@show',
+    'as' => 'comunidad_show_path',
+]);
+
+Route::get('/actividades', [
+    'uses' => 'ActividadesController@index',
+    'as' => 'actividades_path',
+]);
+
+Route::get('/paquetes', [
+    'uses' => 'PackageController@index',
+    'as' => 'packages_path',
+]);

@@ -203,12 +203,12 @@
                         <div class="col">
                             <div  id="custom-cells-2"></div>
                         </div>
-                        <div class="col-12">
-                            <div id="custom-cells-events">
-                                <strong></strong>
-                                <p></p>
-                            </div>
-                        </div>
+                        {{--<div class="col-12 mt-2">--}}
+                            {{--<div id="custom-cells-events">--}}
+                                {{--<strong></strong>--}}
+                                {{--<p></p>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                     </div>
                     <div class="row mt-5">
                         <div class="col font-poppins">
@@ -332,7 +332,43 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <sup>$</sup><span class="font-weight-bold display-4 h1">500</span><small>USD</small>
-                            <a href="" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</a>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label for="custom-cells" class="font-weight-bold text-secondary small">Fecha de Viaje</label>
+                                        <input type="text" class="form-control" id="custom-cells-3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Adultos</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Niños</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                            <option selected>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{route('book_path')}}" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</a>
                         </div>
                     </div>
                     <div class="card bg-light mt-4">
@@ -584,6 +620,7 @@
         var eventDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.4.23'];
         $picker = $('#custom-cells'),
             $picker2 = $('#custom-cells-2'),
+            $picker3 = $('#custom-cells-3'),
         $content = $('#custom-cells-events'),
         sentences = [
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita prorsus, inquam; Si enim ad populum me vocas, eum. Ita prorsus, inquam; Nonne igitur tibi videntur, inquit, mala? Hunc vos beatum; Idemne, quod iucunde? ',
@@ -616,8 +653,9 @@
                 title = fd;
                 content = sentences[Math.floor(Math.random() * eventDates.length)];
             }
-            $('strong', $content).html(title);
-            $('p', $content).html(content);
+            $($picker3).val(title);
+            // $('strong', $picker3).val(title);
+            // $('p', $content).html(content);
         }
     });
     $picker2.datepicker({
@@ -645,8 +683,36 @@
                 title = fd;
                 content = sentences[Math.floor(Math.random() * eventDates.length)];
             }
-            $('strong', $content).html(title);
-            $('p', $content).html(content);
+            $($picker3).val(title);
+        }
+    });
+    $picker3.datepicker({
+        language: 'en',
+        onRenderCell: function (date, cellType) {
+            var currentDate = date.getDate();
+            formatted = getFormattedDate(date);
+            // Add extra element, if `eventDates` contains `currentDate`
+            if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                return {
+                    html: currentDate + '<span class="dp-note"></span>'
+                }
+            }else{
+                return {
+                    disabled: true
+                }
+            }
+        },
+        onSelect: function onSelect(fd, date) {
+            var title = '', content = '';
+            // If date with event is selected, show it
+            formatted = getFormattedDate(date);
+            if (date && eventDates.indexOf(formatted) != -1) {
+                title = fd;
+                content = sentences[Math.floor(Math.random() * eventDates.length)];
+            }
+            // $('strong', $content).html(title);
+            // $('p', $content).html(content);
+            $($picker3).val(title);
         }
     });
 

@@ -49,9 +49,9 @@
                 <hr class="my-4">
                 <div class="row">
                     <div class="col text-right">
-                        <a href="" class="font-weight-bold h5 d-block text-g-grey-dark">Comunidades</a>
-                        <a href="" class="font-weight-bold h5 d-block text-g-grey-dark">Actividades</a>
-                        <a href="" class="font-weight-bold h5 d-block text-g-grey-dark">Paquetes</a>
+                        <a href="{{route('comunidad_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Comunidades</a>
+                        <a href="{{route('actividades_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Actividades</a>
+                        <a href="{{route('packages_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Paquetes</a>
                         <a href="" class="font-weight-bold h5 d-block text-g-grey-dark">Sobre Nosotros</a>
                         <a href="" class="font-weight-bold h5 d-block text-g-grey-dark">Nuestro Blog</a>
                         <a href="" class="font-weight-bold h5 d-block text-g-grey-dark">Contáctenos</a>

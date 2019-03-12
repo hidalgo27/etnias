@@ -8172,7 +8172,7 @@ input[type=button].btn-block {
   display: inline-block;
   padding-right: 0.5rem;
   color: #6c757d;
-  content: "/";
+  content: ">";
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -20459,7 +20459,26 @@ readers do not read off random characters that represent icons */
 header {
   position: absolute;
   width: 100%;
+  z-index: 2;
+}
+
+.form-header-bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh !important;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#a6000000", endColorstr="#00000000",GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
   z-index: 1;
+}
+
+.h-100vh {
+  height: 100vh !important;
 }
 
 @-webkit-keyframes zoom {
@@ -21399,7 +21418,6 @@ header {
 
 .container-shadow {
   position: relative;
-  overflow: hidden;
   background: #fff;
   box-shadow: 0px -5px 7px rgba(150, 150, 150, 0.4);
 }
@@ -21489,6 +21507,19 @@ header {
 
 .datepicker-inline .datepicker {
   width: 100%;
+}
+
+.box-comunidad-arrow {
+  width: 0;
+  height: 0;
+  border-right: 20px solid transparent;
+  border-top: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-bottom: 20px solid rgba(0, 0, 0, 0.125);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .font-poppins {
