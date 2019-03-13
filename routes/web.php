@@ -48,3 +48,17 @@ Route::get('/paquetes', [
     'uses' => 'PackageController@index',
     'as' => 'packages_path',
 ]);
+
+Route::get('/nosotros', [
+    'uses' => 'AboutController@index',
+    'as' => 'about_path',
+]);
+Route::get('/blog', [
+    'uses' => 'BlogController@index',
+    'as' => 'blog_path',
+]);
+
+Route::get('/contacto', [
+    'uses' => 'ContactController@index',
+    'as' => 'contact_path',
+]);
