@@ -70,7 +70,7 @@
 {{--script--}}
 <script src="{{asset("js/app.js")}}"></script>
 <script src="{{asset("js/plugins.js")}}"></script>
-
+@stack('scripts')
 <script>
     var $slider = $('#home-slider');
     $(document).ready(function(){
@@ -202,6 +202,6 @@
             }
         }
     }
-    $('body').scrollspy({ target: '#navbar-scroll' })
+    $('body').scrollspy({ target: '#navbar-scroll' });
 </script>
 </html>

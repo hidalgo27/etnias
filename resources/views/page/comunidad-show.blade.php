@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="footer-box-actividades row m-0">
                                             <div class="col">
-                                                <h6><a href="" class="text-g-grey-primary font-weight-bold stretched-link">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold stretched-link">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="footer-box-actividades row m-0">
                                             <div class="col">
-                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="footer-box-actividades row m-0">
                                             <div class="col">
-                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="footer-box-actividades row m-0">
                                             <div class="col">
-                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@
                                         </div>
                                         <div class="footer-box-actividades row m-0">
                                             <div class="col">
-                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                         </div>
                                         <div class="footer-box-actividades row m-0">
                                             <div class="col">
-                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                             </div>
                                         </div>
                                     </div>

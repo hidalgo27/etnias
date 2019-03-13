@@ -23,7 +23,7 @@
                 <div class="container">
                     <div class="row align-items-end bg-header-body pb-5">
                         <div class="col text-white">
-                            <h1 class="text-white">Universal luxury Grand Hotel</h1>
+                            <h1 class="text-white">sdl</h1>
                             <p class="lead font-weight-normal">Location: 28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</p>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
         <section class="bg-light">
             <div class="container container-shadow">
 
-                <section class="my-5">
+                <section class="py-5">
                     <div class="row">
                         <div class="col-8">
                             <div class="row">
@@ -305,3 +305,148 @@
             </div>
         </section>
     @endsection
+
+
+@push('scripts')
+    <script>
+
+        var disabledDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.3.23'];
+
+        $('#dp').datepicker({
+            language: 'en',
+            onRenderCell: function(d, type) {
+                if (type == 'day') {
+                    var disabled = false,
+                        formatted = getFormattedDate(d);
+                    disabled = disabledDates.filter(function(date){
+                        return date == formatted;
+                        //     return {html: '<span class="dp-note"></span>'}
+                    }).length;
+                    return {
+                        disabled: disabled
+                    }
+                }
+            }
+        });
+
+        function getFormattedDate(date) {
+            var year = date.getFullYear(),
+                month = date.getMonth() + 1,
+                date = date.getDate();
+
+            return year + '.' + month + '.' + date;
+        }
+
+        // What dates should be disabled - year.month.date
+
+
+        // var eventDates = [1, 18, 12, 31],
+        var eventDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.4.23'];
+        $picker = $('#custom-cells'),
+            $picker2 = $('#custom-cells-2'),
+            $picker3 = $('#custom-cells-3'),
+            $content = $('#custom-cells-events'),
+            sentences = [
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita prorsus, inquam; Si enim ad populum me vocas, eum. Ita prorsus, inquam; Nonne igitur tibi videntur, inquit, mala? Hunc vos beatum; Idemne, quod iucunde? ',
+                'Ratio quidem vestra sic cogit. Illi enim inter se dissentiunt. Tu vero, inquam, ducas licet, si sequetur; Non semper, inquam; ',
+                'Duo Reges: constructio interrete. A mene tu? Ea possunt paria non esse. Est, ut dicis, inquam. Scaevolam M. Quid iudicant sensus? ',
+                'Poterat autem inpune; Qui est in parvis malis. Prave, nequiter, turpiter cenabat; Ita credo. '
+            ];
+
+        $picker.datepicker({
+            language: 'en',
+            onRenderCell: function (date, cellType) {
+                var currentDate = date.getDate();
+                formatted = getFormattedDate(date);
+                // Add extra element, if `eventDates` contains `currentDate`
+                if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                    return {
+                        html: currentDate + '<span class="dp-note"></span>'
+                    }
+                }else{
+                    return {
+                        disabled: true
+                    }
+                }
+            },
+            onSelect: function onSelect(fd, date) {
+                var title = '', content = '';
+                // If date with event is selected, show it
+                formatted = getFormattedDate(date);
+                if (date && eventDates.indexOf(formatted) != -1) {
+                    title = fd;
+                    content = sentences[Math.floor(Math.random() * eventDates.length)];
+                }
+                $($picker3).val(title);
+                // $('strong', $picker3).val(title);
+                // $('p', $content).html(content);
+            }
+        });
+        $picker2.datepicker({
+            language: 'en',
+            startDate: new Date('2019.4.1'),
+            onRenderCell: function (date, cellType) {
+                var currentDate = date.getDate();
+                formatted = getFormattedDate(date);
+                // Add extra element, if `eventDates` contains `currentDate`
+                if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                    return {
+                        html: currentDate + '<span class="dp-note"></span>'
+                    }
+                }else{
+                    return {
+                        disabled: true
+                    }
+                }
+            },
+            onSelect: function onSelect(fd, date) {
+                var title = '', content = '';
+                // If date with event is selected, show it
+                formatted = getFormattedDate(date);
+                if (date && eventDates.indexOf(formatted) != -1) {
+                    title = fd;
+                    content = sentences[Math.floor(Math.random() * eventDates.length)];
+                }
+                $($picker3).val(title);
+            }
+        });
+        $picker3.datepicker({
+            language: 'en',
+            onRenderCell: function (date, cellType) {
+                var currentDate = date.getDate();
+                formatted = getFormattedDate(date);
+                // Add extra element, if `eventDates` contains `currentDate`
+                if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                    return {
+                        html: currentDate + '<span class="dp-note"></span>'
+                    }
+                }else{
+                    return {
+                        disabled: true
+                    }
+                }
+            },
+            onSelect: function onSelect(fd, date) {
+                var title = '', content = '';
+                // If date with event is selected, show it
+                formatted = getFormattedDate(date);
+                if (date && eventDates.indexOf(formatted) != -1) {
+                    title = fd;
+                    content = sentences[Math.floor(Math.random() * eventDates.length)];
+                }
+                // $('strong', $content).html(title);
+                // $('p', $content).html(content);
+                $($picker3).val(title);
+            }
+        });
+
+        // Select initial date from `eventDates`
+        // var currentDate = currentDate = new Date();
+        // $picker.data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), 10));
+
+
+
+        // What dates should be disabled - year.month.date
+
+    </script>
+@endpush
