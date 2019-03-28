@@ -9,8 +9,7 @@
     #RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     RewriteCond %{HTTPS} !on
-    RewriteCond %{HTTP_HOST} ^etniasperu\.travel$
-    RewriteCond %{HTTP_HOST} ^www\.etniasperu\.travel$
+    RewriteCond %{HTTP_HOST} !^www\.(.+)$ [NC]
     RewriteRule ^.*$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #    RewriteRule ^(.*)$ https://etniasperu.travel/$1 [R=301,L,NE]
 
