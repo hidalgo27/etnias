@@ -62,8 +62,6 @@ class LoginController extends Controller
         $facebookUser = Socialite::driver('facebook')->user();
         $user = User::where('provider_id', $facebookUser->getId())->first();
 
-        dd($facebookUser->getAvatar());
-
         if (!$user){
             $user = User::create([
                 'email' => $facebookUser->getEmail(),
