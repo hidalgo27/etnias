@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace EtniasPeru;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace EtniasPeru\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

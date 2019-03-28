@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace EtniasPeru\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Role;
-use App\RoleUser;
-use App\User;
+use EtniasPeru\Http\Controllers\Controller;
+use EtniasPeru\Role;
+use EtniasPeru\RoleUser;
+use EtniasPeru\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
