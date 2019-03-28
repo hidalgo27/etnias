@@ -8,14 +8,14 @@
     #RewriteCond %{HTTPS} !on
     #RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-#    RewriteCond %{HTTPS} !on
+    RewriteCond %{HTTPS} !on
 #    RewriteCond %{HTTP_HOST} !^www\.(.+)$ [NC]
 #    RewriteRule ^.*$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #    RewriteRule ^(.*)$ https://etniasperu.travel/$1 [R=301,L,NE]
 
-RewriteCond %{HTTP_HOST} ^etniasperu.travel [OR]
-RewriteCond %{HTTP_HOST} ^www.etniasperu.travel$
-RewriteRule (.*)$ http://www.etniasperu.travel/$1 [R=301,L]
+RewriteCond %{HTTPS_HOST} ^etniasperu.travel [OR]
+RewriteCond %{HTTPS_HOST} ^www.etniasperu.travel$
+RewriteRule (.*)$ https://www.etniasperu.travel/$1 [R=301,L]
 
 
     # Handle Authorization Header
