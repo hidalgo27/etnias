@@ -13,6 +13,7 @@
                             {{--{{ session('status') }}--}}
                         {{--</div>--}}
                     {{--@endif--}}
+                    <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-responsive img-thumbnail">
 
                         @if(Auth::user()->hasRole('admin'))
                             <div>Acceso como administrador</div>
