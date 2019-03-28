@@ -17,10 +17,15 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('/home', [
+    'uses' => 'HomeController@index',
+    'as' => 'home_path',
+]);
 
 Route::get('/', [
     'uses' => 'HomepageController@index',
