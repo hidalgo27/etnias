@@ -70,12 +70,12 @@ class LoginController extends Controller
                 'provider_id' => $facebookUser->getId(),
                 'avatar' => $facebookUser->getAvatar(),
             ]);
-            if ($user){
-                $user_rol = new RoleUser();
-                $user_rol->role_id = 2;
-                $user_rol->user_id = $user->id;
-                $user_rol->save();
-            }
+
+            $user_rol = new RoleUser();
+            $user_rol->role_id = 2;
+            $user_rol->user_id = $user->id;
+            $user_rol->save();
+
         }
 
         Auth::login($user, true);
