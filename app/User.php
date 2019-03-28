@@ -63,4 +63,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function role_user()
+    {
+        return $this->hasMany(RoleUser::class, 'user_id');
+    }
 }

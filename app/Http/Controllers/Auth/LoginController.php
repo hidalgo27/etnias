@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Role;
+use App\RoleUser;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -70,7 +71,7 @@ class LoginController extends Controller
                 'avatar' => $facebookUser->getAvatar(),
             ]);
             if ($user){
-                $user_rol = new Role();
+                $user_rol = new RoleUser();
                 $user_rol->role_id = 2;
                 $user_rol->user_id = $user->id;
                 $user_rol->save();
