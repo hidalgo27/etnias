@@ -15,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/../admin-llama/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-llama/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../andes2" beforeDir="false" afterPath="$PROJECT_DIR$/../andes2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream" beforeDir="false" afterPath="$PROJECT_DIR$/../dream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../galapagos" beforeDir="false" afterPath="$PROJECT_DIR$/../galapagos" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravel-starter" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-starter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravelauth" beforeDir="false" afterPath="$PROJECT_DIR$/../laravelauth" afterDir="false" />
@@ -81,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/public/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -490,12 +489,12 @@
       <workItem from="1552488618115" duration="11988000" />
       <workItem from="1552662692142" duration="1198000" />
       <workItem from="1552923115604" duration="619000" />
-      <workItem from="1553785888127" duration="14004000" />
+      <workItem from="1553785888127" duration="14337000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134735000" />
+    <option name="totallyTimeSpent" value="135068000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -822,7 +821,7 @@
     <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="47" />
         </state>
       </provider>
     </entry>
