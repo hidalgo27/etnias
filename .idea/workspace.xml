@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/../admin-llama/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-llama/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../andes2" beforeDir="false" afterPath="$PROJECT_DIR$/../andes2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream" beforeDir="false" afterPath="$PROJECT_DIR$/../dream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../galapagos" beforeDir="false" afterPath="$PROJECT_DIR$/../galapagos" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravel-starter" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-starter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravelauth" beforeDir="false" afterPath="$PROJECT_DIR$/../laravelauth" afterDir="false" />
@@ -49,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+            <state relative-caret-position="404">
+              <caret line="70" column="19" lean-forward="true" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
               <folding>
                 <element signature="e#45#81#0#PHP" expanded="true" />
               </folding>
@@ -469,12 +470,12 @@
       <workItem from="1552488618115" duration="11988000" />
       <workItem from="1552662692142" duration="1198000" />
       <workItem from="1552923115604" duration="619000" />
-      <workItem from="1553785888127" duration="6025000" />
+      <workItem from="1553785888127" duration="6307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126756000" />
+    <option name="totallyTimeSpent" value="127038000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -800,8 +801,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+        <state relative-caret-position="404">
+          <caret line="70" column="19" lean-forward="true" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
           <folding>
             <element signature="e#45#81#0#PHP" expanded="true" />
           </folding>
