@@ -11,7 +11,8 @@
     RewriteCond %{ENV:HTTPS} !on [NC]
     RewriteCond %{HTTP_HOST} ^etniasperu\.travel$ [OR]
     RewriteCond %{HTTP_HOST} ^www\.etniasperu\.travel$
-    RewriteRule ^(.*)$ https://etniasperu.travel/$1 [R=301,L,NE]
+    RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#    RewriteRule ^(.*)$ https://etniasperu.travel/$1 [R=301,L,NE]
 
 
     # Handle Authorization Header
