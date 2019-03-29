@@ -22,11 +22,6 @@ Auth::routes();
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('/home', [
-    'uses' => 'HomeController@index',
-    'as' => 'home_path',
-]);
-
 Route::get('/', [
     'uses' => 'HomepageController@index',
     'as' => 'home_path',
@@ -74,4 +69,19 @@ Route::get('/blog', [
 Route::get('/contacto', [
     'uses' => 'ContactController@index',
     'as' => 'contact_path',
+]);
+
+//client
+Route::get('/client/home', [
+    'uses' => 'client\HomeController@index',
+    'as' => 'client_home_path',
+]);
+Route::get('/client/order/detail/{id}', [
+    'uses' => 'client\ReservaController@order',
+    'as' => 'client_order_path',
+]);
+
+Route::get('/client/perfil', [
+    'uses' => 'client\ClientController@index',
+    'as' => 'client_perfil_path',
 ]);

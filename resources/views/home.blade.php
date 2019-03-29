@@ -14,7 +14,7 @@
                         {{--</div>--}}
                     {{--@endif--}}
 
-                        @if(Auth::user()->hasRole('admin'))
+                        @if(Auth::user()->hasRole('Client'))
                             <div>Acceso como administrador</div>
                         @else
                             <div>Acceso usuario</div>
