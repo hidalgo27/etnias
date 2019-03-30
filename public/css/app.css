@@ -21684,6 +21684,18 @@ input[type=file] {
   cursor: pointer;
 }
 
+.step-circle {
+  width: 90px;
+  height: 90px;
+  padding: 7px 0px;
+  border: solid 8px #ffffff;
+  z-index: 1;
+}
+
+.step-body {
+  margin-top: -35px;
+}
+
 .font-poppins {
   font-family: "Poppins", sans-serif;
   font-size: 14.5px;

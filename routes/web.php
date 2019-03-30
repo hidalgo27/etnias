@@ -56,6 +56,22 @@ Route::get('/paquetes', [
     'uses' => 'PackageController@index',
     'as' => 'packages_path',
 ]);
+Route::get('/trabaja-con-nosotros', [
+    'uses' => 'JoinController@index',
+    'as' => 'join_path',
+]);
+Route::get('/trabaja-con-nosotros/comunidad', [
+    'uses' => 'JoinController@comunidad',
+    'as' => 'join_comunidad_path',
+]);
+Route::get('/trabaja-con-nosotros/transportista', [
+    'uses' => 'JoinController@transportista',
+    'as' => 'join_transportista_path',
+]);
+Route::get('/trabaja-con-nosotros/guia', [
+    'uses' => 'JoinController@guia',
+    'as' => 'join_guia_path',
+]);
 
 Route::get('/nosotros', [
     'uses' => 'AboutController@index',
@@ -70,6 +86,7 @@ Route::get('/contacto', [
     'uses' => 'ContactController@index',
     'as' => 'contact_path',
 ]);
+
 
 //client
 Route::get('/client/home', [

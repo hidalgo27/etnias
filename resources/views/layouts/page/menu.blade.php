@@ -2,7 +2,7 @@
     <div class="">
         <div class="container-fluid">
             <div class="row justify-content-between align-items-center">
-                <div class="col-3 align-items-center">
+                <div class="col-2 align-items-center">
                     <a href="{{route('home_path')}}"><img src="{{asset('images/etnias-peru.png')}}" alt="" class="w-100 pink"></a>
                 </div>
                 <div class="col">
@@ -45,6 +45,8 @@
                         <a href="{{route('contact_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Contáctenos</a>
                         <hr>
                         <a href="{{ route('login') }}" class="font-weight-bold h5 d-block text-primary m-0">Inicio de Sesión <i class="fas fa-sign-in-alt"></i></a>
+                        <hr>
+                        <a href="{{ route('join_path') }}" class="font-weight-bold h5 d-block text-info m-0">Trabaja con nosotros</a>
                     </div>
                 </div>
                 <hr class="my-3">
