@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace EtniasPeru\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use EtniasPeru\Http\Controllers\Controller;
+use EtniasPeru\Role;
+use EtniasPeru\RoleUser;
+use EtniasPeru\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -26,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/client/home';
 
     /**
      * Create a new controller instance.
@@ -56,7 +60,25 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         $facebookUser = Socialite::driver('facebook')->user();
-        dd($facebookUser);
-        // $user->token;
+        $user = User::where('provider_id', $facebookUser->getId())->first();
+
+        if (!$user){
+            $user = User::create([
+                'email' => $facebookUser->getEmail(),
+                'name' => $facebookUser->getName(),
+                'avatar' => $facebookUser->getAvatar(),
+                'provider_id' => $facebookUser->getId(),
+            ]);
+            if ($user){
+                $user_rol = new RoleUser();
+                $user_rol->role_id = 2;
+                $user_rol->user_id = $user->id;
+                $user_rol->save();
+            }
+        }
+
+        Auth::login($user, true);
+
+        return redirect($this->redirectTo);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace EtniasPeru;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'provider_id', 'avatar',
     ];
 
     /**
@@ -31,7 +31,7 @@ class User extends Authenticatable
     public function roles()
     {
         return $this
-            ->belongsToMany('App\Role')
+            ->belongsToMany('EtniasPeru\Role')
             ->withTimestamps();
     }
     public function authorizeRoles($roles)
@@ -62,5 +62,10 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    public function role_user()
+    {
+        return $this->hasMany(RoleUser::class, 'user_id');
     }
 }

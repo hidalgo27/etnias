@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace EtniasPeru\Http\Controllers\Client;
 
+use EtniasPeru\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,16 +22,15 @@ class HomeController extends Controller
     }
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
-        return view('home');
+        $request->user()->authorizeRoles(['user', 'Client']);
+        return view('client.home');
     }
     /*
         public function someAdminStuff(Request $request)
         {
-            $request->user()->authorizeRoles(‘admin’);
+            $request->user()->authorizeRoles(‘Client’);
             return view(‘some.view’);
         }
         */
-
 
 }

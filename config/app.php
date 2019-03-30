@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'MyETNIAS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        EtniasPeru\Providers\AppServiceProvider::class,
+        EtniasPeru\Providers\AuthServiceProvider::class,
+        // EtniasPeru\Providers\BroadcastServiceProvider::class,
+        EtniasPeru\Providers\EventServiceProvider::class,
+        EtniasPeru\Providers\RouteServiceProvider::class,
 
     ],
 
