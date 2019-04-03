@@ -2,6 +2,7 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -13,7 +14,8 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('page.home');
+        $comunidad = Comunidad::with('asociaciones.actividades')->where('nombre', 'HUILLOC')->get();
+        return view('page.home', ['comunidad'=>$comunidad]);
     }
 
     /**

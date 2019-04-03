@@ -20,22 +20,18 @@
                                             {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
                                             <select id="inputState" class="form-control">
                                                 <option selected>Seleccione...</option>
-                                                <option>...</option>
+                                                <option>Huilloq</option>
+                                                <option>Taucca</option>
+                                                <option>Tupac</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col">
                                         <div class="form-group">
                                             <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
                                             <input type="date" class="form-control" id="formGroupExampleInput" placeholder="TRAVEL DATE">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">SALIDA</label>
-                                            <input type="date" class="form-control" id="formGroupExampleInput" placeholder="To*">
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +41,11 @@
                                             <label for="" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
                                             <select id="inputState" class="form-control">
                                                 <option selected>Seleccione...</option>
-                                                <option>...</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5+</option>
                                             </select>
                                         </div>
                                     </div>
@@ -92,6 +92,53 @@
             </div>
         </section>
 
+        <section class="container-fluid mt-5">
+            <div class="row slider-category">
+                <div class="col mb-4">
+                    <div class="row no-gutters position-relative">
+                        <div class="card shadow-sm">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
+                                </div>
+                                <div class="col-md-6 position-static p-2">
+                                    <h6 class="mt-0">Tutismo</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="row no-gutters position-relative">
+                        <div class="card shadow-sm">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
+                                </div>
+                                <div class="col-md-6 position-static p-2">
+                                    <h6 class="mt-0">Tutismo vivencial</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="row no-gutters position-relative">
+                        <div class="card shadow-sm">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
+                                </div>
+                                <div class="col-md-6 position-static p-2">
+                                    <h6 class="mt-0">Tutismo vivencial</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="mt-4">
             <div class="container">
                 <div class="row">
@@ -115,7 +162,54 @@
             </div>
         </section>
 
-        <section class="sticky-top mt-4 shadow-sm">
+        <section class="my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex text-center">
+                        <div class="card border-g-red-primary shadow">
+                            <div class="bg-g-red-primary rounded-circle step-circle m-auto">
+                                <span class="text-white font-weight-bold display-4">1</span>
+                            </div>
+                            <div class="bg-g-red-primary p-3 text-white step-body">
+                                <h6 class="font-weight-bold mt-4 pt-2">ESCOGE LA ACTIVIDAD</h6>
+                                <hr>
+                                <p>Escoge la actividad (es) que te gustaría realizar en una comunidad nativa en una fecha disponible.</p>
+                                <i class="fas fa-users fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex text-center">
+                        <div class="card border-g-green-primary shadow">
+                            <div class="bg-g-green-primary rounded-circle step-circle m-auto">
+                                <span class="text-white font-weight-bold display-4">2</span>
+                            </div>
+                            <div class="bg-g-green-primary p-3 text-white step-body">
+                                <h6 class="font-weight-bold mt-4 pt-2">CREA TU USUARIO</h6>
+                                <hr>
+                                <p>Crea tu usuario en Etnias y reserva con un método de pago aceptado.</p>
+                                <br>
+                                <i class="fas fa-file-signature fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex text-center">
+                        <div class="card border-info shadow">
+                            <div class="bg-info rounded-circle step-circle m-auto">
+                                <span class="text-white font-weight-bold display-4">3</span>
+                            </div>
+                            <div class="bg-info p-3 text-white step-body">
+                                <h6 class="font-weight-bold mt-4 pt-2">DISFRUTA DE TU EXPERIENCIA</h6>
+                                <hr>
+                                <p>Disfruta de tu experiencia ancestral en una comunidad nativa en el país de los incas.</p>
+                                <i class="fas fa-file-alt fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sticky-top mt-5 shadow-sm">
             <nav id="navbar-scroll" class="navbar navbar-light bg-light justify-content-center">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
@@ -142,7 +236,6 @@
                             <div class="tl-3"></div>
                         </div>
                         {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
                     </div>
                 </div>
                 <div class="row my-3">
@@ -152,100 +245,51 @@
                 </div>
 
                 <div class="row slider-huilloq">
-                    <div class="col mb-4">
-                        <div class="row">
-                            <div class="col">
-                                <div class="header-img-actividades">
-                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                    @foreach($comunidad as $comunidades)
+                        @foreach($comunidades->asociaciones as $asociacion)
+                            @foreach($asociacion->actividades as $actividad)
+                                <div class="col mb-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="header-img-actividades">
+                                                <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer-box-actividades row m-0">
+                                        <div class="col-8">
+                                            <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">{{$actividad->titulo}} <small class="text-g-green-light">({{$asociacion->nombre}})</small></a></h6>
+                                        </div>
+                                        <div class="col-4 actividad_icon">
+                                            <ul>
+                                                <li>
+                                                    <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
+                                                </li>
+                                                <li>
+                                                    <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="footer-box-actividades row m-0">
-                            <div class="col-8">
-                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">KUSIRUNA <small class="text-g-green-light">(Luciernagas)</small></a></h6>
-                            </div>
-                            <div class="col-4 actividad_icon">
-                                <ul>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-4">
-                        <div class="row">
-                            <div class="col">
-                                <div class="header-img-actividades">
-                                    <img src="{{asset('images/huilloq/thumbnail/huilloq2.jpg')}}" alt="" class="w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-box-actividades row m-0">
-                            <div class="col-8">
-                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">Yanapanakuy <small class="text-g-green-light">(Luciernagas)</small></a></h6>
-                            </div>
-                            <div class="col-4 actividad_icon">
-                                <ul>
-                                    <li>
-                                        <img src="{{asset('images/icon/image.png')}}" alt="" class="w-100">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('images/icon/price.png')}}" alt="" class="w-100">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('images/icon/location.png')}}" alt="" class="w-100">
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100">
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    {{--http://rn53themes.net/themes/demo/travelz/main.html#--}}
-                    <div class="col mb-4">
-                        <div class="row">
-                            <div class="col">
-                                <div class="header-img-actividades">
-                                    <img src="{{asset('images/huilloq/thumbnail/huilloq3.jpg')}}" alt="" class="w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-box-actividades row m-0">
-                            <div class="col-8">
-                                <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">WILLAQ UMA <small class="text-g-green-light">(Luciernagas)</small></a></h6>
-                            </div>
-                            <div class="col-4 actividad_icon">
-                                <ul>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                    <li>
-                                        <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                        @endforeach
+                    @endforeach
+
                 </div>
 
-                <div class="row mt-4">
+                <div class="row mt-4 align-items-center">
+                    <div class="col-6">
+                        <h3 class="font-weight-bold text-g-red-primary">Huilloc</h3>
+                        <hr>
+                        <p class="mt-3 lead font-weight-normal text-secondary">Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
+                    </div>
                     <div class="col text-center">
                         <div class="position-relative w-100">
                             <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
