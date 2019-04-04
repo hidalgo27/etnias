@@ -2,6 +2,7 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\Categoria;
 use Illuminate\Http\Request;
 
 class ActividadesController extends Controller
@@ -13,7 +14,8 @@ class ActividadesController extends Controller
      */
     public function index()
     {
-        return view('page.actividades');
+        $categoria = Categoria::all();
+        return view('page.actividades', compact('categoria'));
     }
 
     /**

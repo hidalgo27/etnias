@@ -94,48 +94,22 @@
 
         <section class="container-fluid mt-5">
             <div class="row slider-category">
+                @foreach($categoria as $categorias)
                 <div class="col mb-4">
                     <div class="row no-gutters position-relative">
                         <div class="card shadow-sm">
-                            <div class="row align-items-center">
+                            <div class="row align-items-center no-gutters">
                                 <div class="col-md-6">
                                     <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
                                 </div>
                                 <div class="col-md-6 position-static p-2">
-                                    <h6 class="mt-0">Tutismo</h6>
+                                    <a href="#" class="p-0 m-0 text-decoration-none font-weight-bold text-secondary stretched-link">{{ucwords(strtolower($categorias->nombre))}}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-4">
-                    <div class="row no-gutters position-relative">
-                        <div class="card shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
-                                </div>
-                                <div class="col-md-6 position-static p-2">
-                                    <h6 class="mt-0">Tutismo vivencial</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="row no-gutters position-relative">
-                        <div class="card shadow-sm">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
-                                </div>
-                                <div class="col-md-6 position-static p-2">
-                                    <h6 class="mt-0">Tutismo vivencial</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </section>
 
@@ -209,301 +183,264 @@
             </div>
         </section>
 
-        <section class="sticky-top mt-5 shadow-sm">
-            <nav id="navbar-scroll" class="navbar navbar-light bg-light justify-content-center">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#comunidad-huilloq">Comunidad Huilloq</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#comunidad-tupac">Comunidad Tupac</a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
+        <section class="position-relative">
+            <div class="sticky-top mt-5 shadow-sm">
+                <nav id="navbar-scroll" class="navbar navbar-light bg-light justify-content-center">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#comunidad-huilloq">Comunidad Huilloq</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="#comunidad-tupac">Comunidad Tupac</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-        <section class="py-5 clearfix" id="comunidad-huilloq">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Huilloq</span></h1>
-                        <div class="title-line">
-                            <div class="tl-1"></div>
-                            <div class="tl-2"></div>
-                            <div class="tl-3"></div>
+            <section class="py-5 clearfix" id="comunidad-huilloq">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Huilloq</span></h1>
+                            <div class="title-line">
+                                <div class="tl-1"></div>
+                                <div class="tl-2"></div>
+                                <div class="tl-3"></div>
+                            </div>
+                            {{--<div class="line-title"></div>--}}
                         </div>
-                        {{--<div class="line-title"></div>--}}
                     </div>
-                </div>
-                <div class="row my-3">
-                    <div class="col">
-                        <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                    <div class="row my-3">
+                        <div class="col">
+                            <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row slider-huilloq">
-                    @foreach($comunidad as $comunidades)
-                        @foreach($comunidades->asociaciones as $asociacion)
-                            @foreach($asociacion->actividades as $actividad)
-                                <div class="col mb-4">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="header-img-actividades">
-                                                <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                    <div class="row slider-huilloq">
+                        @foreach($comunidad_huilloc as $comunidad_de_huilloc)
+                            @foreach($comunidad_de_huilloc->asociaciones as $asociacion_huilloc)
+                                @foreach($asociacion_huilloc->actividades as $actividad_huilloc)
+                                    @foreach($actividad_huilloc->disponibilidad as $disponibilidad)
+                                        @if (isset($disponibilidad))
+                                            <div class="col mb-4">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="header-img-actividades">
+                                                            <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                                            <div class="position-absolute-top">
+                                                                <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividad_huilloc->categoria))}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="footer-box-actividades row m-0 align-items-center">
+                                                    <div class="col-7">
+                                                        <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">{{$actividad_huilloc->titulo}}</a></h6>
+                                                    </div>
+                                                    <div class="col-5 text-right">
+                                                        @foreach($actividad_huilloc->precios as $precio)
+                                                            {{--<sup>2 <i class="fa fa-user"></i></sup>--}}
+                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                        @endforeach
+                                                        {{--<ul>--}}
+                                                            {{--<li>--}}
+                                                                {{--<a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                                {{--<a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>--}}
+                                                            {{--</li>--}}
+                                                        {{--</ul>--}}
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="footer-box-actividades row m-0">
-                                        <div class="col-8">
-                                            <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">{{$actividad->titulo}} <small class="text-g-green-light">({{$asociacion->nombre}})</small></a></h6>
-                                        </div>
-                                        <div class="col-4 actividad_icon">
-                                            <ul>
-                                                <li>
-                                                    <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                                </li>
-                                                <li>
-                                                    <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                                </li>
-                                                <li>
-                                                    <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                                </li>
-                                                <li>
-                                                    <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            @endforeach
                         @endforeach
-                        @endforeach
-                    @endforeach
 
-                </div>
-
-                <div class="row mt-4 align-items-center">
-                    <div class="col-6">
-                        <h3 class="font-weight-bold text-g-red-primary">Huilloc</h3>
-                        <hr>
-                        <p class="mt-3 lead font-weight-normal text-secondary">Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
                     </div>
-                    <div class="col text-center">
-                        <div class="position-relative w-100">
-                            <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                            <div class="position-absolute w-100 top-50">
-                                <a href="{{route('comunidad_show_path')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber mas de la comunidad <i class="fas fa-angle-right"></i></a>
+
+                    <div class="row mt-4 align-items-center">
+                        <div class="col-6">
+                            <h3 class="font-weight-bold text-g-red-primary">Huilloc</h3>
+                            <hr>
+                            <p class="mt-3 lead font-weight-normal text-secondary">Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
+                        </div>
+                        <div class="col text-center">
+                            <div class="position-relative w-100">
+                                <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                                <div class="position-absolute w-100 top-50">
+                                    <a href="{{route('comunidad_show_path')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section class="pb-5 bg-light" id="comunidad-taucca">
+                <div class="container">
+                    <div class="row pt-5">
+                        <div class="col text-center">
+                            <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Taucca</span></h1>
+                            <div class="title-line">
+                                <div class="tl-1"></div>
+                                <div class="tl-2"></div>
+                                <div class="tl-3"></div>
+                            </div>
+                            {{--<div class="line-title"></div>--}}
+                            <p class="mt-3 lead font-weight-normal text-secondary"><b>Distancia de la ciudad más cercana:</b> 1 hora 30 minutos de la ciudad del Cusco.</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <h5>ASOCIACIÓN HORMIGUITAS DE TAUCCA</h5>
+                            <p>Ubicado en el distrito de Chincheros en la ciudad del Cusco, la comunidad de Taucca es más
+                                conocida por su actividad agrícola: cosecha de papa, maíz, habas, cebada y trigo ubicada a 20
+                                minutos del centro arqueológico de Chincheros ofrece diversas actividades de turismo rural
+                                comunitario entre ellas el sembrado y/o cosecha de sus productos, elaboración de artesanías,
+                                entre otros. Visita la comunidad de Taucca y vive inolvidables experiencias.</p>
+                            <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="col text-center">
+                            <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
+                                <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col">
+                            <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="row slider-huilloq">
+                                @foreach($comunidad_taucca as $comunidad_de_taucca)
+                                    @foreach($comunidad_de_taucca->asociaciones as $asociacion_taucca)
+                                        @foreach($asociacion_taucca->actividades as $actividad_taucca)
+                                            @foreach($actividad_taucca->disponibilidad as $disponibilidad)
+                                                @if (isset($disponibilidad))
+                                                    <div class="col">
+                                                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                                                        <h6 class="my-3 font-weight-bold text-secondary">{{$actividad_taucca->titulo}}</h6>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                        <a href="" class="font-weight-bold text-info">View More</a>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="pt-5" id="comunidad-tupac">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Amaru</span></h1>
+                            <div class="title-line">
+                                <div class="tl-1"></div>
+                                <div class="tl-2"></div>
+                                <div class="tl-3"></div>
+                            </div>
+                            {{--<div class="line-title"></div>--}}
+                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación de Tejedores Tradicionales Laraypas Indígenas de Amaru.</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col text-center">
+                            <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
+                                <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <h5>Laraypas Indígenas de Amaru</h5>
+                            <p>Ubicado en el distrito de Pisac en la ciudad del Cusco, la comunidad de Amaru está conformada
+                                por 200 familias, su actividad principal es la textileria, está ubicado a 20 minutos del centro
+                                arqueológico de Pisac, ofrece diversas actividades de turismo comunitario como la siembra y/o
+                                cosecha de productos, pago a la tierra, proceso de elaboración de textiles, enseñanza de plantas
+                                medicinales. Visita la comunidad de Amaru y vive una experiencia ancestral en la ciudad de los
+                                Incas.</p>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col">
+                            <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="row slider-huilloq">
+                                @foreach($comunidad_amaru as $comunidad_de_amaru)
+                                    @foreach($comunidad_de_amaru->asociaciones as $asociacion_amaru)
+                                        @foreach($asociacion_amaru->actividades as $actividad_amaru)
+                                            @foreach($actividad_amaru->disponibilidad as $disponibilidad)
+                                                @if (isset($disponibilidad))
+                                                    <div class="col mb-4">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="header-img-actividades">
+                                                                    <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="footer-box-actividades row m-0">
+                                                            <div class="col-8">
+                                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">{{$actividad_taucca->titulo}} <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                            </div>
+                                                            <div class="col-4 actividad_icon">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
         </section>
-
-        <section class="pb-5 bg-light" id="comunidad-taucca">
-            <div class="container">
-                <div class="row pt-5">
-                    <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Taucca</span></h1>
-                        <div class="title-line">
-                            <div class="tl-1"></div>
-                            <div class="tl-2"></div>
-                            <div class="tl-3"></div>
-                        </div>
-                        {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
-                    </div>
-                </div>
-                <div class="row align-items-center mt-4">
-                    <div class="col">
-                        <h5>Comunidad Taucca titulo</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor excepturi illum mollitia placeat porro sapiente sequi? Aspernatur natus nihil non, repellendus sunt tempora ut vero. Illum nulla sunt voluptates.</p>
-                    </div>
-                    <div class="col text-center">
-                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                        </a>
-                    </div>
-                </div>
-                <div class="row my-4">
-                    <div class="col">
-                        <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-
-                        <div class="row slider-huilloq">
-                            <div class="col">
-                                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                            <div class="col">
-                                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                            <div class="col">
-                                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-                            <div class="col">
-                                <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                                <h6 class="my-3 font-weight-bold text-secondary">Actividad 1</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="" class="font-weight-bold text-info">View More</a>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="pt-5" id="comunidad-tupac">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Tupac</span></h1>
-                        <div class="title-line">
-                            <div class="tl-1"></div>
-                            <div class="tl-2"></div>
-                            <div class="tl-3"></div>
-                        </div>
-                        {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
-                    </div>
-                </div>
-                <div class="row align-items-center mt-4">
-                    <div class="col text-center">
-                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <h5>Comunidad Tupac titulo</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor excepturi illum mollitia placeat porro sapiente sequi? Aspernatur natus nihil non, repellendus sunt tempora ut vero. Illum nulla sunt voluptates.</p>
-                    </div>
-                </div>
-                <div class="row my-4">
-                    <div class="col">
-                        <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-
-                        <div class="row slider-huilloq">
-                            <div class="col mb-4">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="header-img-actividades">
-                                            <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer-box-actividades row m-0">
-                                    <div class="col-8">
-                                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
-                                    </div>
-                                    <div class="col-4 actividad_icon">
-                                        <ul>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col mb-4">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="header-img-actividades">
-                                            <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer-box-actividades row m-0">
-                                    <div class="col-8">
-                                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
-                                    </div>
-                                    <div class="col-4 actividad_icon">
-                                        <ul>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col mb-4">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="header-img-actividades">
-                                            <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer-box-actividades row m-0">
-                                    <div class="col-8">
-                                        <h6><a href="" class="text-g-grey-primary font-weight-bold">ACTIVIDAD 1 <small class="text-g-green-light">(Luciernagas)</small></a></h6>
-                                    </div>
-                                    <div class="col-4 actividad_icon">
-                                        <ul>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                            <li>
-                                                <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <section>
             <div class="offer">
                 <div class="container">
@@ -654,149 +591,149 @@
             </div>
         </section>
 
-        <section class="mt-5 bg-light py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Reserve <span class="text-g-red-dark">Paquetes Listos Ahora!</span></h1>
-                        <div class="title-line">
-                            <div class="tl-1"></div>
-                            <div class="tl-2"></div>
-                            <div class="tl-3"></div>
-                        </div>
+        {{--<section class="mt-5 bg-light py-5">--}}
+            {{--<div class="container">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col text-center">--}}
+                        {{--<h1 class="font-weight-bold text-g-grey-primary">Reserve <span class="text-g-red-dark">Paquetes Listos Ahora!</span></h1>--}}
+                        {{--<div class="title-line">--}}
+                            {{--<div class="tl-1"></div>--}}
+                            {{--<div class="tl-2"></div>--}}
+                            {{--<div class="tl-3"></div>--}}
+                        {{--</div>--}}
                         {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi cum debitis dignissimos est eveniet iusto libero minima nam nisi nulla numquam odit.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="paquete-box">
-                            <div class="paquete-box-header">
-                                <div class="paquete-box-header-ico">
-                                    <img src="{{asset('images/paquetes/hci1.png')}}" alt="">
-                                </div>
-                                <div class="paquete-box-header-bottom">
-                                    Paquetes disponibles: 42
-                                </div>
-                                <img src="{{asset('images/paquetes/1.jpg')}}" alt="">
-                            </div>
-                            <div class="paquete-box-footer">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="hotel-details.html">
-                                            <h5 class="font-weight-bold text-g-grey-primary">Taucca de ensueño</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <div class="paquete-box-foote-descr">
-                                            Comunidad:  Taucca <br>
-                                            Asociación: Las hormiguitas <br>
-                                            Raiting:
-                                            <span class="text-warning">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="h1 font-weight-bold text-g-red-dark">$420</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="paquete-box">
-                            <div class="paquete-box-header">
-                                <div class="paquete-box-header-ico">
-                                    <img src="{{asset('images/paquetes/hci1.png')}}" alt="">
-                                </div>
-                                <div class="paquete-box-header-bottom">
-                                    Paquetes disponibles: 42
-                                </div>
-                                <img src="{{asset('images/paquetes/1.jpg')}}" alt="">
-                            </div>
-                            <div class="paquete-box-footer">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="hotel-details.html">
-                                            <h5 class="font-weight-bold text-g-grey-primary">Taucca de ensueño</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <div class="paquete-box-foote-descr">
-                                            Comunidad:  Taucca <br>
-                                            Asociación: Las hormiguitas <br>
-                                            Raiting:
-                                            <span class="text-warning">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="h1 font-weight-bold text-g-red-dark">$420</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="paquete-box">
-                            <div class="paquete-box-header">
-                                <div class="paquete-box-header-ico">
-                                    <img src="{{asset('images/paquetes/hci1.png')}}" alt="">
-                                </div>
-                                <div class="paquete-box-header-bottom">
-                                    Paquetes disponibles: 42
-                                </div>
-                                <img src="{{asset('images/paquetes/1.jpg')}}" alt="">
-                            </div>
-                            <div class="paquete-box-footer">
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="hotel-details.html">
-                                            <h5 class="font-weight-bold text-g-grey-primary">Taucca de ensueño</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <div class="paquete-box-foote-descr">
-                                            Comunidad:  Taucca <br>
-                                            Asociación: Las hormiguitas <br>
-                                            Raiting:
-                                            <span class="text-warning">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="h1 font-weight-bold text-g-red-dark">$420</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        {{--<p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi cum debitis dignissimos est eveniet iusto libero minima nam nisi nulla numquam odit.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<div class="paquete-box">--}}
+                            {{--<div class="paquete-box-header">--}}
+                                {{--<div class="paquete-box-header-ico">--}}
+                                    {{--<img src="{{asset('images/paquetes/hci1.png')}}" alt="">--}}
+                                {{--</div>--}}
+                                {{--<div class="paquete-box-header-bottom">--}}
+                                    {{--Paquetes disponibles: 42--}}
+                                {{--</div>--}}
+                                {{--<img src="{{asset('images/paquetes/1.jpg')}}" alt="">--}}
+                            {{--</div>--}}
+                            {{--<div class="paquete-box-footer">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<a href="hotel-details.html">--}}
+                                            {{--<h5 class="font-weight-bold text-g-grey-primary">Taucca de ensueño</h5>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="row align-items-center">--}}
+                                    {{--<div class="col-8">--}}
+                                        {{--<div class="paquete-box-foote-descr">--}}
+                                            {{--Comunidad:  Taucca <br>--}}
+                                            {{--Asociación: Las hormiguitas <br>--}}
+                                            {{--Raiting:--}}
+                                            {{--<span class="text-warning">--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star-o" aria-hidden="true"></i>--}}
+                                    {{--</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-4">--}}
+                                        {{--<span class="h1 font-weight-bold text-g-red-dark">$420</span>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<div class="paquete-box">--}}
+                            {{--<div class="paquete-box-header">--}}
+                                {{--<div class="paquete-box-header-ico">--}}
+                                    {{--<img src="{{asset('images/paquetes/hci1.png')}}" alt="">--}}
+                                {{--</div>--}}
+                                {{--<div class="paquete-box-header-bottom">--}}
+                                    {{--Paquetes disponibles: 42--}}
+                                {{--</div>--}}
+                                {{--<img src="{{asset('images/paquetes/1.jpg')}}" alt="">--}}
+                            {{--</div>--}}
+                            {{--<div class="paquete-box-footer">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<a href="hotel-details.html">--}}
+                                            {{--<h5 class="font-weight-bold text-g-grey-primary">Taucca de ensueño</h5>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="row align-items-center">--}}
+                                    {{--<div class="col-8">--}}
+                                        {{--<div class="paquete-box-foote-descr">--}}
+                                            {{--Comunidad:  Taucca <br>--}}
+                                            {{--Asociación: Las hormiguitas <br>--}}
+                                            {{--Raiting:--}}
+                                            {{--<span class="text-warning">--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star-o" aria-hidden="true"></i>--}}
+                                    {{--</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-4">--}}
+                                        {{--<span class="h1 font-weight-bold text-g-red-dark">$420</span>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<div class="paquete-box">--}}
+                            {{--<div class="paquete-box-header">--}}
+                                {{--<div class="paquete-box-header-ico">--}}
+                                    {{--<img src="{{asset('images/paquetes/hci1.png')}}" alt="">--}}
+                                {{--</div>--}}
+                                {{--<div class="paquete-box-header-bottom">--}}
+                                    {{--Paquetes disponibles: 42--}}
+                                {{--</div>--}}
+                                {{--<img src="{{asset('images/paquetes/1.jpg')}}" alt="">--}}
+                            {{--</div>--}}
+                            {{--<div class="paquete-box-footer">--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<a href="hotel-details.html">--}}
+                                            {{--<h5 class="font-weight-bold text-g-grey-primary">Taucca de ensueño</h5>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="row align-items-center">--}}
+                                    {{--<div class="col-8">--}}
+                                        {{--<div class="paquete-box-foote-descr">--}}
+                                            {{--Comunidad:  Taucca <br>--}}
+                                            {{--Asociación: Las hormiguitas <br>--}}
+                                            {{--Raiting:--}}
+                                            {{--<span class="text-warning">--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star-o" aria-hidden="true"></i>--}}
+                                    {{--</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-4">--}}
+                                        {{--<span class="h1 font-weight-bold text-g-red-dark">$420</span>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
 
-        <section class="my-5">
+        <section class="mt-5 bg-light py-5">
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
