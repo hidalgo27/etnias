@@ -26,7 +26,7 @@ Route::get('/', [
     'uses' => 'HomepageController@index',
     'as' => 'home_path',
 ]);
-Route::get('/detail', [
+Route::get('/detail/{titulo}', [
     'uses' => 'DetailController@index',
     'as' => 'detail_path',
 ]);
@@ -50,6 +50,10 @@ Route::get('/comunidades/show', [
 Route::get('/actividades', [
     'uses' => 'ActividadesController@index',
     'as' => 'actividades_path',
+]);
+Route::get('/actividades/categorias/{category}', [
+    'uses' => 'ActividadesController@show',
+    'as' => 'actividades_category_show_path',
 ]);
 
 Route::get('/paquetes', [

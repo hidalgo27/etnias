@@ -25,6 +25,7 @@ class HomepageController extends Controller
             ])->where('nombre', 'HUILLOC')->get();
         $comunidad_taucca = Comunidad::with(['asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}])->where('nombre', 'TAUCCA')->get();
         $comunidad_amaru = Comunidad::with(['asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}])->where('nombre', 'AMARU')->get();
+
         return view('page.home', compact('comunidad_huilloc', 'comunidad_taucca','comunidad_amaru','categoria'));
     }
 

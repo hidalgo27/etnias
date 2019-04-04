@@ -3,6 +3,7 @@
 namespace EtniasPeru\Http\Controllers;
 
 use EtniasPeru\Categoria;
+use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
 
 class ActividadesController extends Controller
@@ -14,8 +15,16 @@ class ActividadesController extends Controller
      */
     public function index()
     {
+        $estado = 1;
+        $rango_min = 2;
+        $rango_max = 2;
         $categoria = Categoria::all();
-        return view('page.actividades', compact('categoria'));
+        $comunidad = Comunidad::with([
+            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
+            'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
+        ])->get();
+
+        return view('page.actividades', compact('categoria','comunidad'));
     }
 
     /**
@@ -45,9 +54,20 @@ class ActividadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($category)
     {
-        //
+        $category = str_replace('-', ' ', $category);
+        $estado = 1;
+        $rango_min = 2;
+        $rango_max = 2;
+        $categoria = Categoria::all();
+        $comunidad = Comunidad::with([
+            'asociaciones.actividades'=>function ($query) use ($category) {$query->where('categoria',$category);},
+            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
+            'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
+        ])->get();
+
+        return view('page.actividades-category-show', compact('categoria','comunidad','category'));
     }
 
     /**

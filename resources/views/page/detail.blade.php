@@ -1,6 +1,11 @@
 @extends('layouts.page.default')
     @section('content')
         @include('layouts.page.menu')
+        @foreach($comunidad as $comunidades)
+            @foreach($comunidades->asociaciones as $asociaciones)
+                @foreach($asociaciones->actividades as $actividades)
+                    @foreach($actividades->disponibilidad as $disponibilidad)
+                        @if (isset($disponibilidad))
         <section class="position-relative">
             <div id="home-slider-container" class="detail-slider-container">
                 <div id="home-slider">
@@ -23,8 +28,8 @@
                 <div class="container">
                     <div class="row align-items-end bg-header-body pb-5">
                         <div class="col text-white">
-                            <h1 class="text-white">sdl</h1>
-                            <p class="lead font-weight-normal">Location: 28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</p>
+                            <h1 class="text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
+                            <p class="lead font-weight-normal"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> 3420 msnm, <b>Distancia de la ciudad más cercana:</b> 2 horas de la ciudad del Cusco</p>
                         </div>
                     </div>
                 </div>
@@ -34,9 +39,11 @@
                     <div class="row">
                         <div class="col">
                             <ul>
-                                <li>Comunidad: Huilloq</li>
-                                <li>Precio : $500</li>
-                                <li>Duracion : 3 dias</li>
+                                <li>Comunidad: {{ucwords(strtolower($comunidades->nombre))}}</li>
+                                @foreach($actividades->precios as $precio)
+                                <li>Precio : <sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small></li>
+                                @endforeach
+                                <li>Duración : {{$actividades->duracion}}</li>
                                 <li class="btn-book">
                                     <a href="">Reservar Ahora</a>
                                 </li>
@@ -55,7 +62,7 @@
                         <div class="col-8">
                             <div class="row">
                                 <div class="col">
-                                    <h2 class="font-weight-bold h1 text-g-grey-primary">Kusiruna
+                                    <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividades->titulo))}}
                                         <span class="text-warning text-15">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -70,40 +77,41 @@
                             <div class="row mt-4">
                                 <div class="col font-poppins text-g-grey-primary">
                                     <h5 class="font-weight-bold pb-2">DESCRIPCIÓN:</h5>
-                                    <p>Kusi Runa es una experiencia donde podrás compartir un día cotidiano
-                                        de la vida de los comuneros de Huilloc participando en el trabajo
-                                        agrícola en la chakra (campo de cultivo). Simbólicamente, será un
-                                        integrante de la comunidad y experimentará su modo de vida y el actuar
-                                        cotidiano del runa (campesino andino). Como comunero, se vestirá con
-                                        un poncho típico de Huilloc y utilizará herramientas tradicionales
-                                        durante las labores. Los hombres realizarán trabajos agrícolas y las
-                                        mujeres, de cocina. Finalizará su experiencia con la participación en las
-                                        celebraciones rituales, mediante la música y las danzas locales.</p>
+                                    <p>@php echo $actividades->descripcion; @endphp</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row ">
+                                <div class="col">
+                                    <h6 class="font-weight-bold d-block">Recomendaciones</h6>
+                                    <ul class="">
+                                        <li>Traiga dinero extra para snacks.</li>
+                                        <li>Use choza, bloqueador solar, lentes de sol y zapatillas.</li>
+                                        <li>Lleve una cámara, baterías adicionales y una tarjeta de memoria, cargador y chaqueta impermeable.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row font-poppins">
                                 <div class="col d-flex">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h6 class="font-weight-bold">Atractivo Complementario</h6>
-                                            <p class="font-poppins"><i class="fas fa-check "></i> <b class="text-g-grey-light">Experiencia espiritual Inca:</b>
-                                                Contacto con pobladores quechuohablantes
-                                                Manifestaciones culturales: ropa tradicional de Huilloc, crianza de la
-                                                agricultura ancestral, música y canto tradicionales / Naturaleza:
-                                                montañas, valles, paisaje andino .</p>
+                                            <h6 class="font-weight-bold">Términos y condiciones de la comunidad</h6>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Edad mínima:</b> 15 años</div>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Dificultad:</b> Fácil</div>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Tolerancia máxima:</b> 15 minutos</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col d-flex">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h6 class="font-weight-bold">Atractivo Focal</h6>
-                                            <p class="font-poppins"><i class="fas fa-check "></i> <b class="text-g-grey-light">Cultura Inca:</b> la experiencia de vivir como en el incanato.</p>
+                                            <h6 class="font-weight-bold">Descripción duración y periodo</h6>
+                                            <p><i class="fas fa-check "></i> La actividad es de tres horas, durante todo el año</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-5">
+
+                            <div class="row mt-4">
                                 <div class="col font-poppins">
                                     <h5 class="font-weight-bold pb-3">Disponibilidad:</h5>
                                 </div>
@@ -112,9 +120,9 @@
                                 <div class="col">
                                     <div  id="custom-cells"></div>
                                 </div>
-                                <div class="col">
-                                    <div  id="custom-cells-2"></div>
-                                </div>
+                                {{--<div class="col">--}}
+                                    {{--<div  id="custom-cells-2"></div>--}}
+                                {{--</div>--}}
                                 {{--<div class="col-12 mt-2">--}}
                                 {{--<div id="custom-cells-events">--}}
                                 {{--<strong></strong>--}}
@@ -285,17 +293,14 @@
                             </div>
                             <div class="card bg-light mt-4">
                                 <div class="card-body font-poppins">
-                                    <h6 class="font-weight-bold">Duración y Periodo</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> La actividad es de 3 horas, durante todo el año.</p>
+                                    <h6 class="font-weight-bold">Incluye</h6>
+                                    <p class="font-poppins"><i class="fas fa-check "></i> Ropa típica, almuerzo típico.</p>
                                     <hr>
-                                    <h6 class="font-weight-bold">Ubicación</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> Cusco, prov. Urubamba, dist. Ollantaytambo, comunidad de Huilloc</p>
+                                    <h6 class="font-weight-bold">No Incluye</h6>
+                                    <p class="font-poppins"><i class="fas fa-check "></i> Transporte a la comunidad.</p>
                                     <hr>
-                                    <h6 class="font-weight-bold">Tipo de Turismo</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> Turismo Rural Comunitario.</p>
-                                    <hr>
-                                    <h6 class="font-weight-bold">Guía Profesional</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> Idioma quechua y el idioma requerido por el visitante</p>
+                                    <h6 class="font-weight-bold">Disponible:</h6>
+                                    <p class="font-poppins"><i class="fas fa-check "></i> Español / Ingles.</p>
                                 </div>
                             </div>
                         </div>
@@ -304,6 +309,11 @@
 
             </div>
         </section>
+                        @endif
+                    @endforeach
+                @endforeach
+            @endforeach
+        @endforeach
     @endsection
 
 

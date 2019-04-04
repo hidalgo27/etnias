@@ -2,6 +2,7 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -11,9 +12,19 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($titulo)
     {
-        return view('page.detail');
+        $titulo = str_replace('-', ' ', $titulo);
+        $estado = 1;
+        $rango_min = 2;
+        $rango_max = 2;
+        $comunidad = Comunidad::with([
+            'distrito',
+            'asociaciones.actividades'=>function ($query) use ($titulo) {$query->where('titulo',$titulo);},
+            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
+            'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
+        ])->get();
+        return view('page.detail', compact('comunidad'));
     }
 
     /**

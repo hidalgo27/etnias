@@ -99,11 +99,11 @@
                     <div class="row no-gutters position-relative">
                         <div class="card shadow-sm">
                             <div class="row align-items-center no-gutters">
-                                <div class="col-md-6">
-                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100 rounded-left">
+                                <div class="col-md-4">
+                                    <img src="{{asset('images/categoria/'.$categorias->imagen.'')}}" alt="" class="w-100 rounded-left">
                                 </div>
-                                <div class="col-md-6 position-static p-2">
-                                    <a href="#" class="p-0 m-0 text-decoration-none font-weight-bold text-secondary stretched-link">{{ucwords(strtolower($categorias->nombre))}}</a>
+                                <div class="col-md position-static p-2">
+                                    <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="p-0 m-0 text-decoration-none font-weight-bold text-secondary stretched-link">{{ucwords(strtolower($categorias->nombre))}}</a>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                                                 </div>
                                                 <div class="footer-box-actividades row m-0 align-items-center">
                                                     <div class="col-7">
-                                                        <h6><a href="{{route('detail_path')}}" class="text-g-grey-primary font-weight-bold">{{$actividad_huilloc->titulo}}</a></h6>
+                                                        <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividad_huilloc->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividad_huilloc->titulo}}</a></h6>
                                                     </div>
                                                     <div class="col-5 text-right">
                                                         @foreach($actividad_huilloc->precios as $precio)

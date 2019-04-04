@@ -87,8 +87,8 @@
 
                         <ul class="list-group list-group-flush shadow-sm sticky-top">
                             @foreach($categoria as $categorias)
-                                <a href="#" class="list-group-item list-group-item-action font-weight-bold text-g-grey-light">
-                                    <img src="{{asset('images/home/taucca.jpg')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
+                                <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="list-group-item list-group-item-action font-weight-bold text-g-grey-light">
+                                    <img src="{{asset('images/categoria/'.$categorias->imagen.'')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
                                     {{ucwords(strtolower($categorias->nombre))}}
                                 </a>
                             @endforeach
@@ -102,48 +102,43 @@
                             <tr class="h5 font-weight-bold text-g-grey-primary">
                                 <th class="py-3">#</th>
                                 <th>Nombre Actividad</th>
-                                <th class="e_h1">Fecha</th>
+                                <th class="w-25 text-center">Precio</th>
                                 <th class="e_h1">Lugar</th>
                                 <th class="text-center">Book</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                    <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary">
-                                        Tours chacra y alrededores
-                                        <small class="text-g-grey-light">(Asoc. Las Hormiguitas)</small>
-                                    </a>
-                                </td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="e_h1">Huilloq</td>
-                                <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                    <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary">
-                                        Tours chacra y alrededores
-                                        <small class="text-g-grey-light">(Asoc. Las Hormiguitas)</small>
-                                    </a>
-                                </td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="e_h1">Huilloq</td>
-                                <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                    <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary">
-                                        Tours chacra y alrededores
-                                        <small class="text-g-grey-light">(Asoc. Las Hormiguitas)</small>
-                                    </a>
-                                </td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="e_h1">Huilloq</td>
-                                <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                            </tr>
-
+                            @foreach($comunidad as $comunidades)
+                                @foreach($comunidades->asociaciones as $asociaciones)
+                                    @foreach($asociaciones->actividades as $actividades)
+                                        @foreach($actividades->disponibilidad as $disponibilidades)
+                                            @if (isset($disponibilidades))
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td class="">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto">
+                                                                <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
+                                                            </div>
+                                                            <div class="col text-truncate">
+                                                                <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary stretched-link">
+                                                                    {{ucwords(strtolower($actividades->titulo))}}
+                                                                    <small class="d-block text-primary font-weight-bold">{{ucwords(strtolower($actividades->categoria))}}</small>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="w-25 text-center">
+                                                        @foreach($actividades->precios as $precio)
+                                                        <sup>$</sup>{{$precio->precio}}<small>USD</small>
+                                                        <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
+                                                        @endforeach
+                                                    <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                    <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
