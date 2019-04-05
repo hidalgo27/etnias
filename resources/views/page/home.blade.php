@@ -267,7 +267,7 @@
                             <div class="position-relative w-100">
                                 <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                                 <div class="position-absolute w-100 top-50">
-                                    <a href="{{route('comunidad_show_path')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
+                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
