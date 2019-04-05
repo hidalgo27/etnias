@@ -90,9 +90,9 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="font-weight-bold">Términos y condiciones de la comunidad</h6>
-                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Edad mínima:</b> 15 años</div>
-                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Dificultad:</b> Fácil</div>
-                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Tolerancia máxima:</b> 15 minutos</div>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Edad mínima:</b> {{ucwords(strtolower($actividades->edad_minima))}}</div>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Dificultad:</b> {{ucwords(strtolower($actividades->dificultad))}}</div>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Tolerancia máxima:</b> {{ucwords(strtolower($actividades->tolerancia))}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,8 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="font-weight-bold">Descripción duración y periodo</h6>
-                                            @php echo $actividades->periodo; @endphp
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Periodo:</b> {{ucwords(strtolower($actividades->periodo))}}</div>
+                                            <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades->duracion))}}</div>
                                         </div>
                                     </div>
                                 </div>
