@@ -109,8 +109,8 @@
                             @foreach($comunidad as $comunidades)
                                 @foreach($comunidades->asociaciones as $asociaciones)
                                     @foreach($asociaciones->actividades as $actividades)
-                                        @foreach($actividades->disponibilidad as $disponibilidades)
-                                            @if (isset($disponibilidades))
+                                        @foreach($disponibilidad->where('actividad_id', $actividades->id) as $disponibilidades)
+                                            @if ($disponibilidades->actividad_id == $actividades->id)
                                                 <tr>
                                                     <td>1</td>
                                                     <td class="">
@@ -119,7 +119,7 @@
                                                                 <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
                                                             </div>
                                                             <div class="col text-truncate">
-                                                                <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary stretched-link">
+                                                                <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
                                                                     {{ucwords(strtolower($actividades->titulo))}}
                                                                     <small class="d-block text-primary font-weight-bold">{{ucwords(strtolower($actividades->categoria))}}</small>
                                                                 </a>
@@ -132,7 +132,7 @@
                                                         <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
                                                         @endforeach
                                                     <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                    <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                    <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
                                                 </tr>
                                             @endif
                                         @endforeach

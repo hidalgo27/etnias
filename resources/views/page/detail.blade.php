@@ -4,8 +4,7 @@
         @foreach($comunidad as $comunidades)
             @foreach($comunidades->asociaciones as $asociaciones)
                 @foreach($asociaciones->actividades as $actividades)
-                    @foreach($actividades->disponibilidad as $disponibilidad)
-                        @if (isset($disponibilidad))
+
         <section class="position-relative">
             <div id="home-slider-container" class="detail-slider-container">
                 <div id="home-slider">
@@ -43,7 +42,7 @@
                                 @foreach($actividades->precios as $precio)
                                 <li>Precio : <sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small></li>
                                 @endforeach
-                                <li>Duración : {{$actividades->duracion}}</li>
+                                <li class="text-truncate" data-toggle="tooltip" data-placement="top" title="{{$actividades->duracion}}">Duración : {{$actividades->duracion}}</li>
                                 <li class="btn-book">
                                     <a href="">Reservar Ahora</a>
                                 </li>
@@ -80,7 +79,7 @@
                                     @php echo $actividades->descripcion; @endphp
                                 </div>
                             </div>
-                            <div class="row ">
+                            <div class="row mt-3">
                                 <div class="col">
                                     <h6 class="font-weight-bold d-block">Recomendaciones</h6>
                                     @php echo $actividades->recomendaciones; @endphp
@@ -247,6 +246,7 @@
                         <div class="col">
                             <form action="{{route('book_path')}}" method="post">
                                 @csrf
+                                <input type="hidden" name="id_actividad" value="{{$actividades->id}}">
                                 <div class="card">
                                     <div class="card-body text-center">
                                         @foreach($actividades->precios as $precio)
@@ -257,7 +257,7 @@
                                             <div class="col">
                                                 <div class="form-group text-left">
                                                     <label for="custom-cells" class="font-weight-bold text-secondary small">Fecha de Viaje</label>
-                                                    <input type="text" class="form-control" id="custom-cells-3" placeholder="Escoja su fecha de viaje" required>
+                                                    <input type="text" class="form-control" id="custom-cells-3" name="fecha_viaje" placeholder="Escoja su fecha de viaje" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -265,7 +265,7 @@
                                             <div class="col">
                                                 <div class="form-group text-left">
                                                     <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Numero de personas</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1" onchange="price_person(this.value)">
+                                                    <select class="form-control" id="exampleFormControlSelect1" name="txt_personas" onchange="price_person(this.value)">
                                                         @foreach($precio_actividad as $precio_actividad)
                                                             @if ($precio_actividad->min == 2 AND $precio_actividad->max == 2)
                                                                 @php $selected = "selected" @endphp
@@ -304,8 +304,7 @@
 
             </div>
         </section>
-                        @endif
-                    @endforeach
+
                 @endforeach
             @endforeach
         @endforeach
@@ -315,113 +314,16 @@
 @push('scripts')
     <script>
 
-        // var disabledDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.3.23'];
-        //
-        // $('#dp').datepicker({
-        //     language: 'en',
-        //     onRenderCell: function(d, type) {
-        //         if (type == 'day') {
-        //             var disabled = false,
-        //                 formatted = getFormattedDate(d);
-        //             disabled = disabledDates.filter(function(date){
-        //                 return date == formatted;
-        //                 //     return {html: '<span class="dp-note"></span>'}
-        //             }).length;
-        //             return {
-        //                 disabled: disabled
-        //             }
-        //         }
-        //     }
-        // });
-        //
-        // function getFormattedDate(date) {
-        //     var year = date.getFullYear(),
-        //         month = date.getMonth() + 1,
-        //         date = date.getDate();
-        //     return year + '.' + month + '.' + date;
-        // }
-
-        // What dates should be disabled - year.month.date
-
-
-        // var eventDates = [1, 18, 12, 31],
-        // var eventDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.4.23'];
         $picker = $('#custom-cells');
-            $picker2 = $('#custom-cells-2');
-            $picker3 = $('#custom-cells-3');
-            $content = $('#custom-cells-events');
-            // sentences = [
-            //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita prorsus, inquam; Si enim ad populum me vocas, eum. Ita prorsus, inquam; Nonne igitur tibi videntur, inquit, mala? Hunc vos beatum; Idemne, quod iucunde? ',
-            //     'Ratio quidem vestra sic cogit. Illi enim inter se dissentiunt. Tu vero, inquam, ducas licet, si sequetur; Non semper, inquam; ',
-            //     'Duo Reges: constructio interrete. A mene tu? Ea possunt paria non esse. Est, ut dicis, inquam. Scaevolam M. Quid iudicant sensus? ',
-            //     'Poterat autem inpune; Qui est in parvis malis. Prave, nequiter, turpiter cenabat; Ita credo. '
-            // ];
+        $picker3 = $('#custom-cells-3');
 
-
-        // $picker2.datepicker({
-        //     language: 'en',
-        //     startDate: new Date('2019.4.1'),
-        //     onRenderCell: function (date, cellType) {
-        //         var currentDate = date.getDate();
-        //         formatted = getFormattedDate(date);
-        //         // Add extra element, if `eventDates` contains `currentDate`
-        //         if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
-        //             return {
-        //                 html: currentDate + '<span class="dp-note"></span>'
-        //             }
-        //         }else{
-        //             return {
-        //                 disabled: true
-        //             }
-        //         }
-        //     },
-        //     onSelect: function onSelect(fd, date) {
-        //         var title = '', content = '';
-        //         // If date with event is selected, show it
-        //         formatted = getFormattedDate(date);
-        //         if (date && eventDates.indexOf(formatted) != -1) {
-        //             title = fd;
-        //             content = sentences[Math.floor(Math.random() * eventDates.length)];
-        //         }
-        //         $($picker3).val(title);
-        //     }
-        // });
-        // $picker3.datepicker({
-        //     language: 'en',
-        //     onRenderCell: function (date, cellType) {
-        //         var currentDate = date.getDate();
-        //         formatted = getFormattedDate(date);
-        //         // Add extra element, if `eventDates` contains `currentDate`
-        //         if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
-        //             return {
-        //                 html: currentDate + '<span class="dp-note"></span>'
-        //             }
-        //         }else{
-        //             return {
-        //                 disabled: true
-        //             }
-        //         }
-        //     },
-        //     onSelect: function onSelect(fd, date) {
-        //         var title = '', content = '';
-        //         // If date with event is selected, show it
-        //         formatted = getFormattedDate(date);
-        //         if (date && eventDates.indexOf(formatted) != -1) {
-        //             title = fd;
-        //             content = sentences[Math.floor(Math.random() * eventDates.length)];
-        //         }
-        //         // $('strong', $content).html(title);
-        //         // $('p', $content).html(content);
-        //         $($picker3).val(title);
-        //     }
-        // });
+        $content = $('#custom-cells-events');
 
         var eventDates = new Array();
 
         @foreach($disponibilidad_a as $disponibilidades_a)
             eventDates.push('{{$disponibilidades_a->fecha}}');
         @endforeach
-
 
         $picker.datepicker({
             language: 'en',
@@ -446,18 +348,6 @@
                     }
                 }
 
-                // var currentDate = date.getDate();
-                // formatted = getFormattedDate(date);
-                // // Add extra element, if `eventDates` contains `currentDate`
-                // if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
-                //     return {
-                //         html: currentDate + '<span class="dp-note"></span>'
-                //     }
-                // }else{
-                //     return {
-                //         disabled: true
-                //     }
-                // }
             },
             onSelect: function onSelect(fd, date) {
                 var mes=date.getMonth()+1;

@@ -220,48 +220,35 @@
                     </div>
 
                     <div class="row slider-huilloq">
-                        @foreach($comunidad_huilloc as $comunidad_de_huilloc)
-                            @foreach($comunidad_de_huilloc->asociaciones as $asociacion_huilloc)
-                                @foreach($asociacion_huilloc->actividades as $actividad_huilloc)
-                                    @foreach($actividad_huilloc->disponibilidad as $disponibilidad)
-                                        @if (isset($disponibilidad))
-                                            <div class="col mb-4">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="header-img-actividades">
-                                                            <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
-                                                            <div class="position-absolute-top">
-                                                                <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividad_huilloc->categoria))}}</span>
-                                                            </div>
+                        @foreach($comunidad_huilloc as $comunidades_huilloc)
+                            @foreach($comunidades_huilloc->asociaciones as $asociaciones_huilloc)
+                                @foreach($asociaciones_huilloc->actividades as $actividades_huilloc)
+                                    @foreach($disponibilidad->where('actividad_id', $actividades_huilloc->id) as $disponibilidades)
+                                        @if ($disponibilidades->actividad_id == $actividades_huilloc->id)
+                                        <div class="col mb-4">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="header-img-actividades">
+                                                        <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                                        <div class="position-absolute-top">
+                                                            <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_huilloc->categoria))}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="footer-box-actividades row m-0 align-items-center">
-                                                    <div class="col-7">
-                                                        <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividad_huilloc->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividad_huilloc->titulo}}</a></h6>
-                                                    </div>
-                                                    <div class="col-5 text-right">
-                                                        @foreach($actividad_huilloc->precios as $precio)
-                                                            {{--<sup>2 <i class="fa fa-user"></i></sup>--}}
+                                            </div>
+                                            <div class="footer-box-actividades row m-0 align-items-center">
+                                                <div class="col-7">
+                                                    <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_huilloc->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividades_huilloc->titulo}}</a></h6>
+                                                </div>
+                                                <div class="col-5 text-right">
+                                                    @foreach($actividades_huilloc->precios as $precio)
+                                                        @if (isset($precio))
                                                             <span class="font-weight-bold text-primary"><sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
-                                                        @endforeach
-                                                        {{--<ul>--}}
-                                                            {{--<li>--}}
-                                                                {{--<a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>--}}
-                                                            {{--</li>--}}
-                                                            {{--<li>--}}
-                                                                {{--<a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>--}}
-                                                            {{--</li>--}}
-                                                            {{--<li>--}}
-                                                                {{--<a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>--}}
-                                                            {{--</li>--}}
-                                                            {{--<li>--}}
-                                                                {{--<a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>--}}
-                                                            {{--</li>--}}
-                                                        {{--</ul>--}}
-                                                    </div>
+                                                        @endif
+                                                    @endforeach
                                                 </div>
                                             </div>
+                                        </div>
                                         @endif
                                     @endforeach
                                 @endforeach
@@ -328,15 +315,15 @@
                         <div class="col">
 
                             <div class="row slider-huilloq">
-                                @foreach($comunidad_taucca as $comunidad_de_taucca)
-                                    @foreach($comunidad_de_taucca->asociaciones as $asociacion_taucca)
-                                        @foreach($asociacion_taucca->actividades as $actividad_taucca)
-                                            @foreach($actividad_taucca->disponibilidad as $disponibilidad)
-                                                @if (isset($disponibilidad))
+                                @foreach($comunidad_taucca as $comunidades_taucca)
+                                    @foreach($comunidades_taucca->asociaciones as $asociacion_taucca)
+                                        @foreach($asociacion_taucca->actividades as $actividades_taucca)
+                                            @foreach($disponibilidad->where('actividad_id', $actividades_taucca->id) as $disponibilidades)
+                                                @if ($disponibilidades->actividad_id == $actividades_taucca->id)
                                                     <div class="col">
                                                         <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
-                                                        <h6 class="my-3 font-weight-bold text-secondary">{{$actividad_taucca->titulo}}</h6>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                        <h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>
                                                         <a href="" class="font-weight-bold text-info">View More</a>
                                                     </div>
                                                 @endif
@@ -344,6 +331,7 @@
                                         @endforeach
                                     @endforeach
                                 @endforeach
+
                             </div>
 
                         </div>
@@ -392,11 +380,11 @@
                         <div class="col">
 
                             <div class="row slider-huilloq">
-                                @foreach($comunidad_amaru as $comunidad_de_amaru)
-                                    @foreach($comunidad_de_amaru->asociaciones as $asociacion_amaru)
-                                        @foreach($asociacion_amaru->actividades as $actividad_amaru)
-                                            @foreach($actividad_amaru->disponibilidad as $disponibilidad)
-                                                @if (isset($disponibilidad))
+                                @foreach($comunidad_amaru as $comunidades_amaru)
+                                    @foreach($comunidades_amaru->asociaciones as $asociacion_amaru)
+                                        @foreach($asociacion_amaru->actividades as $actividades_amaru)
+                                            @foreach($disponibilidad->where('actividad_id', $actividades_amaru->id) as $disponibilidades)
+                                                @if ($disponibilidades->actividad_id == $actividades_amaru->id)
                                                     <div class="col mb-4">
                                                         <div class="row">
                                                             <div class="col">
@@ -407,7 +395,7 @@
                                                         </div>
                                                         <div class="footer-box-actividades row m-0">
                                                             <div class="col-8">
-                                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">{{$actividad_taucca->titulo}} <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">{{$actividades_amaru->titulo}} <small class="text-g-green-light">(Luciernagas)</small></a></h6>
                                                             </div>
                                                             <div class="col-4 actividad_icon">
                                                                 <ul>

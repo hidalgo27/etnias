@@ -2,6 +2,7 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\ActividadDisponible;
 use EtniasPeru\Categoria;
 use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
@@ -19,12 +20,19 @@ class ActividadesController extends Controller
         $rango_min = 2;
         $rango_max = 2;
         $categoria = Categoria::all();
-        $comunidad = Comunidad::with([
-            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
-            'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
-        ])->get();
+//        $comunidad = Comunidad::with([
+//            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
+//            'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
+//        ])->get();
 
-        return view('page.actividades', compact('categoria','comunidad'));
+        $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
+
+        $comunidad = Comunidad::with([
+                'asociaciones.actividades',
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+        )->get();
+
+        return view('page.actividades', compact('categoria','comunidad','disponibilidad'));
     }
 
     /**
@@ -61,13 +69,15 @@ class ActividadesController extends Controller
         $rango_min = 2;
         $rango_max = 2;
         $categoria = Categoria::all();
-        $comunidad = Comunidad::with([
-            'asociaciones.actividades'=>function ($query) use ($category) {$query->where('categoria',$category);},
-            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
-            'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
-        ])->get();
 
-        return view('page.actividades-category-show', compact('categoria','comunidad','category'));
+        $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
+
+        $comunidad = Comunidad::with([
+                'asociaciones.actividades'=>function ($query) use ($category) {$query->where('categoria',$category);},
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+        )->get();
+
+        return view('page.actividades-category-show', compact('categoria','comunidad','category','disponibilidad'));
     }
 
     /**
