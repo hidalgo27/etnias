@@ -23,6 +23,8 @@ class HomepageController extends Controller
 
         $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
 
+        $disponibilidad_mes = ActividadDisponible::where('estado',1)->whereMonth('fecha','=',04)->inRandomOrder()->take(10)->get();
+
         $comunidad_huilloc = Comunidad::with([
             'asociaciones.actividades',
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
@@ -38,7 +40,12 @@ class HomepageController extends Controller
                 'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
         )->where('nombre', 'AMARU')->get();
 
-        return view('page.home', compact('disponibilidad','comunidad_huilloc','comunidad_taucca','comunidad_amaru','categoria'));
+        $comunidad = Comunidad::with([
+                'asociaciones.actividades',
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+        )->get();
+
+        return view('page.home', compact('disponibilidad','comunidad_huilloc','comunidad_taucca','comunidad_amaru','categoria','comunidad','disponibilidad_mes'));
     }
 
     /**

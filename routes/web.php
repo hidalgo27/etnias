@@ -42,7 +42,7 @@ Route::get('/comunidades', [
     'uses' => 'ComunidadController@index',
     'as' => 'comunidad_path',
 ]);
-Route::get('/comunidades/show', [
+Route::get('/comunidades/{titulo}', [
     'uses' => 'ComunidadController@show',
     'as' => 'comunidad_show_path',
 ]);

@@ -62,36 +62,18 @@
         <section class="my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-4 text-center">
-                        <img src="{{asset('images/taucca1.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <a href="{{route('comunidad_show_path')}}" class="m-0 d-block mt-3 h3 font-weight-bold text-g-green-light stretched-link">Taucca</a>
-                        <div class="box-comunidad-arrow text-center m-auto"></div>
-                        <div class="card bg-light shadow">
-                            <div class="card-body">
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi assumenda earum ex fugit nihil nobis optio rem sed velit. Blanditiis deleniti eius est harum ipsa praesentium qui unde veniam.</p>
+                    @foreach($comunidades as $comunidad)
+                        <div class="col-4 text-center">
+                            <img src="{{asset('images/taucca1.jpg')}}" alt="" class="w-100 rounded shadow">
+                            <a href="{{route('comunidad_show_path', str_replace(' ','-', strtolower($comunidad->nombre)))}}" class="m-0 d-block mt-3 h3 font-weight-bold text-g-green-light stretched-link">{{ucwords(strtolower($comunidad->nombre))}}</a>
+                            <div class="box-comunidad-arrow text-center m-auto"></div>
+                            <div class="card bg-light shadow">
+                                <div class="card-body">
+                                    @php echo $comunidad->descripcion; @endphp
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-4 text-center">
-                        <img src="{{asset('images/taucca2.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <a href="{{route('comunidad_show_path')}}" class="m-0 d-block mt-3 h3 font-weight-bold text-g-green-light stretched-link">Huilloq</a>
-                        <div class="box-comunidad-arrow text-center m-auto"></div>
-                        <div class="card bg-light shadow">
-                            <div class="card-body">
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi assumenda earum ex fugit nihil nobis optio rem sed velit. Blanditiis deleniti eius est harum ipsa praesentium qui unde veniam.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 text-center">
-                        <img src="{{asset('images/taucca3.jpg')}}" alt="" class="w-100 rounded shadow">
-                        <a href="{{route('comunidad_show_path')}}" class="m-0 d-block mt-3 h3 font-weight-bold text-g-green-light stretched-link">Tupac</a>
-                        <div class="box-comunidad-arrow text-center m-auto"></div>
-                        <div class="card bg-light shadow">
-                            <div class="card-body">
-                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi assumenda earum ex fugit nihil nobis optio rem sed velit. Blanditiis deleniti eius est harum ipsa praesentium qui unde veniam.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

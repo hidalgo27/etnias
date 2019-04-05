@@ -740,55 +740,40 @@
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Event Name.." title="Type in a name">
                         <table id="myTable">
                             <tbody class="small font-weight-bold text-secondary">
-                            <tr class="h5 font-weight-bold text-g-grey-primary">
-                                <th class="py-3">#</th>
-                                <th>Nombre Actividad</th>
-                                <th class="e_h1">Fecha</th>
-                                <th class="e_h1">Hora</th>
-                                <th class="e_h1">Lugar</th>
-                                <th class="text-center">Book</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                    <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary">
-                                        Tours chacra y alrededores
-                                        <small class="text-g-grey-light">(Asoc. Las Hormiguitas)</small>
-                                    </a>
-                                </td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="e_h1">10.00 PM</td>
-                                <td class="e_h1">Huilloq</td>
-                                <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                    <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary">
-                                        Tours chacra y alrededores
-                                        <small class="text-g-grey-light">(Asoc. Las Hormiguitas)</small>
-                                    </a>
-                                </td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="e_h1">10.00 PM</td>
-                                <td class="e_h1">Huilloq</td>
-                                <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                    <a href="hotels-list.html" class="events-title font-weight-bold text-g-grey-primary">
-                                        Tours chacra y alrededores
-                                        <small class="text-g-grey-light">(Asoc. Las Hormiguitas)</small>
-                                    </a>
-                                </td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="e_h1">10.00 PM</td>
-                                <td class="e_h1">Huilloq</td>
-                                <td class="text-center"><a href="booking.html" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                            </tr>
+                            @foreach($comunidad as $comunidades)
+                                @foreach($comunidades->asociaciones as $asociaciones)
+                                    @foreach($asociaciones->actividades as $actividades)
+                                        @foreach($disponibilidad_mes->where('actividad_id', $actividades->id) as $disponibilidades_mes)
+                                            @if ($disponibilidades_mes->actividad_id == $actividades->id)
+                                                <tr>
 
+                                                    <td class="">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-auto">
+                                                                <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
+                                                            </div>
+                                                            <div class="col text-truncate">
+                                                                <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
+                                                                    {{ucwords(strtolower($actividades->titulo))}}
+                                                                    <small class="d-block text-primary font-weight-bold">{{ucwords(strtolower($actividades->categoria))}}</small>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>{{$disponibilidades_mes->fecha}}</td>
+                                                    <td class="w-25 text-center">
+                                                        @foreach($actividades->precios as $precio)
+                                                            <sup>$</sup>{{$precio->precio}}<small>USD</small>
+                                                            <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
+                                                    @endforeach
+                                                    <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                    <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -72,6 +72,7 @@ class ActividadesController extends Controller
 
         $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
 
+
         $comunidad = Comunidad::with([
                 'asociaciones.actividades'=>function ($query) use ($category) {$query->where('categoria',$category);},
                 'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]

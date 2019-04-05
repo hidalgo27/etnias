@@ -2,6 +2,8 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\ActividadDisponible;
+use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
 
 class ComunidadController extends Controller
@@ -13,11 +15,21 @@ class ComunidadController extends Controller
      */
     public function index()
     {
-        return view('page.comunidad');
+        $comunidades = Comunidad::all();
+        return view('page.comunidad',compact('comunidades'));
     }
-    public function show()
+    public function show($titulo)
     {
-        return view('page.comunidad-show');
+        $titulo = str_replace('-', ' ', $titulo);
+        $rango_min = 2;
+        $rango_max = 2;
+        $comunidad = Comunidad::where('nombre', $titulo)->get();
+        $comunidad_pack = Comunidad::with([
+                'asociaciones.actividades',
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+        )->where('nombre', $titulo)->get();
+        $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
+        return view('page.comunidad-show', compact('comunidad','comunidad_pack','disponibilidad'));
     }
 
     /**
