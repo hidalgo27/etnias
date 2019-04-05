@@ -323,8 +323,14 @@
                                                     <div class="col">
                                                         <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
                                                         <h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>
-                                                        <a href="" class="font-weight-bold text-info">View More</a>
+                                                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>--}}
+                                                        <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>
+                                                        @foreach($actividades_taucca->precios as $precio)
+                                                            @if (isset($precio))
+                                                                <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Precio:</b> {{ucwords(strtolower($precio->precio))}}</div>
+                                                            @endif
+                                                        @endforeach
+                                                        <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="font-weight-bold text-info pt-3 d-block stretched-link">View More</a>
                                                     </div>
                                                 @endif
                                             @endforeach
@@ -389,29 +395,23 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="header-img-actividades">
-                                                                    <img src="{{asset('images/taucca/thumbnail/t5.jpg')}}" alt="" class="w-100">
+                                                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                                                    <div class="position-absolute-top">
+                                                                        <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_amaru->categoria))}}</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="footer-box-actividades row m-0">
-                                                            <div class="col-8">
-                                                                <h6><a href="" class="text-g-grey-primary font-weight-bold">{{$actividades_amaru->titulo}} <small class="text-g-green-light">(Luciernagas)</small></a></h6>
+                                                        <div class="footer-box-actividades row m-0 align-items-center">
+                                                            <div class="col-7">
+                                                                <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_amaru->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividades_amaru->titulo}}</a></h6>
                                                             </div>
-                                                            <div class="col-4 actividad_icon">
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href=""><img src="{{asset('images/icon/image.png')}}" alt="" class="w-100"></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href=""><img src="{{asset('images/icon/price.png')}}" alt="" class="w-100"></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href=""><img src="{{asset('images/icon/location.png')}}" alt="" class="w-100"></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href=""><img src="{{asset('images/icon/detail.png')}}" alt="" class="w-100"></a>
-                                                                    </li>
-                                                                </ul>
+                                                            <div class="col-5 text-right">
+                                                                @foreach($actividades_amaru->precios as $precio)
+                                                                    @if (isset($precio))
+                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                                    @endif
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                     </div>

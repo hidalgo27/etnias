@@ -16,7 +16,7 @@
       <change beforePath="$PROJECT_DIR$/../admin-llama/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-llama/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../andes2" beforeDir="false" afterPath="$PROJECT_DIR$/../andes2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream" beforeDir="false" afterPath="$PROJECT_DIR$/../dream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../galapagos" beforeDir="false" afterPath="$PROJECT_DIR$/../galapagos" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravel-starter" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-starter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravelauth" beforeDir="false" afterPath="$PROJECT_DIR$/../laravelauth" afterDir="false" />
@@ -165,11 +165,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="103" column="137" lean-forward="true" selection-start-line="103" selection-start-column="137" selection-end-line="103" selection-end-column="137" />
+            <state relative-caret-position="443">
+              <caret line="102" column="44" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="189" />
             </state>
           </provider>
         </entry>
@@ -216,11 +216,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="273" column="26" lean-forward="true" selection-start-line="273" selection-start-column="26" selection-end-line="273" selection-end-column="26" />
+            <state relative-caret-position="515">
+              <caret line="399" column="157" selection-start-line="399" selection-start-column="157" selection-end-line="399" selection-end-column="157" />
+              <caret line="406" column="151" selection-start-line="406" selection-start-column="151" selection-end-line="406" selection-end-column="151" />
+              <caret line="406" column="231" selection-start-line="406" selection-start-column="231" selection-end-line="406" selection-end-column="231" />
+              <caret line="409" column="91" selection-start-line="409" selection-start-column="91" selection-end-line="409" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -240,6 +243,7 @@
       <find>detail_path</find>
       <find>comunidad_show_path</find>
       <find>ad mínim</find>
+      <find>ORMIGUITAS DE T</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -265,8 +269,8 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ComunidadController.php" />
         <option value="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/page/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/page/home.blade.php" />
       </list>
     </option>
   </component>
@@ -570,12 +574,12 @@
       <workItem from="1553903859101" duration="1894000" />
       <workItem from="1554330800870" duration="690000" />
       <workItem from="1554331828367" duration="10454000" />
-      <workItem from="1554476137455" duration="25390000" />
+      <workItem from="1554476137455" duration="25936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51455000" />
+    <option name="totallyTimeSpent" value="52001000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -783,13 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Comunidad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -807,17 +804,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/home.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Comunidad.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="273" column="26" lean-forward="true" selection-start-line="273" selection-start-column="26" selection-end-line="273" selection-end-column="26" />
+        <state relative-caret-position="432">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="103" column="137" lean-forward="true" selection-start-line="103" selection-start-column="137" selection-end-line="103" selection-end-column="137" />
+        <state relative-caret-position="443">
+          <caret line="102" column="44" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="189" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="399" column="157" selection-start-line="399" selection-start-column="157" selection-end-line="399" selection-end-column="157" />
+          <caret line="406" column="151" selection-start-line="406" selection-start-column="151" selection-end-line="406" selection-end-column="151" />
+          <caret line="406" column="231" selection-start-line="406" selection-start-column="231" selection-end-line="406" selection-end-column="231" />
+          <caret line="409" column="91" selection-start-line="409" selection-start-column="91" selection-end-line="409" selection-end-column="91" />
         </state>
       </provider>
     </entry>
