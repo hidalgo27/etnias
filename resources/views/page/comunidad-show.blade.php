@@ -111,78 +111,28 @@
                             <div class="col">
                                 <h4 class="font-weight-bold text-g-grey-primary  mb-4">Asociaciones en la comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h4>
                                 <div class="row">
+                                    @foreach($comunidades->asociaciones as $asociaciones)
                                     <div class="col-4 text-center">
                                         <img src="{{asset('images/taucca3.jpg')}}" alt="" width="150" height="150" class="rounded-circle shadow">
-                                        <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-hormiguitas">Asociacion las Hormiguitas</h6>
+                                        <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-{{$asociaciones->id}}">{{$asociaciones->nombre}}</h6>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="comunidad-hormiguitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="comunidad-{{$asociaciones->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">{{$asociaciones->nombre}}</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                        @php echo $asociaciones->descripcion; @endphp
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4 text-center">
-                                        <img src="{{asset('images/taucca3.jpg')}}" alt="" width="150" height="150" class="rounded-circle shadow">
-                                        <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-hormiguitas">Asociacion las Hormiguitas</h6>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="comunidad-hormiguitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 text-center">
-                                        <img src="{{asset('images/taucca3.jpg')}}" alt="" width="150" height="150" class="rounded-circle shadow">
-                                        <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-hormiguitas">Asociacion las Hormiguitas</h6>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="comunidad-hormiguitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -192,7 +142,7 @@
                                 <h4 class="font-weight-bold text-g-grey-primary  mb-4">Historia</h4>
                                 <div class="row">
                                     <div class="col">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi exercitationem facere in iusto maiores nesciunt, quam. At consectetur corporis laudantium maiores modi nihil obcaecati quam, quas reprehenderit repudiandae sunt.
+                                        @php echo $comunidades->historia; @endphp
                                     </div>
                                 </div>
                             </div>
