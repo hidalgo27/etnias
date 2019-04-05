@@ -29,7 +29,7 @@
                     <div class="row align-items-end bg-header-body pb-5">
                         <div class="col text-white">
                             <h1 class="text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
-                            <p class="lead font-weight-normal"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> 3420 msnm, <b>Distancia de la ciudad más cercana:</b> 2 horas de la ciudad del Cusco</p>
+                            <p class="lead font-weight-normal"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> {{$comunidades->altura}} msnm, <b>Distancia de la ciudad más cercana:</b> {{$comunidades->distancia}}</p>
                         </div>
                     </div>
                 </div>
@@ -63,31 +63,27 @@
                             <div class="row">
                                 <div class="col">
                                     <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividades->titulo))}}
-                                        <span class="text-warning text-15">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    </span>
-                                        <span class="text-15 badge badge-g-red-primary">4.5</span>
+                                        {{--<span class="text-warning text-15">--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-star-half-o" aria-hidden="true"></i>--}}
+                                    {{--</span>--}}
+                                        {{--<span class="text-15 badge badge-g-red-primary">4.5</span>--}}
                                     </h2>
                                 </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col font-poppins text-g-grey-primary">
                                     <h5 class="font-weight-bold pb-2">DESCRIPCIÓN:</h5>
-                                    <p>@php echo $actividades->descripcion; @endphp</p>
+                                    @php echo $actividades->descripcion; @endphp
                                 </div>
                             </div>
                             <div class="row ">
                                 <div class="col">
                                     <h6 class="font-weight-bold d-block">Recomendaciones</h6>
-                                    <ul class="">
-                                        <li>Traiga dinero extra para snacks.</li>
-                                        <li>Use choza, bloqueador solar, lentes de sol y zapatillas.</li>
-                                        <li>Lleve una cámara, baterías adicionales y una tarjeta de memoria, cargador y chaqueta impermeable.</li>
-                                    </ul>
+                                    @php echo $actividades->recomendaciones; @endphp
                                 </div>
                             </div>
                             <div class="row font-poppins">
@@ -105,7 +101,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="font-weight-bold">Descripción duración y periodo</h6>
-                                            <p><i class="fas fa-check "></i> La actividad es de tres horas, durante todo el año</p>
+                                            @php echo $actividades->periodo; @endphp
                                         </div>
                                     </div>
                                 </div>
@@ -249,58 +245,57 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <sup>$</sup><span class="font-weight-bold display-4 h1">500</span><small>USD</small>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group text-left">
-                                                <label for="custom-cells" class="font-weight-bold text-secondary small">Fecha de Viaje</label>
-                                                <input type="text" class="form-control" id="custom-cells-3">
+                            <form action="{{route('book_path')}}" method="post">
+                                @csrf
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        @foreach($actividades->precios as $precio)
+                                            <sup>$</sup><span class="font-weight-bold display-4 h1" id="precio_persona">{{$precio->precio}}</span><small>USD</small>
+                                        @endforeach
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group text-left">
+                                                    <label for="custom-cells" class="font-weight-bold text-secondary small">Fecha de Viaje</label>
+                                                    <input type="text" class="form-control" id="custom-cells-3" placeholder="Escoja su fecha de viaje" required>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group text-left">
+                                                    <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Numero de personas</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1" onchange="price_person(this.value)">
+                                                        @foreach($precio_actividad as $precio_actividad)
+                                                            @if ($precio_actividad->min == 2 AND $precio_actividad->max == 2)
+                                                                @php $selected = "selected" @endphp
+                                                            @else
+                                                                @php $selected = "" @endphp
+                                                            @endif
+                                                            @if ($precio_actividad->min == $precio_actividad->max)
+                                                                <option {{$selected}} value="{{$precio_actividad->id}}-{{$precio_actividad->precio}}">{{$precio_actividad->min}}</option>
+                                                            @else
+                                                                <option {{$selected}} value="{{$precio_actividad->id}}-{{$precio_actividad->precio}}">{{$precio_actividad->min}} - {{$precio_actividad->max}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <button type="submit" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</button>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group text-left">
-                                                <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Adultos</label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option selected>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-group text-left">
-                                                <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Niños</label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option selected>0</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="{{route('book_path')}}" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</a>
                                 </div>
-                            </div>
+                            </form>
                             <div class="card bg-light mt-4">
                                 <div class="card-body font-poppins">
                                     <h6 class="font-weight-bold">Incluye</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> Ropa típica, almuerzo típico.</p>
+                                    @php echo $actividades->incluye; @endphp
                                     <hr>
                                     <h6 class="font-weight-bold">No Incluye</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> Transporte a la comunidad.</p>
+                                    @php echo $actividades->no_incluye; @endphp
                                     <hr>
-                                    <h6 class="font-weight-bold">Disponible:</h6>
-                                    <p class="font-poppins"><i class="fas fa-check "></i> Español / Ingles.</p>
+                                    <h6 class="font-weight-bold">Guia Disponible:</h6>
+                                    @php echo $actividades->disponible; @endphp
                                 </div>
                             </div>
                         </div>
@@ -320,57 +315,129 @@
 @push('scripts')
     <script>
 
-        var disabledDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.3.23'];
-
-        $('#dp').datepicker({
-            language: 'en',
-            onRenderCell: function(d, type) {
-                if (type == 'day') {
-                    var disabled = false,
-                        formatted = getFormattedDate(d);
-                    disabled = disabledDates.filter(function(date){
-                        return date == formatted;
-                        //     return {html: '<span class="dp-note"></span>'}
-                    }).length;
-                    return {
-                        disabled: disabled
-                    }
-                }
-            }
-        });
-
-        function getFormattedDate(date) {
-            var year = date.getFullYear(),
-                month = date.getMonth() + 1,
-                date = date.getDate();
-
-            return year + '.' + month + '.' + date;
-        }
+        // var disabledDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.3.23'];
+        //
+        // $('#dp').datepicker({
+        //     language: 'en',
+        //     onRenderCell: function(d, type) {
+        //         if (type == 'day') {
+        //             var disabled = false,
+        //                 formatted = getFormattedDate(d);
+        //             disabled = disabledDates.filter(function(date){
+        //                 return date == formatted;
+        //                 //     return {html: '<span class="dp-note"></span>'}
+        //             }).length;
+        //             return {
+        //                 disabled: disabled
+        //             }
+        //         }
+        //     }
+        // });
+        //
+        // function getFormattedDate(date) {
+        //     var year = date.getFullYear(),
+        //         month = date.getMonth() + 1,
+        //         date = date.getDate();
+        //     return year + '.' + month + '.' + date;
+        // }
 
         // What dates should be disabled - year.month.date
 
 
         // var eventDates = [1, 18, 12, 31],
-        var eventDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.4.23'];
-        $picker = $('#custom-cells'),
-            $picker2 = $('#custom-cells-2'),
-            $picker3 = $('#custom-cells-3'),
-            $content = $('#custom-cells-events'),
-            sentences = [
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita prorsus, inquam; Si enim ad populum me vocas, eum. Ita prorsus, inquam; Nonne igitur tibi videntur, inquit, mala? Hunc vos beatum; Idemne, quod iucunde? ',
-                'Ratio quidem vestra sic cogit. Illi enim inter se dissentiunt. Tu vero, inquam, ducas licet, si sequetur; Non semper, inquam; ',
-                'Duo Reges: constructio interrete. A mene tu? Ea possunt paria non esse. Est, ut dicis, inquam. Scaevolam M. Quid iudicant sensus? ',
-                'Poterat autem inpune; Qui est in parvis malis. Prave, nequiter, turpiter cenabat; Ita credo. '
-            ];
+        // var eventDates = ['2019.3.1', '2019.3.17', '2019.3.20', '2019.4.23'];
+        $picker = $('#custom-cells');
+            $picker2 = $('#custom-cells-2');
+            $picker3 = $('#custom-cells-3');
+            $content = $('#custom-cells-events');
+            // sentences = [
+            //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita prorsus, inquam; Si enim ad populum me vocas, eum. Ita prorsus, inquam; Nonne igitur tibi videntur, inquit, mala? Hunc vos beatum; Idemne, quod iucunde? ',
+            //     'Ratio quidem vestra sic cogit. Illi enim inter se dissentiunt. Tu vero, inquam, ducas licet, si sequetur; Non semper, inquam; ',
+            //     'Duo Reges: constructio interrete. A mene tu? Ea possunt paria non esse. Est, ut dicis, inquam. Scaevolam M. Quid iudicant sensus? ',
+            //     'Poterat autem inpune; Qui est in parvis malis. Prave, nequiter, turpiter cenabat; Ita credo. '
+            // ];
+
+
+        // $picker2.datepicker({
+        //     language: 'en',
+        //     startDate: new Date('2019.4.1'),
+        //     onRenderCell: function (date, cellType) {
+        //         var currentDate = date.getDate();
+        //         formatted = getFormattedDate(date);
+        //         // Add extra element, if `eventDates` contains `currentDate`
+        //         if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+        //             return {
+        //                 html: currentDate + '<span class="dp-note"></span>'
+        //             }
+        //         }else{
+        //             return {
+        //                 disabled: true
+        //             }
+        //         }
+        //     },
+        //     onSelect: function onSelect(fd, date) {
+        //         var title = '', content = '';
+        //         // If date with event is selected, show it
+        //         formatted = getFormattedDate(date);
+        //         if (date && eventDates.indexOf(formatted) != -1) {
+        //             title = fd;
+        //             content = sentences[Math.floor(Math.random() * eventDates.length)];
+        //         }
+        //         $($picker3).val(title);
+        //     }
+        // });
+        // $picker3.datepicker({
+        //     language: 'en',
+        //     onRenderCell: function (date, cellType) {
+        //         var currentDate = date.getDate();
+        //         formatted = getFormattedDate(date);
+        //         // Add extra element, if `eventDates` contains `currentDate`
+        //         if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+        //             return {
+        //                 html: currentDate + '<span class="dp-note"></span>'
+        //             }
+        //         }else{
+        //             return {
+        //                 disabled: true
+        //             }
+        //         }
+        //     },
+        //     onSelect: function onSelect(fd, date) {
+        //         var title = '', content = '';
+        //         // If date with event is selected, show it
+        //         formatted = getFormattedDate(date);
+        //         if (date && eventDates.indexOf(formatted) != -1) {
+        //             title = fd;
+        //             content = sentences[Math.floor(Math.random() * eventDates.length)];
+        //         }
+        //         // $('strong', $content).html(title);
+        //         // $('p', $content).html(content);
+        //         $($picker3).val(title);
+        //     }
+        // });
+
+        var eventDates = new Array();
+
+        @foreach($disponibilidad_a as $disponibilidades_a)
+            eventDates.push('{{$disponibilidades_a->fecha}}');
+        @endforeach
+
 
         $picker.datepicker({
             language: 'en',
+            inline: true,
             onRenderCell: function (date, cellType) {
+                console.log('recorrido onRenderCell:'+date);
                 var currentDate = date.getDate();
-                formatted = getFormattedDate(date);
+                var mes=date.getMonth()+1;
+                mes=mes < 10 ? '0'+mes : mes;
+                var dia=date.getDate();
+                dia=dia < 10 ? '0'+dia : dia;
+                var fecha=date.getFullYear()+'-'+mes+'-'+dia;
                 // Add extra element, if `eventDates` contains `currentDate`
-                if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                if (cellType == 'day' && eventDates.indexOf(fecha) != -1) {
                     return {
+                        // html: '<span class="dp-note">'+currentDate+'</span>'
                         html: currentDate + '<span class="dp-note"></span>'
                     }
                 }else{
@@ -378,56 +445,44 @@
                         disabled: true
                     }
                 }
+
+                // var currentDate = date.getDate();
+                // formatted = getFormattedDate(date);
+                // // Add extra element, if `eventDates` contains `currentDate`
+                // if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                //     return {
+                //         html: currentDate + '<span class="dp-note"></span>'
+                //     }
+                // }else{
+                //     return {
+                //         disabled: true
+                //     }
+                // }
             },
             onSelect: function onSelect(fd, date) {
-                var title = '', content = '';
-                // If date with event is selected, show it
-                formatted = getFormattedDate(date);
-                if (date && eventDates.indexOf(formatted) != -1) {
-                    title = fd;
-                    content = sentences[Math.floor(Math.random() * eventDates.length)];
-                }
-                $($picker3).val(title);
-                // $('strong', $picker3).val(title);
-                // $('p', $content).html(content);
+                var mes=date.getMonth()+1;
+                mes=mes < 10 ? '0'+mes : mes;
+                var dia=date.getDate();
+                dia=dia < 10 ? '0'+dia : dia;
+                var fecha=dia+'/'+mes+'/'+date.getFullYear();
+                $('#custom-cells-3').val(fecha);
             }
         });
-        $picker2.datepicker({
-            language: 'en',
-            startDate: new Date('2019.4.1'),
-            onRenderCell: function (date, cellType) {
-                var currentDate = date.getDate();
-                formatted = getFormattedDate(date);
-                // Add extra element, if `eventDates` contains `currentDate`
-                if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
-                    return {
-                        html: currentDate + '<span class="dp-note"></span>'
-                    }
-                }else{
-                    return {
-                        disabled: true
-                    }
-                }
-            },
-            onSelect: function onSelect(fd, date) {
-                var title = '', content = '';
-                // If date with event is selected, show it
-                formatted = getFormattedDate(date);
-                if (date && eventDates.indexOf(formatted) != -1) {
-                    title = fd;
-                    content = sentences[Math.floor(Math.random() * eventDates.length)];
-                }
-                $($picker3).val(title);
-            }
-        });
+
         $picker3.datepicker({
             language: 'en',
             onRenderCell: function (date, cellType) {
+                console.log('recorrido onRenderCell:'+date);
                 var currentDate = date.getDate();
-                formatted = getFormattedDate(date);
+                var mes=date.getMonth()+1;
+                mes=mes < 10 ? '0'+mes : mes;
+                var dia=date.getDate();
+                dia=dia < 10 ? '0'+dia : dia;
+                var fecha=date.getFullYear()+'-'+mes+'-'+dia;
                 // Add extra element, if `eventDates` contains `currentDate`
-                if (cellType == 'day' && eventDates.indexOf(formatted) != -1) {
+                if (cellType == 'day' && eventDates.indexOf(fecha) != -1) {
                     return {
+                        // html: '<span class="dp-note">'+currentDate+'</span>'
                         html: currentDate + '<span class="dp-note"></span>'
                     }
                 }else{
@@ -435,28 +490,22 @@
                         disabled: true
                     }
                 }
+
             },
             onSelect: function onSelect(fd, date) {
-                var title = '', content = '';
-                // If date with event is selected, show it
-                formatted = getFormattedDate(date);
-                if (date && eventDates.indexOf(formatted) != -1) {
-                    title = fd;
-                    content = sentences[Math.floor(Math.random() * eventDates.length)];
-                }
-                // $('strong', $content).html(title);
-                // $('p', $content).html(content);
-                $($picker3).val(title);
+                var mes=date.getMonth()+1;
+                mes=mes < 10 ? '0'+mes : mes;
+                var dia=date.getDate();
+                dia=dia < 10 ? '0'+dia : dia;
+                var fecha=dia+'/'+mes+'/'+date.getFullYear();
+                $('#custom-cells-3').val(fecha);
             }
         });
 
-        // Select initial date from `eventDates`
-        // var currentDate = currentDate = new Date();
-        // $picker.data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), 10));
-
-
-
-        // What dates should be disabled - year.month.date
-
+        function price_person($id) {
+            $price = $id.split('-');
+            // document.getElementById('precio_persona').value = ("hola");
+            document.getElementById('precio_persona').innerHTML = $price[1];
+        }
     </script>
 @endpush

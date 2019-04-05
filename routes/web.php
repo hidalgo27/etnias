@@ -30,7 +30,7 @@ Route::get('/detail/{titulo}', [
     'uses' => 'DetailController@index',
     'as' => 'detail_path',
 ]);
-Route::get('/book', [
+Route::post('/book', [
     'uses' => 'BookController@index',
     'as' => 'book_path',
 ]);

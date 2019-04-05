@@ -2,6 +2,9 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\Actividad;
+use EtniasPeru\ActividadDisponible;
+use EtniasPeru\ActividadPrecio;
 use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
 
@@ -14,6 +17,11 @@ class DetailController extends Controller
      */
     public function index($titulo)
     {
+        $id_actividad = Actividad::where('titulo',$titulo)->get();
+        foreach ($id_actividad as $id_actividades){
+            $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividades->id)->get();
+            $disponibilidad_a = ActividadDisponible::where('actividad_id', $id_actividades->id)->where('estado', 1)->get();
+        }
         $titulo = str_replace('-', ' ', $titulo);
         $estado = 1;
         $rango_min = 2;
@@ -24,7 +32,7 @@ class DetailController extends Controller
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);},
             'asociaciones.actividades.disponibilidad'=>function ($query) use ($estado) {$query->where('estado',$estado);}
         ])->get();
-        return view('page.detail', compact('comunidad'));
+        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a'));
     }
 
     /**
