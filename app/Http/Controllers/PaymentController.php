@@ -2,6 +2,11 @@
 
 namespace EtniasPeru\Http\Controllers;
 
+use EtniasPeru\Actividad;
+use EtniasPeru\Comida;
+use EtniasPeru\ComidaPrecio;
+use EtniasPeru\Guia;
+use EtniasPeru\TransportePrecio;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -11,9 +16,22 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('page.payment');
+        $id_actividad = $request->input('txt_actividad_id');
+        $fecha_viaje = $request->input('txt_fecha_viaje');
+        $personas = $request->input('txt_personas');
+        $actividad = Actividad::where('id', $id_actividad)->get();
+
+        $comida_precio = ComidaPrecio::all();
+        $comida = $request->input('comida');
+
+        $transporte_precio = TransportePrecio::all();
+        $transporte = $request->input('transporte');
+
+        $guia = Guia::all();
+        $guias = $request->input('guia');
+        return view('page.payment', compact('actividad','fecha_viaje','personas', 'comida', 'comida_precio','transporte_precio','transporte','guia','guias'));
     }
 
     /**

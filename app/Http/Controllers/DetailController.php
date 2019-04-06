@@ -32,7 +32,8 @@ class DetailController extends Controller
             'asociaciones.actividades'=>function ($query) use ($titulo) {$query->where('titulo',$titulo);},
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}
         ])->get();
-        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a'));
+
+        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','precio_actividad_ver'));
     }
 
     /**
@@ -40,9 +41,22 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function update_price(Request $request)
     {
-        //
+        $id_actividad = $request->input('id_actividad');
+        $personas = $request->input('txt_personas');
+//        $number
+        $comision = Actividad::with('asociacion')->where('id', $id_actividad)->get();
+        foreach ($comision as $comisiones){
+            $comision = $comisiones->asociacion->comision;
+        }
+        $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->get();
+        foreach ($precio_actividad as $precio_actividades){
+            $precio = $precio_actividades->precio;
+        }
+        $total = $precio + ($precio * $comision)/100;
+//        echo $precio.'+'.$precio.'*'.$comision.'/100'.$precio*$comision;
+        return round($total);
     }
 
     /**
