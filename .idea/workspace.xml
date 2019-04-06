@@ -16,8 +16,6 @@
       <change beforePath="$PROJECT_DIR$/../admin-llama/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-llama/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../andes2" beforeDir="false" afterPath="$PROJECT_DIR$/../andes2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dream" beforeDir="false" afterPath="$PROJECT_DIR$/../dream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomepageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomepageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../galapagos" beforeDir="false" afterPath="$PROJECT_DIR$/../galapagos" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../laravel-starter" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-starter" afterDir="false" />
@@ -121,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="239" column="124" selection-start-line="239" selection-start-column="118" selection-end-line="239" selection-end-column="124" />
+            <state relative-caret-position="352">
+              <caret line="239" column="148" selection-start-line="239" selection-start-column="148" selection-end-line="239" selection-end-column="148" />
             </state>
           </provider>
         </entry>
@@ -458,12 +456,12 @@
       <workItem from="1554330800870" duration="690000" />
       <workItem from="1554331828367" duration="10454000" />
       <workItem from="1554476137455" duration="26053000" />
-      <workItem from="1554565234130" duration="25663000" />
+      <workItem from="1554565234130" duration="26109000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77781000" />
+    <option name="totallyTimeSpent" value="78227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -756,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="239" column="124" selection-start-line="239" selection-start-column="118" selection-end-line="239" selection-end-column="124" />
+        <state relative-caret-position="352">
+          <caret line="239" column="148" selection-start-line="239" selection-start-column="148" selection-end-line="239" selection-end-column="148" />
         </state>
       </provider>
     </entry>

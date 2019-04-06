@@ -237,7 +237,7 @@
                                                 <div class="col">
                                                     <div class="header-img-actividades">
                                                         @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
-                                                            <img src="https://admin.etniasperu.travel/admin/comunidad/editar/imagen/{{$fotos_huilloc->imagen}}" alt="" class="w-100">
+                                                            <img src="https://admin.etniasperu.travel/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100">
                                                         @endforeach
                                                         <div class="position-absolute-top">
                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_huilloc->categoria))}}</span>
