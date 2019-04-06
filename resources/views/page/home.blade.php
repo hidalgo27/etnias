@@ -6,7 +6,8 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-5">
-                            <form class="bg-rgba-white-8 p-4 rounded">
+                            <form action="{{route('client_buscar_path', 'caminatas')}}" method="post" class="bg-rgba-white-8 p-4 rounded">
+                                @csrf
                                 <div class="row">
                                     <div class="col">
                                         <h2 class="font-weight-bold text-g-grey-primary">Reserva de comunidades y actividades en Cusco.</h2>
@@ -18,11 +19,11 @@
                                         <div class="form-group">
                                             <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD</label>
                                             {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
-                                            <select id="inputState" class="form-control">
-                                                <option selected>Seleccione...</option>
-                                                <option>Huilloq</option>
-                                                <option>Taucca</option>
-                                                <option>Tupac</option>
+                                            <select id="inputState" class="form-control" name="slc_comunidad" required>
+                                                <option value="">Seleccione...</option>
+                                                @foreach($comunidad as $comunidades)
+                                                    <option value="{{$comunidades->nombre}}">{{ucwords(strtolower($comunidades->nombre))}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -31,7 +32,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
-                                            <input type="date" class="form-control" id="formGroupExampleInput" placeholder="TRAVEL DATE">
+                                            <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
                                         </div>
                                     </div>
                                 </div>
@@ -39,13 +40,19 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>Seleccione...</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5+</option>
+                                            <select id="inputState" class="form-control" name="slc_huesped" required>
+                                                <option value="">Seleccione...</option>
+                                                <option value="1-1">1</option>
+                                                <option value="2-2">2</option>
+                                                <option value="3-3">3</option>
+                                                <option value="4-4">4</option>
+                                                <option value="5-9">5 - 9</option>
+                                                <option value="10-14">10 - 14</option>
+                                                <option value="15-19">15 - 19</option>
+                                                <option value="20-29">20 - 29</option>
+                                                <option value="30-49">30 - 49</option>
+                                                <option value="50-79">50 - 79</option>
+                                                <option value="80">80+</option>
                                             </select>
                                         </div>
                                     </div>

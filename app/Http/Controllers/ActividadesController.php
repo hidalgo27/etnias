@@ -81,6 +81,30 @@ class ActividadesController extends Controller
         return view('page.actividades-category-show', compact('categoria','comunidad','category','disponibilidad'));
     }
 
+    public function buscar(Request $request, $category)
+    {
+//        $category = str_replace('-', ' ', $category);
+
+        $comunidad_input = $request->input('slc_comunidad');
+        $fecha_input = $request->input('txt_fecha');
+        $huesped_input = explode('-', $request->input('slc_huesped'));
+
+        $rango_min = $huesped_input[0];
+        $rango_max = $huesped_input[1];
+        $categoria = Categoria::all();
+
+        $disponibilidad = ActividadDisponible::where('estado',1)->where('fecha', $fecha_input)->get();
+
+        $comunidad = Comunidad::with([
+                'asociaciones.actividades',
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+        )->where('nombre', $comunidad_input)->get();
+
+        $comunidad_all = Comunidad::all();
+
+        return view('page.actividades-buscar', compact('categoria','comunidad','category','disponibilidad','comunidad_all'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
