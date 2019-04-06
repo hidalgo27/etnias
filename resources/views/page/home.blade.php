@@ -236,7 +236,7 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="header-img-actividades">
-                                                        @foreach($actividades_huilloc->fotos as $fotos_huilloc)
+                                                        @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
                                                             <img src="https://admin.etniasperu.travel/admin/comunidad/editar/imagen/{{$fotos_huilloc->imagen}}" alt="" class="w-100">
                                                         @endforeach
                                                         <div class="position-absolute-top">
