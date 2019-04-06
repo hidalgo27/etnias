@@ -48,6 +48,7 @@ class HomepageController extends Controller
         return view('page.home', compact('disponibilidad','comunidad_huilloc','comunidad_taucca','comunidad_amaru','categoria','comunidad','disponibilidad_mes'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

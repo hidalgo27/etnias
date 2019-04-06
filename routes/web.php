@@ -55,6 +55,11 @@ Route::get('/actividades/categorias/{category}', [
     'uses' => 'ActividadesController@show',
     'as' => 'actividades_category_show_path',
 ]);
+//actividades
+Route::post('/actividades/buscar/{titulo}', [
+    'uses' => 'ActividadesController@buscar',
+    'as' => 'client_buscar_path',
+]);
 
 Route::get('/paquetes', [
     'uses' => 'PackageController@index',
@@ -106,3 +111,4 @@ Route::get('/client/perfil', [
     'uses' => 'client\ClientController@index',
     'as' => 'client_perfil_path',
 ]);
+
