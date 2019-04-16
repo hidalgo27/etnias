@@ -22,9 +22,8 @@ class HomeController extends Controller
     }
     public function index(Request $request)
     {
-        $user=$request->user()->authorizeRoles(['user', 'admin']);
-        dd($user);
-//        return view('client.home');
+        $request->user()->authorizeRoles(['user', 'admin']);
+        return view('client.home');
     }
     /*
         public function someAdminStuff(Request $request)

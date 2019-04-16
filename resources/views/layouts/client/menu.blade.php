@@ -1,12 +1,12 @@
 <div class="card shadow-sm text-center">
     <div class="pt-4">
-        <img src="{{ Auth::user()->avatar }}" id="blah" class="rounded-circle m-auto d-block" alt="{{ Auth::user()->name }}" width="128" height="128" >
+        {{--<img src="{{ Auth::user()->avatar }}" id="blah" class="rounded-circle m-auto d-block" alt="{{ Auth::user()->name }}" width="128" height="128" >--}}
         {{--<input type="file" onchange="readURL(this);" >--}}
-        <span class="d-block"><a href="{{route('client_perfil_path')}}" data-toggle="tooltip" data-placement="top" title="Ver perfil">{{ Auth::user()->name }}</a></span>
-        <label class="custom-file-upload mt-2">
-            <input type="file" onchange="readURL(this);">
-            Subir Avatar
-        </label>
+        {{--<span class="d-block"><a href="{{route('client_perfil_path')}}" data-toggle="tooltip" data-placement="top" title="Ver perfil">{{ Auth::user()->name }}</a></span>--}}
+        {{--<label class="custom-file-upload mt-2">--}}
+            {{--<input type="file" onchange="readURL(this);">--}}
+            {{--Subir Avatar--}}
+        {{--</label>--}}
     </div>
     <div class="card-body pt-0">
         <div class="row">
