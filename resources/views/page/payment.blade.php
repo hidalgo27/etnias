@@ -72,24 +72,24 @@
                             @endforeach
                         @endforeach
 
-                        @foreach($transporte as $transportes)
-                            @php
-                                $transporte_id = explode('-',$transportes);
-                            @endphp
-                            @foreach($transporte_precio->where('id', $transporte_id[0]) as $transporte_precios)
-                                <div class="row text-left align-items-center">
-                                    <div class="col">
-                                        <p class="m-0 d-block mb-1">
-                                            <i class="fas fa-car h5 text-g-grey-light pr-2 float-left"></i>
-                                            {{$transporte_precios->transporte->titulo}}
-                                        </p>
-                                    </div>
-                                    <div class="col text-right">
-                                        <p class="m-0 d-block mb-1"><sup>$</sup>{{$transporte_precios->precio}}<small>USD</small></p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endforeach
+                        {{--@foreach($transporte as $transportes)--}}
+                            {{--@php--}}
+                                {{--$transporte_id = explode('-',$transportes);--}}
+                            {{--@endphp--}}
+                            {{--@foreach($transporte_precio->where('id', $transporte_id[0]) as $transporte_precios)--}}
+                                {{--<div class="row text-left align-items-center">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<p class="m-0 d-block mb-1">--}}
+                                            {{--<i class="fas fa-car h5 text-g-grey-light pr-2 float-left"></i>--}}
+                                            {{--{{$transporte_precios->transporte->titulo}}--}}
+                                        {{--</p>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col text-right">--}}
+                                        {{--<p class="m-0 d-block mb-1"><sup>$</sup>{{$transporte_precios->precio}}<small>USD</small></p>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--@endforeach--}}
+                        {{--@endforeach--}}
 
                         @foreach($guias as $guia2)
                             @php
