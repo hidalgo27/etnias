@@ -26,6 +26,7 @@ class HomepageController extends Controller
         $disponibilidad_mes = ActividadDisponible::where('estado',1)->whereMonth('fecha','=',04)->inRandomOrder()->take(10)->get();
 
         $comunidad_huilloc = Comunidad::with([
+                'asociaciones.actividades.fotos',
             'asociaciones.actividades',
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
         )->where('nombre', 'HUILLOC')->get();

@@ -28,6 +28,7 @@
     "dependencies": {
         "air-datepicker": "^2.2.3",
         "fullcalendar": "^3.10.0",
+        "intl-tel-input": "^15.0.1",
         "jquery-parallax.js": "^1.5.0",
         "materialize-css": "^1.0.0-rc.2",
         "moment": "^2.24.0",

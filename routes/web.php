@@ -34,7 +34,11 @@ Route::post('/book/', [
     'uses' => 'BookController@index',
     'as' => 'book_path',
 ]);
-Route::get('/payment', [
+Route::post('/detail/update_price', [
+    'uses' => 'DetailController@update_price',
+    'as' => 'detail_update_price_path',
+]);
+Route::post('/payment', [
     'uses' => 'PaymentController@index',
     'as' => 'payment_path',
 ]);

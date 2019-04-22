@@ -244,14 +244,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <form action="{{route('book_path')}}" method="post">
+                        <div class="col-4">
+                            <form action="{{route('book_path')}}" method="post" enctype="multipart/form-data" id="form_detail">
                                 @csrf
                                 <input type="hidden" name="id_actividad" value="{{$actividades->id}}">
+                                {{--<input type="hidden" name="txt_comision" value="{{$asociaciones->comision}}">--}}
                                 <div class="card">
                                     <div class="card-body text-center">
                                         @foreach($actividades->precios as $precio)
-                                            <sup>$</sup><span class="font-weight-bold display-4 h1" id="precio_persona">{{$precio->precio}}</span><small>USD</small>
+                                            <sup>$</sup><span class="font-weight-bold display-4 h1" id="precio_persona">{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}</span><small>USD</small>
+                                            <small class="d-block text-muted">Precio por persona</small>
                                         @endforeach
                                         <hr>
                                         <div class="row">
@@ -262,27 +264,23 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group text-left">
                                                     <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Numero de personas</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1" name="txt_personas" onchange="price_person(this.value)">
-                                                        @foreach($precio_actividad as $precio_actividad)
-                                                            @if ($precio_actividad->min == 2 AND $precio_actividad->max == 2)
-                                                                @php $selected = "selected" @endphp
-                                                            @else
-                                                                @php $selected = "" @endphp
-                                                            @endif
-                                                            @if ($precio_actividad->min == $precio_actividad->max)
-                                                                <option {{$selected}} value="{{$precio_actividad->id}}-{{$precio_actividad->precio}}">{{$precio_actividad->min}}</option>
-                                                            @else
-                                                                <option {{$selected}} value="{{$precio_actividad->id}}-{{$precio_actividad->precio}}">{{$precio_actividad->min}} - {{$precio_actividad->max}}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    </select>
+                                                    <input class="form-control" id="txt_personas" name="txt_personas" onchange="price_person()" required>
                                                 </div>
                                             </div>
                                         </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group text-left">
+                                                        <label for="custom-cells" class="font-weight-bold text-secondary small">Pais</label>
+                                                        <input type="text" class="form-control" id="txt_pais" name="txt_pais" placeholder="Escoja su pais" required>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <button type="submit" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</button>
                                     </div>
                                 </div>
@@ -393,10 +391,37 @@
             }
         });
 
-        function price_person($id) {
-            $price = $id.split('-');
-            // document.getElementById('precio_persona').value = ("hola");
-            document.getElementById('precio_persona').innerHTML = $price[1];
+        function price_person() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('[name="_token"]').val()
+                }
+            });
+
+            var dataString = $('#form_detail').serialize();
+
+            // alert('Datos serializados: '+dataString);
+
+            $.ajax({
+                type: "POST",
+                url: "../detail/update_price",
+                data: dataString,
+                success: function(data) {
+                    document.getElementById('precio_persona').innerHTML = data;
+                }
+            });
+            // alert($precio+'-'+$comision+'-'+$idactividad);
+
+            {{--@foreach($precio_actividad->where('min','>',$personas)->where('max','<',$personas) as $precio_actividad)--}}
+            {{--console.log('{{$precio_actividad->id}}');--}}
+            {{--@endforeach--}}
+
+            // $price = $precio.split('-');
+            // $price = parseFloat($price[1]);
+            // $total = $price+( $comision * $price)/100;
+            // console.log($price+'+('+$comision+'*'+$price+')/'+100);
+            // // document.getElementById('precio_persona').value = ("hola");
+            // document.getElementById('precio_persona').innerHTML = Math.round($total.toFixed(2));
         }
     </script>
 @endpush
