@@ -103,16 +103,16 @@ Route::get('/contacto', [
 
 //client
 Route::get('/client/home', [
-    'uses' => 'client\HomeController@index',
+    'uses' => 'Client\HomeController@index',
     'as' => 'client_home_path',
 ]);
 Route::get('/client/order/detail/{id}', [
-    'uses' => 'client\ReservaController@order',
+    'uses' => 'Client\ReservaController@order',
     'as' => 'client_order_path',
 ]);
 
 Route::get('/client/perfil', [
-    'uses' => 'client\ClientController@index',
+    'uses' => 'Client\ClientController@index',
     'as' => 'client_perfil_path',
 ]);
 
