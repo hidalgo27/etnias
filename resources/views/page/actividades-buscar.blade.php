@@ -94,12 +94,17 @@
                 <div class="row align-items-center">
                     <div class="col">
                         <div class="form-group">
-                            <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD</label>
+                            <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD {{$comunidad_input}}</label>
                             {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
                             <select id="inputState" class="form-control" name="slc_comunidad" required>
                                 <option value="">Seleccione...</option>
                                 @foreach($comunidad_all as $comunidades)
-                                    <option value="{{$comunidades->nombre}}">{{ucwords(strtolower($comunidades->nombre))}}</option>
+                                    @if ($comunidad_input == $comunidades)
+                                        @php $select_a = "selected"; @endphp
+                                    @else
+                                        @php $select_a = ""; @endphp
+                                    @endif
+                                        <option value="{{$comunidades->nombre}}" {{$select_a}}>{{ucwords(strtolower($comunidades->nombre))}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -102,7 +102,7 @@ class ActividadesController extends Controller
 
         $comunidad_all = Comunidad::all();
 
-        return view('page.actividades-buscar', compact('categoria','comunidad','category','disponibilidad','comunidad_all'));
+        return view('page.actividades-buscar', compact('categoria','comunidad','category','disponibilidad','comunidad_all','comunidad_input','fecha_input', 'huesped_input'));
     }
 
     /**
