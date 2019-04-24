@@ -52,12 +52,8 @@
                                 <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> Fecha de viaje: {{$fecha_viaje}}</p>
                             </div>
                         </div>
-
-                        @foreach($comida as $comidas)
-                            @php
-                                $comidad_id = explode('-',$comidas);
-                            @endphp
-                            @foreach($comida_precio->where('id', $comidad_id[0]) as $comida_precios)
+                        @if (isset($comida_precio))
+                            @foreach($comida_precio as $comida_precios)
                                 <div class="row text-left align-items-center">
                                     <div class="col">
                                         <p class="m-0 d-block mb-1">
@@ -66,36 +62,47 @@
                                         </p>
                                     </div>
                                     <div class="col text-right">
-                                        <p class="m-0 d-block mb-1"><sup>$</sup>{{$comida_precios->precio}}<small>USD</small></p>
+                                        <p class="m-0 d-block mb-1"><sup>$</sup>{{round($comida_precios->precio)}}<small>USD</small></p>
                                     </div>
                                 </div>
                             @endforeach
-                        @endforeach
+                        @endif
 
-                        {{--@foreach($transporte as $transportes)--}}
-                            {{--@php--}}
-                                {{--$transporte_id = explode('-',$transportes);--}}
-                            {{--@endphp--}}
-                            {{--@foreach($transporte_precio->where('id', $transporte_id[0]) as $transporte_precios)--}}
-                                {{--<div class="row text-left align-items-center">--}}
-                                    {{--<div class="col">--}}
-                                        {{--<p class="m-0 d-block mb-1">--}}
-                                            {{--<i class="fas fa-car h5 text-g-grey-light pr-2 float-left"></i>--}}
-                                            {{--{{$transporte_precios->transporte->titulo}}--}}
-                                        {{--</p>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col text-right">--}}
-                                        {{--<p class="m-0 d-block mb-1"><sup>$</sup>{{$transporte_precios->precio}}<small>USD</small></p>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--@endforeach--}}
-                        {{--@endforeach--}}
+                        @if (isset($hospedaje_precio))
+                            @foreach($hospedaje_precio as $hospedaje_precios)
+                            <div class="row text-left align-items-center">
+                                <div class="col">
+                                    <p class="m-0 d-block mb-1">
+                                        <i class="fas fa-home h5 text-g-grey-light pr-2 float-left"></i>
+                                        {{$hospedaje_precios->hospedaje->titulo}}
+                                    </p>
+                                </div>
+                                <div class="col text-right">
+                                    <p class="m-0 d-block mb-1"><sup>$</sup>{{round($hospedaje_precios->precio)}}<small>USD</small></p>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
 
-                        @foreach($guias as $guia2)
-                            @php
-                                $guia_id = explode('-',$guia2);
-                            @endphp
-                            @foreach($guia->where('id', $guia_id[0]) as $guia_precios)
+                        @if (isset($transporte_precio))
+                            @foreach($transporte_precio as $transporte_precios)
+                            <div class="row text-left align-items-center">
+                                <div class="col">
+                                    <p class="m-0 d-block mb-1">
+                                        <i class="fas fa-car h5 text-g-grey-light pr-2 float-left"></i>
+                                        Transporte
+                                    </p>
+                                </div>
+                                <div class="col text-right">
+                                    <p class="m-0 d-block mb-1"><sup>$</sup>{{$transporte_precios->precio}}<small>USD</small></p>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
+
+
+                        @if (isset($guia_precio))
+                            @foreach($guia_precio as $guia_precios)
                                 <div class="row text-left align-items-center">
                                     <div class="col">
                                         <p class="m-0 d-block mb-1">
@@ -108,8 +115,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                        @endforeach
-
+                        @endif
                         {{--<div class="row text-left align-items-center">--}}
                             {{--<div class="col">--}}
                                 {{--<p class="m-0 d-block mb-1"><i class="fas fa-street-view h5 text-g-grey-light pr-2 float-left"></i> Guia (Ingles)</p>--}}
@@ -159,77 +165,99 @@
                                     <div class="card-header bg-primary">
                                         <h6 class="text-white m-0"><i class="fas fa-lock"></i> Pago seguro</h6>
                                     </div>
-                                    <div class="card-body p-5">
+                                    <div class="card-body">
                                         <div class="row justify-content-center">
                                             <div class="col-6">
-                                                <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
-                                                            <i class="fa fa-credit-card"></i> Credit Card</a></li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
-                                                            <i class="fab fa-paypal"></i>  Paypal</a></li>
-                                                </ul>
-
-                                                <div class="tab-content">
-                                                    <div class="tab-pane fade show active" id="nav-tab-card">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="font-weight-bold text-center bg-secondary text-white p-2 rounded-top">
+                                                            <i class="fa fa-credit-card"></i> Credit Card</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
                                                         {{--<p class="alert alert-success">Some text success or error</p>--}}
-                                                        <form role="form">
+                                                        <form role="form" class="bg-light p-3 rounded-bottom" id="form_login" method="post">
+                                                            @csrf
                                                             <div class="form-group">
                                                                 <label for="username">Full name (on the card)</label>
-                                                                <input type="text" class="form-control" name="username" placeholder="" required="">
+                                                                <input type="text" class="form-control" name="username" placeholder="" required="" id="username">
                                                             </div> <!-- form-group.// -->
 
                                                             <div class="form-group">
                                                                 <label for="cardNumber">Card number</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                                                    <input type="text" class="form-control" name="cardNumber" placeholder="" id="cardNumber">
                                                                     <div class="input-group-append">
-                                                        <span class="input-group-text text-muted">
-                                                            <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>  
-                                                            <i class="fab fa-cc-mastercard"></i>
-                                                        </span>
+                                                                        <span class="input-group-text text-muted">
+                                                                            <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>  
+                                                                            <i class="fab fa-cc-mastercard"></i>
+                                                                        </span>
                                                                     </div>
                                                                 </div>
                                                             </div> <!-- form-group.// -->
-
                                                             <div class="row">
                                                                 <div class="col-sm-8">
                                                                     <div class="form-group">
                                                                         <label><span class="hidden-xs">Expiration</span> </label>
                                                                         <div class="input-group">
-                                                                            <input type="number" class="form-control" placeholder="MM" name="">
-                                                                            <input type="number" class="form-control" placeholder="YY" name="">
+                                                                            <input type="number" class="form-control" placeholder="MM" name="expiration_m" id="expiration_m">
+                                                                            <input type="number" class="form-control" placeholder="YY" name="expiration_y" id="expiration_y">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-4">
                                                                     <div class="form-group">
                                                                         <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
-                                                                        <input type="number" class="form-control" required="">
+                                                                        <input type="number" class="form-control" required="" name="cvv" id="cvv">
                                                                     </div> <!-- form-group.// -->
                                                                 </div>
                                                             </div> <!-- row.// -->
                                                             <div class="row">
                                                                 <div class="col">
-                                                                    <div class="form-group form-check">
-                                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                                        <label class="form-check-label" for="exampleCheck1"><sup class="text-danger">*</sup>Acepto los términos y condiciones anteriores:</label>
+                                                                    <div class="form-group">
+                                                                        <label for="username">Email</label>
+                                                                        <input type="text" class="form-control" name="email" placeholder="" required="" id="email">
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <button class="subscribe btn btn-primary" type="button">Confirmar</button>
+                                                            <div class="row">
+                                                                <div class="col was-validated">
+                                                                    <div class="custom-control custom-checkbox mb-3">
+                                                                        <input type="checkbox" class="custom-control-input" name="terminos" id="terminos" required>
+                                                                        <label class="custom-control-label" for="terminos">Acepto los términos y condiciones anteriores:</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button class="subscribe btn btn-primary" type="button" onclick="form_login()">Confirmar</button>
+                                                            <input type="hidden" name="actividad" value="{{$actividades->id}}">
+                                                            <input type="hidden" name="personas" value="{{$personas}}">
+                                                            <input type="hidden" name="fecha_viaje" value="{{$fecha_viaje}}">
+                                                            @if (isset($comida_precio))
+                                                                @foreach($comida_precio as $comida_precios)
+                                                                    <input type="hidden" name="comida[]" value="{{$comida_precios->id}}">
+                                                                @endforeach
+                                                            @endif
+                                                            @if (isset($hospedaje_precio))
+                                                                @foreach($hospedaje_precio as $hospedaje_precios)
+                                                                    <input type="hidden" name="hospedaje[]" value="{{$hospedaje_precios->id}}">
+                                                                @endforeach
+                                                            @endif
+
+                                                            @if (isset($transporte_precio))
+                                                                @foreach($transporte_precio as $transporte_precios)
+                                                                    <input type="hidden" name="transporte[]" value="{{$transporte_precios->id}}">
+                                                                @endforeach
+                                                            @endif
+                                                            @if (isset($guia_precio))
+                                                                @foreach($guia_precio as $guia_precios)
+                                                                    <input type="hidden" name="guia[]" value="{{$guia_precios->id}}">
+                                                                @endforeach
+                                                            @endif
                                                         </form>
-                                                    </div> <!-- tab-pane.// -->
-                                                    <div class="tab-pane fade" id="nav-tab-paypal">
-                                                        <p>Paypal is easiest way to pay online</p>
-                                                        <p>
-                                                            <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in my Paypal </button>
-                                                        </p>
-                                                        <p><strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                            tempor incididunt ut labore et dolore magna aliqua. </p>
                                                     </div>
-                                                </div> <!-- tab-content .// -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div> <!-- card-body.// -->
@@ -242,3 +270,34 @@
         </section>
         @endforeach
     @endsection
+@push("scripts")
+    <script>
+        function form_login() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('[name="_token"]').val()
+                }
+            });
+            var dataString = $('#form_login').serialize();
+
+            // alert('Datos serializados: '+dataString);
+
+            $.ajax({
+                type: "POST",
+                url: "{{route('payment_check_path')}}",
+                data: dataString,
+                success: function(data) {
+                    alert(data.success);
+                },
+                error: function (request, status, error) {
+                    json = $.parseJSON(request.responseText);
+                    $.each(json.errors, function(key, value){
+                        // $('.alert-danger').show();
+                        // $('.alert-danger').append('<p><i class="fas fa-chevron-right"></i> '+value+'</p>');
+                        $('#'+key+'').addClass('is-invalid');
+                    });
+                }
+            });
+        }
+    </script>
+@endpush

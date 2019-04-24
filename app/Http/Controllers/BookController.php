@@ -4,11 +4,15 @@ namespace EtniasPeru\Http\Controllers;
 
 use EtniasPeru\Actividad;
 use EtniasPeru\ActividadPrecio;
+use EtniasPeru\Asociacion;
 use EtniasPeru\Comida;
 use EtniasPeru\ComidaPrecio;
 use EtniasPeru\Guia;
+use EtniasPeru\HospedajePrecio;
 use EtniasPeru\Transporte;
+use EtniasPeru\TransporteExterno;
 use EtniasPeru\TransportePrecio;
+use function foo\func;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -24,7 +28,7 @@ class BookController extends Controller
         $fecha_viaje = $request->input('fecha_viaje');
         $personas = $request->input('txt_personas');
 
-        $actividad = Actividad::where('id', $id_actividad)->get();
+        $actividad = Actividad::find($id_actividad);
 
         $comision = Actividad::with('asociacion')->where('id', $id_actividad)->get();
         foreach ($comision as $comisiones){
@@ -38,22 +42,28 @@ class BookController extends Controller
 
         $total = $precio + ($precio * $comision)/100;
 
-        $comida = Comida::all();
-        $comidas = ComidaPrecio::where('categoria', "Extranjero")->where('min','<=',$personas)->where('max','>=',$personas)->get();
-        foreach ($comidas as $precio_comidas) {
-            $precio_desayuno = $precio_comidas->precio;
-        }
+//        $comida = Comida::where('asociacion_id', $actividad->asociacion->id)->get();
+        $asocicion_id = $actividad->asociacion->id;
+        $comidas_precio = ComidaPrecio::with(['comida'=>function($query) use ($asocicion_id) {$query->where('asociacion_id', $asocicion_id)->get();}])->where('categoria', "Extranjero")->where('min','<=',$personas)->where('max','>=',$personas)->get();
 
-        $transporte = Transporte::all();
-        $transportes = TransportePrecio::where('categoria', "Extranjero")->where('min','<=',$personas)->where('max','>=',$personas)->get();
-        foreach ($comidas as $precio_comidas) {
-            $precio_desayuno = $precio_comidas->precio;
-        }
+        $hospedaje_precio = HospedajePrecio::with(['hospedaje'=>function($query) use ($asocicion_id) {$query->where('asociacion_id', $asocicion_id)->get();}])->where('categoria', "Extranjero")->where('min','<=',$personas)->where('max','>=',$personas)->get();
 
-        $guia = Guia::where('departamento_id', "8")->where('min','<=',$personas)->where('max','>=',$personas)->get();
+        $transportes = TransporteExterno::where('comunidad_id', $actividad->asociacion->comunidad->id)->where('min','<=',$personas)->where('max','>=',$personas)->get();
 
-        return view('page.book',compact('actividad','fecha_viaje','total','$precio_desayuno','comida','comidas','transporte','transportes','guia','personas'));
+        $id_departamento = $actividad->asociacion->comunidad->distrito->provincia->departamento->id;
+
+        $guia = Guia::where('departamento_id', $id_departamento)->where('min','<=',$personas)->where('max','>=',$personas)->get();
+
+//        return redirect()->route('book_get_path', compact('actividad','fecha_viaje','total','hospedaje_precio','comidas_precio','transportes','guia','personas'));
+
+        return view('page.book')->with(compact('actividad','fecha_viaje','total','hospedaje_precio','comidas_precio','transportes','guia','personas'));
     }
+
+    public function index2()
+    {
+        echo "hola";
+    }
+
 
     /**
      * Show the form for creating a new resource.

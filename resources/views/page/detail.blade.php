@@ -40,7 +40,7 @@
                             <ul>
                                 <li>Comunidad: {{ucwords(strtolower($comunidades->nombre))}}</li>
                                 @foreach($actividades->precios as $precio)
-                                <li>Precio : <sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small></li>
+                                <li>Precio : <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small class="p-0">USD</small></li>
                                 @endforeach
                                 <li class="text-truncate" data-toggle="tooltip" data-placement="top" title="{{$actividades->duracion}}">Duración : {{$actividades->duracion}}</li>
                                 <li class="btn-book">
@@ -273,14 +273,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-group text-left">
-                                                        <label for="custom-cells" class="font-weight-bold text-secondary small">Pais</label>
-                                                        <input type="text" class="form-control" id="txt_pais" name="txt_pais" placeholder="Escoja su pais" required>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {{--<div class="row">--}}
+                                                {{--<div class="col">--}}
+                                                    {{--<div class="form-group text-left">--}}
+                                                        {{--<label for="custom-cells" class="font-weight-bold text-secondary small">Pais</label>--}}
+                                                        {{--<input type="text" class="form-control" id="txt_pais" name="txt_pais" placeholder="Escoja su pais" required>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
                                             <button type="submit" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</button>
                                     </div>
                                 </div>
@@ -423,5 +423,27 @@
             // // document.getElementById('precio_persona').value = ("hola");
             // document.getElementById('precio_persona').innerHTML = Math.round($total.toFixed(2));
         }
+
+        // function price_person() {
+        //     $.ajaxSetup({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('[name="_token"]').val()
+        //         }
+        //     });
+        //
+        //     var dataString = $('#form_detail').serialize();
+        //
+        //     // alert('Datos serializados: '+dataString);
+        //
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "../detail/update_price",
+        //         data: dataString,
+        //         success: function(data) {
+        //             document.getElementById('precio_persona').innerHTML = data;
+        //         }
+        //     });
+        //
+        // }
     </script>
 @endpush
