@@ -287,7 +287,8 @@
                 url: "{{route('payment_check_path')}}",
                 data: dataString,
                 success: function(data) {
-                    alert(data.success);
+                    // alert(data.success);
+                    location.href="../client/home";
                 },
                 error: function (request, status, error) {
                     json = $.parseJSON(request.responseText);

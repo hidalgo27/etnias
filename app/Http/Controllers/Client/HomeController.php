@@ -3,6 +3,8 @@
 namespace EtniasPeru\Http\Controllers\Client;
 
 use EtniasPeru\Http\Controllers\Controller;
+use EtniasPeru\Reserva;
+use EtniasPeru\ReservaActividad;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +25,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        return view('client.home');
+        $reserva = Reserva::with('actividades')->where('codigo', $request->user()->id)->get();
+        return view('client.home', compact('reserva','reserva_actividad'));
     }
     /*
         public function someAdminStuff(Request $request)
