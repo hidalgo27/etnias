@@ -16,7 +16,9 @@
             <div id="home-slider-container">
                 <div id="home-slider">
                     <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-4.jpg')}}"/>
+                        @foreach($comunidades->fotos->where('estado',1)->take(1) as $foto_portada)
+                            <img src="http://admin.etniasperu.travel/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                        @endforeach
                         {{--<div class="container">--}}
                         {{--<div class="slider-content row align-items-center">--}}
                         {{--<div class="container">--}}

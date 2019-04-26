@@ -23,7 +23,7 @@ class ComunidadController extends Controller
         $titulo = str_replace('-', ' ', $titulo);
         $rango_min = 2;
         $rango_max = 2;
-        $comunidad = Comunidad::with('asociaciones')->where('nombre', $titulo)->get();
+        $comunidad = Comunidad::with('fotos','asociaciones')->where('nombre', $titulo)->get();
         $comunidad_pack = Comunidad::with([
                 'fotos',
                 'asociaciones.actividades',
