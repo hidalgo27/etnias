@@ -66,7 +66,7 @@
 
                         <div class="col-4 text-center mb-4">
                             @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
-                                <img src="http://admin.etniasperu.travel/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
+                                <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
                             @endforeach
                             <a href="{{route('comunidad_show_path', str_replace(' ','-', strtolower($comunidad->nombre)))}}" class="m-0 d-block mt-3 h3 font-weight-bold text-g-green-light stretched-link">{{ucwords(strtolower($comunidad->nombre))}}</a>
                             <div class="box-comunidad-arrow text-center m-auto"></div>

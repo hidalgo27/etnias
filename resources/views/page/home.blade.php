@@ -237,7 +237,7 @@
                                                 <div class="col">
                                                     <div class="header-img-actividades">
                                                         @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
-                                                            <img src="https://admin.etniasperu.travel/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100">
+                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100">
                                                         @endforeach
                                                         <div class="position-absolute-top">
                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_huilloc->categoria))}}</span>
@@ -331,7 +331,7 @@
                                                 @if ($disponibilidades->actividad_id == $actividades_taucca->id)
                                                     <div class="col">
                                                         @foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)
-                                                            <img src="https://admin.etniasperu.travel/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">
+                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">
                                                         @endforeach
                                                         <h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>
                                                         {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>--}}
@@ -407,7 +407,7 @@
                                                             <div class="col">
                                                                 <div class="header-img-actividades">
                                                                     @foreach($actividades_amaru->fotos->where('estado',2)->take(1) as $fotos_amaru)
-                                                                        <img src="https://admin.etniasperu.travel/admin/mostar/imagen/{{$fotos_amaru->imagen}}/actividades" alt="" class="w-100">
+                                                                        <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_amaru->imagen}}/actividades" alt="" class="w-100">
                                                                     @endforeach
                                                                     <div class="position-absolute-top">
                                                                         <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_amaru->categoria))}}</span>

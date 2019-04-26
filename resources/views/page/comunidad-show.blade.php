@@ -17,21 +17,8 @@
                 <div id="home-slider">
                     <div class="slider-item">
                         @foreach($comunidades->fotos->where('estado',1)->take(1) as $foto_portada)
-                            <img src="http://admin.etniasperu.travel/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                            <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
                         @endforeach
-                        {{--<div class="container">--}}
-                        {{--<div class="slider-content row align-items-center">--}}
-                        {{--<div class="container">--}}
-                        {{--<div class="slider-controls"><a class="slider-prev" href="#onceki"> </a><a class="slider-next" href="#sonraki"></a></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col">--}}
-                        {{--<h2 class="display-4 font-weight-bold text-white">Auf mystischen <span class="d-block">Wegen</span></h2>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                    </div>
-                    <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-7.jpg')}}"/>
                         {{--<div class="container">--}}
                         {{--<div class="slider-content row align-items-center">--}}
                         {{--<div class="container">--}}
