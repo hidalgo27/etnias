@@ -34,13 +34,13 @@ class BookController extends Controller
         foreach ($comision as $comisiones){
             $comision = $comisiones->asociacion->comision;
         }
-        $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->get();
-
-        foreach ($precio_actividad as $precio_actividades){
-            $precio = $precio_actividades->precio;
+        $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->first();
+        if (isset($precio_actividad)){
+            $precio = $precio_actividad->precio;
+            $total = $precio + ($precio * $comision)/100;
+        }else{
+            return back()->withInput()->with('status', 'No tenemos precios para '.$personas.' personas.');
         }
-
-        $total = $precio + ($precio * $comision)/100;
 
 //        $comida = Comida::where('asociacion_id', $actividad->asociacion->id)->get();
         $asocicion_id = $actividad->asociacion->id;

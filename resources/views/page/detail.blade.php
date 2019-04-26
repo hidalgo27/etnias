@@ -28,7 +28,7 @@
                     <div class="row align-items-end bg-header-body pb-5">
                         <div class="col text-white">
                             <h1 class="text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
-                            <p class="lead font-weight-normal"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> {{$comunidades->altura}} msnm, <b>Distancia de la ciudad más cercana:</b> {{$comunidades->distancia}}</p>
+                            <p class="lead font-weight-normal"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> {{$comunidades->altura}}, <b>Distancia de la ciudad más cercana:</b> {{$comunidades->distancia}}</p>
                         </div>
                     </div>
                 </div>
@@ -79,15 +79,9 @@
                                     @php echo $actividades->descripcion; @endphp
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <h6 class="font-weight-bold d-block">Recomendaciones</h6>
-                                    @php echo $actividades->recomendaciones; @endphp
-                                </div>
-                            </div>
-                            <div class="row font-poppins">
+                            <div class="row font-poppins mt-3">
                                 <div class="col d-flex">
-                                    <div class="card">
+                                    <div class="card w-100">
                                         <div class="card-body">
                                             <h6 class="font-weight-bold">Términos y condiciones de la comunidad</h6>
                                             <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Edad mínima:</b> {{ucwords(strtolower($actividades->edad_minima))}}</div>
@@ -97,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="col d-flex">
-                                    <div class="card">
+                                    <div class="card w-100">
                                         <div class="card-body">
                                             <h6 class="font-weight-bold">Descripción duración y periodo</h6>
                                             <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Periodo:</b> {{ucwords(strtolower($actividades->periodo))}}</div>
@@ -106,8 +100,18 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mt-4">
+                                <div class="col">
+                                    <div class="font-poppins text-g-grey-primary">
+                                            <h5 class="font-weight-bold">Incluye</h5>
+                                            @php echo $actividades->incluye; @endphp
+
+                                            <h5 class="font-weight-bold">No Incluye</h5>
+                                            @php echo $actividades->no_incluye; @endphp
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col font-poppins">
                                     <h5 class="font-weight-bold pb-3">Disponibilidad:</h5>
                                 </div>
@@ -260,7 +264,7 @@
                                             <div class="col">
                                                 <div class="form-group text-left">
                                                     <label for="custom-cells" class="font-weight-bold text-secondary small">Fecha de Viaje</label>
-                                                    <input type="text" class="form-control" id="custom-cells-3" name="fecha_viaje" placeholder="Escoja su fecha de viaje" required>
+                                                    <input type="text" class="form-control" id="custom-cells-3" name="fecha_viaje" placeholder="Escoja su fecha de viaje" required value="{{old('fecha_viaje')}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -269,7 +273,7 @@
                                             <div class="col">
                                                 <div class="form-group text-left">
                                                     <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Numero de personas</label>
-                                                    <input class="form-control" id="txt_personas" name="txt_personas" onchange="price_person()" required>
+                                                    <input class="form-control" id="txt_personas" name="txt_personas" onchange="price_person()" required value="{{old('txt_personas')}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -282,16 +286,18 @@
                                                 {{--</div>--}}
                                             {{--</div>--}}
                                             <button type="submit" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</button>
+                                            @if (session('status'))
+                                                <div class="alert alert-warning font-weight-bold mt-3">
+                                                    {{ session('status') }}
+                                                </div>
+                                            @endif
                                     </div>
                                 </div>
                             </form>
                             <div class="card bg-light mt-4">
                                 <div class="card-body font-poppins">
-                                    <h6 class="font-weight-bold">Incluye</h6>
-                                    @php echo $actividades->incluye; @endphp
-                                    <hr>
-                                    <h6 class="font-weight-bold">No Incluye</h6>
-                                    @php echo $actividades->no_incluye; @endphp
+                                    <h6 class="font-weight-bold d-block">Recomendaciones</h6>
+                                    @php echo $actividades->recomendaciones; @endphp
                                     <hr>
                                     <h6 class="font-weight-bold">Guia Disponible:</h6>
                                     @php echo $actividades->disponible; @endphp
