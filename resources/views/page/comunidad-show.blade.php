@@ -45,11 +45,11 @@
                                     <div class="col">
                                         @php echo $comunidades->descripcion; @endphp
                                     </div>
-                                    <div class="col text-center">
-                                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                                        </a>
-                                    </div>
+                                    {{--<div class="col text-center">--}}
+                                        {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                                            {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
                                 </div>
                             </div>
                         </div>
