@@ -55,7 +55,7 @@
                         </div>
                         <div class="row mb-4" id="actividades">
                             <div class="col">
-                                <h4 class="font-weight-bold text-g-grey-primary mt-5 mb-4">Elija una actividad en {{ucwords(strtolower($comunidades->nombre))}}</h4>
+                                <h4 class="font-weight-bold text-g-grey-primary mt-1 mb-4">Elija una actividad en {{ucwords(strtolower($comunidades->nombre))}}</h4>
                                 <div class="row">
                                     @foreach($comunidad_pack as $comunidades_pack)
                                         @foreach($comunidades_pack->asociaciones as $asociaciones)
