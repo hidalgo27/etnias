@@ -760,7 +760,7 @@
                             <tbody class="small font-weight-bold text-secondary">
                             @foreach($comunidad as $comunidades)
                                 @foreach($comunidades->asociaciones as $asociaciones)
-                                    @foreach($asociaciones->actividades as $actividades)
+                                    @foreach($asociaciones->actividades->unique('titulo') as $actividades)
                                         @foreach($disponibilidad_mes->where('actividad_id', $actividades->id) as $disponibilidades_mes)
                                             @if ($disponibilidades_mes->actividad_id == $actividades->id)
                                                 <tr>
@@ -768,7 +768,7 @@
                                                         <div class="row align-items-center">
                                                             <div class="col-auto">
                                                                 @foreach($actividades->fotos->where('estado',2) as $fotos)
-                                                                    <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                                    <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="rounded" width="50" height="50">
                                                                 @endforeach
                                                             </div>
                                                             <div class="col text-truncate">
