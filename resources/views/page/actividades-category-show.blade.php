@@ -101,7 +101,7 @@
                     <table id="myTable">
                         <tbody class="small font-weight-bold text-secondary">
                         <tr class="h5 font-weight-bold text-g-grey-primary">
-                            <th>Nombre Actividad</th>
+                            <th class="p-3">Nombre Actividad</th>
                             <th class="w-25 text-center">Precio</th>
                             <th class="e_h1">Lugar</th>
                             <th class="text-center">Book</th>
