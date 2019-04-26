@@ -330,7 +330,9 @@
                                             @foreach($disponibilidad->where('actividad_id', $actividades_taucca->id) as $disponibilidades)
                                                 @if ($disponibilidades->actividad_id == $actividades_taucca->id)
                                                     <div class="col">
-                                                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                                                        @foreach($actividades_taucca->fotos->where('estado',2) as $fotos_taucca)
+                                                            <img src="https://admin.etniasperu.travel/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">
+                                                        @endforeach
                                                         <h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>
                                                         {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>--}}
                                                         <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>
