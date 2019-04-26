@@ -309,9 +309,10 @@
                             <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <div class="col text-center">
-                            <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                            </a>
+                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                                {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                            {{--</a>--}}
+                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
                         </div>
                     </div>
                     <div class="row my-4">
@@ -374,7 +375,7 @@
                     <div class="row align-items-center mt-4">
                         <div class="col text-center">
                             <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                                <img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                             </a>
                         </div>
                         <div class="col">
@@ -765,12 +766,7 @@
                                             @if ($disponibilidades_mes->actividad_id == $actividades->id)
                                                 <tr>
                                                     <td class="">
-                                                        <div class="row align-items-center">
-                                                            <div class="col-auto">
-                                                                @foreach($actividades->fotos->where('estado',2) as $fotos)
-                                                                    <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="rounded" width="50" height="50">
-                                                                @endforeach
-                                                            </div>
+                                                        <div class="row align-items-center p-3">
                                                             <div class="col text-truncate">
                                                                 <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
                                                                     {{ucwords(strtolower($actividades->titulo))}}
