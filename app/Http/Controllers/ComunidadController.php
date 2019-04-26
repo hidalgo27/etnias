@@ -25,7 +25,7 @@ class ComunidadController extends Controller
         $rango_max = 2;
         $comunidad = Comunidad::with('fotos','asociaciones')->where('nombre', $titulo)->get();
         $comunidad_pack = Comunidad::with([
-                'fotos',
+                'asociaciones.fotos',
                 'asociaciones.actividades',
                 'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
         )->where('nombre', $titulo)->get();

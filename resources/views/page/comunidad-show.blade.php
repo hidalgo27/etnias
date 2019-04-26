@@ -55,7 +55,7 @@
                         </div>
                         <div class="row mb-4" id="actividades">
                             <div class="col">
-                                <h4 class="font-weight-bold text-g-grey-primary mt-5 mb-4">Elija una actividad en Huiloq</h4>
+                                <h4 class="font-weight-bold text-g-grey-primary mt-5 mb-4">Elija una actividad en {{ucwords(strtolower($comunidades->nombre))}}</h4>
                                 <div class="row">
                                     @foreach($comunidad_pack as $comunidades_pack)
                                         @foreach($comunidades_pack->asociaciones as $asociaciones)
@@ -66,7 +66,9 @@
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="header-img-actividades">
-                                                                        <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                                                        @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="w-100">
+                                                                        @endforeach
                                                                         <div class="position-absolute-top">
                                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades->categoria))}}</span>
                                                                         </div>
@@ -102,7 +104,9 @@
                                 <div class="row">
                                     @foreach($comunidades->asociaciones as $asociaciones)
                                     <div class="col-4 text-center">
-                                        <img src="{{asset('images/taucca3.jpg')}}" alt="" width="150" height="150" class="rounded-circle shadow">
+                                        @foreach($asociaciones->fotos->where('estado',2)->take(1) as $foto_asociacion)
+                                        <img src="http://admin.mietnia.com/admin/asociacion/editar/imagen/{{$foto_asociacion->imagen}}" alt="" width="150" height="150" class="rounded-circle shadow">
+                                        @endforeach
                                         <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-{{$asociaciones->id}}">{{$asociaciones->nombre}}</h6>
                                         <!-- Modal -->
                                         <div class="modal fade" id="comunidad-{{$asociaciones->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
