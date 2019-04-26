@@ -20,12 +20,16 @@
                                 <th class="e_h1">Fecha de llegada</th>
                                 <th class="e_h1">Pago</th>
                             </tr>
+                            @foreach($reserva as $reservas)
+                                @foreach($reservas->actividades as $actividades)
                             <tr>
                                 <td>1</td>
-                                <td><a href="{{route('client_order_path', 1)}}">Tours chacra y alrededores</a></td>
-                                <td class="e_h1">16.12.2016</td>
-                                <td class="text-info"><sup>$</sup>1200<small>USD</small></td>
+                                <td><a href="{{route('client_order_path', 1)}}">{{$actividades->titulo}}</a></td>
+                                <td class="e_h1">{{$reservas->fecha_llegada}}</td>
+                                <td class="text-info"><sup>$</sup>{{$actividades->precio}}<small>USD</small></td>
                             </tr>
+                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

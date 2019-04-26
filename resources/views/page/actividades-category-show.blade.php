@@ -101,8 +101,7 @@
                     <table id="myTable">
                         <tbody class="small font-weight-bold text-secondary">
                         <tr class="h5 font-weight-bold text-g-grey-primary">
-                            <th class="py-3">#</th>
-                            <th>Nombre Actividad</th>
+                            <th class="p-3">Nombre Actividad</th>
                             <th class="w-25 text-center">Precio</th>
                             <th class="e_h1">Lugar</th>
                             <th class="text-center">Book</th>
@@ -113,11 +112,12 @@
                                     @foreach($disponibilidad->where('actividad_id', $actividades->id) as $disponibilidades)
                                         @if ($disponibilidades->actividad_id == $actividades->id)
                                             <tr>
-                                                <td>1</td>
                                                 <td class="">
                                                     <div class="row align-items-center">
                                                         <div class="col-auto">
-                                                            <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
+                                                            @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                            @endforeach
                                                         </div>
                                                         <div class="col text-truncate">
                                                             <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">

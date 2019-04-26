@@ -42,6 +42,12 @@ Route::post('/payment', [
     'uses' => 'PaymentController@index',
     'as' => 'payment_path',
 ]);
+Route::post('/payment/payment_check', [
+    'uses' => 'PaymentController@payment_check',
+    'as' => 'payment_check_path',
+]);
+
+
 Route::get('/comunidades', [
     'uses' => 'ComunidadController@index',
     'as' => 'comunidad_path',
@@ -115,4 +121,3 @@ Route::get('/client/perfil', [
     'uses' => 'Client\ClientController@index',
     'as' => 'client_perfil_path',
 ]);
-

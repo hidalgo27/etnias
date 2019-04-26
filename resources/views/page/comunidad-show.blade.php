@@ -16,20 +16,9 @@
             <div id="home-slider-container">
                 <div id="home-slider">
                     <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-4.jpg')}}"/>
-                        {{--<div class="container">--}}
-                        {{--<div class="slider-content row align-items-center">--}}
-                        {{--<div class="container">--}}
-                        {{--<div class="slider-controls"><a class="slider-prev" href="#onceki"> </a><a class="slider-next" href="#sonraki"></a></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col">--}}
-                        {{--<h2 class="display-4 font-weight-bold text-white">Auf mystischen <span class="d-block">Wegen</span></h2>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                    </div>
-                    <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-7.jpg')}}"/>
+                        @foreach($comunidades->fotos->where('estado',1)->take(1) as $foto_portada)
+                            <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                        @endforeach
                         {{--<div class="container">--}}
                         {{--<div class="slider-content row align-items-center">--}}
                         {{--<div class="container">--}}
@@ -56,17 +45,17 @@
                                     <div class="col">
                                         @php echo $comunidades->descripcion; @endphp
                                     </div>
-                                    <div class="col text-center">
-                                        <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                                        </a>
-                                    </div>
+                                    {{--<div class="col text-center">--}}
+                                        {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                                            {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-4" id="actividades">
                             <div class="col">
-                                <h4 class="font-weight-bold text-g-grey-primary mt-5 mb-4">Elija una actividad en Huiloq</h4>
+                                <h4 class="font-weight-bold text-g-grey-primary mt-1 mb-4">Elija una actividad en {{ucwords(strtolower($comunidades->nombre))}}</h4>
                                 <div class="row">
                                     @foreach($comunidad_pack as $comunidades_pack)
                                         @foreach($comunidades_pack->asociaciones as $asociaciones)
@@ -77,7 +66,9 @@
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="header-img-actividades">
-                                                                        <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                                                        @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="w-100">
+                                                                        @endforeach
                                                                         <div class="position-absolute-top">
                                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades->categoria))}}</span>
                                                                         </div>
@@ -113,7 +104,9 @@
                                 <div class="row">
                                     @foreach($comunidades->asociaciones as $asociaciones)
                                     <div class="col-4 text-center">
-                                        <img src="{{asset('images/taucca3.jpg')}}" alt="" width="150" height="150" class="rounded-circle shadow">
+                                        @foreach($asociaciones->fotos->where('estado',2)->take(1) as $foto_asociacion)
+                                        <img src="http://admin.mietnia.com/admin/asociacion/editar/imagen/{{$foto_asociacion->imagen}}" alt="" width="150" height="150" class="rounded-circle shadow">
+                                        @endforeach
                                         <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-{{$asociaciones->id}}">{{$asociaciones->nombre}}</h6>
                                         <!-- Modal -->
                                         <div class="modal fade" id="comunidad-{{$asociaciones->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

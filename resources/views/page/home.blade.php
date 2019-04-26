@@ -237,7 +237,7 @@
                                                 <div class="col">
                                                     <div class="header-img-actividades">
                                                         @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
-                                                            <img src="https://admin.etniasperu.travel/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100">
+                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100">
                                                         @endforeach
                                                         <div class="position-absolute-top">
                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_huilloc->categoria))}}</span>
@@ -309,9 +309,10 @@
                             <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <div class="col text-center">
-                            <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                            </a>
+                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                                {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                            {{--</a>--}}
+                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
                         </div>
                     </div>
                     <div class="row my-4">
@@ -330,7 +331,9 @@
                                             @foreach($disponibilidad->where('actividad_id', $actividades_taucca->id) as $disponibilidades)
                                                 @if ($disponibilidades->actividad_id == $actividades_taucca->id)
                                                     <div class="col">
-                                                        <img src="{{asset('images/sliders/slider-3.jpg')}}" alt="" class="w-100 rounded shadow">
+                                                        @foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)
+                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">
+                                                        @endforeach
                                                         <h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>
                                                         {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>--}}
                                                         <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>
@@ -372,7 +375,7 @@
                     <div class="row align-items-center mt-4">
                         <div class="col text-center">
                             <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                                <img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                             </a>
                         </div>
                         <div class="col">
@@ -404,7 +407,9 @@
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="header-img-actividades">
-                                                                    <img src="{{asset('images/huilloq/thumbnail/huilloq1.jpg')}}" alt="" class="w-100">
+                                                                    @foreach($actividades_amaru->fotos->where('estado',2)->take(1) as $fotos_amaru)
+                                                                        <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_amaru->imagen}}/actividades" alt="" class="w-100">
+                                                                    @endforeach
                                                                     <div class="position-absolute-top">
                                                                         <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_amaru->categoria))}}</span>
                                                                     </div>
@@ -513,7 +518,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Actividades <span class="text-g-red-dark">Popular</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">Comunidades <span class="text-g-red-dark">Popular</span></h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
@@ -526,12 +531,12 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <a href="">
+                        <a href="{{route('comunidad_show_path', 'taucca')}}">
                             <div class="top-actividades">
-                                <img src="{{asset('images/top/home.jpg')}}" alt="" class="w-100 rounded">
+                                <img src="{{asset('images/comunidad/a.jpg')}}" alt="" class="w-100 rounded">
                                 <div class="top-actividades-footer text-white">
-                                    <h4 class="font-weight-bold">Hola</h4>
-                                    <p class="text-left h6 font-weight-bold m-0">12 Packages <span class="float-right font-weight-normal text-right">Starting from $2400</span></p>
+                                    <h4 class="font-weight-bold">Taucca</h4>
+                                    {{--<p class="text-left h6 font-weight-bold m-0">12 Packages <span class="float-right font-weight-normal text-right">Starting from $2400</span></p>--}}
                                 </div>
                             </div>
                         </a>
@@ -539,50 +544,55 @@
                     <div class="col">
                         <div class="row">
                             <div class="col-6">
-                                <a href="">
+                                <a href="{{route('comunidad_show_path', 'huilloc')}}">
                                     <div class="top-actividades">
-                                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100 rounded">
+                                        <img src="{{asset('images/comunidad/c.jpg')}}" alt="" class="w-100 rounded">
                                         <div class="top-actividades-footer text-white">
-                                            <h4 class="font-weight-bold">Hola</h4>
-                                            <p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>
+                                            <h5 class="font-weight-bold">Huilloc</h5>
+                                            {{--<p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>--}}
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="">
+                                <a href="{{route('comunidad_show_path', 'amaru')}}">
                                     <div class="top-actividades">
-                                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100 rounded">
+                                        <img src="{{asset('images/comunidad/b.jpg')}}" alt="" class="w-100 rounded">
                                         <div class="top-actividades-footer text-white">
-                                            <h4 class="font-weight-bold">Hola</h4>
-                                            <p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>
+                                            <h5 class="font-weight-bold">Amaru</h5>
+                                            {{--<p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>--}}
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="">
+                                <a href="{{route('comunidad_show_path', 'rumira-sondormayo')}}">
                                     <div class="top-actividades">
-                                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100 rounded">
+                                        <img src="{{asset('images/comunidad/d.jpg')}}" alt="" class="w-100 rounded">
                                         <div class="top-actividades-footer text-white">
-                                            <h4 class="font-weight-bold">Hola</h4>
-                                            <p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>
+                                            <h5 class="font-weight-bold">Rumira Sondormayo</h5>
+                                            {{--<p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>--}}
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="">
+                                <a href="{{route('comunidad_show_path', 'chacan')}}">
                                     <div class="top-actividades">
-                                        <img src="{{asset('images/top/home3.jpg')}}" alt="" class="w-100 rounded">
+                                        <img src="{{asset('images/comunidad/e.jpg')}}" alt="" class="w-100 rounded">
                                         <div class="top-actividades-footer text-white">
-                                            <h4 class="font-weight-bold">Hola</h4>
-                                            <p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>
+                                            <h5 class="font-weight-bold">Chacan</h5>
+                                            {{--<p class="float-right font-weight-normal text-right m-0">Starting from $2400</p>--}}
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <a href="{{route('comunidad_path')}}" class="btn btn-g-red-primary font-weight-bold btn-lg">Ver más Comunidades</a>
                     </div>
                 </div>
             </div>
@@ -751,16 +761,12 @@
                             <tbody class="small font-weight-bold text-secondary">
                             @foreach($comunidad as $comunidades)
                                 @foreach($comunidades->asociaciones as $asociaciones)
-                                    @foreach($asociaciones->actividades as $actividades)
+                                    @foreach($asociaciones->actividades->unique('titulo') as $actividades)
                                         @foreach($disponibilidad_mes->where('actividad_id', $actividades->id) as $disponibilidades_mes)
                                             @if ($disponibilidades_mes->actividad_id == $actividades->id)
                                                 <tr>
-
                                                     <td class="">
-                                                        <div class="row align-items-center">
-                                                            <div class="col-auto">
-                                                                <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
-                                                            </div>
+                                                        <div class="row align-items-center p-3">
                                                             <div class="col text-truncate">
                                                                 <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
                                                                     {{ucwords(strtolower($actividades->titulo))}}
