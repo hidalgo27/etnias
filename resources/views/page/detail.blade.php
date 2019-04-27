@@ -131,16 +131,9 @@
                                 <div class="col">
                                     <div class="row slider-huilloq mx-4">
                                         <div class="col">
-                                            <a class="venobox" data-gall="myGallery" href="{{asset('images/paquetes/1.jpg')}}"><img src="{{asset('images/paquetes/1.jpg')}}" class="w-100" /></a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="venobox" data-gall="myGallery" href="{{asset('images/paquetes/1.jpg')}}"><img src="{{asset('images/paquetes/1.jpg')}}" class="w-100" /></a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="venobox" data-gall="myGallery" href="{{asset('images/paquetes/1.jpg')}}"><img src="{{asset('images/paquetes/1.jpg')}}" class="w-100" /></a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="venobox" data-gall="myGallery" href="{{asset('images/paquetes/1.jpg')}}"><img src="{{asset('images/paquetes/1.jpg')}}" class="w-100" /></a>
+                                            @foreach($actividades->fotos->where('estado',0) as $galeria)
+                                            <a class="venobox" data-gall="myGallery" href="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades"><img src="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades" class="w-100" /></a>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
