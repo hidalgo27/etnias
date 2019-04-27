@@ -8,19 +8,11 @@
         <section class="position-relative">
             <div id="home-slider-container" class="detail-slider-container">
                 <div id="home-slider">
+                    @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
                     <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-4.jpg')}}"/>
-                        {{--<div class="container">--}}
-                        {{--<div class="slider-content row align-items-center">--}}
-                        {{--<div class="container">--}}
-                        {{--<div class="slider-controls"><a class="slider-prev" href="#onceki"> </a><a class="slider-next" href="#sonraki"></a></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col">--}}
-                        {{--<h2 class="display-4 font-weight-bold text-white">Auf mystischen <span class="d-block">Wegen</span></h2>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
+                        <img src="http://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades"/>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="bg-header">
