@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-5">
+                            <div class="row mt-5 d-none">
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-body">

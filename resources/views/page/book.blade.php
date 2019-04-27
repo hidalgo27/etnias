@@ -48,14 +48,12 @@
                                 @if (isset($comida->comida))
                                     <div class="row my-3">
                                         <div class="col font-poppins">
-                                            <h5 class="font-weight-bold text-g-grey-primary pb-2">{{ucwords(strtolower($comida->comida->titulo))}}
-
+                                            <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> {{ucwords(strtolower($comida->comida->titulo))}}
                                                 <div class="custom-control custom-checkbox float-right text-primary">
                                                     <input type="checkbox" class="custom-control-input" name="comida[]" id="comida_{{$comida->id}}" value="{{$comida->id}}-{{round($comida->precio)}}-{{round($total)}}" onclick="if (this.checked) sumar_comida(this.value); else restar_comida(this.value)">
                                                     <label class="custom-control-label cursor-pointer" for="comida_{{$comida->id}}"><sup>$</sup>{{round($comida->precio)}}<small class="font-weight-bold">USD</small></label>
                                                 </div>
                                             </h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi culpa, ipsam rerum sit veniam? Assumenda atque cum dicta, enim explicabo ipsa maxime nulla odit, quas reprehenderit unde vel voluptatibus.</p>
                                         </div>
                                     </div>
                                 @endif
@@ -67,14 +65,13 @@
                                 @if (isset($hospedaje_precios->hospedaje))
                                     <div class="row my-3">
                                         <div class="col font-poppins">
-                                            <h5 class="font-weight-bold text-g-grey-primary pb-2">{{ucwords(strtolower($hospedaje_precios->hospedaje->titulo))}}
+                                            <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> {{ucwords(strtolower($hospedaje_precios->hospedaje->titulo))}}
 
                                                 <div class="custom-control custom-checkbox float-right text-primary">
                                                     <input type="checkbox" class="custom-control-input" name="hospedaje[]" id="hospedaje_{{$hospedaje_precios->id}}" value="{{$hospedaje_precios->id}}-{{round($hospedaje_precios->precio)}}-{{round($total)}}" onclick="if (this.checked) sumar_hospedaje(this.value); else restar_hospedaje(this.value)">
                                                     <label class="custom-control-label cursor-pointer" for="hospedaje_{{$hospedaje_precios->id}}"><sup>$</sup>{{round($hospedaje_precios->precio)}}<small class="font-weight-bold">USD</small></label>
                                                 </div>
                                             </h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi culpa, ipsam rerum sit veniam? Assumenda atque cum dicta, enim explicabo ipsa maxime nulla odit, quas reprehenderit unde vel voluptatibus.</p>
                                         </div>
                                     </div>
                                 @endif
@@ -85,13 +82,12 @@
                             @foreach($transportes as $transporte)
                                 <div class="row my-3">
                                     <div class="col font-poppins">
-                                        <h5 class="font-weight-bold text-g-grey-primary pb-2">Transporte
+                                        <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> Transporte
                                             <div class="custom-control custom-checkbox float-right text-primary">
                                                 <input type="checkbox" class="custom-control-input" name="transporte[]" id="transporte_{{$transporte->id}}" value="{{$transporte->id}}-{{round($transporte->precio)}}-{{$total}}" onclick="if (this.checked) sumar_transporte(this.value); else restar_transporte(this.value)">
                                                 <label class="custom-control-label cursor-pointer" for="transporte_{{$transporte->id}}"><sup>$</sup>{{round($transporte->precio)}}<small class="font-weight-bold">USD</small></label>
                                             </div>
                                         </h5>
-                                        <p>Lorem sdsdsd ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi culpa, ipsam rerum sit veniam? Assumenda atque cum dicta, enim explicabo ipsa maxime nulla odit, quas reprehenderit unde vel voluptatibus.</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -100,13 +96,12 @@
                         @foreach($guia as $guias)
                             <div class="row my-3">
                                 <div class="col font-poppins">
-                                    <h5 class="font-weight-bold text-g-grey-primary pb-2">Guia ({{$guias->idioma}})
+                                    <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> Guia ({{$guias->idioma}})
                                         <div class="custom-control custom-checkbox float-right text-primary">
                                             <input type="checkbox" class="custom-control-input" name="guia[]" id="guia_{{$guias->id}}" value="{{$guias->id}}-{{round($guias->precio)}}-{{$total}}" onclick="if (this.checked) sumar_guia(this.value); else restar_guia(this.value)">
                                             <label class="custom-control-label cursor-pointer" for="guia_{{$guias->id}}"><sup>$</sup>{{round($guias->precio)}}<small class="font-weight-bold">USD</small></label>
                                         </div>
                                     </h5>
-                                    <p>Lorem sdsdsd ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi culpa, ipsam rerum sit veniam? Assumenda atque cum dicta, enim explicabo ipsa maxime nulla odit, quas reprehenderit unde vel voluptatibus.</p>
                                 </div>
                             </div>
                         @endforeach
@@ -120,7 +115,7 @@
                                         {{--<label class="custom-control-label cursor-pointer" for="customCheck1"><sup>$</sup>50<small class="font-weight-bold">USD</small></label>--}}
                                     {{--</div>--}}
                                 {{--</h5>--}}
-                                {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi culpa, ipsam rerum sit veniam? Assumenda atque cum dicta, enim explicabo ipsa maxime nulla odit, quas reprehenderit unde vel voluptatibus.</p>--}}
+                                {{---}}
                             {{--</div>--}}
                         {{--</div>--}}
 

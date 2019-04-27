@@ -3,6 +3,7 @@
 namespace EtniasPeru\Http\Controllers;
 
 use EtniasPeru\ActividadDisponible;
+use EtniasPeru\ActividadPrecio;
 use EtniasPeru\Categoria;
 use EtniasPeru\Comunidad;
 use Illuminate\Http\Request;
@@ -98,7 +99,12 @@ class ActividadesController extends Controller
         $comunidad = Comunidad::with([
                 'asociaciones.actividades',
                 'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
-        )->where('nombre', $comunidad_input)->get();
+        )->get();
+
+
+        $precio_actividad = ActividadPrecio::with('actividad')->where('min','<=',$huesped_input)->where('max','>=',$huesped_input)->first();
+
+
 
         $comunidad_all = Comunidad::all();
 

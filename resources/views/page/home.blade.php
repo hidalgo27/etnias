@@ -14,20 +14,19 @@
                                         <hr>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD</label>
-                                            {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
-                                            <select id="inputState" class="form-control" name="slc_comunidad" required>
-                                                <option value="">Seleccione...</option>
-                                                @foreach($comunidad as $comunidades)
-                                                    <option value="{{$comunidades->nombre}}">{{ucwords(strtolower($comunidades->nombre))}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD</label>--}}
+                                            {{--<select id="inputState" class="form-control" name="slc_comunidad" required>--}}
+                                                {{--<option value="">Seleccione...</option>--}}
+                                                {{--@foreach($comunidad as $comunidades)--}}
+                                                    {{--<option value="{{$comunidades->nombre}}">{{ucwords(strtolower($comunidades->nombre))}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">

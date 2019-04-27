@@ -36,8 +36,17 @@ class PaymentController extends Controller
         $id_actividad = $request->input('txt_actividad_id');
         $fecha_viaje = $request->input('txt_fecha_viaje');
         $personas = $request->input('txt_personas');
-        $actividad = Actividad::where('id', $id_actividad)->get();
-
+        $actividad = Actividad::with('precios','asociacion')->where('id', $id_actividad)->get();
+        foreach ($actividad as $comisiones){
+            $comision = $comisiones->asociacion->comision;
+        }
+        $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->first();
+        if (isset($precio_actividad)){
+            $precio = $precio_actividad->precio;
+            $total = $precio + ($precio * $comision)/100;
+        }else{
+            return back()->withInput()->with('status', 'No tenemos precios para '.$personas.' personas.');
+        }
 //        $comida_precio = ComidaPrecio::all();
 //        $comida = $request->input('comida');
 
@@ -81,7 +90,7 @@ class PaymentController extends Controller
             }
         }
 //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
-        return view('page.payment', compact('actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
+        return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
     }
 
     public function payment_check(Request $request)
