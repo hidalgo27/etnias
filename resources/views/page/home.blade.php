@@ -445,7 +445,7 @@
         <section>
             <div class="offer">
                 <div class="container">
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="offer-l">
                                 <span class="ol-1"></span>
@@ -456,57 +456,58 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </span>
-                                <span class="ol-4">Descuento en nuestros paquetes</span>
-                                <span class="ol-3"></span>
-                                <span class="ol-5">-$99</span>
-                                <ul>
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis1.png')}}" alt="" class="">
-                                        </a>
-                                        <span>Free WiFi</span>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis2.png')}}" alt="">
-                                        </a>
-                                        <span>Breakfast</span>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis3.png')}}" alt="">
-                                        </a>
-                                        <span>Pool</span>
-                                    </li>
+                                <span class="ol-4">Visite Perú y descubra el país de los Incas</span>
+                                {{--<span class="ol-3"></span>--}}
+                                {{--<span class="ol-5">-$99</span>--}}
+                                {{--<ul>--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis1.png')}}" alt="" class="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>Free WiFi</span>--}}
+                                    {{--</li>--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis2.png')}}" alt="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>Breakfast</span>--}}
+                                    {{--</li>--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis3.png')}}" alt="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>Pool</span>--}}
+                                    {{--</li>--}}
                                     {{--<li>--}}
                                     {{--<a href="#!" class="offer-btn">--}}
                                     {{--<img src="{{asset('images/icon/dis4.png')}}" alt="">--}}
                                     {{--</a>--}}
                                     {{--<span>Television</span>--}}
                                     {{--</li>--}}
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis5.png')}}" alt="">
-                                        </a>
-                                        <span>GYM</span>
-                                    </li>
-                                </ul>
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis5.png')}}" alt="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>GYM</span>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="offer-r">
-                                <div class="or-1">
-                                    <span class="or-11"><i class="far fa-eye"></i></span>
-                                    <span class="or-12">Ojo</span>
-                                </div>
-                                <div class="or-2">
-                                    <span class="or-21">Obten</span>
-                                    <span class="or-22">70%</span>
-                                    <span class="or-23">descuento</span>
-                                    <span class="or-24">Codigo: RG5481WERQ</span>
-                                    <span class="or-25"></span>
-                                </div>
-                            </div>
+                        <div class="col-md-6 text-center">
+                            {{--<div class="offer-r">--}}
+                                {{--<div class="or-1">--}}
+                                    {{--<span class="or-11"><i class="far fa-eye"></i></span>--}}
+                                    {{--<span class="or-12">Ojo</span>--}}
+                                {{--</div>--}}
+                                {{--<div class="or-2">--}}
+                                    {{--<span class="or-21">Obten</span>--}}
+                                    {{--<span class="or-22">70%</span>--}}
+                                    {{--<span class="or-23">descuento</span>--}}
+                                    {{--<span class="or-24">Codigo: RG5481WERQ</span>--}}
+                                    {{--<span class="or-25"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            <a href="{{route('actividades_path')}}" class="btn btn-lg btn-g-red-primary font-weight-bold">Ver Actividades</a>
                         </div>
                     </div>
                 </div>
