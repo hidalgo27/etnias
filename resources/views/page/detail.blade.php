@@ -8,7 +8,7 @@
         <section class="position-relative">
             <div id="home-slider-container" class="detail-slider-container">
                 <div id="home-slider">
-                    @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                    @foreach($actividades->fotos->where('estado',1)->take(1) as $fotos)
                     <div class="slider-item">
                         <img src="http://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades"/>
                     </div>
