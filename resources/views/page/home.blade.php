@@ -200,7 +200,7 @@
                             <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#comunidad-tupac">Comunidad Tupac</a>
+                            <a class="nav-link font-weight-bold" href="#comunidad-amaru">Comunidad Amaru</a>
                         </li>
                     </ul>
                 </nav>
@@ -357,7 +357,7 @@
                 </div>
             </section>
 
-            <section class="pt-5" id="comunidad-tupac">
+            <section class="pt-5" id="comunidad-amaru">
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
@@ -518,14 +518,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Comunidades <span class="text-g-red-dark">Popular</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">Comunidades <span class="text-g-red-dark">Populares</span></h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
                             <div class="tl-3"></div>
                         </div>
                         {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+{{--                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--}}
                     </div>
                 </div>
 
@@ -744,7 +744,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Los mejores <span class="text-g-red-dark">actividades de este mes</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">Las mejores <span class="text-g-red-dark">actividades de este mes</span></h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>

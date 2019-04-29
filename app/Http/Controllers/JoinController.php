@@ -21,7 +21,7 @@ class JoinController extends Controller
 
     public function comunidad_post(Request $request){
 
-        $Asocicion = Comuni
+//        $Asocicion = Comuni
 //        return view('page.join-comunidad');
     }
 }
