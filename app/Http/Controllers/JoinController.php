@@ -18,4 +18,10 @@ class JoinController extends Controller
     public function guia(){
         return view('page.join-guia');
     }
+
+    public function comunidad_post(Request $request){
+
+        $Asocicion = Comuni
+//        return view('page.join-comunidad');
+    }
 }

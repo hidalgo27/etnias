@@ -92,6 +92,11 @@ Route::get('/trabaja-con-nosotros/guia', [
     'as' => 'join_guia_path',
 ]);
 
+Route::post('/trabaja-con-nosotros/comunidad/post', [
+    'uses' => 'JoinController@comunidad_post',
+    'as' => 'join_comunidad_post_path',
+]);
+
 Route::get('/nosotros', [
     'uses' => 'AboutController@index',
     'as' => 'about_path',
