@@ -116,6 +116,10 @@ Route::get('/client/order/detail/{id}', [
     'uses' => 'Client\ReservaController@order',
     'as' => 'client_order_path',
 ]);
+Route::post('/client/order/detail/', [
+    'uses' => 'Client\ReservaController@cancelar',
+    'as' => 'client_cancel_path',
+]);
 
 Route::get('/client/perfil', [
     'uses' => 'Client\ClientController@index',

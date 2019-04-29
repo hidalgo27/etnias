@@ -200,7 +200,7 @@
                                                             @csrf
                                                             <div class="form-group">
                                                                 <label for="username">Full name (on the card)</label>
-                                                                <input type="text" class="form-control" name="username" placeholder="" required="" id="username">
+                                                                <input type="text" class="form-control" name="username" placeholder="" required="" id="username" value="">
                                                             </div> <!-- form-group.// -->
 
                                                             <div class="form-group">
@@ -232,14 +232,25 @@
                                                                     </div> <!-- form-group.// -->
                                                                 </div>
                                                             </div> <!-- row.// -->
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label for="username">Email</label>
-                                                                        <input type="text" class="form-control" name="email" placeholder="" required="" id="email">
+                                                            @if (!Auth::user())
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="username">Email</label>
+                                                                            <input type="text" class="form-control" name="email" placeholder="" required="" id="email">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            @else
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="username">Email</label>
+                                                                            <input type="text" class="form-control" name="email" placeholder="" required="" id="email" value="{{Auth::user()->email}}" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
                                                             <div class="row">
                                                                 <div class="col was-validated">
                                                                     <div class="custom-control custom-checkbox mb-3">
