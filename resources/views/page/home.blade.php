@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div id="home-slider-container">
+            <div id="home-slider-container" class="home-slider-container">
                 <div id="home-slider">
                     <div class="slider-item">
                         <img src="{{asset('images/sliders/slider-4.jpg')}}"/>
@@ -219,6 +219,22 @@
                             {{--<div class="line-title"></div>--}}
                         </div>
                     </div>
+
+                    <div class="row mt-4 align-items-center">
+                        <div class="col text-center">
+                            <div class="position-relative w-100">
+                                <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                                <div class="position-absolute w-100 top-50">
+                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h5>Huilloc</h5>
+                            <p>Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
+                        </div>
+                    </div>
+
                     <div class="row my-3">
                         <div class="col">
                             <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
@@ -264,22 +280,6 @@
                         @endforeach
 
                     </div>
-
-                    <div class="row mt-4 align-items-center">
-                        <div class="col-6">
-                            <h3 class="font-weight-bold text-g-red-primary">Huilloc</h3>
-                            <hr>
-                            <p class="mt-3 lead font-weight-normal text-secondary">Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
-                        </div>
-                        <div class="col text-center">
-                            <div class="position-relative w-100">
-                                <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                                <div class="position-absolute w-100 top-50">
-                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -298,6 +298,12 @@
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
+                        <div class="col text-center">
+                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                            {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                            {{--</a>--}}
+                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
+                        </div>
                         <div class="col">
                             <h5>ASOCIACIÓN HORMIGUITAS DE TAUCCA</h5>
                             <p>Ubicado en el distrito de Chincheros en la ciudad del Cusco, la comunidad de Taucca es más
@@ -305,13 +311,7 @@
                                 minutos del centro arqueológico de Chincheros ofrece diversas actividades de turismo rural
                                 comunitario entre ellas el sembrado y/o cosecha de sus productos, elaboración de artesanías,
                                 entre otros. Visita la comunidad de Taucca y vive inolvidables experiencias.</p>
-                            <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                        <div class="col text-center">
-                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
-                                {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
-                            {{--</a>--}}
-                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
+{{--                            <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>--}}
                         </div>
                     </div>
                     <div class="row my-4">

@@ -1,5 +1,5 @@
-<header class="p-2">
-    <div class="">
+<header>
+    <div class="p-2">
         <div class="container-fluid">
             <div class="row justify-content-between align-items-center">
                 <div class="col-2 align-items-center">
@@ -9,7 +9,7 @@
                     {{--<p class="m-0 font-kalam h5 text-info">Perú & Ecuador Especialist!</p>--}}
                 </div>
                 <div class="col-auto text-right">
-                    <a href="#" class="text-g-red-dark" data-toggle="modal" data-target="#myModal">
+                    <a href="#" class="text-white" data-toggle="modal" data-target="#myModal">
                         <i class="fas fa-bars h1 m-0 p-0"></i>
                         <small class="d-block">MENU</small>
                     </a>
