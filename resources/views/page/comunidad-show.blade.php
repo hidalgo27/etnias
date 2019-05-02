@@ -7,7 +7,7 @@
             <div class="form-header-bg h-25">
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
-                        <div class="col text-center">
+                        <div class="col-12 text-center text-truncate">
                             <h1 class="font-weight-bold display-4 text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
                         </div>
                     </div>
