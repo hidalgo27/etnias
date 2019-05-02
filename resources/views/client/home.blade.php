@@ -3,10 +3,10 @@
     @include('layouts.page.menu-book')
 <div class="container my-4">
     <div class="row justify-content-center">
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             @include('layouts.client.menu')
         </div>
-        <div class="col-9">
+        <div class="col-12 col-md-9">
             <div class="row">
                 <div class="col-12">
                     @if (session('status'))
@@ -21,7 +21,7 @@
                     Historial de Pedido
                 </div>
                 <div class="card-body">
-                    <table id="myTable" class="w-100">
+                    <table id="myTable" class="w-100 table-responsive">
                         <tbody class="small font-weight-bold text-secondary">
                             <tr class="h6 font-weight-bold text-g-grey-primary">
                                 <th class="py-3">#</th>
