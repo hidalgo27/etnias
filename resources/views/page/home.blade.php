@@ -5,7 +5,7 @@
             <div class="form-header mb-4">
                 <div class="container">
                     <div class="row">
-                        <div class="col text-center">
+                        <div class="col d-none d-sm-block text-center">
                             <h5 class="font-weight-bold h2 text-white">Reserva de comunidades y actividades en Cusco.</h5>
                         </div>
                     </div>
@@ -27,13 +27,13 @@
                                     {{--</div>--}}
                                 {{--</div>--}}
                                 <div class="row align-items-center">
-                                    <div class="col">
+                                    <div class="col-12 col-lg">
                                         <div class="form-group">
                                             <label for="" class="text-white small font-weight-bold">LLEGADA</label>
                                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-12 col-lg">
                                         <div class="form-group">
                                             <label for="" class="text-white small font-weight-bold">HUÉSPEDES</label>
                                             <select id="inputState" class="form-control" name="slc_huesped" required>
@@ -147,7 +147,7 @@
         <section class="my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col d-flex text-center">
+                    <div class="col-12 mb-4 mb-md-0 col-md d-flex text-center">
                         <div class="card border-g-red-primary shadow">
                             <div class="bg-g-red-primary rounded-circle step-circle m-auto">
                                 <span class="text-white font-weight-bold display-4">1</span>
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex text-center">
+                    <div class="col-12 mb-4 mb-md-0 col-md d-flex text-center">
                         <div class="card border-g-green-primary shadow">
                             <div class="bg-g-green-primary rounded-circle step-circle m-auto">
                                 <span class="text-white font-weight-bold display-4">2</span>
@@ -174,7 +174,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex text-center">
+                    <div class="col-12 mb-4 mb-md-0 col-md d-flex text-center">
                         <div class="card border-info shadow">
                             <div class="bg-info rounded-circle step-circle m-auto">
                                 <span class="text-white font-weight-bold display-4">3</span>
@@ -192,7 +192,7 @@
         </section>
 
         <section class="position-relative">
-            <div class="sticky-top mt-5 shadow-sm">
+            <div class="sticky-top mt-sm-5 shadow-sm d-none d-sm-block mt-0">
                 <nav id="navbar-scroll" class="navbar navbar-light bg-light justify-content-center">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
@@ -208,10 +208,10 @@
                 </nav>
             </div>
 
-            <section class="py-5 clearfix" id="comunidad-huilloq">
+            <section class="p-0 py-sm-5 clearfix" id="comunidad-huilloq">
                 <div class="container">
                     <div class="row">
-                        <div class="col text-center">
+                        <div class="col  text-center">
                             <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Huilloq</span></h1>
                             <div class="title-line">
                                 <div class="tl-1"></div>
@@ -225,7 +225,7 @@
                     </div>
 
                     <div class="row mt-4 align-items-center">
-                        <div class="col text-center">
+                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
                             <div class="position-relative w-100">
                                 <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                                 <div class="position-absolute w-100 top-50">
@@ -233,7 +233,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md">
                             <h5>Huilloc</h5>
                             <p>Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
                         </div>
@@ -302,13 +302,13 @@
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
-                        <div class="col text-center">
+                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
                             {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
                             {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
                             {{--</a>--}}
                             <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
                         </div>
-                        <div class="col">
+                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md">
                             <h5>ASOCIACIÓN HORMIGUITAS DE TAUCCA</h5>
                             <p>Ubicado en el distrito de Chincheros en la ciudad del Cusco, la comunidad de Taucca es más
                                 conocida por su actividad agrícola: cosecha de papa, maíz, habas, cebada y trigo ubicada a 20
@@ -401,12 +401,13 @@
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
-                        <div class="col text-center">
-                            <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">
-                                <img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                            </a>
+                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
+                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                                {{--<img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                            {{--</a>--}}
+                            <img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                         </div>
-                        <div class="col">
+                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md">
                             <h5>Laraypas Indígenas de Amaru</h5>
                             <p>Ubicado en el distrito de Pisac en la ciudad del Cusco, la comunidad de Amaru está conformada
                                 por 200 familias, su actividad principal es la textileria, está ubicado a 20 minutos del centro
@@ -522,7 +523,7 @@
                                 {{--</ul>--}}
                             </div>
                         </div>
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 text-center mb-5 mb-md-0">
                             {{--<div class="offer-r">--}}
                                 {{--<div class="or-1">--}}
                                     {{--<span class="or-11"><i class="far fa-eye"></i></span>--}}
@@ -559,7 +560,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <a href="{{route('comunidad_show_path', 'taucca')}}">
                             <div class="top-actividades">
                                 <img src="{{asset('images/comunidad/a.jpg')}}" alt="" class="w-100 rounded">
@@ -570,7 +571,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <div class="row">
                             <div class="col-6">
                                 <a href="{{route('comunidad_show_path', 'huilloc')}}">
@@ -804,13 +805,13 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>{{$disponibilidades_mes->fecha}}</td>
-                                                    <td class="w-25 text-center">
+                                                    <td class=" d-none d-sm-inline-block">{{$disponibilidades_mes->fecha}}</td>
+                                                    <td class="w-25 text-center d-none d-md-inline-block">
                                                         @foreach($actividades->precios as $precio)
                                                             <sup>$</sup>{{$precio->precio}}<small>USD</small>
                                                             <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
                                                     @endforeach
-                                                    <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                    <td class="e_h1 d-none d-md-inline-block">{{ucwords(strtolower($comunidades->nombre))}}</td>
                                                     <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
                                                 </tr>
                                             @endif

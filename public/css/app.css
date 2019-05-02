@@ -20666,8 +20666,8 @@ header {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
   min-width: 100%;
+  height: 100vh;
   -webkit-transform-origin: center center;
   transform-origin: center center;
   -webkit-animation: zoom 15s ease-in-out infinite alternate;
