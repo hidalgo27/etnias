@@ -330,20 +330,48 @@
                                         @foreach($asociacion_taucca->actividades as $actividades_taucca)
                                             @foreach($disponibilidad->where('actividad_id', $actividades_taucca->id) as $disponibilidades)
                                                 @if ($disponibilidades->actividad_id == $actividades_taucca->id)
-                                                    <div class="col">
-                                                        @foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)
-                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">
-                                                        @endforeach
-                                                        <h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>
+                                                    {{--<div class="col">--}}
+                                                        {{--@foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)--}}
+                                                            {{--<img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">--}}
+                                                        {{--@endforeach--}}
+                                                        {{--<h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>--}}
                                                         {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>--}}
-                                                        <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>
-                                                        @foreach($actividades_taucca->precios as $precio)
-                                                            @if (isset($precio))
-                                                                <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Precio:</b> <sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small>USD</small></div>
-                                                            @endif
-                                                        @endforeach
-                                                        <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="font-weight-bold text-info pt-3 d-block stretched-link">View More</a>
+                                                        {{--<div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>--}}
+                                                        {{--@foreach($actividades_taucca->precios as $precio)--}}
+                                                            {{--@if (isset($precio))--}}
+                                                                {{--<div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Precio:</b> <sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small>USD</small></div>--}}
+                                                            {{--@endif--}}
+                                                        {{--@endforeach--}}
+                                                        {{--<a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="font-weight-bold text-info pt-3 d-block stretched-link">View More</a>--}}
+                                                    {{--</div>--}}
+
+                                                    <div class="col mb-4">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="header-img-actividades">
+                                                                    @foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)
+                                                                        <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100">
+                                                                    @endforeach
+                                                                    <div class="position-absolute-top">
+                                                                        <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_taucca->categoria))}}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="footer-box-actividades row m-0 align-items-center">
+                                                            <div class="col-7">
+                                                                <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividades_taucca->titulo}}</a></h6>
+                                                            </div>
+                                                            <div class="col-5 text-right">
+                                                                @foreach($actividades_taucca->precios as $precio)
+                                                                    @if (isset($precio))
+                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
                                                     </div>
+
                                                 @endif
                                             @endforeach
                                         @endforeach
