@@ -217,6 +217,8 @@
                                 <div class="tl-3"></div>
                             </div>
                             {{--<div class="line-title"></div>--}}
+                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación de turismo vivencial willuq ayllu inka</p>
+                            {{--<div class="line-title"></div>--}}
                         </div>
                     </div>
 
@@ -322,7 +324,6 @@
 
                     <div class="row">
                         <div class="col">
-
                             <div class="row slider-huilloq">
                                 @foreach($comunidad_taucca as $comunidades_taucca)
                                     @foreach($comunidades_taucca->asociaciones as $asociacion_taucca)
@@ -348,9 +349,7 @@
                                         @endforeach
                                     @endforeach
                                 @endforeach
-
                             </div>
-
                         </div>
                     </div>
 
