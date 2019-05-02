@@ -267,7 +267,7 @@
                                                 <div class="col-5 text-right">
                                                     @foreach($actividades_huilloc->precios as $precio)
                                                         @if (isset($precio))
-                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones_huilloc->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
                                                         @endif
                                                     @endforeach
                                                 </div>
@@ -294,7 +294,7 @@
                                 <div class="tl-3"></div>
                             </div>
                             {{--<div class="line-title"></div>--}}
-                            <p class="mt-3 lead font-weight-normal text-secondary"><b>Distancia de la ciudad más cercana:</b> 1 hora 30 minutos de la ciudad del Cusco.</p>
+                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación Hormiguitas de Taucca</p>
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
@@ -338,7 +338,7 @@
                                                         <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>
                                                         @foreach($actividades_taucca->precios as $precio)
                                                             @if (isset($precio))
-                                                                <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Precio:</b> {{ucwords(strtolower($precio->precio))}}</div>
+                                                                <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Precio:</b> <sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small>USD</small></div>
                                                             @endif
                                                         @endforeach
                                                         <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="font-weight-bold text-info pt-3 d-block stretched-link">View More</a>
@@ -422,7 +422,7 @@
                                                             <div class="col-5 text-right">
                                                                 @foreach($actividades_amaru->precios as $precio)
                                                                     @if (isset($precio))
-                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{$precio->precio}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_amaru->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
                                                                     @endif
                                                                 @endforeach
                                                             </div>
@@ -751,7 +751,7 @@
                             <div class="tl-3"></div>
                         </div>
                         {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>
+                        {{--<p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto eligendi, magni odit quae quos soluta tenetur? Illum laudantium molestias numquam optio possimus quaerat quibusdam! Enim qui vel vero? Architecto.</p>--}}
                     </div>
                 </div>
                 <div class="row">
