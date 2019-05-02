@@ -2,18 +2,17 @@
     @section('content')
         @include('layouts.page.menu')
         <section class="position-relative">
-            <div class="form-header">
+            <div class="form-header mb-4">
                 <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-5">
-                            <form action="{{route('client_buscar_path', 'caminatas')}}" method="post" class="bg-rgba-white-8 p-4 rounded">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5 class="font-weight-bold h2 text-white">Reserva de comunidades y actividades en Cusco.</h5>
+                        </div>
+                    </div>
+                    <div class="row mt-2 justify-content-center">
+                        <div class="col-9">
+                            <form action="{{route('client_buscar_path', 'caminatas')}}" method="post" class="bg-rgba-dark-3 p-4 rounded">
                                 @csrf
-                                <div class="row">
-                                    <div class="col">
-                                        <h2 class="font-weight-bold text-g-grey-primary">Reserva de comunidades y actividades en Cusco.</h2>
-                                        <hr>
-                                    </div>
-                                </div>
                                 {{--<div class="row">--}}
                                     {{--<div class="col">--}}
                                         {{--<div class="form-group">--}}
@@ -27,18 +26,16 @@
                                         {{--</div>--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
-                                <div class="row">
+                                <div class="row align-items-center">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
+                                            <label for="" class="text-white small font-weight-bold">LLEGADA</label>
                                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
+                                            <label for="" class="text-white small font-weight-bold">HUÉSPEDES</label>
                                             <select id="inputState" class="form-control" name="slc_huesped" required>
                                                 <option value="">Seleccione...</option>
                                                 <option value="1-1">1</option>
@@ -55,13 +52,18 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-block btn-g-green-primary"><span class="font-weight-bold">SEARCH</span></button>
+                                        <div class="d-block pt-2 mt-1">
+                                            <button type="submit" class="btn btn-block btn-g-green-primary "><span class="font-weight-bold">SEARCH</span></button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <i class="fas fa-angle-down fa-3x text-white"></i>
                         </div>
                     </div>
                 </div>
@@ -69,7 +71,7 @@
             <div id="home-slider-container" class="home-slider-container">
                 <div id="home-slider">
                     <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-4.jpg')}}"/>
+                        <img src="{{asset('images/sliders/slider-9.jpg')}}"/>
                         {{--<div class="container">--}}
                         {{--<div class="slider-content row align-items-center">--}}
                         {{--<div class="container">--}}
@@ -82,7 +84,7 @@
                         {{--</div>--}}
                     </div>
                     <div class="slider-item">
-                        <img src="{{asset('images/sliders/slider-7.jpg')}}"/>
+                        <img src="{{asset('images/sliders/slider-8.jpg')}}"/>
                         {{--<div class="container">--}}
                         {{--<div class="slider-content row align-items-center">--}}
                         {{--<div class="container">--}}
