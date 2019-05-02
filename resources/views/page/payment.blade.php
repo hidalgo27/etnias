@@ -52,7 +52,19 @@
                                 <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> Fecha de viaje: {{$fecha_viaje}}</p>
                             </div>
                         </div>
-                        @if (isset($comida_precio))
+                        <div class="row text-left align-items-center">
+                            <div class="col">
+                                <p class="m-0 d-block mb-1">
+                                    <i class="fas fa-flag h5 text-g-grey-light pr-2 float-left"></i>
+                                    {{ucwords(strtolower($actividades->titulo))}}
+                                </p>
+                            </div>
+                            <div class="col text-right">
+                                <p class="m-0 d-block mb-1"><sup>$</sup>{{round($total)}}<small>USD</small></p>
+                            </div>
+                        </div>
+                        @php $pc = 0; @endphp
+                    @if (isset($comida_precio))
                             @foreach($comida_precio as $comida_precios)
                                 <div class="row text-left align-items-center">
                                     <div class="col">
@@ -65,10 +77,11 @@
                                         <p class="m-0 d-block mb-1"><sup>$</sup>{{round($comida_precios->precio)}}<small>USD</small></p>
                                     </div>
                                 </div>
+                                @php $pc = $pc + round($comida_precios->precio);@endphp
                             @endforeach
                         @endif
-
-                        @if (isset($hospedaje_precio))
+                        @php $ph = 0; @endphp
+                    @if (isset($hospedaje_precio))
                             @foreach($hospedaje_precio as $hospedaje_precios)
                             <div class="row text-left align-items-center">
                                 <div class="col">
@@ -81,10 +94,12 @@
                                     <p class="m-0 d-block mb-1"><sup>$</sup>{{round($hospedaje_precios->precio)}}<small>USD</small></p>
                                 </div>
                             </div>
+                                @php $ph = $ph + round($hospedaje_precios->precio);@endphp
                             @endforeach
                         @endif
 
-                        @if (isset($transporte_precio))
+                        @php $pt = 0; @endphp
+                    @if (isset($transporte_precio))
                             @foreach($transporte_precio as $transporte_precios)
                             <div class="row text-left align-items-center">
                                 <div class="col">
@@ -97,12 +112,14 @@
                                     <p class="m-0 d-block mb-1"><sup>$</sup>{{$transporte_precios->precio}}<small>USD</small></p>
                                 </div>
                             </div>
+                                @php $pt = $pt + round($transporte_precios->precio);@endphp
                             @endforeach
                         @endif
 
 
-                        @if (isset($guia_precio))
-                            @foreach($guia_precio as $guia_precios)
+                        @php $pg = 0; @endphp
+                    @if (isset($guia_precio))
+                        @foreach($guia_precio as $guia_precios)
                                 <div class="row text-left align-items-center">
                                     <div class="col">
                                         <p class="m-0 d-block mb-1">
@@ -114,6 +131,7 @@
                                         <p class="m-0 d-block mb-1"><sup>$</sup>{{$guia_precios->precio}}<small>USD</small></p>
                                     </div>
                                 </div>
+                                @php $pg = $pg + round($guia_precios->precio);@endphp
                             @endforeach
                         @endif
                         {{--<div class="row text-left align-items-center">--}}
@@ -129,7 +147,7 @@
                                 <p class="m-0 d-block mb-1 font-weight-bold text-secondary">Total</p>
                             </div>
                             <div class="col text-right">
-                                <p class="m-0 d-block mb-1 font-weight-bold text-secondary"><sup>$</sup>750<small class="font-weight-bold text-secondary">USD</small></p>
+                                <p class="m-0 d-block mb-1 font-weight-bold text-secondary"><sup>$</sup>{{round($total + $pc + $ph + $pt + $pg)}}<small class="font-weight-bold text-secondary">USD</small></p>
                             </div>
                         </div>
 
@@ -182,7 +200,7 @@
                                                             @csrf
                                                             <div class="form-group">
                                                                 <label for="username">Full name (on the card)</label>
-                                                                <input type="text" class="form-control" name="username" placeholder="" required="" id="username">
+                                                                <input type="text" class="form-control" name="username" placeholder="" required="" id="username" value="">
                                                             </div> <!-- form-group.// -->
 
                                                             <div class="form-group">
@@ -214,14 +232,25 @@
                                                                     </div> <!-- form-group.// -->
                                                                 </div>
                                                             </div> <!-- row.// -->
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label for="username">Email</label>
-                                                                        <input type="text" class="form-control" name="email" placeholder="" required="" id="email">
+                                                            @if (!Auth::user())
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="username">Email</label>
+                                                                            <input type="text" class="form-control" name="email" placeholder="" required="" id="email">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            @else
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="username">Email</label>
+                                                                            <input type="text" class="form-control" name="email" placeholder="" required="" id="email" value="{{Auth::user()->email}}" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
                                                             <div class="row">
                                                                 <div class="col was-validated">
                                                                     <div class="custom-control custom-checkbox mb-3">

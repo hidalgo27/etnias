@@ -36,8 +36,17 @@ class PaymentController extends Controller
         $id_actividad = $request->input('txt_actividad_id');
         $fecha_viaje = $request->input('txt_fecha_viaje');
         $personas = $request->input('txt_personas');
-        $actividad = Actividad::where('id', $id_actividad)->get();
-
+        $actividad = Actividad::with('precios','asociacion')->where('id', $id_actividad)->get();
+        foreach ($actividad as $comisiones){
+            $comision = $comisiones->asociacion->comision;
+        }
+        $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->first();
+        if (isset($precio_actividad)){
+            $precio = $precio_actividad->precio;
+            $total = $precio + ($precio * $comision)/100;
+        }else{
+            return back()->withInput()->with('status', 'No tenemos precios para '.$personas.' personas.');
+        }
 //        $comida_precio = ComidaPrecio::all();
 //        $comida = $request->input('comida');
 
@@ -81,7 +90,7 @@ class PaymentController extends Controller
             }
         }
 //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
-        return view('page.payment', compact('actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
+        return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
     }
 
     public function payment_check(Request $request)
@@ -143,82 +152,89 @@ class PaymentController extends Controller
                     $reserva_actividad->reserva_id = $reservas->id;
                     $reserva_actividad->save();
 
-                    for($i=0; $i < count($request->input('comida')); $i++){
+                    if ($request->has('comida')){
+                        for($i=0; $i < count($request->input('comida')); $i++){
 
-                        $comida_id = explode('-', $request->input('comida')[$i]);
-                        $comida_id = $comida_id[0];
+                            $comida_id = explode('-', $request->input('comida')[$i]);
+                            $comida_id = $comida_id[0];
 
-                        $precio_comida = ComidaPrecio::where('id', $comida_id)->first();
+                            $precio_comida = ComidaPrecio::where('id', $comida_id)->first();
 
-                        $reserva_comida = new ReservaComida();
-                        $reserva_comida->titulo = $precio_comida->comida->titulo;
-                        $reserva_comida->descripcion = $precio_comida->comida->descripcion;
-                        $reserva_comida->categoria = $precio_comida->categoria;
-                        $reserva_comida->nro_personas = $personas;
-                        $reserva_comida->precio = $precio_comida->precio;
-                        $reserva_comida->estado = 0;
-                        $reserva_comida->asociacion_id = $asocicion_id;
-                        $reserva_comida->reserva_id = $reservas->id;
-                        $reserva_comida->save();
+                            $reserva_comida = new ReservaComida();
+                            $reserva_comida->titulo = $precio_comida->comida->titulo;
+                            $reserva_comida->descripcion = $precio_comida->comida->descripcion;
+                            $reserva_comida->categoria = $precio_comida->categoria;
+                            $reserva_comida->nro_personas = $personas;
+                            $reserva_comida->precio = $precio_comida->precio;
+                            $reserva_comida->estado = 0;
+                            $reserva_comida->asociacion_id = $asocicion_id;
+                            $reserva_comida->reserva_id = $reservas->id;
+                            $reserva_comida->save();
+                        }
                     }
 
-                    for($i=0; $i < count($request->input('hospedaje')); $i++){
+                    if ($request->has('hospedaje')){
+                        for($i=0; $i < count($request->input('hospedaje')); $i++){
 
-                        $hospedaje_id = explode('-', $request->input('hospedaje')[$i]);
-                        $hospedaje_id = $hospedaje_id[0];
+                            $hospedaje_id = explode('-', $request->input('hospedaje')[$i]);
+                            $hospedaje_id = $hospedaje_id[0];
 
-                        $precio_hospedaje = HospedajePrecio::where('id', $hospedaje_id)->first();
+                            $precio_hospedaje = HospedajePrecio::where('id', $hospedaje_id)->first();
 
-                        $reserva_hospedaje = new ReservaHospedaje();
-                        $reserva_hospedaje->titulo = $precio_hospedaje->hospedaje->titulo;
-                        $reserva_hospedaje->descripcion = $precio_hospedaje->hospedaje->descripcion;
-                        $reserva_hospedaje->categoria = $precio_hospedaje->categoria;
-                        $reserva_hospedaje->nro_personas = $personas;
-                        $reserva_hospedaje->precio = $precio_hospedaje->precio;
-                        $reserva_hospedaje->estado = 0;
-                        $reserva_hospedaje->asociacion_id = $asocicion_id;
-                        $reserva_hospedaje->reserva_id = $reservas->id;
-                        $reserva_hospedaje->save();
+                            $reserva_hospedaje = new ReservaHospedaje();
+                            $reserva_hospedaje->titulo = $precio_hospedaje->hospedaje->titulo;
+                            $reserva_hospedaje->descripcion = $precio_hospedaje->hospedaje->descripcion;
+                            $reserva_hospedaje->categoria = $precio_hospedaje->categoria;
+                            $reserva_hospedaje->nro_personas = $personas;
+                            $reserva_hospedaje->precio = $precio_hospedaje->precio;
+                            $reserva_hospedaje->estado = 0;
+                            $reserva_hospedaje->asociacion_id = $asocicion_id;
+                            $reserva_hospedaje->reserva_id = $reservas->id;
+                            $reserva_hospedaje->save();
+                        }
                     }
 
-                    for($i=0; $i < count($request->input('transporte')); $i++){
+                    if ($request->has('transporte')){
+                        for($i=0; $i < count($request->input('transporte')); $i++){
 
-                        $transporte_id = explode('-', $request->input('transporte')[$i]);
-                        $transporte_id = $transporte_id[0];
+                            $transporte_id = explode('-', $request->input('transporte')[$i]);
+                            $transporte_id = $transporte_id[0];
 
-                        $precio_transporte = TransporteExterno::where('id', $transporte_id)->first();
+                            $precio_transporte = TransporteExterno::where('id', $transporte_id)->first();
 
-                        $reserva_transporte = new ReservaTransporteExterno();
-                        $reserva_transporte->codigo = $precio_transporte->codigo;
-                        $reserva_transporte->nombre = $precio_transporte->nombre;
-                        $reserva_transporte->pax = $personas;
-                        $reserva_transporte->precio = $precio_transporte->precio;
-                        $reserva_transporte->categoria = $precio_transporte->categoria;
-                        $reserva_transporte->ruta_salida = $precio_transporte->ruta_salida;
-                        $reserva_transporte->ruta_llegada = $precio_transporte->ruta_llegada;
-                        $reserva_transporte->estado = 0;
-                        $reserva_transporte->comunidad_id = $precio_transporte->comunidad_id;
-                        $reserva_transporte->reserva_id = $reservas->id;
-                        $reserva_transporte->save();
+                            $reserva_transporte = new ReservaTransporteExterno();
+                            $reserva_transporte->codigo = $precio_transporte->codigo;
+                            $reserva_transporte->nombre = $precio_transporte->nombre;
+                            $reserva_transporte->pax = $personas;
+                            $reserva_transporte->precio = $precio_transporte->precio;
+                            $reserva_transporte->categoria = $precio_transporte->categoria;
+                            $reserva_transporte->ruta_salida = $precio_transporte->ruta_salida;
+                            $reserva_transporte->ruta_llegada = $precio_transporte->ruta_llegada;
+                            $reserva_transporte->estado = 0;
+                            $reserva_transporte->comunidad_id = $precio_transporte->comunidad_id;
+                            $reserva_transporte->reserva_id = $reservas->id;
+                            $reserva_transporte->save();
+                        }
                     }
+                    if ($request->has('guia')){
+                        for($i=0; $i < count($request->input('guia')); $i++){
 
-                    for($i=0; $i < count($request->input('guia')); $i++){
+                            $guia_id = explode('-', $request->input('guia')[$i]);
+                            $guia_id = $guia_id[0];
 
-                        $guia_id = explode('-', $request->input('guia')[$i]);
-                        $guia_id = $guia_id[0];
+                            $precio_guia = Guia::where('id', $guia_id)->first();
 
-                        $precio_guia = Guia::where('id', $guia_id)->first();
-
-                        $reserva_guia = new ReservaGuia();
-                        $reserva_guia->codigo = $precio_guia->codigo;
-                        $reserva_guia->nombre = $precio_guia->nombre;
-                        $reserva_guia->pax = $personas;
-                        $reserva_guia->precio = $precio_guia->precio;
-                        $reserva_guia->idioma = $precio_guia->idioma;
-                        $reserva_guia->estado = 0;
-                        $reserva_guia->departamento_id = $precio_guia->departamento_id;
-                        $reserva_guia->reserva_id = $reservas->id;
-                        $reserva_guia->save();
+                            $reserva_guia = new ReservaGuia();
+                            $reserva_guia->codigo = $precio_guia->codigo;
+                            $reserva_guia->nombre = $precio_guia->nombre;
+                            $reserva_guia->pax = $personas;
+                            $reserva_guia->precio = $precio_guia->precio;
+                            $reserva_guia->idioma = $precio_guia->idioma;
+                            $reserva_guia->estado = 0;
+                            $reserva_guia->departamento_id = $precio_guia->departamento_id;
+                            $reserva_guia->reserva_id = $reservas->id;
+                            $reserva_guia->save();
+                        }
                     }
 
                 }
@@ -258,82 +274,90 @@ class PaymentController extends Controller
                     $reserva_actividad->reserva_id = $reservas->id;
                     $reserva_actividad->save();
 
-                    for($i=0; $i < count($request->input('comida')); $i++){
+                    if ($request->has('comida')){
+                        for($i=0; $i < count($request->input('comida')); $i++){
 
-                        $comida_id = explode('-', $request->input('comida')[$i]);
-                        $comida_id = $comida_id[0];
+                            $comida_id = explode('-', $request->input('comida')[$i]);
+                            $comida_id = $comida_id[0];
 
-                        $precio_comida = ComidaPrecio::where('id', $comida_id)->first();
+                            $precio_comida = ComidaPrecio::where('id', $comida_id)->first();
 
-                        $reserva_comida = new ReservaComida();
-                        $reserva_comida->titulo = $precio_comida->comida->titulo;
-                        $reserva_comida->descripcion = $precio_comida->comida->descripcion;
-                        $reserva_comida->categoria = $precio_comida->categoria;
-                        $reserva_comida->nro_personas = $personas;
-                        $reserva_comida->precio = $precio_comida->precio;
-                        $reserva_comida->estado = 0;
-                        $reserva_comida->asociacion_id = $asocicion_id;
-                        $reserva_comida->reserva_id = $reservas->id;
-                        $reserva_comida->save();
+                            $reserva_comida = new ReservaComida();
+                            $reserva_comida->titulo = $precio_comida->comida->titulo;
+                            $reserva_comida->descripcion = $precio_comida->comida->descripcion;
+                            $reserva_comida->categoria = $precio_comida->categoria;
+                            $reserva_comida->nro_personas = $personas;
+                            $reserva_comida->precio = $precio_comida->precio;
+                            $reserva_comida->estado = 0;
+                            $reserva_comida->asociacion_id = $asocicion_id;
+                            $reserva_comida->reserva_id = $reservas->id;
+                            $reserva_comida->save();
+                        }
                     }
 
-                    for($i=0; $i < count($request->input('hospedaje')); $i++){
+                    if ($request->has('hospedaje')){
+                        for($i=0; $i < count($request->input('hospedaje')); $i++){
 
-                        $hospedaje_id = explode('-', $request->input('hospedaje')[$i]);
-                        $hospedaje_id = $hospedaje_id[0];
+                            $hospedaje_id = explode('-', $request->input('hospedaje')[$i]);
+                            $hospedaje_id = $hospedaje_id[0];
 
-                        $precio_hospedaje = HospedajePrecio::where('id', $hospedaje_id)->first();
+                            $precio_hospedaje = HospedajePrecio::where('id', $hospedaje_id)->first();
 
-                        $reserva_hospedaje = new ReservaHospedaje();
-                        $reserva_hospedaje->titulo = $precio_hospedaje->hospedaje->titulo;
-                        $reserva_hospedaje->descripcion = $precio_hospedaje->hospedaje->descripcion;
-                        $reserva_hospedaje->categoria = $precio_hospedaje->categoria;
-                        $reserva_hospedaje->nro_personas = $personas;
-                        $reserva_hospedaje->precio = $precio_hospedaje->precio;
-                        $reserva_hospedaje->estado = 0;
-                        $reserva_hospedaje->asociacion_id = $asocicion_id;
-                        $reserva_hospedaje->reserva_id = $reservas->id;
-                        $reserva_hospedaje->save();
+                            $reserva_hospedaje = new ReservaHospedaje();
+                            $reserva_hospedaje->titulo = $precio_hospedaje->hospedaje->titulo;
+                            $reserva_hospedaje->descripcion = $precio_hospedaje->hospedaje->descripcion;
+                            $reserva_hospedaje->categoria = $precio_hospedaje->categoria;
+                            $reserva_hospedaje->nro_personas = $personas;
+                            $reserva_hospedaje->precio = $precio_hospedaje->precio;
+                            $reserva_hospedaje->estado = 0;
+                            $reserva_hospedaje->asociacion_id = $asocicion_id;
+                            $reserva_hospedaje->reserva_id = $reservas->id;
+                            $reserva_hospedaje->save();
+                        }
                     }
 
-                    for($i=0; $i < count($request->input('transporte')); $i++){
+                    if ($request->has('transporte')){
+                        for($i=0; $i < count($request->input('transporte')); $i++){
 
-                        $transporte_id = explode('-', $request->input('transporte')[$i]);
-                        $transporte_id = $transporte_id[0];
+                            $transporte_id = explode('-', $request->input('transporte')[$i]);
+                            $transporte_id = $transporte_id[0];
 
-                        $precio_transporte = TransporteExterno::where('id', $transporte_id)->first();
+                            $precio_transporte = TransporteExterno::where('id', $transporte_id)->first();
 
-                        $reserva_transporte = new ReservaTransporteExterno();
-                        $reserva_transporte->codigo = $precio_transporte->codigo;
-                        $reserva_transporte->nombre = $precio_transporte->nombre;
-                        $reserva_transporte->pax = $personas;
-                        $reserva_transporte->precio = $precio_transporte->precio;
-                        $reserva_transporte->categoria = $precio_transporte->categoria;
-                        $reserva_transporte->ruta_salida = $precio_transporte->ruta_salida;
-                        $reserva_transporte->ruta_llegada = $precio_transporte->ruta_llegada;
-                        $reserva_transporte->estado = 0;
-                        $reserva_transporte->comunidad_id = $precio_transporte->comunidad_id;
-                        $reserva_transporte->reserva_id = $reservas->id;
-                        $reserva_transporte->save();
+                            $reserva_transporte = new ReservaTransporteExterno();
+                            $reserva_transporte->codigo = $precio_transporte->codigo;
+                            $reserva_transporte->nombre = $precio_transporte->nombre;
+                            $reserva_transporte->pax = $personas;
+                            $reserva_transporte->precio = $precio_transporte->precio;
+                            $reserva_transporte->categoria = $precio_transporte->categoria;
+                            $reserva_transporte->ruta_salida = $precio_transporte->ruta_salida;
+                            $reserva_transporte->ruta_llegada = $precio_transporte->ruta_llegada;
+                            $reserva_transporte->estado = 0;
+                            $reserva_transporte->comunidad_id = $precio_transporte->comunidad_id;
+                            $reserva_transporte->reserva_id = $reservas->id;
+                            $reserva_transporte->save();
+                        }
                     }
 
-                    for($i=0; $i < count($request->input('guia')); $i++){
+                    if ($request->has('guia')){
+                        for($i=0; $i < count($request->input('guia')); $i++){
 
-                        $guia_id = explode('-', $request->input('guia')[$i]);
-                        $guia_id = $guia_id[0];
+                            $guia_id = explode('-', $request->input('guia')[$i]);
+                            $guia_id = $guia_id[0];
 
-                        $precio_guia = Guia::where('id', $guia_id)->first();
+                            $precio_guia = Guia::where('id', $guia_id)->first();
 
-                        $reserva_guia = new ReservaGuia();
-                        $reserva_guia->codigo = $precio_guia->codigo;
-                        $reserva_guia->nombre = $precio_guia->nombre;
-                        $reserva_guia->pax = $personas;
-                        $reserva_guia->precio = $precio_guia->precio;
-                        $reserva_guia->idioma = $precio_guia->idioma;
-                        $reserva_guia->estado = 0;
-                        $reserva_guia->departamento_id = $precio_guia->departamento_id;
-                        $reserva_guia->reserva_id = $reservas->id;
-                        $reserva_guia->save();
+                            $reserva_guia = new ReservaGuia();
+                            $reserva_guia->codigo = $precio_guia->codigo;
+                            $reserva_guia->nombre = $precio_guia->nombre;
+                            $reserva_guia->pax = $personas;
+                            $reserva_guia->precio = $precio_guia->precio;
+                            $reserva_guia->idioma = $precio_guia->idioma;
+                            $reserva_guia->estado = 0;
+                            $reserva_guia->departamento_id = $precio_guia->departamento_id;
+                            $reserva_guia->reserva_id = $reservas->id;
+                            $reserva_guia->save();
+                        }
                     }
 
                 }

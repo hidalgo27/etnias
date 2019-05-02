@@ -14,20 +14,19 @@
                                         <hr>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD</label>
-                                            {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
-                                            <select id="inputState" class="form-control" name="slc_comunidad" required>
-                                                <option value="">Seleccione...</option>
-                                                @foreach($comunidad as $comunidades)
-                                                    <option value="{{$comunidades->nombre}}">{{ucwords(strtolower($comunidades->nombre))}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD</label>--}}
+                                            {{--<select id="inputState" class="form-control" name="slc_comunidad" required>--}}
+                                                {{--<option value="">Seleccione...</option>--}}
+                                                {{--@foreach($comunidad as $comunidades)--}}
+                                                    {{--<option value="{{$comunidades->nombre}}">{{ucwords(strtolower($comunidades->nombre))}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -67,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div id="home-slider-container">
+            <div id="home-slider-container" class="home-slider-container">
                 <div id="home-slider">
                     <div class="slider-item">
                         <img src="{{asset('images/sliders/slider-4.jpg')}}"/>
@@ -201,7 +200,7 @@
                             <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#comunidad-tupac">Comunidad Tupac</a>
+                            <a class="nav-link font-weight-bold" href="#comunidad-amaru">Comunidad Amaru</a>
                         </li>
                     </ul>
                 </nav>
@@ -220,6 +219,22 @@
                             {{--<div class="line-title"></div>--}}
                         </div>
                     </div>
+
+                    <div class="row mt-4 align-items-center">
+                        <div class="col text-center">
+                            <div class="position-relative w-100">
+                                <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                                <div class="position-absolute w-100 top-50">
+                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h5>Huilloc</h5>
+                            <p>Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
+                        </div>
+                    </div>
+
                     <div class="row my-3">
                         <div class="col">
                             <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
@@ -265,22 +280,6 @@
                         @endforeach
 
                     </div>
-
-                    <div class="row mt-4 align-items-center">
-                        <div class="col-6">
-                            <h3 class="font-weight-bold text-g-red-primary">Huilloc</h3>
-                            <hr>
-                            <p class="mt-3 lead font-weight-normal text-secondary">Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
-                        </div>
-                        <div class="col text-center">
-                            <div class="position-relative w-100">
-                                <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                                <div class="position-absolute w-100 top-50">
-                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -299,6 +298,12 @@
                         </div>
                     </div>
                     <div class="row align-items-center mt-4">
+                        <div class="col text-center">
+                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
+                            {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
+                            {{--</a>--}}
+                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
+                        </div>
                         <div class="col">
                             <h5>ASOCIACIÓN HORMIGUITAS DE TAUCCA</h5>
                             <p>Ubicado en el distrito de Chincheros en la ciudad del Cusco, la comunidad de Taucca es más
@@ -306,13 +311,7 @@
                                 minutos del centro arqueológico de Chincheros ofrece diversas actividades de turismo rural
                                 comunitario entre ellas el sembrado y/o cosecha de sus productos, elaboración de artesanías,
                                 entre otros. Visita la comunidad de Taucca y vive inolvidables experiencias.</p>
-                            <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                        <div class="col text-center">
-                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
-                                {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
-                            {{--</a>--}}
-                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
+{{--                            <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>--}}
                         </div>
                     </div>
                     <div class="row my-4">
@@ -358,7 +357,7 @@
                 </div>
             </section>
 
-            <section class="pt-5" id="comunidad-tupac">
+            <section class="pt-5" id="comunidad-amaru">
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
@@ -446,7 +445,7 @@
         <section>
             <div class="offer">
                 <div class="container">
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="offer-l">
                                 <span class="ol-1"></span>
@@ -457,57 +456,58 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </span>
-                                <span class="ol-4">Descuento en nuestros paquetes</span>
-                                <span class="ol-3"></span>
-                                <span class="ol-5">-$99</span>
-                                <ul>
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis1.png')}}" alt="" class="">
-                                        </a>
-                                        <span>Free WiFi</span>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis2.png')}}" alt="">
-                                        </a>
-                                        <span>Breakfast</span>
-                                    </li>
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis3.png')}}" alt="">
-                                        </a>
-                                        <span>Pool</span>
-                                    </li>
+                                <span class="ol-4">Visite Perú y descubra el país de los Incas</span>
+                                {{--<span class="ol-3"></span>--}}
+                                {{--<span class="ol-5">-$99</span>--}}
+                                {{--<ul>--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis1.png')}}" alt="" class="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>Free WiFi</span>--}}
+                                    {{--</li>--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis2.png')}}" alt="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>Breakfast</span>--}}
+                                    {{--</li>--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis3.png')}}" alt="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>Pool</span>--}}
+                                    {{--</li>--}}
                                     {{--<li>--}}
                                     {{--<a href="#!" class="offer-btn">--}}
                                     {{--<img src="{{asset('images/icon/dis4.png')}}" alt="">--}}
                                     {{--</a>--}}
                                     {{--<span>Television</span>--}}
                                     {{--</li>--}}
-                                    <li>
-                                        <a href="#!" class="offer-btn">
-                                            <img src="{{asset('images/icon/dis5.png')}}" alt="">
-                                        </a>
-                                        <span>GYM</span>
-                                    </li>
-                                </ul>
+                                    {{--<li>--}}
+                                        {{--<a href="#!" class="offer-btn">--}}
+                                            {{--<img src="{{asset('images/icon/dis5.png')}}" alt="">--}}
+                                        {{--</a>--}}
+                                        {{--<span>GYM</span>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="offer-r">
-                                <div class="or-1">
-                                    <span class="or-11"><i class="far fa-eye"></i></span>
-                                    <span class="or-12">Ojo</span>
-                                </div>
-                                <div class="or-2">
-                                    <span class="or-21">Obten</span>
-                                    <span class="or-22">70%</span>
-                                    <span class="or-23">descuento</span>
-                                    <span class="or-24">Codigo: RG5481WERQ</span>
-                                    <span class="or-25"></span>
-                                </div>
-                            </div>
+                        <div class="col-md-6 text-center">
+                            {{--<div class="offer-r">--}}
+                                {{--<div class="or-1">--}}
+                                    {{--<span class="or-11"><i class="far fa-eye"></i></span>--}}
+                                    {{--<span class="or-12">Ojo</span>--}}
+                                {{--</div>--}}
+                                {{--<div class="or-2">--}}
+                                    {{--<span class="or-21">Obten</span>--}}
+                                    {{--<span class="or-22">70%</span>--}}
+                                    {{--<span class="or-23">descuento</span>--}}
+                                    {{--<span class="or-24">Codigo: RG5481WERQ</span>--}}
+                                    {{--<span class="or-25"></span>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            <a href="{{route('actividades_path')}}" class="btn btn-lg btn-g-red-primary font-weight-bold">Ver Actividades</a>
                         </div>
                     </div>
                 </div>
@@ -518,14 +518,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Comunidades <span class="text-g-red-dark">Popular</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">Comunidades <span class="text-g-red-dark">Populares</span></h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
                             <div class="tl-3"></div>
                         </div>
                         {{--<div class="line-title"></div>--}}
-                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+{{--                        <p class="mt-3 lead font-weight-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>--}}
                     </div>
                 </div>
 
@@ -744,7 +744,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Los mejores <span class="text-g-red-dark">actividades de este mes</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">Las mejores <span class="text-g-red-dark">actividades de este mes</span></h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>

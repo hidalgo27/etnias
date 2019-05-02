@@ -163,7 +163,9 @@
                                                 <td class="">
                                                     <div class="row align-items-center">
                                                         <div class="col-auto">
-                                                            <img src="{{asset('images/list/iplace-1.jpg')}}" alt="" />
+                                                            @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                            @endforeach
                                                         </div>
                                                         <div class="col text-truncate">
                                                             <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
