@@ -45,7 +45,7 @@
                 <div class="row">
                     @foreach($comunidades as $comunidad)
 
-                        <div class="col-4 text-center mb-4">
+                        <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
                             @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
                                 <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
                             @endforeach

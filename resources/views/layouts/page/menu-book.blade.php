@@ -2,10 +2,10 @@
     <div class="">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col-2 align-items-center">
+                <div class="col-5 col-md-3">
                     <a href="{{route('home_path')}}"><img src="{{asset('images/etnias-peru.png')}}" alt="" class="w-100 pink"></a>
                 </div>
-                <div class="col">
+                <div class="col col-md">
                     {{--<p class="m-0 font-kalam h5 text-info">Perú & Ecuador Especialist!</p>--}}
                 </div>
                 <div class="col-auto text-right">

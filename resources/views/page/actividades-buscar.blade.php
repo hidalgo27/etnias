@@ -148,10 +148,10 @@
                     <table id="myTable">
                         <tbody class="small font-weight-bold text-secondary">
                         <tr class="h5 font-weight-bold text-g-grey-primary">
-                            <th class="py-3">#</th>
                             <th>Nombre Actividad</th>
-                            <th class="w-25 text-center">Precio</th>
-                            <th class="e_h1">Lugar</th>
+                            <th class="d-none d-md-inline-block">Fecha</th>
+                            <th class="w-25 text-center d-none d-sm-inline-block">Precio</th>
+                            <th class="e_h1 d-none d-sm-inline-block">Lugar</th>
                             <th class="text-center">Book</th>
                         </tr>
                         @foreach($comunidad as $comunidades)
@@ -175,13 +175,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>{{$disponibilidades->fecha}}</td>
-                                                <td class="w-25 text-center">
+                                                <td class="d-none d-md-inline-block">{{$disponibilidades->fecha}}</td>
+                                                <td class="w-25 text-center d-none d-sm-inline-block">
                                                     @foreach($actividades->precios as $precio)
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
                                                         <small class="d-block">(precio para {{$precio->min}}-{{$precio->max}} <i class="fas fa-male"></i>)</small></td>
                                                 @endforeach
-                                                <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                <td class="e_h1 d-none d-sm-inline-block">{{ucwords(strtolower($comunidades->nombre))}}</td>
                                                 <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
                                             </tr>
                                         @endif

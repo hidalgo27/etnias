@@ -185,7 +185,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row justify-content-center">
-                                            <div class="col-6">
+                                            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="font-weight-bold text-center bg-secondary text-white p-2 rounded-top">

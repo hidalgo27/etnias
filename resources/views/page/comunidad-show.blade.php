@@ -37,7 +37,7 @@
         <section class="bg-light">
             <div class="container container-shadow">
                 <div class="row pt-5">
-                    <div class="col-9">
+                    <div class="col-12 d-md-inline-block col-md-6 col-lg-9 ">
                         <div class="row" id="explore">
                             <div class="col">
                                 <h1 class="font-weight-bold display-4 text-g-grey-primary"><span class="text-g-red-dark">{{ucwords(strtolower($comunidades->nombre))}}</span></h1>
@@ -62,7 +62,7 @@
                                             @foreach($asociaciones->actividades as $actividades)
                                                 @foreach($disponibilidad->where('actividad_id', $actividades->id) as $disponibilidades)
                                                     @if ($disponibilidades->actividad_id == $actividades->id)
-                                                        <div class="col-6 mb-4">
+                                                        <div class="col-12 col-lg-6 mb-4">
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="header-img-actividades">
@@ -103,7 +103,7 @@
                                 <h4 class="font-weight-bold text-g-grey-primary  mb-4">Asociaciones en la comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h4>
                                 <div class="row">
                                     @foreach($comunidades->asociaciones as $asociaciones)
-                                    <div class="col-4 text-center">
+                                    <div class="col-12 mb-4 mb-md-0 col-md-4 text-center">
                                         @foreach($asociaciones->fotos->where('estado',2)->take(1) as $foto_asociacion)
                                         <img src="http://admin.mietnia.com/admin/asociacion/editar/imagen/{{$foto_asociacion->imagen}}" alt="" width="150" height="150" class="rounded-circle shadow">
                                         @endforeach
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 d-none d-md-inline-block col-md-6 col-lg-3 ">
                         <nav id="navbar-scroll" class="navbar navbar-light bg-light sticky-top">
                             <nav class="nav nav-pills flex-column">
                                 <a class="nav-link font-weight-bold" href="#explore">Explore la comunidad de {{ucwords(strtolower($comunidades->nombre))}}</a>
