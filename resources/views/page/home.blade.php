@@ -11,7 +11,7 @@
                     </div>
                     <div class="row mt-2 justify-content-center">
                         <div class="col-9">
-                            <form action="{{route('client_buscar_path', 'caminatas')}}" method="post" class="bg-rgba-dark-3 p-4 rounded">
+                            <form action="{{route('client_buscar_path', 'caminatas')}}" method="post" class="bg-rgba-dark-3 px-4 py-2 rounded">
                                 @csrf
                                 {{--<div class="row">--}}
                                     {{--<div class="col">--}}
