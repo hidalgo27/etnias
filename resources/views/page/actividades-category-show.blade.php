@@ -129,7 +129,7 @@
                                                 </td>
                                                 <td class="w-25 text-center">
                                                     @foreach($actividades->precios as $precio)
-                                                        <sup>$</sup>{{$precio->precio}}<small>USD</small>
+                                                        <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
                                                         <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
                                                 @endforeach
                                                 <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
