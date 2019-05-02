@@ -787,7 +787,7 @@
                 <div class="row">
                     <div class="col events">
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Event Name.." title="Type in a name">
-                        <table id="myTable">
+                        <table id="myTable" class="table-responsive">
                             <tbody class="small font-weight-bold text-secondary">
                             @foreach($comunidad as $comunidades)
                                 @foreach($comunidades->asociaciones as $asociaciones)
