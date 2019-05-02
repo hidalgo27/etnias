@@ -48315,8 +48315,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Hidalgo\Homestead\code\etnias\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Hidalgo\Homestead\code\etnias\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Sigma\proyectos\homestead\codigo\etnias\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Sigma\proyectos\homestead\codigo\etnias\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
