@@ -26,7 +26,7 @@
         <section class="my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-8 font-poppins">
+                    <div class="col col-md-8 font-poppins">
                         <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividad->titulo))}}
                             {{--<span class="text-warning text-15">--}}
                                         {{--<i class="fa fa-star" aria-hidden="true"></i>--}}
@@ -138,7 +138,7 @@
                         </div>
 
                     </div>
-                    <div class="col">
+                    <div class="col col-md">
                         <div class="card">
                             <div class="card-body text-center">
                                 <sup>$</sup><span class="font-weight-bold display-4 h1" id="d_total" value="{{round($total)}}">{{round($total)}}</span><small>USD</small>

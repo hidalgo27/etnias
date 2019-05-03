@@ -20,22 +20,22 @@
                     <div class="row align-items-end bg-header-body pb-5">
                         <div class="col text-white">
                             <h1 class="text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
-                            <p class="lead font-weight-normal"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> {{$comunidades->altura}}, <b>Distancia de la ciudad más cercana:</b> {{$comunidades->distancia}}</p>
+                            <p class="lead font-weight-normal d-none d-sm-block"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> {{$comunidades->altura}}, <b>Distancia de la ciudad más cercana:</b> {{$comunidades->distancia}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box-header-menu bg-g-green-light text-white">
+            <div class="box-header-menu bg-g-green-light text-white d-none d-md-flex">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <ul>
-                                <li>Comunidad: {{ucwords(strtolower($comunidades->nombre))}}</li>
+                                <li class="text-truncate">Comunidad: {{ucwords(strtolower($comunidades->nombre))}}</li>
                                 @foreach($actividades->precios as $precio)
                                 <li>Precio : <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small class="p-0">USD</small></li>
                                 @endforeach
                                 <li class="text-truncate" data-toggle="tooltip" data-placement="top" title="{{$actividades->duracion}}">Duración : {{$actividades->duracion}}</li>
-                                <li class="btn-book">
+                                <li class="btn-book text-truncate">
                                     <a href="">Reservar Ahora</a>
                                 </li>
                             </ul>
@@ -50,7 +50,7 @@
 
                 <section class="py-5">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col col-md-8">
                             <div class="row">
                                 <div class="col">
                                     <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividades->titulo))}}
@@ -233,7 +233,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col col-md-4">
                             <form action="{{route('book_path')}}" method="post" enctype="multipart/form-data" id="form_detail">
                                 @csrf
                                 <input type="hidden" name="id_actividad" value="{{$actividades->id}}">

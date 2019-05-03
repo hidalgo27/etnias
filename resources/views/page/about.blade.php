@@ -5,7 +5,7 @@
             <div class="form-header-bg h-25">
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
-                        <div class="col-5 text-center">
+                        <div class="col-12 text-center text-truncate">
                             <h1 class="font-weight-bold display-4 text-white">Sobre Nosotros</h1>
                         </div>
                     </div>
@@ -63,10 +63,10 @@
         <section class="my-5">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col">
+                    <div class="col-12 mb-4 col-lg mb-lg-0">
                         <img src="{{asset('images/taucca3.jpg')}}" alt="" class="w-100 rounded shadow">
                     </div>
-                    <div class="col">
+                    <div class="col-12 mb-4 col-lg mb-lg-0">
                         <h3 class="font-weight-bold text-g-grey-primary mb-3">Misión y Visión</h3>
                         <p class="lead font-weight-normal text-g-grey-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur corporis, dolore ea illum impedit laudantium mollitia nam neque, porro praesentium quam qui quia quod similique ullam voluptas, voluptates.</p>
                         <p class="lead font-weight-normal text-g-grey-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam asperiores at aut consectetur consequuntur explicabo illo impedit, iure labore molestiae non nostrum odit qui ratione ullam veritatis vero voluptatibus.</p>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="row mt-5">
-                    <div class="col">
+                    <div class="col-12 mb-3 col-md">
                         <div class="bg-white py-4 px-5 text-center">
                             <img src="{{asset('images/team.jpg')}}" alt="" class="w-100">
                             <h4 class="mt-4">Liseth</h4>
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 mb-3 col-md">
                         <div class="bg-white py-4 px-5 text-center">
                             <img src="{{asset('images/team.jpg')}}" alt="" class="w-100">
                             <h4 class="mt-4">Liseth</h4>
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 mb-3 col-md">
                         <div class="bg-white py-4 px-5 text-center">
                             <img src="{{asset('images/team.jpg')}}" alt="" class="w-100">
                             <h4 class="mt-4">Liseth</h4>

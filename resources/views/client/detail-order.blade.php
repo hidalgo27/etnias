@@ -3,16 +3,16 @@
     @include('layouts.page.menu-book')
     <div class="container my-4">
         <div class="row justify-content-center">
-            <div class="col-3">
+            <div class="col-12 col-md-3">
                 @include('layouts.client.menu')
             </div>
-            <div class="col-9">
+            <div class="col-12 col-md-9">
                 <div class="card">
                     <div class="card-header bg-g-red-primary text-white">
                         Resumen
                     </div>
                     <div class="card-body">
-                        <table class="w-100 table">
+                        <table class="w-100 table table-responsive">
                             <tbody class="">
                             @foreach($reserva_actividad as $reserva_actividades)
                             <tr>
@@ -51,7 +51,7 @@
                         Comidas
                     </div>
                     <div class="card-body">
-                        <table class="w-100 table">
+                        <table class="w-100 table table-responsive">
                             <tbody class="">
                             @foreach($reserva_comida as $reserva_comidas)
                                 <tr>
@@ -74,7 +74,7 @@
                             Hospedaje
                         </div>
                         <div class="card-body">
-                            <table class="w-100 table">
+                            <table class="w-100 table table-responsive">
                                 <tbody class="">
                                 @foreach($reserva_hospedaje as $reserva_hospedajes)
                                     <tr>
@@ -97,7 +97,7 @@
                             Transporte
                         </div>
                         <div class="card-body">
-                            <table class="w-100 table">
+                            <table class="w-100 table table-responsive">
                                 <tbody class="">
                                 @foreach($reserva_transporte as $reserva_transportes)
                                     <tr>
@@ -128,7 +128,7 @@
                             Guia
                         </div>
                         <div class="card-body">
-                            <table class="w-100 table">
+                            <table class="w-100 table table-responsive">
                                 <tbody class="">
                                 @foreach($reserva_guia as $reserva_guias)
                                     <tr>

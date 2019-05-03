@@ -5,7 +5,7 @@
             <div class="form-header-bg h-25">
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
-                        <div class="col-5 text-center">
+                        <div class="col-12 text-center text-truncate">
                             <h1 class="font-weight-bold display-4 text-white">Comunidades</h1>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                 <div class="row">
                     @foreach($comunidades as $comunidad)
 
-                        <div class="col-4 text-center mb-4">
+                        <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
                             @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
                                 <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
                             @endforeach
