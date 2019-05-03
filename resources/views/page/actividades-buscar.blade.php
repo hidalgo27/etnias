@@ -156,7 +156,7 @@
                                                             @endforeach
                                                         </div>
                                                         <div class="col text-truncate">
-                                                            <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
+                                                            <a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
                                                                 {{ucwords(strtolower($actividades->titulo))}}
                                                                 <small class="d-block text-primary font-weight-bold">{{ucwords(strtolower($actividades->categoria))}}</small>
                                                             </a>

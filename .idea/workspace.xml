@@ -10,6 +10,7 @@
       <change afterPath="$PROJECT_DIR$/../laratter/.idea/php.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laratter/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../laratter/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,19 +70,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="170" column="59" selection-start-line="170" selection-start-column="59" selection-end-line="170" selection-end-column="59" />
+            <state relative-caret-position="163">
+              <caret line="158" column="183" selection-start-line="158" selection-start-column="183" selection-end-line="158" selection-end-column="183" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4941" />
+            <state relative-caret-position="451">
+              <caret line="337" column="8" selection-start-line="337" selection-start-column="8" selection-end-line="337" selection-end-column="46" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -124,6 +127,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/resources/views/page/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/page/payment.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" />
       </list>
     </option>
@@ -324,7 +328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="425000" />
+    <option name="totallyTimeSpent" value="1209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -382,16 +386,18 @@
         <state relative-caret-position="-624" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="170" column="59" selection-start-line="170" selection-start-column="59" selection-end-line="170" selection-end-column="59" />
+        <state relative-caret-position="451">
+          <caret line="337" column="8" selection-start-line="337" selection-start-column="8" selection-end-line="337" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4941" />
+        <state relative-caret-position="163">
+          <caret line="158" column="183" selection-start-line="158" selection-start-column="183" selection-end-line="158" selection-end-column="183" />
+        </state>
       </provider>
     </entry>
   </component>
