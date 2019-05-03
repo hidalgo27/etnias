@@ -30,7 +30,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
+                                            <label for="txt_fecha" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
                                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
                                         </div>
                                     </div>
@@ -38,21 +38,8 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
-                                            <select id="inputState" class="form-control" name="slc_huesped" required>
-                                                <option value="">Seleccione...</option>
-                                                <option value="1-1">1</option>
-                                                <option value="2-2">2</option>
-                                                <option value="3-3">3</option>
-                                                <option value="4-4">4</option>
-                                                <option value="5-9">5 - 9</option>
-                                                <option value="10-14">10 - 14</option>
-                                                <option value="15-19">15 - 19</option>
-                                                <option value="20-29">20 - 29</option>
-                                                <option value="30-49">30 - 49</option>
-                                                <option value="50-79">50 - 79</option>
-                                                <option value="80">80+</option>
-                                            </select>
+                                            <label for="slc_huesped" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
+                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Numero de pasajeros" required>
                                         </div>
                                     </div>
                                 </div>

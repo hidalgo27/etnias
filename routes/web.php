@@ -30,6 +30,10 @@ Route::get('/detail/{titulo}', [
     'uses' => 'DetailController@index',
     'as' => 'detail_path',
 ]);
+Route::get('/detail/{titulo}/{fecha}/{pasajeros}', [
+    'uses' => 'DetailController@date',
+    'as' => 'detail_date_path',
+]);
 Route::post('/book/', [
     'uses' => 'BookController@index',
     'as' => 'book_path',

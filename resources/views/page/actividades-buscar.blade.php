@@ -92,45 +92,33 @@
                     {{--</div>--}}
                 {{--</div>--}}
                 <div class="row align-items-center">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD {{$comunidad_input}}</label>
-                            {{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
-                            <select id="inputState" class="form-control" name="slc_comunidad" required>
-                                <option value="">Seleccione...</option>
-                                @foreach($comunidad_all as $comunidades)
-                                    @if ($comunidad_input == $comunidades)
-                                        @php $select_a = "selected"; @endphp
-                                    @else
-                                        @php $select_a = ""; @endphp
-                                    @endif
-                                        <option value="{{$comunidades->nombre}}" {{$select_a}}>{{ucwords(strtolower($comunidades->nombre))}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+{{--                    <div class="col">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="" class="text-g-grey-dark small font-weight-bold">COMUNIDAD {{$comunidad_input}}</label>--}}
+{{--                            --}}{{--<input type="text" class="form-control form-control-lg font-weight-bold" id="formGroupExampleInput" placeholder="Comunidad">--}}
+{{--                            <select id="inputState" class="form-control" name="slc_comunidad" required>--}}
+{{--                                <option value="">Seleccione...</option>--}}
+{{--                                @foreach($comunidad_all as $comunidades)--}}
+{{--                                    @if ($comunidad_input == $comunidades)--}}
+{{--                                        @php $select_a = "selected"; @endphp--}}
+{{--                                    @else--}}
+{{--                                        @php $select_a = ""; @endphp--}}
+{{--                                    @endif--}}
+{{--                                        <option value="{{$comunidades->nombre}}" {{$select_a}}>{{ucwords(strtolower($comunidades->nombre))}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="col">
                         <div class="form-group">
                             <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
-                            <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
+                            <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required value="{{$fecha_input}}">
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
-                            <select id="inputState" class="form-control" name="slc_huesped" required>
-                                <option value="">Seleccione...</option>
-                                <option value="1-1">1</option>
-                                <option value="2-2">2</option>
-                                <option value="3-3">3</option>
-                                <option value="4-4">4</option>
-                                <option value="5-9">5 - 9</option>
-                                <option value="10-14">10 - 14</option>
-                                <option value="15-19">15 - 19</option>
-                                <option value="20-29">20 - 29</option>
-                                <option value="30-49">30 - 49</option>
-                                <option value="50-79">50 - 79</option>
-                                <option value="80">80+</option>
+                            <label for="slc_huesped" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
+                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Numero de pasajeros" required value="{{$rango_min}}">
                             </select>
                         </div>
                     </div>
@@ -182,7 +170,7 @@
                                                         <small class="d-block">(precio para {{$precio->min}}-{{$precio->max}} <i class="fas fa-male"></i>)</small></td>
                                                 @endforeach
                                                 <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                <td class="text-center"><a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
                                             </tr>
                                         @endif
                                     @endforeach

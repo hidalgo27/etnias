@@ -36,6 +36,27 @@ class DetailController extends Controller
         return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','precio_actividad_ver'));
     }
 
+    public function date($titulo, $fecha, $pasajeros)
+    {
+        $titulo = str_replace('-', ' ', $titulo);
+        $id_actividad = Actividad::where('titulo',$titulo)->get();
+        foreach ($id_actividad as $id_actividades){
+            $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividades->id)->get();
+            $disponibilidad_a = ActividadDisponible::where('actividad_id', $id_actividades->id)->where('estado', 1)->get();
+        }
+
+        $estado = 1;
+        $rango_min = $pasajeros;
+        $rango_max = 2;
+        $comunidad = Comunidad::with([
+            'distrito',
+            'asociaciones.actividades'=>function ($query) use ($titulo) {$query->where('titulo',$titulo);},
+            'asociaciones.actividades.precios'=>function ($query) use ($rango_min) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_min);}
+        ])->get();
+
+        return view('page.detail-date', compact('comunidad','precio_actividad','disponibilidad_a','precio_actividad_ver','rango_min','fecha'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
