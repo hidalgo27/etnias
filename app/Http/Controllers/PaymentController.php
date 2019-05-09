@@ -21,6 +21,7 @@ use EtniasPeru\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use EtniasPeru\Helpers\PasarelaVisa;
 
 class PaymentController extends Controller
 {
@@ -89,8 +90,71 @@ class PaymentController extends Controller
                 $l++;
             }
         }
+
+    //-- creamos l asesion para la pasarela
+    if ($total>0){
+        $pasarela=new PasarelaVisa();
+        // $entorno = $_POST['entorno'];
+        $entorno ="dev";
+		switch ($entorno) {
+			case 'dev':
+				$usr = $pasarela->usrtest_();
+				$pwd = $pasarela->pwdtest;
+				break;
+			case 'prd':
+				$usr = $pasarela->usr;
+				$pwd = $pasarela->pwd;
+				break;
+		}
+		// echo $entorno;
+        // $amount = $_POST['amount'];
+        $amount = $total;
+        
+		$key = $pasarela->securitykey($entorno,$usr,$pwd);
+		setcookie("key",$key);
+        // echo "Sessi&oacute;n Key: ", 
+        $sessionToken = $pasarela->create_token($entorno,$amount,$key);
+			if (isset($_POST['nombre'])){
+				$nombre=$_POST['nombre'];
+			}else{
+				$nombre="";
+			}
+			if (isset($_POST['apellido'])){
+				$apellido=$_POST['apellido'];
+			}else{
+				$apellido="";
+			}
+			if (isset($_POST['email'])){
+				$email=$_POST['email'];
+			}else{
+				$email="";
+			}
+			// if (isset($_POST['userTokenId'])){
+			// 	$userTokenId=$_POST['userTokenId'];
+			// }else{
+			// 	$userTokenId="";
+            // }
+            if (isset($_POST['_token'])){
+				$userTokenId=$_POST['_token'];
+			}else{
+				$userTokenId="";
+            }
+            
+		// $arrayPost = array("sessionToken"=>$sessionToken,"amount"=>$amount,"nombre"=>$nombre,"apellido"=>$apellido,"email"=>$email,"userTokenId"=>$userTokenId,"entorno"=>$entorno,"key"=>$key);
+		// $url = "boton.php";
+		// echo "<hr><pre>";
+		// var_dump($arrayPost);
+		// echo "</pre><hr>";
+		// $html = PasarelaVisa::post_form($arrayPost,$url);
+		// echo $html;
+		// setcookie("test","HOLA");
+		// exit;
+	
+
+
 //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
-        return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
+        return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key'));
+    }
     }
 
     public function payment_check(Request $request)

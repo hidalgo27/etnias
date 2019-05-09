@@ -130,11 +130,11 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="row slider-huilloq mx-4">
+                                        @foreach($actividades->fotos->where('estado',0) as $galeria)
                                         <div class="col">
-                                            @foreach($actividades->fotos->where('estado',0) as $galeria)
                                             <a class="venobox" data-gall="myGallery" href="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades"><img src="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades" class="w-100" /></a>
-                                            @endforeach
                                         </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

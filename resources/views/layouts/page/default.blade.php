@@ -292,6 +292,7 @@
     $('body').scrollspy({ target: '#navbar-scroll' });
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
-    })
+    });
+
 </script>
 </html>
