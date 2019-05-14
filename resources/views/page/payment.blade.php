@@ -63,18 +63,7 @@
                                 <p class="m-0 d-block mb-1"><sup>$</sup>{{round($total)}}<small>USD</small></p>
                             </div>
                         </div>
-                        @php
-                            switch ($entorno) {
-                                case 'dev':
-                                    $urljs="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
-                                    $merchantId = merchantidtest;
-                                    break;
-                                case 'prd':
-                                    $urljs="https://static-content.vnforapps.com/v2/js/checkout.js";
-                                    $merchantId = merchantidprd;
-                                    break;
-                            }
-                        @endphp     
+                           
                         @php $pc = 0; @endphp
                     @if (isset($comida_precio))
                             @foreach($comida_precio as $comida_precios)
@@ -207,35 +196,36 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <form role="form" class="bg-light p-3 rounded-bottom" id="form_login" method="post">
+                                                        <form role="form" class="bg-light p-3 rounded-bottom" id="form_login12" method="post" action="{{route('payment_check_path',[$entorno,$numorden,$amount])}}">
+                                                        <input type="hidden" name="entorno" value="{{$entorno}}">
                                                             @csrf
                                                             <script src="{{$urljs}}"
-			data-sessiontoken="{{$sessionToken}}"
-			data-merchantid="{{$merchantId}}"
-			data-channel="web"
-			data-buttonsize=""
-			data-buttoncolor="" 
-			data-merchantlogo ="http://labceperu.com/test/files/logo.png"
-			data-merchantname=""
-			data-formbuttoncolor="#0A0A2A"
-			data-showamount=""
-			data-purchasenumber="{{$numorden}}"
-			data-amount="{{$amount}}"
-			data-cardholdername="{{$nombre}}"
-			data-cardholderlastname="{{$apellido}}"
-			data-cardholderemail="{{$email}}"
-			data-usertoken="{{$userTokenId}}"
-			data-recurrence=""
-			data-frequency=""
-			data-recurrencetype=""
-			data-recurrenceamount=""
-			data-documenttype="0"
-			data-documentid=""
-			data-beneficiaryid="TEST1123"
-			data-productid=""
-			data-phone=""
-			data-timeouturl="http://localhost:8080/dashboard/demo_boton/"
-		/></script>
+                                                                data-sessiontoken="{{$sessionToken}}"
+                                                                data-merchantid="{{$merchantId}}"
+                                                                data-channel="web"
+                                                                data-buttonsize=""
+                                                                data-buttoncolor="" 
+                                                                data-merchantlogo ="http://labceperu.com/test/files/logo.png"
+                                                                data-merchantname=""
+                                                                data-formbuttoncolor="#0A0A2A"
+                                                                data-showamount=""
+                                                                data-purchasenumber="{{$numorden}}"
+                                                                data-amount="{{$amount}}"
+                                                                data-cardholdername="{{$nombre}}"
+                                                                data-cardholderlastname="{{$apellido}}"
+                                                                data-cardholderemail="{{$email}}"
+                                                                data-usertoken="{{$userTokenId}}"
+                                                                data-recurrence=""
+                                                                data-frequency=""
+                                                                data-recurrencetype=""
+                                                                data-recurrenceamount=""
+                                                                data-documenttype="0"
+                                                                data-documentid=""
+                                                                data-beneficiaryid="TEST1123"
+                                                                data-productid=""
+                                                                data-phone=""
+                                                                data-timeouturl="http://localhost:8080/dashboard/demo_boton/"
+                                                            /></script>
                                                         </form>
                                                         {{--<p class="alert alert-success">Some text success or error</p>--}}
                                                         {{--  <form role="form" class="bg-light p-3 rounded-bottom" id="form_login" method="post">
@@ -342,45 +332,3 @@
         </section>
         @endforeach
     @endsection
-@push("scripts")
-    <script>
-        function form_login() {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('[name="_token"]').val()
-                }
-            });
-            var dataString = $('#form_login').serialize();
-
-            // alert('Datos serializados: '+dataString);
-
-            $.ajax({
-                type: "POST",
-                url: "{{route('payment_check_path')}}",
-                data: dataString,
-                success: function(data) {
-                    // alert(data.success);
-                    location.href="../client/home";
-                },
-                error: function (request, status, error) {
-                    json = $.parseJSON(request.responseText);
-                    $.each(json.errors, function(key, value){
-                        // $('.alert-danger').show();
-                        // $('.alert-danger').append('<p><i class="fas fa-chevron-right"></i> '+value+'</p>');
-                        $('#'+key+'').addClass('is-invalid');
-                    });
-                }
-            });
-        }
-
-
-        window.location.hash="no-back-button";
-        window.location.hash="Again-No-back-button";//esta linea es necesaria para chrome
-        window.onhashchange=function(){window.location.hash="no-back-button";}
-
-        window.location.hash="no-next-button";
-        window.location.hash="Again-No-next-button";//esta linea es necesaria para chrome
-        window.onhashchange=function(){window.location.hash="no-next-button";}
-
-    </script>
-@endpush

@@ -46,11 +46,10 @@ Route::post('/payment', [
     'uses' => 'PaymentController@index',
     'as' => 'payment_path',
 ]);
-Route::post('/payment/payment_check', [
+Route::post('/payment/payment_check/{entorno}/{purchaseNumber}/{amount}', [
     'uses' => 'PaymentController@payment_check',
     'as' => 'payment_check_path',
 ]);
-
 
 Route::get('/comunidades', [
     'uses' => 'ComunidadController@index',

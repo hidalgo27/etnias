@@ -3,42 +3,139 @@ namespace EtniasPeru\Helpers;
 
 class PasarelaVisa{
     
-public function __construct() {
-    $Merchant="515776502";
-    $AccessKey="AKIAJMS5RZP6ISU4T35Q";
-    $SecretAccessKey="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";
-    $merchantidtest="602545705";
-    $usrtest="integraciones.visanet@necomplus.com";
-    // $pwdprd="d5e7nk$M";
-    $securityapitest="https://apitestenv.vnforapps.com/api.security/v1/security";
-    $sessionapitest="https://apitestenv.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
-    $autorizationapitest="https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
+    protected $Merchant = "";
+    protected $AccessKey = "";
+    protected $SecretAccessKey = "";
+    protected $merchantidtest = "";
+    protected $usrtest = "";
+    protected $pwdtest = "";
+    protected $securityapitest = "";
+    protected $sessionapitest = "";
+    protected $autorizationapitest = "";
+    protected $merchantidprd = "";
+    protected $usr = "";
+    protected $pwd = "";
+    protected $securityapiprd = "";
+    protected $sessionapiprd = "";
+    protected $autorizationapiprd = "";
+    protected $MerchantPRD = "";
+    protected $AccessKeyPRD = "";
+    protected $SecretAccessKeyPRD = "";
+    
+    protected $url = "";
+    public function __construct() {
+        // $this->Merchant="342062522";
+        // $this->AccessKey="AKIAJMS5RZP6ISU4T35Q";
+        // $this->SecretAccessKey="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";
+        $this->merchantidtest="342062522";
+        $this->usrtest="integraciones.visanet@necomplus.com";
+        $this->pwdtest='d5e7nk$M';
+        $this->securityapitest="https://apitestenv.vnforapps.com/api.security/v1/security";
+        $this->sessionapitest="https://apitestenv.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
+        $this->autorizationapitest="https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 
-    $merchantidprd="";
-    $usr="";
-    $pwd="";
-    $securityapiprd="https://apiprod.vnforapps.com/api.security/v1/security";
-    $sessionapiprd="https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
-    $autorizationapiprd="https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
+        $this->merchantidprd="";
+        $this->usr="";
+        $this->pwd='';
+        $this->securityapiprd="https://apiprod.vnforapps.com/api.security/v1/security";
+        $this->sessionapiprd="https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
+        $this->autorizationapiprd="https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 
-    //$MerchantPRD="110402505";
-    //$AccessKeyPRD="AKIAI3S45ADIBHPAB5NQ";
-    //$SecretAccessKeyPRD="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";
+        //$this->MerchantPRD="110402505";
+        //$this->AccessKeyPRD="AKIAI3S45ADIBHPAB5NQ";
+        //$this->SecretAccessKeyPRD="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";
 
-    #$MerchantPRD="148131802";
-    #$AccessKeyPRD="AKIAJRWJQBFYLRVB22ZQ";
-    #$SecretAccessKeyPRD="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";
+        #$this->MerchantPRD="148131802";
+        #$this->AccessKeyPRD="AKIAJRWJQBFYLRVB22ZQ";
+        #$this->SecretAccessKeyPRD="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";
 
-    $MerchantPRD="341198210";
-    $AccessKeyPRD="AKIAI737YRU5WIQ5W6JQ";
-    $SecretAccessKeyPRD="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";
-}
-public function usrtest_()
+        $this->MerchantPRD="341198210";
+        $this->AccessKeyPRD="AKIAI737YRU5WIQ5W6JQ";
+        $this->SecretAccessKeyPRD="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";
+    }
+    
+    public function Merchant()
     {
-        return $this->usrtest;
+        return $this->Merchant;
         
     }
-public static function getGUID(){
+    
+    public function AccessKey()
+    {
+        return $this->AccessKey;
+        
+    }
+    public function SecretAccessKey()
+    {
+        return $this->SecretAccessKey;
+        
+    }
+    public function merchantidtest()
+    {
+        return $this->merchantidtest;   
+    }
+    public function usrtest()
+    {
+        return $this->usrtest;   
+    }
+    public function pwdtest()
+    {
+        return $this->pwdtest;   
+    }
+    public function securityapitest()
+    {
+        return $this->securityapitest;   
+    }
+    public function sessionapitest()
+    {
+        return $this->sessionapitest;   
+    }
+    public function autorizationapitest()
+    {
+        return $this->autorizationapitest;   
+    }
+    public function merchantidprd()
+    {
+        return $this->merchantidprd;   
+    }
+    public function usr()
+    {
+        return $this->usr;   
+    }
+    public function pwd()
+    {
+        return $this->pwd;   
+    }
+    public function securityapiprd()
+    {
+        return $this->securityapiprd;   
+    }
+    public function sessionapiprd()
+    {
+        return $this->sessionapiprd;   
+    }
+    public function autorizationapiprd()
+    {
+        return $this->autorizationapiprd;   
+    }
+    public function MerchantPRD()
+    {
+        return $this->MerchantPRD;   
+    }
+    public function AccessKeyPRD()
+    {
+        return $this->AccessKeyPRD;   
+    }
+    public function SecretAccessKeyPRD()
+    {
+        return $this->SecretAccessKeyPRD;   
+    }
+    public function url()
+    {
+        return $this->url;   
+    }
+    
+public  function getGUID(){
     if (function_exists('com_create_guid')){
         return com_create_guid();
     }else{
@@ -56,7 +153,7 @@ public static function getGUID(){
         return $uuid;
     }
 }
-public static function create_json_post($post){
+public  function create_json_post($post){
             $request="{";
             for ($i=0; $i < count($post) ; $i++) { 
                 $llave = key($post);
@@ -72,7 +169,7 @@ public static function create_json_post($post){
             return $request;
 }
 
-public static function contador(){
+public  function contador(){
     $archivo = "contador.txt"; 
     $contador = 0; 
     $fp = fopen($archivo,"r"); 
@@ -85,19 +182,19 @@ public static function contador(){
     return $contador;
 }
 
-public static function securitykey($environment,$user,$password){
+public  function securitykey($environment,$user,$password){
     switch ($environment) {
         case 'prd':
-            $merchantId = merchantidprd;
-            $url = securityapiprd;
-            $accessKey=usr;
-            $secretKey=pwd;
+            $merchantId = $this->merchantidprd;
+            $url = $this->securityapiprd;
+            $accessKey=$this->usr;
+            $secretKey=$this->pwd;
             break;
         case 'dev':
-            $merchantId = merchantidtest;
-            $url = securityapitest;
-            $accessKey=usrtest;
-            $secretKey=pwdtest;
+            $merchantId = $this->merchantidtest;
+            $url = $this->securityapitest;
+            $accessKey=$this->usrtest;
+            $secretKey=$this->pwdtest;
             break;
     }
     $header = array("Content-Type: application/json");
@@ -116,19 +213,19 @@ public static function securitykey($environment,$user,$password){
     return $key;
 }
 
-public static function create_token($environment,$amount,$key){
+public  function create_token($environment,$amount,$key){
     switch ($environment) {
         case 'prd':
             #$merchantId = merchantIdprd;
-            $url = sessionapiprd.merchantidprd;
-            $accessKey=usr;
-            $secretKey=pwd;
+            $url = $this->sessionapiprd.$this->merchantidprd;
+            $accessKey=$this->usr;
+            $secretKey=$this->pwd;
             break;
         case 'dev':
             #$merchantId = merchantidtest;
-            $url = sessionapitest.merchantidtest;
-            $accessKey=usrtest;
-            $secretKey=pwdtest;
+            $url = $this->sessionapitest.$this->merchantidtest;
+            $accessKey=$this->usrtest;
+            $secretKey=$this->pwdtest;
             break;
     }
     $header = array("Content-Type: application/json","Authorization: $key");
@@ -162,15 +259,15 @@ public static function create_token($environment,$amount,$key){
     return $dato;
 }
 
-public static function authorization($environment,$key,$amount,$transactionToken,$purchaseNumber){
+public  function authorization($environment,$key,$amount,$transactionToken,$purchaseNumber){
     switch ($environment) {
         case 'prd':
             #$merchantId = merchantIdprd;
-            $url = autorizationapiprd.merchantidprd;
+            $this->url = $this->autorizationapiprd.$this->merchantidprd;
             break;
         case 'dev':
             #$merchantId = merchantidtest;
-            $url = autorizationapitest.merchantidtest;
+            $this->url = $this->autorizationapitest.$this->merchantidtest;
             break;
     }
     $header = array("Content-Type: application/json","Authorization: $key");
@@ -187,14 +284,15 @@ public static function authorization($environment,$key,$amount,$transactionToken
             \"currency\" : \"PEN\"
         }
     }";
-
+    
+    $dds=$this->url ;
     echo "<hr>";
-    echo $url;
+    echo $this->url;
     echo "<br>";
     echo $request_body;
     echo "<hr>";
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_URL, $dds);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     #curl_setopt($ch, CURLOPT_USERPWD, "$accessKey:$secretKey");
     curl_setopt($ch, CURLOPT_HEADER, FALSE);
@@ -213,15 +311,12 @@ public static function authorization($environment,$key,$amount,$transactionToken
     return $json;
 }
 
-
-
-
-public static function post_form($array_post,$url){
+public  function post_form($array_post,$url_){
     $html="<html>
     <head>
     </head>
     <Body onload=\"f1.submit();\">
-    <form name=\"f1\" method=\"post\" action=\"{$url}\">";
+    <form name=\"f1\" method=\"post\" action=\"{$url_}\">";
     for ($i=0; $i < count($array_post) ; $i++) { 
         $llave = key($array_post);
         $valor = $array_post[$llave];

@@ -92,73 +92,118 @@ class PaymentController extends Controller
         }
 
     //-- creamos l asesion para la pasarela
-    if ($total>0){
-        $pasarela=new PasarelaVisa();
-        // $entorno = $_POST['entorno'];
-        $entorno ="dev";
-		switch ($entorno) {
-			case 'dev':
-				$usr = $pasarela->usrtest_();
-				$pwd = $pasarela->pwdtest;
-				break;
-			case 'prd':
-				$usr = $pasarela->usr;
-				$pwd = $pasarela->pwd;
-				break;
-		}
-		// echo $entorno;
-        // $amount = $_POST['amount'];
-        $amount = $total;
-        
-		$key = $pasarela->securitykey($entorno,$usr,$pwd);
-		setcookie("key",$key);
-        // echo "Sessi&oacute;n Key: ", 
-        $sessionToken = $pasarela->create_token($entorno,$amount,$key);
-			if (isset($_POST['nombre'])){
-				$nombre=$_POST['nombre'];
-			}else{
-				$nombre="";
-			}
-			if (isset($_POST['apellido'])){
-				$apellido=$_POST['apellido'];
-			}else{
-				$apellido="";
-			}
-			if (isset($_POST['email'])){
-				$email=$_POST['email'];
-			}else{
-				$email="";
-			}
-			// if (isset($_POST['userTokenId'])){
-			// 	$userTokenId=$_POST['userTokenId'];
-			// }else{
-			// 	$userTokenId="";
-            // }
-            if (isset($_POST['_token'])){
-				$userTokenId=$_POST['_token'];
-			}else{
-				$userTokenId="";
+        if ($total>0){
+            $pasarela=new PasarelaVisa();
+            // $entorno = $_POST['entorno'];
+            $entorno ="dev";
+            switch ($entorno) {
+                case 'dev':
+                    $usr = $pasarela->usrtest();
+                    $pwd = $pasarela->pwdtest();
+                    break;
+                case 'prd':
+                    $usr = $pasarela->usr();
+                    $pwd = $pasarela->pwd();
+                    break;
             }
+            // echo $entorno;
+            // $amount = $_POST['amount'];
+            $amount = number_format($total, 2);
             
-		// $arrayPost = array("sessionToken"=>$sessionToken,"amount"=>$amount,"nombre"=>$nombre,"apellido"=>$apellido,"email"=>$email,"userTokenId"=>$userTokenId,"entorno"=>$entorno,"key"=>$key);
-		// $url = "boton.php";
-		// echo "<hr><pre>";
-		// var_dump($arrayPost);
-		// echo "</pre><hr>";
-		// $html = PasarelaVisa::post_form($arrayPost,$url);
-		// echo $html;
-		// setcookie("test","HOLA");
-		// exit;
-	
+            // dd("entorno:$entorno,amount:$usr,key:$pwd");
+            $key = $pasarela->securitykey($entorno,$usr,$pwd);
+            setcookie("key",$key);
+            // session('key', $key);
+            // echo "Sessi&oacute;n Key: ",
+            // dd("entorno:$entorno,amount:$amount,key:$key");
+
+            $sessionToken = $pasarela->create_token($entorno,$amount,$key);
+                if (isset($_POST['nombre'])){
+                    $nombre=$_POST['nombre'];
+                }else{
+                    $nombre="";
+                }
+                if (isset($_POST['apellido'])){
+                    $apellido=$_POST['apellido'];
+                }else{
+                    $apellido="";
+                }
+                if (isset($_POST['email'])){
+                    $email=$_POST['email'];
+                }else{
+                    $email="";
+                }
+                if (isset($_POST['userTokenId'])){
+                    $userTokenId=$_POST['userTokenId'];
+                }else{
+                    $userTokenId="";
+                }
+                if (isset($_POST['_token'])){
+                    $userTokenId=$_POST['_token'];
+                }else{
+                    $userTokenId="";
+                }
+                
+            // $arrayPost = array("sessionToken"=>$sessionToken,"amount"=>$amount,"nombre"=>$nombre,"apellido"=>$apellido,"email"=>$email,"userTokenId"=>$userTokenId,"entorno"=>$entorno,"key"=>$key);
+            // $url = "boton.php";
+            // echo "<hr><pre>";
+            // var_dump($arrayPost);
+            // echo "</pre><hr>";
+            // $html = PasarelaVisa::post_form($arrayPost,$url);
+            // echo $html;
+            // setcookie("test","HOLA");
+            // exit;
+        
 
 
-//        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
-        return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key'));
+    //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
+
+        $numorden='00001';
+
+        switch ($entorno) {
+            case 'dev':
+                $urljs="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
+                $merchantId = $pasarela->merchantidtest();
+                break;
+            case 'prd':
+                $urljs="https://static-content.vnforapps.com/v2/js/checkout.js";
+                $merchantId = $pasarela->merchantidprd();
+                break;
+        }
+
+    // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
+            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs'));
+        }
     }
-    }
 
-    public function payment_check(Request $request)
+    public function payment_check(Request $request,$entorno,$purchaseNumber,$amount)
     {
+        // Auth::login($user, true);
+        // dd($request->all());
+        if (isset($_POST['transactionToken'])){
+            // $key = session('key');
+            $key =$_COOKIE["key"];
+            // dd($key);
+            echo "<hr>".$key."<hr>";
+            $transactionToken = $_POST['transactionToken'];
+            // $entorno ='dev'; /*$_POST['entorno'];*/
+            // $purchaseNumber = $_GET['purchaseNumber'];
+            // $amount = $_GET['amount'];
+            echo "<pre>";
+            var_dump($_POST);
+            echo "<pre>";
+            $pasarela=new PasarelaVisa();
+            $respuesta = $pasarela->authorization($entorno,$key,$amount,$transactionToken,$purchaseNumber);
+            echo "<div class=\"divabsolute\">";
+            echo "<pre>";
+            var_dump($respuesta);
+            echo "<pre>";
+            echo "</div>";
+            // session()->forget('key');
+                unset($_COOKIE["key"]);
+            exit;
+        }
+
         $validator = $request->validate([
             'email' => 'required',
             'username' => 'required',
@@ -429,7 +474,7 @@ class PaymentController extends Controller
 
         }
 
-        Auth::login($user, true);
+        
 
         return redirect($this->redirectTo);
 
