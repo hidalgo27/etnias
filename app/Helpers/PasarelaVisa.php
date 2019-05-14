@@ -281,7 +281,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
             \"amount\" : \"$amount\",
             \"tokenId\" : \"$transactionToken\",
             \"purchaseNumber\" : \"$purchaseNumber\",
-            \"currency\" : \"PEN\"
+            \"currency\" : \"USD\"
         }
     }";
     
