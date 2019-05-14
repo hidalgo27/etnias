@@ -50,13 +50,14 @@ class PaymentController extends Controller
         }
 //        $comida_precio = ComidaPrecio::all();
 //        $comida = $request->input('comida');
-
+        $pre_total=0;
         if ($request->has('comida')){
             $comida_arr = $request->input('comida');
             $i=0;
             foreach ($comida_arr as $comida_a){
                 $comida_id = explode('-', $comida_a);
                 $comida_precio[$i] = ComidaPrecio::find($comida_id[0]);
+                $pre_total+=round($comida_precio[$i]->precio);
                 $i++;
             }
         }
@@ -67,6 +68,7 @@ class PaymentController extends Controller
             foreach ($transporte_arr as $transporte_a){
                 $transporte_id = explode('-', $transporte_a);
                 $transporte_precio[$j] = TransporteExterno::find($transporte_id[0]);
+                $pre_total+=round($transporte_precio[$j]->precio);
                 $j++;
             }
         }
@@ -77,6 +79,7 @@ class PaymentController extends Controller
             foreach ($hospedaje_arr as $hospedaje_a){
                 $hospedaje_id = explode('-', $hospedaje_a);
                 $hospedaje_precio[$k] = HospedajePrecio::find($hospedaje_id[0]);
+                $pre_total+=round($hospedaje_precio[$k]->precio);
                 $k++;
             }
         }
@@ -87,6 +90,7 @@ class PaymentController extends Controller
             foreach ($guia_arr as $guia_a){
                 $guia_id = explode('-', $guia_a);
                 $guia_precio[$l] = Guia::find($guia_id[0]);
+                $pre_total+=round($guia_precio[$l]->precio);
                 $l++;
             }
         }
@@ -108,7 +112,8 @@ class PaymentController extends Controller
             }
             // echo $entorno;
             // $amount = $_POST['amount'];
-            $amount = number_format($total, 2);
+
+            $amount = round($total)+$pre_total;
             
             // dd("entorno:$entorno,amount:$usr,key:$pwd");
             $key = $pasarela->securitykey($entorno,$usr,$pwd);
