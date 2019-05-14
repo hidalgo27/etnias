@@ -113,7 +113,7 @@ class PaymentController extends Controller
             // echo $entorno;
             // $amount = $_POST['amount'];
 
-            $amount = round($total)+$pre_total;
+            $amount = (round($total)+$pre_total) * $personas;
             
             // dd("entorno:$entorno,amount:$usr,key:$pwd");
             $key = $pasarela->securitykey($entorno,$usr,$pwd);

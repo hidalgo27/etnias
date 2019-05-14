@@ -187,15 +187,24 @@
                                             {{--<p class="m-0 d-block mb-1"><sup>$</sup>50<small>USD</small></p>--}}
                                             {{--</div>--}}
                                             {{--</div>--}}
+                                            <hr>
                                             <div class="row text-left align-items-center">
                                                 <div class="col">
-                                                    <p class="m-0 d-block mb-1 font-weight-bold text-secondary">Total</p>
+                                                    <p class="m-0 d-block mb-1 text-g-grey-light">Precio por persona</p>
                                                 </div>
-                                                <div class="col text-right">
-                                                    <p class="m-0 d-block mb-1 font-weight-bold text-secondary"><sup>$</sup>{{round($total + $pc + $ph + $pt + $pg)}}<small class="font-weight-bold text-secondary">USD</small></p>
+                                                <div class="col-auto text-right">
+                                                    <p class="m-0 d-block mb-1 text-g-grey-light"><sup>$</sup>{{(round($total + $pc + $ph + $pt + $pg))}}<small class="font-weight-bold text-secondary">USD</small></p>
                                                 </div>
                                             </div>
-
+                                            <div class="row text-left align-items-center bg-light">
+                                                <div class="col">
+                                                    <p class="m-0 d-block mb-1 font-weight-bold text-secondary">Total para {{$personas}} personas</p>
+                                                </div>
+                                                <div class="col-auto text-right">
+                                                    <p class="m-0 d-block mb-1 font-weight-bold text-secondary"><sup>$</sup>{{(round($total + $pc + $ph + $pt + $pg))*$personas}}<small class="font-weight-bold text-secondary">USD</small></p>
+                                                </div>
+                                            </div>
+                                            <hr>
 
                                             <div class="row justify-content-center">
                                                 <div class="col-12">
