@@ -3,17 +3,18 @@
         @include('layouts.page.menu-book')
 
         {{--@foreach($actividad as $actividad)--}}
-        <section>
+        <section class="my-4">
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb small font-weight-bold p-0 m-0 bg-white">
-                                <li class="breadcrumb-item"><a href="#">1. Detalle <small class="font-italic">(Itinerario)</small></a></li>
-                                <li class="breadcrumb-item"><a href="#">2. Resumen</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">3. Confirmar ysdsd pagar</li>
-                            </ol>
-                        </nav>
+                <div class="row no-gutters text-center">
+                    <div class="col p-3 bg-light text-truncate">
+                        @php $fecha_viaje_r = str_replace('/', '-', $fecha_viaje); @endphp
+                        <a class="font-weight-bold" href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividad->titulo)), $fecha_viaje_r, $personas])}}">1. Detail Program <small class="font-italic">(Itinerary)</small></a>
+                    </div>
+                    <div class="col p-3 bg-g-red-dark text-white shadow-sm font-weight-bold text-truncate">
+                        2. Additional Services
+                    </div>
+                    <div class="col p-3 bg-light text-truncate">
+                        3. Confirm and Pay
                     </div>
                 </div>
             </div>
@@ -23,7 +24,7 @@
             <input type="hidden" name="txt_actividad_id" value="{{$actividad->id}}">
             <input type="hidden" name="txt_personas" value="{{$personas}}">
             <input type="hidden" name="txt_fecha_viaje" value="{{$fecha_viaje}}">
-        <section class="my-5">
+        <section class="mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col col-md-8 font-poppins">

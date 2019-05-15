@@ -29,14 +29,14 @@
                                 <div class="row align-items-center">
                                     <div class="col-12 col-lg">
                                         <div class="form-group">
-                                            <label for="" class="text-white small font-weight-bold">LLEGADA</label>
+                                            <label for="" class="text-white small font-weight-bold">TRAVEL DATE</label>
                                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <div class="form-group">
-                                            <label for="slc_huesped" class="text-white small font-weight-bold">HUÉSPEDES</label>
-                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Numero de pasajeros" required>
+                                            <label for="slc_huesped" class="text-white small font-weight-bold">TRAVELERS</label>
+                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Number travelers" required>
                                         </div>
                                     </div>
                                     <div class="col">
@@ -792,14 +792,14 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class=" d-none d-sm-inline-block">{{$disponibilidades_mes->fecha}}</td>
-                                                    <td class="w-25 text-center d-none d-md-inline-block">
+                                                    <td class=" d-none d-md-table-cell">{{$disponibilidades_mes->fecha}}</td>
+                                                    <td class="w-25 text-center d-none d-md-table-cell">
                                                         @foreach($actividades->precios as $precio)
                                                             <sup>$</sup>{{$precio->precio}}<small>USD</small>
                                                             <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
                                                     @endforeach
-                                                    <td class="e_h1 d-none d-md-inline-block">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                    <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                    <td class="e_h1 d-none d-md-table-cell">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                    <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Book</a> </td>
                                                 </tr>
                                             @endif
                                         @endforeach

@@ -111,13 +111,13 @@
 {{--                    </div>--}}
                     <div class="col">
                         <div class="form-group">
-                            <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
+                            <label for="" class="text-g-grey-dark small font-weight-bold">TRAVEL DATE</label>
                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required value="{{$fecha_input}}">
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="slc_huesped" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
+                            <label for="slc_huesped" class="text-g-grey-dark small font-weight-bold">TRAVELERS</label>
                             <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Numero de pasajeros" required value="{{$rango_min}}">
                             </select>
                         </div>
@@ -136,10 +136,10 @@
                     <table id="myTable">
                         <tbody class="small font-weight-bold text-secondary">
                         <tr class="h5 font-weight-bold text-g-grey-primary">
-                            <th>Nombre Actividad</th>
-                            <th class="d-none d-md-inline-block">Fecha</th>
-                            <th class="w-25 text-center d-none d-sm-inline-block">Precio</th>
-                            <th class="e_h1 d-none d-sm-inline-block">Lugar</th>
+                            <th class="p-3">Name Activity</th>
+                            <th class="d-none d-md-table-cell text-center">Date</th>
+                            <th class="text-center d-none d-sm-table-cell">Price</th>
+                            <th class="text-center d-none d-sm-table-cell">Location</th>
                             <th class="text-center">Book</th>
                         </tr>
                         @foreach($comunidad as $comunidades)
@@ -148,7 +148,7 @@
                                     @foreach($disponibilidad->where('actividad_id', $actividades->id) as $disponibilidades)
                                         @if ($disponibilidades->actividad_id == $actividades->id)
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <div class="row align-items-center">
                                                         <div class="col-auto">
                                                             @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
@@ -163,14 +163,15 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="d-none d-md-inline-block">{{$disponibilidades->fecha}}</td>
-                                                <td class="w-25 text-center d-none d-sm-inline-block">
+                                                <td class="text-center d-none d-sm-table-cell">{{$disponibilidades->fecha}}</td>
+                                                <td class="text-center d-none d-sm-table-cell">
                                                     @foreach($actividades->precios as $precio)
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                        <small class="d-block">(precio para {{$precio->min}}-{{$precio->max}} <i class="fas fa-male"></i>)</small></td>
-                                                @endforeach
-                                                <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                <td class="text-center"><a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                        <small class="d-block">(Price per person)</small>
+                                                    @endforeach
+                                                </td>
+                                                <td class="text-center">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                <td class="text-center"><a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Book</a> </td>
                                             </tr>
                                         @endif
                                     @endforeach

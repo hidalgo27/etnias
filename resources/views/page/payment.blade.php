@@ -1,22 +1,30 @@
 @extends('layouts.page.default')
     @section('content')
         @include('layouts.page.menu-book')
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb small font-weight-bold p-0 m-0 bg-white">
-                                <li class="breadcrumb-item"><a href="#">1. Detalle <small class="font-italic">(Itinerario)</small></a></li>
-                                <li class="breadcrumb-item"><a href="#">2. Resumen</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">3. Confirmar y pagar</li>
-                            </ol>
-                        </nav>
+
+        @foreach($actividad as $actividades)
+            <section class="my-4">
+                <div class="container">
+                    <div class="row no-gutters text-center align-items-center">
+                        <div class="col p-3 bg-light text-truncate">
+                            @php $fecha_viaje_r = str_replace('/', '-', $fecha_viaje); @endphp
+                            <a class="font-weight-bold" href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_viaje_r, $personas])}}">1. Detail Program <small class="font-italic">(Itinerary)</small></a>
+                        </div>
+                        <div class="col p-3 bg-light text-truncate">
+                            <form action="{{route('book_path')}}" method="post" enctype="multipart/form-data" class="text-truncate">
+                                @csrf
+                                <input type="hidden" name="id_actividad" value="{{$actividades->id}}">
+                                <input type="hidden" name="fecha_viaje" value="{{$fecha_viaje_r}}">
+                                <input  type="hidden" name="txt_personas"value="{{$personas}}">
+                                <input type="submit" value="2. Additional Services" class="btn btn-link font-weight-bold p-0 m-0 text-truncate">
+                            </form>
+                        </div>
+                        <div class="col p-3 bg-g-red-dark text-white shadow-sm font-weight-bold text-truncate">
+                            3. Confirm and Pay
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        @foreach($actividad as $actividades)
+            </section>
         <section class="my-5">
             <div class="container">
                 <div class="row">
@@ -36,7 +44,7 @@
                         <div class="row my-3">
                             <div class="col font-poppins">
                                 <h4 class="font-weight-bold text-g-grey-primary">Ya casi terminamos</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi culpa, ipsam rerum sit veniam? Assumenda atque cum dicta, enim explicabo ipsa maxime nulla odit, quas reprehenderit unde vel voluptatibus.</p>
+                                <p>Revisa la información de su actividad y continúa. Si hay algo que no esté bien, modifica la información en <mark>servicios adicionales</mark> o <mark>detalles del programa</mark>.</p>
                             </div>
                         </div>
 
@@ -55,19 +63,28 @@
                                 </p>
                             </div>
                             <div class="col-12">
-                                <div class="card terminos-payment overflow-auto">
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.
-                                    </div>
+                                {{--<div class="card terminos-payment overflow-auto">--}}
+                                    {{--<div class="card-body">--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                        {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                <a href="{{asset('doc/terminos-y-condiciones.pdf')}}" target="_blank" class="btn btn-link font-weight-bold small p-0 mt-2">Ver en una ventana distinta <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col was-validated">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" name="terminos" id="terminos" required>
+                                    <label class="custom-control-label" for="terminos">Acepto los términos y condiciones anteriores:</label>
                                 </div>
-                                <a href="" class="btn btn-link font-weight-bold small p-0 mt-2">Ver en una ventana distinta</a>
                             </div>
                         </div>
 
@@ -96,6 +113,7 @@
                                                     <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> Fecha de viaje: {{$fecha_viaje}}</p>
                                                 </div>
                                             </div>
+                                            <hr>
                                             <div class="row text-left align-items-center">
                                                 <div class="col">
                                                     <p class="m-0 d-block mb-1">
