@@ -147,6 +147,7 @@
                                 @foreach($asociaciones->actividades as $actividades)
                                     @foreach($disponibilidad->where('actividad_id', $actividades->id) as $disponibilidades)
                                         @if ($disponibilidades->actividad_id == $actividades->id)
+                                            @foreach($actividades->precios as $precio)
                                             <tr>
                                                 <td>
                                                     <div class="row align-items-center">
@@ -165,14 +166,15 @@
                                                 </td>
                                                 <td class="text-center d-none d-sm-table-cell">{{$disponibilidades->fecha}}</td>
                                                 <td class="text-center d-none d-sm-table-cell">
-                                                    @foreach($actividades->precios as $precio)
+
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
                                                         <small class="d-block">(Price per person)</small>
-                                                    @endforeach
+
                                                 </td>
                                                 <td class="text-center">{{ucwords(strtolower($comunidades->nombre))}}</td>
                                                 <td class="text-center"><a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Book</a> </td>
                                             </tr>
+                                            @endforeach
                                         @endif
                                     @endforeach
                                 @endforeach

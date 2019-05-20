@@ -100,6 +100,28 @@ Route::post('/trabaja-con-nosotros/comunidad/post', [
     'as' => 'join_comunidad_post_path',
 ]);
 
+Route::post('/trabaja-con-nosotros/guia/post', [
+    'uses' => 'JoinController@guia_post',
+    'as' => 'join_guia_post_path',
+]);
+Route::post('/trabaja-con-nosotros/transportista/post', [
+    'uses' => 'JoinController@transporte_post',
+    'as' => 'join_trasporte_post_path',
+]);
+Route::post('/trabaja-con-nosotros/mostrar-comunidades', [
+    'uses' => 'JoinController@mostrarComunidades',
+    'as' => 'comunidad.mostrar.comunidades',
+]);
+Route::post('/trabaja-con-nosotros/mostrar-provincias', [
+    'uses' => 'JoinController@mostrarProvincias',
+    'as' => 'comunidad_mostrar_provincias_path',
+]);
+Route::post('/trabaja-con-nosotros/mostrar-distritos', [
+    'uses' => 'JoinController@mostrarDistritos',
+    'as' => 'comunidad_mostrar_distritos_path',
+]);
+
+
 Route::get('/nosotros', [
     'uses' => 'AboutController@index',
     'as' => 'about_path',
