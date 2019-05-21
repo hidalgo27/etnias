@@ -164,7 +164,8 @@ class PaymentController extends Controller
     //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
 
         $numorden='00001';
-
+        $numorden=$pasarela->contador();
+        
         switch ($entorno) {
             case 'dev':
                 $urljs="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
@@ -189,24 +190,46 @@ class PaymentController extends Controller
             // $key = session('key');
             $key =$_COOKIE["key"];
             // dd($key);
-            echo "<hr>".$key."<hr>";
+            // echo "<hr>".$key."<hr>";
             $transactionToken = $_POST['transactionToken'];
             // $entorno ='dev'; /*$_POST['entorno'];*/
             // $purchaseNumber = $_GET['purchaseNumber'];
             // $amount = $_GET['amount'];
-            echo "<pre>";
-            var_dump($_POST);
-            echo "<pre>";
+            // echo "<pre>";
+            // var_dump($_POST);
+            // echo "<pre>";
             $pasarela=new PasarelaVisa();
             $respuesta = $pasarela->authorization($entorno,$key,$amount,$transactionToken,$purchaseNumber);
-            echo "<div class=\"divabsolute\">";
-            echo "<pre>";
-            var_dump($respuesta);
-            echo "<pre>";
-            echo "</div>";
+            // echo "<div class=\"divabsolute\">";
+            // echo "<pre>";
+            // var_dump($respuesta);
+            // echo "<pre>";
+            // echo "</div>";
             // session()->forget('key');
+            
+            // $data_respuesta = json_decode($respuesta, true);
+            $data_respuesta = json_decode($respuesta,true);
+            if($data_respuesta['0']=='200'){
+                echo $data_respuesta['1'];
                 unset($_COOKIE["key"]);
-            exit;
+                exit;
+            }
+            else{
+                // redirect()->route()->back();
+                return redirect()->back();
+            }
+
+            // echo "<hr>".$data_respuesta['0']."<hr>";
+            // $msj='no se proceso';
+            // if(isset($data_respuesta)){
+            //     foreach ($data_respuesta['order'] as $array) {
+            //         $msj=$array['actionCode'];   
+            //         // Pais::create($array);
+            //     }
+            // }
+            // echo "<hr>".$msj."<hr>";
+            // echo $msj;
+
         }
 
         $validator = $request->validate([

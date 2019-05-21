@@ -229,7 +229,7 @@
                                                                         data-cardholderlastname="{{$apellido}}"
                                                                         data-cardholderemail="{{$email}}"
                                                                         data-usertoken="{{$userTokenId}}"
-                                                                        data-recurrence=""
+                                                                        data-recurrence="FALSE"
                                                                         data-frequency=""
                                                                         data-recurrencetype=""
                                                                         data-recurrenceamount=""
