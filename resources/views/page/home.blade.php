@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col d-none d-sm-block text-center">
-                            <h5 class="font-weight-bold h2 text-white">Reserva de comunidades y actividades en Cusco.</h5>
+                            <h5 class="font-weight-bold h2 text-white">@lang('home.title_search')</h5>
                         </div>
                     </div>
                     <div class="row mt-2 justify-content-center">
@@ -29,14 +29,14 @@
                                 <div class="row align-items-center">
                                     <div class="col-12 col-lg">
                                         <div class="form-group">
-                                            <label for="" class="text-white small font-weight-bold">LLEGADA</label>
+                                            <label for="" class="text-white small font-weight-bold">TRAVEL DATE</label>
                                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <div class="form-group">
-                                            <label for="slc_huesped" class="text-white small font-weight-bold">HUÉSPEDES</label>
-                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Numero de pasajeros" required>
+                                            <label for="slc_huesped" class="text-white small font-weight-bold">TRAVELERS</label>
+                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Number travelers" required>
                                         </div>
                                     </div>
                                     <div class="col">
@@ -781,26 +781,28 @@
                                     @foreach($asociaciones->actividades->unique('titulo') as $actividades)
                                         @foreach($disponibilidad_mes->where('actividad_id', $actividades->id) as $disponibilidades_mes)
                                             @if ($disponibilidades_mes->actividad_id == $actividades->id)
-                                                <tr>
-                                                    <td class="">
-                                                        <div class="row align-items-center p-3">
-                                                            <div class="col text-truncate">
-                                                                <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
-                                                                    {{ucwords(strtolower($actividades->titulo))}}
-                                                                    <small class="d-block text-primary font-weight-bold">{{ucwords(strtolower($actividades->categoria))}}</small>
-                                                                </a>
+                                                @foreach($actividades->precios as $precio)
+                                                    <tr>
+                                                        <td class="">
+                                                            <div class="row align-items-center p-3">
+                                                                <div class="col text-truncate">
+                                                                    <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
+                                                                        {{ucwords(strtolower($actividades->titulo))}}
+                                                                        <small class="d-block text-primary font-weight-bold">{{ucwords(strtolower($actividades->categoria))}}</small>
+                                                                    </a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class=" d-none d-sm-inline-block">{{$disponibilidades_mes->fecha}}</td>
-                                                    <td class="w-25 text-center d-none d-md-inline-block">
-                                                        @foreach($actividades->precios as $precio)
-                                                            <sup>$</sup>{{$precio->precio}}<small>USD</small>
-                                                            <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
-                                                    @endforeach
-                                                    <td class="e_h1 d-none d-md-inline-block">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                    <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
-                                                </tr>
+                                                        </td>
+                                                        <td class=" d-none d-md-table-cell">{{$disponibilidades_mes->fecha}}</td>
+                                                        <td class="w-25 text-center d-none d-md-table-cell">
+
+                                                                <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
+                                                                <small class="d-block">(Price per person)</small></td>
+
+                                                        <td class="e_h1 d-none d-md-table-cell">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                        <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Book</a> </td>
+                                                    </tr>
+                                                @endforeach
                                             @endif
                                         @endforeach
                                     @endforeach
