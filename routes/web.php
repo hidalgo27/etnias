@@ -46,7 +46,7 @@ Route::post('/payment', [
     'uses' => 'PaymentController@index',
     'as' => 'payment_path',
 ]);
-Route::post('/payment/payment_check/{entorno}/{purchaseNumber}/{amount}', [
+Route::post('/payment/payment_check/{entorno}/{purchaseNumber}/{amount}/{titulo}/{fecha_viaje}/{personas}', [
     'uses' => 'PaymentController@payment_check',
     'as' => 'payment_check_path',
 ]);

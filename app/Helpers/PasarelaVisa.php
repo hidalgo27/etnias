@@ -320,13 +320,15 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
     var_dump($response);
-    $json = json_decode($response);
-    $json = json_encode($json, JSON_PRETTY_PRINT);
+    // $json = json_decode($response);
+    // $json = json_encode($json, JSON_PRETTY_PRINT);
+    $response = json_decode($response);
+    $response = json_encode($response);
     //$dato = $json->sessionKey;
     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     echo "<hr>status:".$status."<hr>";
     // $rpt_json=[];
-    $rpt_json=array('0'=>$status,'1'=>$json);
+    $rpt_json=array('0'=>$status,'1'=>$response);
     return json_encode($rpt_json);
     // ['0']=$status;
     // $rpt_json=['1']=$json;

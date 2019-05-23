@@ -38,6 +38,7 @@ class PaymentController extends Controller
         $fecha_viaje = $request->input('txt_fecha_viaje');
         $personas = $request->input('txt_personas');
         $actividad = Actividad::with('precios','asociacion')->where('id', $id_actividad)->get();
+        
         foreach ($actividad as $comisiones){
             $comision = $comisiones->asociacion->comision;
         }
@@ -176,14 +177,16 @@ class PaymentController extends Controller
                 $merchantId = $pasarela->merchantidprd();
                 break;
         }
-
+        
     // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
-            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs'));
+            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs','id_actividad'));
         }
     }
 
-    public function payment_check(Request $request,$entorno,$purchaseNumber,$amount)
+    public function payment_check(Request $request,$entorno,$purchaseNumber,$amount,$titulo,$fecha,$pasajeros)
     {
+        
+
         // Auth::login($user, true);
         // dd($request->all());
         if (isset($_POST['transactionToken'])){
@@ -209,15 +212,97 @@ class PaymentController extends Controller
             
             // $data_respuesta = json_decode($respuesta, true);
             $data_respuesta = json_decode($respuesta,true);
+            
+            // dd($data_respuesta['1']);
+            // $rpt_sd = $data_respuesta['1'];
+
+            $objeto=json_decode($data_respuesta['1']);
+
             if($data_respuesta['0']=='200'){
-                echo $data_respuesta['1'];
+                echo "<hr>rpt ok:".$data_respuesta['0']."<hr>";
+                dd($objeto->order);
                 unset($_COOKIE["key"]);
                 exit;
             }
-            else{
-                // redirect()->route()->back();
-                return redirect()->back();
+            elseif($objeto){
+                // echo "<hr>rpt error:".$data_respuesta['0']."<hr>";
+                // dd($objeto->errorCode);
+                return redirect()->route('detail_date_path',[str_replace(' ', '-', strtolower($titulo)),$fecha,$pasajeros])->with('msg','Ocurrio un error('.$objeto->errorCode.') vuelva a intentarlo.');
             }
+            else{
+                return redirect()->route('detail_date_path',[str_replace(' ', '-', strtolower($titulo)),$fecha,$pasajeros])->with('msg','Ocurrio un error('.$objeto.') vuelva a intentarlo.');
+                // echo "<hr>rpt nulo:".$data_respuesta['0']."<hr>";
+                // dd($objeto);
+                
+            }
+            // echo "<hr>rpt :".$rpt_sd."<hr>";
+            // echo "<hr>rpt :".var_dump($rpt)."<hr>";
+
+            // if ($rpt!='null'){
+            //     echo "<hr>rpt no es nulo :".var_dump($rpt)."<hr";
+            // }
+            // else{
+            //     echo "<hr>rpt :Es nulo ".var_dump($rpt)."<hr>";
+            // }
+            // foreach($rpt as $rpt_){
+            //     echo "<hr>rpt foreach:".$rpt_."<hr>";         
+            // }
+            // $rpt = json_decode($data_respuesta['1'],true);
+            // $rpt=json_decode($data_respuesta['1'],true);
+            // $rpt2=explode(',',$data_respuesta['1']);
+            // $rpt2=explode(',',$rpt);
+
+            // if(is_array($rpt)){
+            //     echo "<hr>rpt array:".$rpt."<hr>";
+            
+            // }
+            // else{
+            //     $rpte=explode(",",$rpt);
+            //     echo "<hr>rpt txt:".$rpte."<hr>";
+           
+            // }
+            // $rpt=explode(',',$rpt);
+            // if($data_respuesta['0']=='200'){
+
+
+                // foreach($rpt as $valor){
+                //         echo "<hr>".$valor."<hr>";
+                    
+                //     }
+                // echo "<hr>".$rpt[0]."<hr>";
+                // echo "<hr>".$rpt['order']."<hr>";
+                // foreach($rpt->order as $valor){
+                //     echo "<hr>".$valor."<hr>";
+                
+                // }
+                // echo $data_respuesta['1'];
+                
+            // }
+            // else{
+
+                // if(is_array($rpt)){
+                //     $rpt1='';
+                //     foreach($rpt as $valor){
+                //         $rpt1=$valor;
+                //     }
+                // }
+                // else{
+                //     $rpt1=$data_respuesta['1'];
+                    
+                // }
+                // redirect()->route()->back();
+                // http://mietnia.nu/payment
+                // $rpt1='';
+                // if($rpt){
+                //     foreach($rpt as $valor){
+                //         $rpt1=$rpt[0];
+                    
+                //     }
+                // }
+                // return redirect()->route('detail_date_path',[str_replace(' ', '-', strtolower($titulo)),$fecha,$pasajeros])->with('msg','Ocurrio un error('.$data_respuesta['0'].') vuelva a intentarlo.'.$data_respuesta['1']);
+                // return redirect()->route('payment_path')->withInput(['txt_actividad_id' => $actividad_id,'txt_personas'=>$pasajeros,'txt_fecha_viaje'=>$fecha])->with('error', 'Ocurrio un error('.$data_respuesta['0'].') vuelva a intentarlo.');
+                // detail/huilloq-chasqui/22-05-2019/2
+            // }
 
             // echo "<hr>".$data_respuesta['0']."<hr>";
             // $msj='no se proceso';
