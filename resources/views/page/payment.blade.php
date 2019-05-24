@@ -8,19 +8,18 @@
                     <div class="row no-gutters text-center align-items-center">
                         <div class="col p-3 bg-light text-truncate">
                             @php $fecha_viaje_r = str_replace('/', '-', $fecha_viaje); @endphp
-                            <a class="font-weight-bold" href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_viaje_r, $personas])}}">1. Detail Program <small class="font-italic">(Itinerary)</small></a>
-                        </div>
+                            <a class="font-weight-bold" href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_viaje_r, $personas])}}">1. @lang('book.detail_program') <small class="font-italic">(@lang('book.itinerary')</small></a></div>
                         <div class="col p-3 bg-light text-truncate">
                             <form action="{{route('book_path')}}" method="post" enctype="multipart/form-data" class="text-truncate">
                                 @csrf
                                 <input type="hidden" name="id_actividad" value="{{$actividades->id}}">
                                 <input type="hidden" name="fecha_viaje" value="{{$fecha_viaje_r}}">
                                 <input  type="hidden" name="txt_personas"value="{{$personas}}">
-                                <input type="submit" value="2. Additional Services" class="btn btn-link font-weight-bold p-0 m-0 text-truncate">
+                                <input type="submit" value="2. @lang('book.servicios_adicionales')" class="btn btn-link font-weight-bold p-0 m-0 text-truncate">
                             </form>
                         </div>
                         <div class="col p-3 bg-g-red-dark text-white shadow-sm font-weight-bold text-truncate">
-                            3. Confirm and Pay
+                            3. @lang('book.confirmar_pagar')
                         </div>
                     </div>
                 </div>
@@ -43,8 +42,8 @@
                         <hr>
                         <div class="row my-3">
                             <div class="col font-poppins">
-                                <h4 class="font-weight-bold text-g-grey-primary">Ya casi terminamos</h4>
-                                <p>Revisa la información de su actividad y continúa. Si hay algo que no esté bien, modifica la información en <mark>servicios adicionales</mark> o <mark>detalles del programa</mark>.</p>
+                                <h4 class="font-weight-bold text-g-grey-primary">@lang('book.ya_terminamos')</h4>
+                                <p>@lang('book.revisa_inf_ac')</p>
                             </div>
                         </div>
 
@@ -58,8 +57,9 @@
 
                         <div class="row my-3">
                             <div class="col-12 font-poppins">
-                                <h5 class="font-weight-bold text-g-grey-primary">CONDICIONES GENERALES</h5>
-                                <p>Estas son las condiciones generales que se aplicarán a tu reserva. Léelas detenidamente, dado que tendrás la obligación de respetarlas.
+                                <h5 class="font-weight-bold text-g-grey-primary">@lang('book.condiciones_generales')</h5>
+                                <p>
+                                    @lang('book.condiciones_generales_p')
                                 </p>
                             </div>
                             <div class="col-12">
@@ -75,7 +75,7 @@
                                         {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
-                                <a href="{{asset('doc/terminos-y-condiciones.pdf')}}" target="_blank" class="btn btn-link font-weight-bold small p-0 mt-2">Ver en una ventana distinta <i class="fas fa-external-link-alt"></i></a>
+                                <a href="{{asset('doc/terminos-y-condiciones.pdf')}}" target="_blank" class="btn btn-link font-weight-bold small p-0 mt-2">@lang('book.ver_ventana_distinta') <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
 
@@ -83,7 +83,7 @@
                             <div class="col was-validated">
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input type="checkbox" class="custom-control-input" name="terminos" id="terminos" required>
-                                    <label class="custom-control-label" for="terminos">Acepto los términos y condiciones anteriores:</label>
+                                    <label class="custom-control-label" for="terminos">@lang('book.acepto_terminos'):</label>
                                 </div>
                             </div>
                         </div>
@@ -102,15 +102,15 @@
                                 <div class="col font-poppins">
                                     <div class="card">
                                         <div class="card-header bg-primary">
-                                            <h6 class="text-white m-0"><i class="fas fa-lock"></i> Pago seguro</h6>
+                                            <h6 class="text-white m-0"><i class="fas fa-lock"></i> @lang('book.pago_seguro')</h6>
                                         </div>
                                         <div class="card-body">
 
 
                                             <div class="row text-left align-items-center">
                                                 <div class="col">
-                                                    <p class="m-0 d-block mb-1"><i class="fas fa-users h5 text-g-grey-light pr-2 float-left"></i> Numero de personas: {{$personas}}</p>
-                                                    <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> Fecha de viaje: {{$fecha_viaje}}</p>
+                                                    <p class="m-0 d-block mb-1"><i class="fas fa-users h5 text-g-grey-light pr-2 float-left"></i> @lang('book.numero_personas'): {{$personas}}</p>
+                                                    <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> @lang('home.fecha_viaje'): {{$fecha_viaje}}</p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -208,7 +208,7 @@
                                             <hr>
                                             <div class="row text-left align-items-center">
                                                 <div class="col">
-                                                    <p class="m-0 d-block mb-1 text-g-grey-light">Precio por persona</p>
+                                                    <p class="m-0 d-block mb-1 text-g-grey-light">@lang('actividades.precio_persona')</p>
                                                 </div>
                                                 <div class="col-auto text-right">
                                                     <p class="m-0 d-block mb-1 text-g-grey-light"><sup>$</sup>{{(round($total + $pc + $ph + $pt + $pg))}}<small class="font-weight-bold text-secondary">USD</small></p>
@@ -216,7 +216,7 @@
                                             </div>
                                             <div class="row text-left align-items-center bg-light">
                                                 <div class="col">
-                                                    <p class="m-0 d-block mb-1 font-weight-bold text-secondary">Total para {{$personas}} personas</p>
+                                                    <p class="m-0 d-block mb-1 font-weight-bold text-secondary">@lang('book.total_para') {{$personas}} @lang('book.personas')</p>
                                                 </div>
                                                 <div class="col-auto text-right">
                                                     <p class="m-0 d-block mb-1 font-weight-bold text-secondary"><sup>$</sup>{{(round($total + $pc + $ph + $pt + $pg))*$personas}}<small class="font-weight-bold text-secondary">USD</small></p>

@@ -8,13 +8,13 @@
                 <div class="row no-gutters text-center">
                     <div class="col p-3 bg-light text-truncate">
                         @php $fecha_viaje_r = str_replace('/', '-', $fecha_viaje); @endphp
-                        <a class="font-weight-bold" href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividad->titulo)), $fecha_viaje_r, $personas])}}">1. Detail Program <small class="font-italic">(Itinerary)</small></a>
+                        <a class="font-weight-bold" href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividad->titulo)), $fecha_viaje_r, $personas])}}">1. @lang('book.detail_program') <small class="font-italic">(@lang('book.itinerary'))</small></a>
                     </div>
                     <div class="col p-3 bg-g-red-dark text-white shadow-sm font-weight-bold text-truncate">
-                        2. Additional Services
+                        2. @lang('book.servicios_adicionales')
                     </div>
                     <div class="col p-3 bg-light text-truncate">
-                        3. Confirm and Pay
+                        3. @lang('book.confirmar_pagar')
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <hr>
                         <div class="row my-3">
                             <div class="col font-poppins">
-                                <h4 class="font-weight-bold text-g-grey-primary">Servicios Adicionales:</h4>
+                                <h4 class="font-weight-bold text-g-grey-primary">@lang('book.servicios_adicionales'):</h4>
                             </div>
                         </div>
                         @if ($actividad->in_comida == 0)
@@ -134,7 +134,7 @@
 
                         <div class="row my-3">
                             <div class="col text-center">
-                                <button type="submit" class="btn btn-g-green-light btn-lg font-weight-bold">Aceptar y Continuar</button>
+                                <button type="submit" class="btn btn-g-green-light btn-lg font-weight-bold">@lang('book.aceptar_continuar')</button>
                             </div>
                         </div>
 
@@ -143,12 +143,12 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <sup>$</sup><span class="font-weight-bold display-4 h1" id="d_total" value="{{round($total)}}">{{round($total)}}</span><small>USD</small>
-                                <small class="d-block">precio por persona</small>
+                                <small class="d-block">@lang('actividades.precio_persona')</small>
                                 <hr>
                                 <div class="row text-left align-items-center">
                                     <div class="col">
-                                        <p class="m-0 d-block mb-1"><i class="fas fa-users h5 text-g-grey-light pr-2 float-left"></i> Numero de personas: {{$personas}}</p>
-                                        <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> Fecha de Viaje: {{$fecha_viaje}}</p>
+                                        <p class="m-0 d-block mb-1"><i class="fas fa-users h5 text-g-grey-light pr-2 float-left"></i> @lang('book.numero_personas'): {{$personas}}</p>
+                                        <p class="m-0 d-block"><i class="fas fa-calendar-alt h5 text-g-grey-light pr-2"></i> @lang('home.fecha_viaje'): {{$fecha_viaje}}</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -178,7 +178,7 @@
                                 {{--</div>--}}
                                 <div class="row text-left align-items-center">
                                     <div class="col">
-                                        <p class="m-0 d-block mb-1 font-weight-bold text-secondary">Total para {{$personas}} <i class="fas fa-user" data-toggle="tooltip" data-placement="top" title="Numero de personas"></i></p>
+                                        <p class="m-0 d-block mb-1 font-weight-bold text-secondary">@lang('book.total_para') {{$personas}} <i class="fas fa-user" data-toggle="tooltip" data-placement="top" title="Numero de personas"></i></p>
                                     </div>
                                     <div class="col text-right">
                                         <p class="m-0 d-block mb-1 font-weight-bold text-secondary"><sup>$</sup><span id="total_pasajeros">{{round(round($total)*$personas)}}</span><small class="font-weight-bold text-secondary">USD</small></p>

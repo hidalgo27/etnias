@@ -29,19 +29,19 @@
                                 <div class="row align-items-center">
                                     <div class="col-12 col-lg">
                                         <div class="form-group">
-                                            <label for="" class="text-white small font-weight-bold">TRAVEL DATE</label>
-                                            <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required>
+                                            <label for="" class="text-white small font-weight-bold">@lang('home.fecha_viaje')</label>
+                                            <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" required>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg">
                                         <div class="form-group">
-                                            <label for="slc_huesped" class="text-white small font-weight-bold">TRAVELERS</label>
-                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Number travelers" required>
+                                            <label for="slc_huesped" class="text-white small font-weight-bold">@lang('home.nro_pasajeros')</label>
+                                            <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" required>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="d-block pt-2 mt-1">
-                                            <button type="submit" class="btn btn-block btn-g-green-primary "><span class="font-weight-bold">SEARCH</span></button>
+                                            <button type="submit" class="btn btn-block btn-g-green-primary "><span class="font-weight-bold">@lang('home.buscar')</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -112,8 +112,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold display-4 text-g-grey-primary">TURISMO <span class="text-g-red-dark">VIVENCIAL</span></h1>
-                        <h4 class="text-g-grey-light">Una experiencia inolvidable y la oportunidad de conocer el interior del <stong class="text-g-grey-dark">país de los Incas.</stong></h4>
+                        <h1 class="font-weight-bold display-4 text-g-grey-primary">@lang('home.turismo') <span class="text-g-red-dark">@lang('home.vivencial')</span></h1>
+                        <h4 class="text-g-grey-light">@lang('home.h1_p')</h4>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
@@ -124,7 +124,7 @@
                 <div class="row mt-4">
                     <div class="col">
                         <div class="alert alert-g-green-light text-center">
-                            <p class="lead font-weight-bold m-0">Tours y actividades vivenciales en comunidades de la region del Cusco.</p>
+                            <p class="lead font-weight-bold m-0">@lang('home.h1_alert')</p>
                         </div>
                     </div>
                 </div>
@@ -140,9 +140,9 @@
                                 <span class="text-white font-weight-bold display-4">1</span>
                             </div>
                             <div class="bg-g-red-primary p-3 text-white step-body">
-                                <h6 class="font-weight-bold mt-4 pt-2">ESCOGE LA ACTIVIDAD</h6>
+                                <h6 class="font-weight-bold mt-4 pt-2">@lang('home.escoge_actividad')</h6>
                                 <hr>
-                                <p>Escoge la actividad (es) que te gustaría realizar en una comunidad nativa en una fecha disponible.</p>
+                                <p>@lang('home.escoge_actividad_p')</p>
                                 <i class="fas fa-users fa-2x"></i>
                             </div>
                         </div>
@@ -153,9 +153,9 @@
                                 <span class="text-white font-weight-bold display-4">2</span>
                             </div>
                             <div class="bg-g-green-primary p-3 text-white step-body">
-                                <h6 class="font-weight-bold mt-4 pt-2">CREA TU USUARIO</h6>
+                                <h6 class="font-weight-bold mt-4 pt-2">@lang('home.crea_usuario')</h6>
                                 <hr>
-                                <p>Crea tu usuario en Etnias y reserva con un método de pago aceptado.</p>
+                                <p>@lang('home.crea_usuario_p')</p>
                                 <br>
                                 <i class="fas fa-file-signature fa-2x"></i>
                             </div>
@@ -167,9 +167,9 @@
                                 <span class="text-white font-weight-bold display-4">3</span>
                             </div>
                             <div class="bg-info p-3 text-white step-body">
-                                <h6 class="font-weight-bold mt-4 pt-2">DISFRUTA DE TU EXPERIENCIA</h6>
+                                <h6 class="font-weight-bold mt-4 pt-2">@lang('home.disfruta_experiencia')</h6>
                                 <hr>
-                                <p>Disfruta de tu experiencia ancestral en una comunidad nativa en el país de los incas.</p>
+                                <p>@lang('home.disfruta_experiencia_p')</p>
                                 <i class="fas fa-file-alt fa-2x"></i>
                             </div>
                         </div>
@@ -228,7 +228,7 @@
 
                     <div class="row my-3">
                         <div class="col">
-                            <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                            <h5 class="text-secondary m-0 font-weight-bold">@lang('home.actividades_comunidad')</h5>
                         </div>
                     </div>
 
@@ -307,7 +307,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col">
-                            <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                            <h5 class="text-secondary m-0 font-weight-bold">@lang('home.actividades_comunidad')</h5>
                         </div>
                     </div>
 
@@ -406,7 +406,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col">
-                            <h5 class="text-secondary m-0 font-weight-bold">Actividades en la comunidad</h5>
+                            <h5 class="text-secondary m-0 font-weight-bold">@lang('home.actividades_comunidad')</h5>
                         </div>
                     </div>
 
@@ -473,7 +473,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </span>
-                                <span class="ol-4">Visite Perú y descubra el país de los Incas</span>
+                                <span class="ol-4">@lang('home.visite_perú_descubra')</span>
                                 {{--<span class="ol-3"></span>--}}
                                 {{--<span class="ol-5">-$99</span>--}}
                                 {{--<ul>--}}
@@ -524,7 +524,7 @@
                                     {{--<span class="or-25"></span>--}}
                                 {{--</div>--}}
                             {{--</div>--}}
-                            <a href="{{route('actividades_path')}}" class="btn btn-lg btn-g-red-primary font-weight-bold">Ver Actividades</a>
+                            <a href="{{route('actividades_path')}}" class="btn btn-lg btn-g-red-primary font-weight-bold">@lang('home.ver_actividades')</a>
                         </div>
                     </div>
                 </div>
@@ -535,7 +535,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Comunidades <span class="text-g-red-dark">Populares</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">@lang('home.comunidades') <span class="text-g-red-dark">@lang('home.populares')</span></h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
@@ -609,7 +609,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col text-center">
-                        <a href="{{route('comunidad_path')}}" class="btn btn-g-red-primary font-weight-bold btn-lg">Ver más Comunidades</a>
+                        <a href="{{route('comunidad_path')}}" class="btn btn-g-red-primary font-weight-bold btn-lg">@lang('home.ver_mas_comunidades')</a>
                     </div>
                 </div>
             </div>
@@ -761,7 +761,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">Las mejores <span class="text-g-red-dark">actividades de este mes</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">@lang('home.mejores_actividades')</h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
@@ -800,7 +800,7 @@
                                                                 <small class="d-block">(Price per person)</small></td>
 
                                                         <td class="e_h1 d-none d-md-table-cell">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                        <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Book</a> </td>
+                                                        <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">@lang('home.reservar')</a> </td>
                                                     </tr>
                                                 @endforeach
                                             @endif

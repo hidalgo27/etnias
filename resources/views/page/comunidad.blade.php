@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
                         <div class="col-12 text-center text-truncate">
-                            <h1 class="font-weight-bold display-4 text-white">Comunidades</h1>
+                            <h1 class="font-weight-bold display-4 text-white">@lang('comunidad.comunidades')</h1>
                         </div>
                     </div>
                 </div>
@@ -28,8 +28,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold display-4 text-g-grey-primary">Comunidades <span class="text-g-red-dark">Región Cusco</span></h1>
-                        <h4 class="text-g-grey-light">Viva la experiencia en comunidades con costumbres intactas <stong class="text-g-grey-dark">Incas.</stong></h4>
+                        <h1 class="font-weight-bold display-4 text-g-grey-primary">@lang('comunidad.h1')</h1>
+                        <h4 class="text-g-grey-light">@lang('comunidad.h1_p')</h4>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>

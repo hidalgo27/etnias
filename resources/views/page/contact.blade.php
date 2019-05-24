@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
                         <div class="col-12 text-center text-truncate">
-                            <h1 class="font-weight-bold display-4 text-white">Contáctenos</h1>
+                            <h1 class="font-weight-bold display-4 text-white">@lang('contact.contactenos')</h1>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <div class="tl-3"></div>
                         </div>
                         <p class="lead font-weight-normal text-g-grey-light  my-4">
-                            Mi etnia es una plataforma que incentiva el turismo vivencial poniendo en contacto comunidades andinas y turistas que deseen conocer el Perú profundo.
+                            @lang('contact.h1_p')
                         </p>
                     </div>
                 </div>
@@ -72,16 +72,16 @@
                 <div class="row font-poppins">
                     <div class="col">
                         <h4 class="font-weight-bold text-g-grey-light">Etnias Perú <span>Travel</span></h4>
-                        <p>Somos una plataforma para reservas de turismo vivenvial.</p>
+                        <p>@lang('contact.somos_una')</p>
                     </div>
                     <div class="col">
-                        <h4 class="font-weight-bold text-g-grey-light">Dirección</h4>
+                        <h4 class="font-weight-bold text-g-grey-light">@lang('contact.direccion')</h4>
                         <p>AHH Pillcohuasi F-17 Ollantaytambo – cusco</p>
                     </div>
                     <div class="col">
-                        <h4 class="font-weight-bold text-g-grey-light">CONTACTO:</h4>
-                        <a href="tel://51978365487" class="d-block">Reservas: +51978365487</a>
-                        <a href="tel://0099999999" class="d-block">Atención al Cliente: +51949586825</a>
+                        <h4 class="font-weight-bold text-g-grey-light">@lang('contact.contacto'):</h4>
+                        <a href="tel://51978365487" class="d-block">@lang('contact.contacto'): +51978365487</a>
+                        <a href="tel://0099999999" class="d-block">@lang('contact.atención_cliente'): +51949586825</a>
                         <a href="mailto:mytestmail@gmail.com" class="d-block">Email: misreservas@mietnia.com</a>
                         <a href="mailto:mytestmail@gmail.com" class="d-block">Email: atencionalcliente@mietnia.com</a>
                     </div>

@@ -18,42 +18,42 @@
     </div>
     <footer class="item footer" id="footer">
 
-        <div class="container"><!-- container -->
-            <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-box text-center">
-                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
-                        <div class="footer-title">
-                            <h5>ADDRESS</h5>
-                        </div>
-                        <div class="footer-disc">
-                            <p>250 Av.Sol Cusco sur plaza</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-box text-center">
-                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
-                        <div class="footer-title">
-                            <h5>ADDRESS</h5>
-                        </div>
-                        <div class="footer-disc">
-                            <p>250 Av.Sol Cusco sur plaza</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-box text-center">
-                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
-                        <div class="footer-title">
-                            <h5>ADDRESS</h5>
-                        </div>
-                        <div class="footer-disc">
-                            <p>250 Av.Sol Cusco sur plaza</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {{--<div class="container"><!-- container -->--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-4 col-sm-4 col-xs-12">--}}
+                    {{--<div class="footer-box text-center">--}}
+                        {{--<div class="footer-icon"><i class="fa fa-map-marker"></i></div>--}}
+                        {{--<div class="footer-title">--}}
+                            {{--<h5>ADDRESS</h5>--}}
+                        {{--</div>--}}
+                        {{--<div class="footer-disc">--}}
+                            {{--<p>250 Av.Sol Cusco sur plaza</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4 col-sm-4 col-xs-12">--}}
+                    {{--<div class="footer-box text-center">--}}
+                        {{--<div class="footer-icon"><i class="fa fa-map-marker"></i></div>--}}
+                        {{--<div class="footer-title">--}}
+                            {{--<h5>ADDRESS</h5>--}}
+                        {{--</div>--}}
+                        {{--<div class="footer-disc">--}}
+                            {{--<p>250 Av.Sol Cusco sur plaza</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4 col-sm-4 col-xs-12">--}}
+                    {{--<div class="footer-box text-center">--}}
+                        {{--<div class="footer-icon"><i class="fa fa-map-marker"></i></div>--}}
+                        {{--<div class="footer-title">--}}
+                            {{--<h5>ADDRESS</h5>--}}
+                        {{--</div>--}}
+                        {{--<div class="footer-disc">--}}
+                            {{--<p>250 Av.Sol Cusco sur plaza</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="footer-social text-center">
                 <ul>
                     <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
