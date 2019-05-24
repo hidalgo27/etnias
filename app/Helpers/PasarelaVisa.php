@@ -1,6 +1,9 @@
 <?php
 namespace EtniasPeru\Helpers;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 class PasarelaVisa{
     
     protected $Merchant = "";
@@ -170,15 +173,29 @@ public  function create_json_post($post){
 }
 
 public  function contador(){
-    $archivo = "contador.txt"; 
+    $exists = Storage::disk('archivos')->exists('contador.txt');
+// dd($exists);
+// dd($contents);
+// $archivo = Storage::disk('archivos')->get('contador.txt');
+    // $archivo = "contador.txt"; 
+    // $archivo = 'storage/app/public/archivos/contador.txt';
     $contador = 0; 
-    $fp = fopen($archivo,"r"); 
-    $contador = fgets($fp, 26); 
-    fclose($fp); 
-    ++$contador; 
-    $fp = fopen($archivo,"w+"); 
-    fwrite($fp, $contador, 26); 
-    fclose($fp); 
+
+    if($exists){
+        // dd($url);
+        // $fp = fopen($archivo,"r"); 
+        
+        $archivo = Storage::disk('archivos')->path('contador.txt');
+        $contents = File::get($archivo);
+        $contador = (int)$contents; 
+        // $contador = fgets($fp, 26); 
+        // fclose($fp); 
+        ++$contador;
+        Storage::disk('archivos')->put('contador.txt', $contador);
+        // $fp = fopen($archivo,"w+"); 
+        // fwrite($fp, $contador, 26); 
+        // fclose($fp);
+    } 
     return $contador;
 }
 
@@ -229,7 +246,7 @@ public  function create_token($environment,$amount,$key){
             break;
     }
     $header = array("Content-Type: application/json","Authorization: $key");
-    //var_dump($header);
+    // var_dump($header);
     $request_body="{
         \"amount\" : {$amount},
         \"channel\" : \"web\",
@@ -253,7 +270,7 @@ public  function create_token($environment,$amount,$key){
     curl_setopt($ch, CURLOPT_POSTFIELDS, $request_body);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
-    #var_dump($response);
+    // var_dump($response);
     $json = json_decode($response);
     $dato = $json->sessionKey;
     return $dato;
@@ -281,16 +298,16 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
             \"amount\" : \"$amount\",
             \"tokenId\" : \"$transactionToken\",
             \"purchaseNumber\" : \"$purchaseNumber\",
-            \"currency\" : \"USD\"
+            \"currency\" : \"PEN\"
         }
     }";
     
     $dds=$this->url ;
-    echo "<hr>";
-    echo $this->url;
-    echo "<br>";
-    echo $request_body;
-    echo "<hr>";
+    // echo "<hr>";
+    // echo $this->url;
+    // echo "<br>";
+    // echo $request_body;
+    // echo "<hr>";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $dds);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -303,12 +320,23 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
     var_dump($response);
-    $json = json_decode($response);
-    $json = json_encode($json, JSON_PRETTY_PRINT);
+    // $json = json_decode($response);
+    // $json = json_encode($json, JSON_PRETTY_PRINT);
+    $response = json_decode($response);
+    $response = json_encode($response);
     //$dato = $json->sessionKey;
     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    echo "<hr>".$status."<hr>";
-    return $json;
+    echo "<hr>status:".$status."<hr>";
+    // $rpt_json=[];
+    $rpt_json=array('0'=>$status,'1'=>$response);
+    return json_encode($rpt_json);
+    // ['0']=$status;
+    // $rpt_json=['1']=$json;
+
+    //  "{\"0\":\"$status\",\"1\":\"\"}";
+    // $rpt = json_encode($rpt_json);
+    // return $json;
+    // return $rpt_json;
 }
 
 public  function post_form($array_post,$url_){

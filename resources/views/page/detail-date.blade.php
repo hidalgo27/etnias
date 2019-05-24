@@ -51,6 +51,17 @@
                         <section class="py-5">
                             <div class="row">
                                 <div class="col col-md-8">
+                                    @if(Session::has('msg'))
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        <li>{!! Session::get('msg') !!}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif                                 
                                     <div class="row">
                                         <div class="col">
                                             <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividades->titulo))}}
