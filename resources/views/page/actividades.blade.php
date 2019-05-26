@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
                         <div class="col-12 text-center text-truncate">
-                            <h1 class="font-weight-bold display-4 text-white">Actividades</h1>
+                            <h1 class="font-weight-bold display-4 text-white">@lang('actividades.actividades')</h1>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold display-4 text-g-grey-primary">Todas nuestras <span class="text-g-red-dark">Actividades</span></h1>
-                        <h4 class="text-g-grey-light">Viva la experiencia en comunidades con costumbres intactas <stong class="text-g-grey-dark">Incas.</stong></h4>
+                        <h1 class="font-weight-bold display-4 text-g-grey-primary">@lang('actividades.todas_actividades')</h1>
+                        <h4 class="text-g-grey-light">@lang('actividades.h1_p')</h4>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
@@ -96,15 +96,15 @@
 
                     </div>
                     <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md-9 events">
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Event Name.." title="Type in a name">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="@lang('actividades.buscar')" title="Type in a name">
                         <table id="myTable">
                             <tbody class="small font-weight-bold text-secondary">
                             <tr class="h5 font-weight-bold text-g-grey-primary">
 
-                                <th class="py-3">Nombre Actividad</th>
-                                <th class="w-25 text-center">Precio</th>
-                                <th class="e_h1 d-none d-sm-inline-block">Lugar</th>
-                                <th class="text-center d-none d-sm-inline-block">Book</th>
+                                <th class="py-3">@lang('actividades.nombre_actividad')</th>
+                                <th class="w-25 text-center">@lang('actividades.precio')</th>
+                                <th class="e_h1 d-none d-sm-table-cell">@lang('actividades.ubicacion')</th>
+                                <th class="text-center d-none d-sm-table-cell">@lang('actividades.reservar')</th>
                             </tr>
                             @foreach($comunidad as $comunidades)
                                 @foreach($comunidades->asociaciones as $asociaciones)
@@ -130,10 +130,10 @@
                                                     <td class="w-25 text-center">
                                                         @foreach($actividades->precios as $precio)
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                        <small class="d-block">(precio para 2 <i class="fas fa-male"></i>)</small></td>
+                                                        <small class="d-block">(@lang('actividades.precio_persona'))</small></td>
                                                         @endforeach
-                                                    <td class="e_h1 d-none d-sm-inline-block">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                    <td class="text-center d-none d-sm-inline-block"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                    <td class="e_h1 d-none d-sm-table-cell">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                    <td class="text-center d-none d-sm-table-cell"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">@lang('actividades.reservar')</a> </td>
                                                 </tr>
                                             @endif
                                         @endforeach

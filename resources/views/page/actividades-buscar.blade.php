@@ -6,8 +6,8 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center h-100vh">
                     <div class="col-12 text-center text-truncate">
-                        <span class="text-white font-weight-bold">Resultado</span>
-                        <h1 class="font-weight-bold display-4 text-white">Actividades</h1>
+                        <span class="text-white font-weight-bold">@lang('actividades.resultados')</span>
+                        <h1 class="font-weight-bold display-4 text-white">@lang('home.actividades')</h1>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h1 class="font-weight-bold display-4 text-g-grey-primary"><span class="text-g-red-dark">Actividades</span></h1>
+                    <h1 class="font-weight-bold display-4 text-g-grey-primary"><span class="text-g-red-dark">@lang('home.actividades')</span></h1>
                     {{--<h4 class="text-g-grey-light">Viva la experiencia en comunidades con costumbres intactas <stong class="text-g-grey-dark">Incas.</stong></h4>--}}
                     <div class="title-line">
                         <div class="tl-1"></div>
@@ -111,20 +111,20 @@
 {{--                    </div>--}}
                     <div class="col">
                         <div class="form-group">
-                            <label for="" class="text-g-grey-dark small font-weight-bold">LLEGADA</label>
+                            <label for="" class="text-g-grey-dark small font-weight-bold">@lang('home.fecha_viaje')</label>
                             <input type="date" class="form-control" name="txt_fecha" id="formGroupExampleInput" placeholder="TRAVEL DATE" required value="{{$fecha_input}}">
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="slc_huesped" class="text-g-grey-dark small font-weight-bold">HUÉSPEDES</label>
+                            <label for="slc_huesped" class="text-g-grey-dark small font-weight-bold">@lang('home.nro_pasajeros')</label>
                             <input type="number" min="1" class="form-control" name="slc_huesped" id="slc_huesped" placeholder="Numero de pasajeros" required value="{{$rango_min}}">
                             </select>
                         </div>
                     </div>
                     <div class="col">
                         <div class="d-block pt-2 mt-1">
-                            <button type="submit" class="btn btn-block btn-g-green-primary "><span class="font-weight-bold">SEARCH</span></button>
+                            <button type="submit" class="btn btn-block btn-g-green-primary "><span class="font-weight-bold">@lang('home.buscar')</span></button>
                         </div>
                     </div>
                 </div>
@@ -136,19 +136,20 @@
                     <table id="myTable">
                         <tbody class="small font-weight-bold text-secondary">
                         <tr class="h5 font-weight-bold text-g-grey-primary">
-                            <th>Nombre Actividad</th>
-                            <th class="d-none d-md-inline-block">Fecha</th>
-                            <th class="w-25 text-center d-none d-sm-inline-block">Precio</th>
-                            <th class="e_h1 d-none d-sm-inline-block">Lugar</th>
-                            <th class="text-center">Book</th>
+                            <th class="p-3">@lang('actividades.nombre_actividad')</th>
+                            <th class="d-none d-md-table-cell text-center">@lang('actividades.fecha')</th>
+                            <th class="text-center d-none d-sm-table-cell">@lang('actividades.precio')</th>
+                            <th class="text-center d-none d-sm-table-cell">@lang('actividades.ubicacion')</th>
+                            <th class="text-center">@lang('actividades.reservar')</th>
                         </tr>
                         @foreach($comunidad as $comunidades)
                             @foreach($comunidades->asociaciones as $asociaciones)
                                 @foreach($asociaciones->actividades as $actividades)
                                     @foreach($disponibilidad->where('actividad_id', $actividades->id) as $disponibilidades)
                                         @if ($disponibilidades->actividad_id == $actividades->id)
+                                            @foreach($actividades->precios as $precio)
                                             <tr>
-                                                <td class="">
+                                                <td>
                                                     <div class="row align-items-center">
                                                         <div class="col-auto">
                                                             @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
@@ -163,15 +164,17 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="d-none d-md-inline-block">{{$disponibilidades->fecha}}</td>
-                                                <td class="w-25 text-center d-none d-sm-inline-block">
-                                                    @foreach($actividades->precios as $precio)
+                                                <td class="text-center d-none d-sm-table-cell">{{$disponibilidades->fecha}}</td>
+                                                <td class="text-center d-none d-sm-table-cell">
+
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                        <small class="d-block">(precio para {{$precio->min}}-{{$precio->max}} <i class="fas fa-male"></i>)</small></td>
-                                                @endforeach
-                                                <td class="e_h1">{{ucwords(strtolower($comunidades->nombre))}}</td>
-                                                <td class="text-center"><a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>
+                                                        <small class="d-block">(@lang('actividades.precio_persona'))</small>
+
+                                                </td>
+                                                <td class="text-center">{{ucwords(strtolower($comunidades->nombre))}}</td>
+                                                <td class="text-center"><a href="{{route('detail_date_path', [str_replace(' ', '-', strtolower($actividades->titulo)), $fecha_input, $rango_min])}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">@lang('actividades.reservar')</a> </td>
                                             </tr>
+                                            @endforeach
                                         @endif
                                     @endforeach
                                 @endforeach

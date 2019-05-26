@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{mix("css/app.css")}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     @yield('content')
@@ -17,42 +18,42 @@
     </div>
     <footer class="item footer" id="footer">
 
-        <div class="container"><!-- container -->
-            <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-box text-center">
-                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
-                        <div class="footer-title">
-                            <h5>ADDRESS</h5>
-                        </div>
-                        <div class="footer-disc">
-                            <p>250 Av.Sol Cusco sur plaza</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-box text-center">
-                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
-                        <div class="footer-title">
-                            <h5>ADDRESS</h5>
-                        </div>
-                        <div class="footer-disc">
-                            <p>250 Av.Sol Cusco sur plaza</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-box text-center">
-                        <div class="footer-icon"><i class="fa fa-map-marker"></i></div>
-                        <div class="footer-title">
-                            <h5>ADDRESS</h5>
-                        </div>
-                        <div class="footer-disc">
-                            <p>250 Av.Sol Cusco sur plaza</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {{--<div class="container"><!-- container -->--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-md-4 col-sm-4 col-xs-12">--}}
+                    {{--<div class="footer-box text-center">--}}
+                        {{--<div class="footer-icon"><i class="fa fa-map-marker"></i></div>--}}
+                        {{--<div class="footer-title">--}}
+                            {{--<h5>ADDRESS</h5>--}}
+                        {{--</div>--}}
+                        {{--<div class="footer-disc">--}}
+                            {{--<p>250 Av.Sol Cusco sur plaza</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4 col-sm-4 col-xs-12">--}}
+                    {{--<div class="footer-box text-center">--}}
+                        {{--<div class="footer-icon"><i class="fa fa-map-marker"></i></div>--}}
+                        {{--<div class="footer-title">--}}
+                            {{--<h5>ADDRESS</h5>--}}
+                        {{--</div>--}}
+                        {{--<div class="footer-disc">--}}
+                            {{--<p>250 Av.Sol Cusco sur plaza</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4 col-sm-4 col-xs-12">--}}
+                    {{--<div class="footer-box text-center">--}}
+                        {{--<div class="footer-icon"><i class="fa fa-map-marker"></i></div>--}}
+                        {{--<div class="footer-title">--}}
+                            {{--<h5>ADDRESS</h5>--}}
+                        {{--</div>--}}
+                        {{--<div class="footer-disc">--}}
+                            {{--<p>250 Av.Sol Cusco sur plaza</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="footer-social text-center">
                 <ul>
                     <li><a href="#"><i class="fab fa-linkedin"></i></a></li>

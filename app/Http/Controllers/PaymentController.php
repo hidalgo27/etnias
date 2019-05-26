@@ -21,6 +21,7 @@ use EtniasPeru\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use EtniasPeru\Helpers\PasarelaVisa;
 
 class PaymentController extends Controller
 {
@@ -37,6 +38,7 @@ class PaymentController extends Controller
         $fecha_viaje = $request->input('txt_fecha_viaje');
         $personas = $request->input('txt_personas');
         $actividad = Actividad::with('precios','asociacion')->where('id', $id_actividad)->get();
+        
         foreach ($actividad as $comisiones){
             $comision = $comisiones->asociacion->comision;
         }
@@ -49,13 +51,14 @@ class PaymentController extends Controller
         }
 //        $comida_precio = ComidaPrecio::all();
 //        $comida = $request->input('comida');
-
+        $pre_total=0;
         if ($request->has('comida')){
             $comida_arr = $request->input('comida');
             $i=0;
             foreach ($comida_arr as $comida_a){
                 $comida_id = explode('-', $comida_a);
                 $comida_precio[$i] = ComidaPrecio::find($comida_id[0]);
+                $pre_total+=round($comida_precio[$i]->precio);
                 $i++;
             }
         }
@@ -66,6 +69,7 @@ class PaymentController extends Controller
             foreach ($transporte_arr as $transporte_a){
                 $transporte_id = explode('-', $transporte_a);
                 $transporte_precio[$j] = TransporteExterno::find($transporte_id[0]);
+                $pre_total+=round($transporte_precio[$j]->precio);
                 $j++;
             }
         }
@@ -76,6 +80,7 @@ class PaymentController extends Controller
             foreach ($hospedaje_arr as $hospedaje_a){
                 $hospedaje_id = explode('-', $hospedaje_a);
                 $hospedaje_precio[$k] = HospedajePrecio::find($hospedaje_id[0]);
+                $pre_total+=round($hospedaje_precio[$k]->precio);
                 $k++;
             }
         }
@@ -86,15 +91,232 @@ class PaymentController extends Controller
             foreach ($guia_arr as $guia_a){
                 $guia_id = explode('-', $guia_a);
                 $guia_precio[$l] = Guia::find($guia_id[0]);
+                $pre_total+=round($guia_precio[$l]->precio);
                 $l++;
             }
         }
-//        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
-        return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
+
+    //-- creamos l asesion para la pasarela
+        if ($total>0){
+            $pasarela=new PasarelaVisa();
+            // $entorno = $_POST['entorno'];
+            $entorno ="dev";
+            switch ($entorno) {
+                case 'dev':
+                    $usr = $pasarela->usrtest();
+                    $pwd = $pasarela->pwdtest();
+                    break;
+                case 'prd':
+                    $usr = $pasarela->usr();
+                    $pwd = $pasarela->pwd();
+                    break;
+            }
+            // echo $entorno;
+            // $amount = $_POST['amount'];
+
+            $amount = (round($total)+$pre_total) * $personas;
+            
+            // dd("entorno:$entorno,amount:$usr,key:$pwd");
+            $key = $pasarela->securitykey($entorno,$usr,$pwd);
+            setcookie("key",$key);
+            // session('key', $key);
+            // echo "Sessi&oacute;n Key: ",
+            // dd("entorno:$entorno,amount:$amount,key:$key");
+
+            $sessionToken = $pasarela->create_token($entorno,$amount,$key);
+                if (isset($_POST['nombre'])){
+                    $nombre=$_POST['nombre'];
+                }else{
+                    $nombre="";
+                }
+                if (isset($_POST['apellido'])){
+                    $apellido=$_POST['apellido'];
+                }else{
+                    $apellido="";
+                }
+                if (isset($_POST['email'])){
+                    $email=$_POST['email'];
+                }else{
+                    $email="";
+                }
+                if (isset($_POST['userTokenId'])){
+                    $userTokenId=$_POST['userTokenId'];
+                }else{
+                    $userTokenId="";
+                }
+                if (isset($_POST['_token'])){
+                    $userTokenId=$_POST['_token'];
+                }else{
+                    $userTokenId="";
+                }
+                
+            // $arrayPost = array("sessionToken"=>$sessionToken,"amount"=>$amount,"nombre"=>$nombre,"apellido"=>$apellido,"email"=>$email,"userTokenId"=>$userTokenId,"entorno"=>$entorno,"key"=>$key);
+            // $url = "boton.php";
+            // echo "<hr><pre>";
+            // var_dump($arrayPost);
+            // echo "</pre><hr>";
+            // $html = PasarelaVisa::post_form($arrayPost,$url);
+            // echo $html;
+            // setcookie("test","HOLA");
+            // exit;
+        
+
+
+    //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
+
+        $numorden='00001';
+        $numorden=$pasarela->contador();
+        
+        switch ($entorno) {
+            case 'dev':
+                $urljs="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
+                $merchantId = $pasarela->merchantidtest();
+                break;
+            case 'prd':
+                $urljs="https://static-content.vnforapps.com/v2/js/checkout.js";
+                $merchantId = $pasarela->merchantidprd();
+                break;
+        }
+        
+    // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
+            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_arr', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs','id_actividad'));
+        }
     }
 
-    public function payment_check(Request $request)
+    public function payment_check(Request $request,$entorno,$purchaseNumber,$amount,$titulo,$fecha,$pasajeros)
     {
+        
+
+        // Auth::login($user, true);
+        // dd($request->all());
+        if (isset($_POST['transactionToken'])){
+            // $key = session('key');
+            $key =$_COOKIE["key"];
+            // dd($key);
+            // echo "<hr>".$key."<hr>";
+            $transactionToken = $_POST['transactionToken'];
+            // $entorno ='dev'; /*$_POST['entorno'];*/
+            // $purchaseNumber = $_GET['purchaseNumber'];
+            // $amount = $_GET['amount'];
+            // echo "<pre>";
+            // var_dump($_POST);
+            // echo "<pre>";
+            $pasarela=new PasarelaVisa();
+            $respuesta = $pasarela->authorization($entorno,$key,$amount,$transactionToken,$purchaseNumber);
+            // echo "<div class=\"divabsolute\">";
+            // echo "<pre>";
+            // var_dump($respuesta);
+            // echo "<pre>";
+            // echo "</div>";
+            // session()->forget('key');
+            
+            // $data_respuesta = json_decode($respuesta, true);
+            $data_respuesta = json_decode($respuesta,true);
+            
+            // dd($data_respuesta['1']);
+            // $rpt_sd = $data_respuesta['1'];
+
+            $objeto=json_decode($data_respuesta['1']);
+
+            if($data_respuesta['0']=='200'){
+                echo "<hr>rpt ok:".$data_respuesta['0']."<hr>";
+                dd($objeto->order);
+                unset($_COOKIE["key"]);
+                exit;
+            }
+            elseif($objeto){
+                // echo "<hr>rpt error:".$data_respuesta['0']."<hr>";
+                // dd($objeto->errorCode);
+                return redirect()->route('detail_date_path',[str_replace(' ', '-', strtolower($titulo)),$fecha,$pasajeros])->with('msg','Ocurrio un error('.$objeto->errorCode.') vuelva a intentarlo.');
+            }
+            else{
+                return redirect()->route('detail_date_path',[str_replace(' ', '-', strtolower($titulo)),$fecha,$pasajeros])->with('msg','Ocurrio un error('.$objeto.') vuelva a intentarlo.');
+                // echo "<hr>rpt nulo:".$data_respuesta['0']."<hr>";
+                // dd($objeto);
+                
+            }
+            // echo "<hr>rpt :".$rpt_sd."<hr>";
+            // echo "<hr>rpt :".var_dump($rpt)."<hr>";
+
+            // if ($rpt!='null'){
+            //     echo "<hr>rpt no es nulo :".var_dump($rpt)."<hr";
+            // }
+            // else{
+            //     echo "<hr>rpt :Es nulo ".var_dump($rpt)."<hr>";
+            // }
+            // foreach($rpt as $rpt_){
+            //     echo "<hr>rpt foreach:".$rpt_."<hr>";         
+            // }
+            // $rpt = json_decode($data_respuesta['1'],true);
+            // $rpt=json_decode($data_respuesta['1'],true);
+            // $rpt2=explode(',',$data_respuesta['1']);
+            // $rpt2=explode(',',$rpt);
+
+            // if(is_array($rpt)){
+            //     echo "<hr>rpt array:".$rpt."<hr>";
+            
+            // }
+            // else{
+            //     $rpte=explode(",",$rpt);
+            //     echo "<hr>rpt txt:".$rpte."<hr>";
+           
+            // }
+            // $rpt=explode(',',$rpt);
+            // if($data_respuesta['0']=='200'){
+
+
+                // foreach($rpt as $valor){
+                //         echo "<hr>".$valor."<hr>";
+                    
+                //     }
+                // echo "<hr>".$rpt[0]."<hr>";
+                // echo "<hr>".$rpt['order']."<hr>";
+                // foreach($rpt->order as $valor){
+                //     echo "<hr>".$valor."<hr>";
+                
+                // }
+                // echo $data_respuesta['1'];
+                
+            // }
+            // else{
+
+                // if(is_array($rpt)){
+                //     $rpt1='';
+                //     foreach($rpt as $valor){
+                //         $rpt1=$valor;
+                //     }
+                // }
+                // else{
+                //     $rpt1=$data_respuesta['1'];
+                    
+                // }
+                // redirect()->route()->back();
+                // http://mietnia.nu/payment
+                // $rpt1='';
+                // if($rpt){
+                //     foreach($rpt as $valor){
+                //         $rpt1=$rpt[0];
+                    
+                //     }
+                // }
+                // return redirect()->route('detail_date_path',[str_replace(' ', '-', strtolower($titulo)),$fecha,$pasajeros])->with('msg','Ocurrio un error('.$data_respuesta['0'].') vuelva a intentarlo.'.$data_respuesta['1']);
+                // return redirect()->route('payment_path')->withInput(['txt_actividad_id' => $actividad_id,'txt_personas'=>$pasajeros,'txt_fecha_viaje'=>$fecha])->with('error', 'Ocurrio un error('.$data_respuesta['0'].') vuelva a intentarlo.');
+                // detail/huilloq-chasqui/22-05-2019/2
+            // }
+
+            // echo "<hr>".$data_respuesta['0']."<hr>";
+            // $msj='no se proceso';
+            // if(isset($data_respuesta)){
+            //     foreach ($data_respuesta['order'] as $array) {
+            //         $msj=$array['actionCode'];   
+            //         // Pais::create($array);
+            //     }
+            // }
+            // echo "<hr>".$msj."<hr>";
+            // echo $msj;
+
+        }
+
         $validator = $request->validate([
             'email' => 'required',
             'username' => 'required',
@@ -365,7 +587,7 @@ class PaymentController extends Controller
 
         }
 
-        Auth::login($user, true);
+        
 
         return redirect($this->redirectTo);
 

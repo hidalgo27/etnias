@@ -17,16 +17,16 @@
                 <hr class="my-4">
                 <div class="row">
                     <div class="col text-right">
-                        <a href="{{route('comunidad_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Comunidades</a>
-                        <a href="{{route('actividades_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Actividades</a>
+                        <a href="{{route('comunidad_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.comunidades')</a>
+                        <a href="{{route('actividades_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.actividades')</a>
 {{--                        <a href="{{route('packages_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Paquetes</a>--}}
-                        <a href="{{route('about_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Sobre Nosotros</a>
+                        <a href="{{route('about_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.nosotros')</a>
 {{--                        <a href="{{route('blog_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Nuestro Blog</a>--}}
-                        <a href="{{route('contact_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Contáctenos</a>
+                        <a href="{{route('contact_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.contactenos')</a>
                         <hr>
-                        <a href="{{ route('login') }}" class="font-weight-bold h5 d-block text-primary m-0">Inicio de Sesión <i class="fas fa-sign-in-alt"></i></a>
+                        <a href="{{ route('login') }}" class="font-weight-bold h5 d-block text-primary m-0">@lang('home.inicio_sesion') <i class="fas fa-sign-in-alt"></i></a>
                         <hr>
-                        <a href="{{ route('join_path') }}" class="font-weight-bold h5 d-block text-info m-0">Trabaja con nosotros</a>
+                        <a href="{{ route('join_path') }}" class="font-weight-bold h5 d-block text-info m-0">@lang('home.trabaja_con_nosotros')</a>
                     </div>
                 </div>
                 <hr class="my-3">

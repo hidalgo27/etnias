@@ -1,0 +1,30 @@
+<?php
+return [
+    'comunidades' => 'Comunidades',
+    'comunidad' => 'Comunidad',
+    'h1' => 'Comunidades <span class="text-g-red-dark">Región Cusco</span>',
+    'h1_p' => 'Viva la experiencia en comunidades con costumbres intactas Incas.',
+
+    'comunidad_amaru' => 'Comunidad de Amaru',
+    'elija_actividad' => 'Elija una actividad',
+    'asociaciones_comunidad' => 'Asociaciones en la comunidad',
+    'explore_comunidad' => 'Explore la comunidad',
+    'altura' => 'Altura',
+    'duracion' => 'Duración',
+    'distancia_ciudad' => 'Distancia de la ciudad más cercana',
+    'reservar_ahora' => 'Reservar Ahora',
+    'descripcion' => 'DESCRIPCIÓN',
+    'edad_min' => 'Edad mínima',
+    'terminos_c_com' => 'Términos y condiciones de la comunidad',
+    'dificultad' => 'Dificultad',
+    'periodo' => 'Periodo',
+    'tolerancia_max' => 'Tolerancia máxima',
+    'des_dur_periodo' => 'Descripción duración y periodo',
+    'incluye' => 'Incluye',
+    'no_incluye' => 'No Incluye',
+    'disponibilidad' => 'Disponibilidad',
+    'galeria_imagenes' => 'Galeria de imagenes',
+    'escoja_fecha_viaje' => 'Escoja su fecha de viaje',
+    'recomendaciones' => 'Recomendaciones',
+    'guia_disponible' => 'Guia Disponible'
+];

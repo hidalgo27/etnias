@@ -19,8 +19,8 @@
                         <div class="container">
                             <div class="row align-items-end bg-header-body pb-5">
                                 <div class="col text-white">
-                                    <h1 class="text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
-                                    <p class="lead font-weight-normal d-none d-sm-block"><b>Ubicación:</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>Altura:</b> {{$comunidades->altura}}, <b>Distancia de la ciudad más cercana:</b> {{$comunidades->distancia}}</p>
+                                    <h1 class="text-white">@lang('comunidad.comunidad') {{ucwords(strtolower($comunidades->nombre))}}</h1>
+                                    <p class="lead font-weight-normal d-none d-sm-block"><b>@lang('actividades.ubicacion'):</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>@lang('comunidad.altura'):</b> {{$comunidades->altura}}, <b>@lang('comunidad.distancia_ciudad'):</b> {{$comunidades->distancia}}</p>
                                 </div>
                             </div>
                         </div>
@@ -30,13 +30,13 @@
                             <div class="row">
                                 <div class="col">
                                     <ul>
-                                        <li class="text-truncate">Comunidad: {{ucwords(strtolower($comunidades->nombre))}}</li>
+                                        <li class="text-truncate">@lang('comunidad.comunidad'): {{ucwords(strtolower($comunidades->nombre))}}</li>
                                         @foreach($actividades->precios as $precio)
-                                            <li>Precio : <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small class="p-0">USD</small></li>
+                                            <li>@lang('actividades.precio') : <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small class="p-0">USD</small></li>
                                         @endforeach
-                                        <li class="text-truncate" data-toggle="tooltip" data-placement="top" title="{{$actividades->duracion}}">Duración : {{$actividades->duracion}}</li>
+                                        <li class="text-truncate" data-toggle="tooltip" data-placement="top" title="{{$actividades->duracion}}">@lang('comunidad.duracion'): {{$actividades->duracion}}</li>
                                         <li class="btn-book text-truncate">
-                                            <a href="">Reservar Ahora</a>
+                                            <a href="">@lang('comunidad.reservar_ahora')</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -51,6 +51,17 @@
                         <section class="py-5">
                             <div class="row">
                                 <div class="col col-md-8">
+                                    @if(Session::has('msg'))
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        <li>{!! Session::get('msg') !!}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif                                 
                                     <div class="row">
                                         <div class="col">
                                             <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividades->titulo))}}
@@ -67,7 +78,7 @@
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col font-poppins text-g-grey-primary">
-                                            <h5 class="font-weight-bold pb-2">DESCRIPCIÓN:</h5>
+                                            <h5 class="font-weight-bold pb-2">@lang('comunidad.descripcion'):</h5>
                                             @php echo $actividades->descripcion; @endphp
                                         </div>
                                     </div>
@@ -75,19 +86,19 @@
                                         <div class="col d-flex">
                                             <div class="card w-100">
                                                 <div class="card-body">
-                                                    <h6 class="font-weight-bold">Términos y condiciones de la comunidad</h6>
-                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Edad mínima:</b> {{ucwords(strtolower($actividades->edad_minima))}}</div>
-                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Dificultad:</b> {{ucwords(strtolower($actividades->dificultad))}}</div>
-                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Tolerancia máxima:</b> {{ucwords(strtolower($actividades->tolerancia))}}</div>
+                                                    <h6 class="font-weight-bold">@lang('comunidad.terminos_c_com')</h6>
+                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">@lang('comunidad.edad_min'):</b> {{ucwords(strtolower($actividades->edad_minima))}}</div>
+                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">@lang('comunidad.dificultad'):</b> {{ucwords(strtolower($actividades->dificultad))}}</div>
+                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">@lang('comunidad.tolerancia_max'):</b> {{ucwords(strtolower($actividades->tolerancia))}}</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col d-flex">
                                             <div class="card w-100">
                                                 <div class="card-body">
-                                                    <h6 class="font-weight-bold">Descripción duración y periodo</h6>
-                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Periodo:</b> {{ucwords(strtolower($actividades->periodo))}}</div>
-                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades->duracion))}}</div>
+                                                    <h6 class="font-weight-bold">@lang('comunidad.des_dur_periodo')</h6>
+                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">@lang('comunidad.periodo'):</b> {{ucwords(strtolower($actividades->periodo))}}</div>
+                                                    <div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">@lang('comunidad.duracion'):</b> {{ucwords(strtolower($actividades->duracion))}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,17 +106,17 @@
                                     <div class="row mt-4">
                                         <div class="col">
                                             <div class="font-poppins text-g-grey-primary">
-                                                <h5 class="font-weight-bold">Incluye</h5>
+                                                <h5 class="font-weight-bold">@lang('comunidad.incluye')</h5>
                                                 @php echo $actividades->incluye; @endphp
 
-                                                <h5 class="font-weight-bold">No Incluye</h5>
+                                                <h5 class="font-weight-bold">@lang('comunidad.no_incluye')</h5>
                                                 @php echo $actividades->no_incluye; @endphp
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col font-poppins">
-                                            <h5 class="font-weight-bold pb-3">Disponibilidad:</h5>
+                                            <h5 class="font-weight-bold pb-3">@lang('comunidad.disponibilidad'):</h5>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
@@ -124,7 +135,7 @@
                                     </div>
                                     <div class="row mt-5">
                                         <div class="col font-poppins">
-                                            <h5 class="font-weight-bold pb-3">Galeria de imagenes:</h5>
+                                            <h5 class="font-weight-bold pb-3">@lang('comunidad.galeria_imagenes'):</h5>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -242,13 +253,13 @@
                                             <div class="card-body text-center">
                                                 @foreach($actividades->precios as $precio)
                                                     <sup>$</sup><span class="font-weight-bold display-4 h1" id="precio_persona">{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}</span><small>USD</small>
-                                                    <small class="d-block text-muted">Precio por persona</small>
+                                                    <small class="d-block text-muted">@lang('actividades.precio_persona')</small>
                                                 @endforeach
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group text-left">
-                                                            <label for="custom-cells" class="font-weight-bold text-secondary small">Fecha de Viaje</label>
+                                                            <label for="custom-cells" class="font-weight-bold text-secondary small">@lang('home.fecha_viaje')</label>
                                                             <input type="text" class="form-control" id="custom-cells-3" name="fecha_viaje" placeholder="Escoja su fecha de viaje" required value="{{$fecha}}">
                                                         </div>
                                                     </div>
@@ -257,7 +268,7 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group text-left">
-                                                            <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">Numero de personas</label>
+                                                            <label for="exampleFormControlSelect1" class="font-weight-bold text-secondary small">@lang('home.nro_pasajeros')</label>
                                                             <input class="form-control" id="txt_personas" name="txt_personas" onchange="price_person()" required value="{{$rango_min}}">
                                                         </div>
                                                     </div>
@@ -270,7 +281,7 @@
                                                 {{--</div>--}}
                                                 {{--</div>--}}
                                                 {{--</div>--}}
-                                                <button type="submit" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">Reservar Ahora</button>
+                                                <button type="submit" class="btn btn-block btn-g-red-dark text-white font-weight-bold mt-3">@lang('comunidad.reservar_ahora')</button>
                                                 @if (session('status'))
                                                     <div class="alert alert-warning font-weight-bold mt-3">
                                                         {{ session('status') }}
@@ -281,10 +292,10 @@
                                     </form>
                                     <div class="card bg-light mt-4">
                                         <div class="card-body font-poppins">
-                                            <h6 class="font-weight-bold d-block">Recomendaciones</h6>
+                                            <h6 class="font-weight-bold d-block">@lang('comunidad.recomendaciones')</h6>
                                             @php echo $actividades->recomendaciones; @endphp
                                             <hr>
-                                            <h6 class="font-weight-bold">Guia Disponible:</h6>
+                                            <h6 class="font-weight-bold">@lang('comunidad.guia_disponible'):</h6>
                                             @php echo $actividades->disponible; @endphp
                                         </div>
                                     </div>

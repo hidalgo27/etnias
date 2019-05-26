@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
                         <div class="col-12 text-center text-truncate">
-                            <h1 class="font-weight-bold display-4 text-white">Comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h1>
+                            <h1 class="font-weight-bold display-4 text-white">@lang('comunidad.comunidad') {{ucwords(strtolower($comunidades->nombre))}}</h1>
                         </div>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-4" id="actividades">
+                        <div class="row mt-3 mb-4" id="actividades">
                             <div class="col">
-                                <h4 class="font-weight-bold text-g-grey-primary mt-1 mb-4">Elija una actividad en {{ucwords(strtolower($comunidades->nombre))}}</h4>
+                                <h4 class="font-weight-bold text-g-grey-primary mt-1 mb-4">@lang('comunidad.elija_actividad')</h4>
                                 <div class="row">
                                     @foreach($comunidad_pack as $comunidades_pack)
                                         @foreach($comunidades_pack->asociaciones as $asociaciones)
@@ -100,7 +100,7 @@
 
                         <div class="row mb-4" id="asociaciones">
                             <div class="col">
-                                <h4 class="font-weight-bold text-g-grey-primary  mb-4">Asociaciones en la comunidad de {{ucwords(strtolower($comunidades->nombre))}}</h4>
+                                <h4 class="font-weight-bold text-g-grey-primary  mb-4">@lang('comunidad.asociaciones_comunidad')</h4>
                                 <div class="row">
                                     @foreach($comunidades->asociaciones as $asociaciones)
                                     <div class="col-12 mb-4 mb-md-0 col-md-4 text-center">
@@ -130,24 +130,24 @@
                             </div>
                         </div>
 
-                        <div class="row mb-5" id="historia">
-                            <div class="col">
-                                <h4 class="font-weight-bold text-g-grey-primary  mb-4">Historia</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        @php echo $comunidades->historia; @endphp
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {{--<div class="row mb-5" id="historia">--}}
+                            {{--<div class="col">--}}
+                                {{--<h4 class="font-weight-bold text-g-grey-primary  mb-4">Historia</h4>--}}
+                                {{--<div class="row">--}}
+                                    {{--<div class="col">--}}
+                                        {{--@php echo $comunidades->historia; @endphp--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                     </div>
                     <div class="col-12 d-none d-md-inline-block col-md-6 col-lg-3 ">
                         <nav id="navbar-scroll" class="navbar navbar-light bg-light sticky-top">
                             <nav class="nav nav-pills flex-column">
-                                <a class="nav-link font-weight-bold" href="#explore">Explore la comunidad de {{ucwords(strtolower($comunidades->nombre))}}</a>
-                                <a class="nav-link font-weight-bold" href="#actividades">Elija una actividad en {{ucwords(strtolower($comunidades->nombre))}}</a>
-                                <a class="nav-link font-weight-bold" href="#asociaciones">Asociaciones en la comunidad</a>
-                                <a class="nav-link font-weight-bold" href="#historia">Historia</a>
+                                <a class="nav-link font-weight-bold" href="#explore">@lang('comunidad.explore_comunidad')</a>
+                                <a class="nav-link font-weight-bold" href="#actividades">@lang('comunidad.elija_actividad')</a>
+                                <a class="nav-link font-weight-bold" href="#asociaciones">@lang('comunidad.asociaciones_comunidad')</a>
+                                {{--<a class="nav-link font-weight-bold" href="#historia">Historia</a>--}}
                             </nav>
                         </nav>
                     </div>

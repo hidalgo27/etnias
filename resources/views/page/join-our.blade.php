@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row justify-content-center align-items-center h-100vh">
                 <div class="col-12 text-center text-truncate">
-                    <h1 class="font-weight-bold display-4 text-white">Trabaja con Nosotros</h1>
+                    <p class="font-weight-bold display-4 text-white h1">@lang('join.trabaja_nosotros')</p>
                 </div>
             </div>
         </div>
@@ -47,14 +47,14 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h1 class="font-weight-bold display-4 text-g-grey-primary">Únete a nuestro <span class="text-g-red-dark">Equipo</span></h1>
-                <h4 class="text-g-grey-light">Trabaja con nosotros</h4>
+                <h1 class="font-weight-bold display-4 text-g-grey-primary">@lang('join.h1')</h1>
+                <h4 class="text-g-grey-light">@lang('join.h4')</h4>
                 <div class="title-line">
                     <div class="tl-1"></div>
                     <div class="tl-2"></div>
                     <div class="tl-3"></div>
                 </div>
-                <p class="lead font-weight-normal mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias amet assumenda doloremque earum fugit impedit inventore iste nemo nostrum obcaecati odit perferendis quasi quia ratione recusandae, reiciendis? Nobis, ut.</p>
+                {{--<p class="lead font-weight-normal mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias amet assumenda doloremque earum fugit impedit inventore iste nemo nostrum obcaecati odit perferendis quasi quia ratione recusandae, reiciendis? Nobis, ut.</p>--}}
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                                 <img src="{{asset('images/join/comunidad.png')}}" alt="" width=" 100%">
                             </div>
                         </div>
-                        <a href="{{route('join_comunidad_path')}}" class="font-weight-bold stretched-link">Soy una Comunidad</a>
+                        <a href="{{route('join_comunidad_path')}}" class="font-weight-bold stretched-link">@lang('join.soy_comunidad')</a>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                                 <img src="{{asset('images/join/transporte.png')}}" alt="" width=" 100%">
                             </div>
                         </div>
-                        <a href="{{route('join_transportista_path')}}" class="font-weight-bold stretched-link">Soy un transportista</a>
+                        <a href="{{route('join_transportista_path')}}" class="font-weight-bold stretched-link">@lang('join.soy_transportista')</a>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                                 <img src="{{asset('images/join/guia.png')}}" alt="" width=" 100%">
                             </div>
                         </div>
-                        <a href="{{route('join_guia_path')}}" class="font-weight-bold stretched-link">Soy un Guía</a>
+                        <a href="{{route('join_guia_path')}}" class="font-weight-bold stretched-link">@lang('join.soy_guia')</a>
                     </div>
                 </div>
             </div>
