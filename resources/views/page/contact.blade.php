@@ -88,8 +88,8 @@
                     <div class="col">
                         <h4 class="font-weight-bold text-g-grey-light">Website</h4>
                         <a href="#" class="d-block">Website: www.mietnia.com</a>
-                        <a href="#" class="d-block">Facebook: https://www.facebook.com/Mietnia/</a>
-                        <a href="#" class="d-block">Instagram: https://www.instagram.com/mietnia/</a>
+                        <a href="https://www.facebook.com/Mietnia/" target="_blank" class="d-block">Facebook: https://www.facebook.com/Mietnia/</a>
+                        <a href="https://www.instagram.com/mietnia/" target="_blank" class="d-block">Instagram: https://www.instagram.com/mietnia/</a>
                     </div>
                 </div>
             </div>

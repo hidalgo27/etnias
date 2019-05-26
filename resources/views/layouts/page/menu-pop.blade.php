@@ -31,20 +31,20 @@
                 </div>
                 <hr class="my-3">
                 <div class="row justify-content-center">
-                    <div class="col-10">
+                    <div class="col-5">
                         <div class="row">
-                            <div class="col">
-                                <i class="fab fa-facebook fa-2x text-primary"></i>
+                            <div class="col text-center">
+                                <a href="https://www.facebook.com/Mietnia/" target="_blank"><i class="fab fa-facebook fa-2x text-primary"></i></a>
                             </div>
-                            <div class="col">
-                                <i class="fab fa-twitter fa-2x text-info"></i>
+{{--                            <div class="col">--}}
+{{--                                <i class="fab fa-twitter fa-2x text-info"></i>--}}
+{{--                            </div>--}}
+                            <div class="col text-center">
+                                <a href="https://www.instagram.com/mietnia/" target="_blank"><i class="fab fa-instagram fa-2x text-g-grey-light"></i></a>
                             </div>
-                            <div class="col">
-                                <i class="fab fa-instagram fa-2x text-g-grey-light"></i>
-                            </div>
-                            <div class="col">
-                                <i class="fab fa-youtube fa-2x text-danger"></i>
-                            </div>
+{{--                            <div class="col">--}}
+{{--                                <i class="fab fa-youtube fa-2x text-danger"></i>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
