@@ -17,13 +17,17 @@ class HomepageController extends Controller
      */
     public function index()
     {
+        date_default_timezone_set("America/Lima");
+
         $rango_min = 2;
         $rango_max = 2;
         $categoria = Categoria::all();
 
+        $f_actual = date("m");
+
         $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
 
-        $disponibilidad_mes = ActividadDisponible::where('estado',1)->whereMonth('fecha','=',04)->inRandomOrder()->take(10)->get();
+        $disponibilidad_mes = ActividadDisponible::where('estado',1)->whereMonth('fecha','=',$f_actual)->inRandomOrder()->take(10)->get();
 
         $comunidad_huilloc = Comunidad::with([
                 'asociaciones.actividades.fotos',
