@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="490c78de-bd6e-4c1b-857d-be867e95af10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/etnias.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/etnias.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades-category-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades-category-show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="490c78de-bd6e-4c1b-857d-be867e95af10" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -438,12 +426,12 @@
       <updated>1558834517648</updated>
       <workItem from="1558834527685" duration="1234000" />
       <workItem from="1559437428743" duration="247000" />
-      <workItem from="1559492320506" duration="2318000" />
+      <workItem from="1559492320506" duration="2471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3799000" />
+    <option name="totallyTimeSpent" value="3952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
