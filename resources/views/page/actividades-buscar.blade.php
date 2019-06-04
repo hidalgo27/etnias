@@ -166,9 +166,13 @@
                                                 </td>
                                                 <td class="text-center d-none d-sm-table-cell">{{$disponibilidades->fecha}}</td>
                                                 <td class="text-center d-none d-sm-table-cell">
-
+                                                    @if($rango_min == 1)
+                                                        @php $per = 'persona'; @endphp
+                                                    @else
+                                                        @php   $per = 'personas'; @endphp
+                                                    @endif
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                        <small class="d-block">(@lang('actividades.precio_persona'))</small>
+                                                        <small class="d-block">Precio por persona (basado como mínimo {{$rango_min}} {{$per}})</small>
 
                                                 </td>
                                                 <td class="text-center">{{ucwords(strtolower($comunidades->nombre))}}</td>

@@ -82,7 +82,7 @@
                                                                 <div class="col-5 text-right">
                                                                     @foreach($actividades->precios as $precio)
                                                                         @if (isset($precio))
-                                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="@lang('home.pp_persona')"><i class="fas fa-user-friends"></i></small></span>
                                                                         @endif
                                                                     @endforeach
                                                                 </div>

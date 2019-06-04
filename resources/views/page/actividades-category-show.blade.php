@@ -130,7 +130,7 @@
                                                 <td class="w-25 text-center">
                                                     @foreach($actividades->precios as $precio)
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                        <small class="d-block">(Price per person)</small></td>
+                                                        <small class="d-block">@lang('home.pp_persona')</small></td>
                                                 @endforeach
                                                 <td class="e_h1 d-none d-sm-table-cell">{{ucwords(strtolower($comunidades->nombre))}}</td>
                                                 <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">Reservar Ahora</a> </td>

@@ -60,38 +60,38 @@
             </div>
         </section>
 
-        <section class="my-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    {{--<div class="col-12 mb-4 col-lg mb-lg-0">--}}
-                        {{--<img src="{{asset('images/taucca3.jpg')}}" alt="" class="w-100 rounded shadow">--}}
-                    {{--</div>--}}
-                    <div class="col-12 mb-4 col-lg mb-lg-0">
-                        {{--<h3 class="font-weight-bold text-g-grey-primary mb-3">Misión y Visión</h3>--}}
-                        <p class="lead font-weight-normal text-g-grey-light">
-                            @lang('about.p_1')
-                        </p>
-                        <p class="lead font-weight-normal text-g-grey-light">
-                            @lang('about.p_2')
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--        <section class="my-5">--}}
+{{--            <div class="container">--}}
+{{--                <div class="row align-items-center">--}}
+{{--                    --}}{{--<div class="col-12 mb-4 col-lg mb-lg-0">--}}
+{{--                        --}}{{--<img src="{{asset('images/taucca3.jpg')}}" alt="" class="w-100 rounded shadow">--}}
+{{--                    --}}{{--</div>--}}
+{{--                    <div class="col-12 mb-4 col-lg mb-lg-0">--}}
+{{--                        --}}{{--<h3 class="font-weight-bold text-g-grey-primary mb-3">Misión y Visión</h3>--}}
+{{--                        <p class="lead font-weight-normal text-g-grey-light">--}}
+{{--                            @lang('about.p_1')--}}
+{{--                        </p>--}}
+{{--                        <p class="lead font-weight-normal text-g-grey-light">--}}
+{{--                            @lang('about.p_2')--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
 
-        <section class="bg-light mt-5 py-5">
+        <section class="mt-5">
             <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        {{--<h6 class="text-g-grey-light">Producción</h6>--}}
-                        <h2 class="font-weight-bold h1 text-g-grey-primary"><span class="text-g-red-dark">@lang('about.h2')</span></h2>
-                        <div class="title-line">
-                            <div class="tl-1"></div>
-                            <div class="tl-2"></div>
-                            <div class="tl-3"></div>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="row">--}}
+{{--                    <div class="col text-center">--}}
+{{--                        --}}{{--<h6 class="text-g-grey-light">Producción</h6>--}}
+{{--                        <h2 class="font-weight-bold h1 text-g-grey-primary"><span class="text-g-red-dark">@lang('about.h2')</span></h2>--}}
+{{--                        <div class="title-line">--}}
+{{--                            <div class="tl-1"></div>--}}
+{{--                            <div class="tl-2"></div>--}}
+{{--                            <div class="tl-3"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="row align-items-center mt-4">
                     <div class="col-12 mb-4 col-lg mb-lg-0">
                         <img src="{{asset('images/team-etnias.jpg')}}" alt="" class="w-100 rounded shadow">

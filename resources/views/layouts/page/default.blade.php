@@ -56,9 +56,9 @@
             {{--</div>--}}
             <div class="footer-social text-center">
                 <ul>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+{{--                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>--}}
+                    <li><a href="https://www.instagram.com/mietnia/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/Mietnia/" target="_blank"><i class="fab fa-facebook"></i></a></li>
                 </ul>
             </div>
             <div class="copyright-text text-center">
