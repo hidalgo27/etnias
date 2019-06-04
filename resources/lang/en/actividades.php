@@ -1,15 +1,15 @@
-<?php
+﻿<?php
 return [
-    'actividades' => 'Actividades',
-    'todas_actividades' => 'Todas Nuestras <span class="text-g-red-dark">Actividades</span>',
-    'h1_p' => 'Viva la experiencia en comunidades con costumbres intactas Incas.',
-    'buscar' => 'Buscar.',
-    'nombre_actividad' => 'Nombre Actividad',
-    'precio' => 'Precio',
-    'fecha' => 'Fecha',
-    'resultados' => 'Resultados',
-    'ubicacion' => 'Ubicación',
-    'reservar' => 'Reservar',
-    'precio_persona' => 'Percio por persona',
-    'categoria' => 'Categoria'
+    'actividades' => 'Activities',
+    'todas_actividades' => 'All Ours <span class="text-g-red-dark">Activities</span>',
+    'h1_p' => 'Live the experience in communities with intact Inca customs.',
+    'buscar' => 'search.',
+    'nombre_actividad' => 'Name Activity',
+    'precio' => 'Price',
+    'fecha' => 'Date',
+    'resultados' => 'Results',
+    'ubicacion' =>'Location',
+    'reservar' => 'Reserve',
+    'precio_persona' =>'Price per person',
+    'categoria' => 'Category'
 ];
