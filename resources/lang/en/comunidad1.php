@@ -7,7 +7,7 @@ return [
 
     'comunidad_amaru' => 'Comunidad de Amaru',
     'elija_actividad' => 'Elija una actividad',
-    'asociaciones_comunidad' => 'Asociaciones y Etnia Host',
+    'asociaciones_comunidad' => 'Asociaciones en la comunidad',
     'explore_comunidad' => 'Explore la comunidad',
     'altura' => 'Altura',
     'duracion' => 'Duración',

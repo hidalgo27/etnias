@@ -258,7 +258,7 @@
                                                 <div class="col-5 text-right">
                                                     @foreach($actividades_huilloc->precios as $precio)
                                                         @if (isset($precio))
-                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones_huilloc->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                            <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones_huilloc->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="@lang('home.pp_persona')"><i class="fas fa-user-friends"></i></small></span>
                                                         @endif
                                                     @endforeach
                                                 </div>
@@ -354,7 +354,7 @@
                                                             <div class="col-5 text-right">
                                                                 @foreach($actividades_taucca->precios as $precio)
                                                                     @if (isset($precio))
-                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="@lang('home.pp_persona')"><i class="fas fa-user-friends"></i></small></span>
                                                                     @endif
                                                                 @endforeach
                                                             </div>
@@ -439,7 +439,7 @@
                                                             <div class="col-5 text-right">
                                                                 @foreach($actividades_amaru->precios as $precio)
                                                                     @if (isset($precio))
-                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_amaru->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="Precio para 2 personas."><i class="fas fa-user-friends"></i></small></span>
+                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_amaru->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="@lang('home.pp_persona')"><i class="fas fa-user-friends"></i></small></span>
                                                                     @endif
                                                                 @endforeach
                                                             </div>
@@ -797,7 +797,7 @@
                                                         <td class="w-25 text-center d-none d-md-table-cell">
 
                                                                 <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                                <small class="d-block">(Price per person)</small></td>
+                                                                <small class="d-block">@lang('home.pp_persona')</small></td>
 
                                                         <td class="e_h1 d-none d-md-table-cell">{{ucwords(strtolower($comunidades->nombre))}}</td>
                                                         <td class="text-center"><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="btn btn-sm btn-g-red-dark font-weight-bold text-center">@lang('home.reservar')</a> </td>

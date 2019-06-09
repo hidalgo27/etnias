@@ -28,5 +28,6 @@ return [
     'populares' => 'Populares',
     'ver_mas_comunidades' => 'Ver más Comunidades',
     'mejores_actividades' => 'Las mejores <span class="text-g-red-dark">actividades de este mes</span>',
-    'reservar' => 'Reservar'
+    'reservar' => 'Reservar',
+    'pp_persona' => 'Precio por persona (basado como mínimo 2 pasajeros)'
 ];
