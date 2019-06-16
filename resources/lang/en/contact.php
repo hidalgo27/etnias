@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 return [
-    'contactenos' => 'Contáctenos',
-    'h1_p' => 'Mi etnia es una plataforma que incentiva el turismo vivencial poniendo en contacto comunidades andinas y turistas que deseen conocer el Perú profundo.',
-    'somos_una' => 'Somos una plataforma para reservas de turismo vivenvial.',
+    'contactenos' => 'Contact Us',
+    'h1_p' => 'Mi Etnia is a platform that encourages experiential tourism by connecting Andean communities and tourists who want to know deep Peru.',
+    'somos_una' => 'We are a platform for tourism reserves.',
     'direccion' => 'Dirección',
-    'contacto' => 'CONTACTO',
-    'reservas' => 'Reservas',
-    'atención_cliente' => 'Atención al Cliente'
+    'contacto' => 'Contact',
+    'reservas' => 'Reservations',
+    'atención_cliente' => 'Customer service'
 ];
