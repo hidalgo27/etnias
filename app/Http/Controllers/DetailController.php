@@ -33,7 +33,7 @@ class DetailController extends Controller
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}
         ])->get();
 
-        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','precio_actividad_ver'));
+        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a'));
     }
 
     public function date($titulo, $fecha, $pasajeros)

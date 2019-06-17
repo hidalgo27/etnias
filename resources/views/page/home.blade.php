@@ -112,7 +112,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold display-4 text-g-grey-primary">@lang('home.turismo') <span class="text-g-red-dark">@lang('home.vivencial')</span></h1>
+                        <h1 class="font-weight-bold display-4 text-g-grey-primary">@lang('home.turismo_vivencial') </h1>
                         <h4 class="text-g-grey-light">@lang('home.h1_p')</h4>
                         <div class="title-line">
                             <div class="tl-1"></div>
@@ -535,7 +535,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h1 class="font-weight-bold text-g-grey-primary">@lang('home.comunidades') <span class="text-g-red-dark">@lang('home.populares')</span></h1>
+                        <h1 class="font-weight-bold text-g-grey-primary">@lang('home.comunidades_populares')</h1>
                         <div class="title-line">
                             <div class="tl-1"></div>
                             <div class="tl-2"></div>
