@@ -105,6 +105,9 @@ class PaymentController extends Controller
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
             $entorno ="dev";
+            $usr = '';
+            $pwd = '';
+
             switch ($entorno) {
                 case 'dev':
                     $usr = $pasarela->usrtest();
@@ -131,7 +134,6 @@ class PaymentController extends Controller
             $nombre='';
             $apellido='';
             $email='';
-            $nombre='';
             if (isset($_POST['nombre'])){
                     $nombre=$_POST['nombre'];
                 }else{
@@ -172,9 +174,10 @@ class PaymentController extends Controller
 
     //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
 
-        $numorden='00001';
+        $numorden='1';
         $numorden=$pasarela->contador();
         $urljs="";
+        $merchantId='';
         switch ($entorno) {
             case 'dev':
                 $urljs="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
