@@ -32,22 +32,22 @@ class HomepageController extends Controller
         $comunidad_huilloc = Comunidad::with([
                 'asociaciones.actividades.fotos',
             'asociaciones.actividades',
-            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}]
         )->where('nombre', 'HUILLOC')->get();
 
         $comunidad_taucca = Comunidad::with([
                 'asociaciones.actividades',
-                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}]
         )->where('nombre', 'TAUCCA')->get();
 
         $comunidad_amaru = Comunidad::with([
                 'asociaciones.actividades',
-                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}]
         )->where('nombre', 'AMARU')->get();
 
         $comunidad = Comunidad::with([
                 'asociaciones.actividades',
-                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}]
+                'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}]
         )->get();
 
         return view('page.home', compact('disponibilidad','comunidad_huilloc','comunidad_taucca','comunidad_amaru','categoria','comunidad','disponibilidad_mes'));

@@ -1,6 +1,7 @@
 ﻿<?php
 return [
     'comunidades' => 'Communities',
+    'comunidad' => 'Community',
     'actividades' => 'Activities',
     'nosotros' => 'About us',
     'contactenos' => 'Contact Us',
@@ -27,5 +28,6 @@ return [
     'ver_mas_comunidades' => 'see more communities',
     'mejores_actividades' => 'The best <span class="text-g-red-dark">activities this month</span>',
     'reservar' => 'Book',
-    'pp_persona' => 'Precio por persona (basado como mínimo 2 pasajeros)'
+    'pp_persona' => 'Price per person (based at least two passengers)',
+    'saber_mas_comunidad ' => 'Learn More Community'
 ];

@@ -182,31 +182,33 @@
             <div class="sticky-top mt-sm-5 shadow-sm d-none d-sm-block mt-0">
                 <nav id="navbar-scroll" class="navbar navbar-light bg-light justify-content-center">
                     <ul class="nav nav-pills">
+                        @foreach($comunidad_huilloc as $comunidades_sticky)
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#comunidad-huilloq">Comunidad Huilloq</a>
+                            <a class="nav-link font-weight-bold" href="#comunidad-{{str_replace(' ','-', strtolower($comunidades_sticky->nombre))}}">@lang('home.comunidad') {{ucwords(strtolower($comunidades_sticky->nombre))}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#comunidad-amaru">Comunidad Amaru</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link font-weight-bold" href="#comunidad-amaru">Comunidad Amaru</a>--}}
+{{--                        </li>--}}
+                        @endforeach
                     </ul>
                 </nav>
             </div>
-
-            <section class="p-0 py-sm-5 clearfix" id="comunidad-huilloq">
+            @foreach($comunidad_huilloc as $comunidades_huilloc)
+            <section class="p-0 py-sm-5 clearfix" id="comunidad-{{str_replace(' ','-', strtolower($comunidades_huilloc->nombre))}}">
                 <div class="container">
                     <div class="row">
                         <div class="col  text-center">
-                            <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Huilloq</span></h1>
+                            <h1 class="font-weight-bold text-g-grey-primary">@lang('home.comunidad') <span class="text-g-red-dark">{{ucwords(strtolower($comunidades_huilloc->nombre))}}</span></h1>
                             <div class="title-line">
                                 <div class="tl-1"></div>
                                 <div class="tl-2"></div>
                                 <div class="tl-3"></div>
                             </div>
                             {{--<div class="line-title"></div>--}}
-                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación de turismo vivencial willuq ayllu inka</p>
+{{--                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación de turismo vivencial willuq ayllu inka</p>--}}
                             {{--<div class="line-title"></div>--}}
                         </div>
                     </div>
@@ -216,13 +218,13 @@
                             <div class="position-relative w-100">
                                 <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
                                 <div class="position-absolute w-100 top-50">
-                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">Saber más de la comunidad <i class="fas fa-angle-right"></i></a>
+                                    <a href="{{route('comunidad_show_path', 'huilloc')}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">@lang('home.saber_mas_comunidad ') <i class="fas fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md">
-                            <h5>Huilloc</h5>
-                            <p>Ubicado en el distrito de ollantaytambo en la ciudad del Cusco, la comunidad de Huilloc mantiene intacta sus tradiciones y cultura incaica, la comunidad de Huilloc está ubicada a 30 minutos del centro arqueológico de Ollantaytambo visita esta tradicional comunidad que ofrece una variada opción de turismo rural comunitario y vive una experiencia inolvidable.</p>
+                            <h5>{{ucwords(strtolower($comunidades_huilloc->nombre))}}</h5>
+                            @php echo $comunidades_huilloc->descripcion; @endphp
                         </div>
                     </div>
 
@@ -233,7 +235,7 @@
                     </div>
 
                     <div class="row slider-huilloq">
-                        @foreach($comunidad_huilloc as $comunidades_huilloc)
+
                             @foreach($comunidades_huilloc->asociaciones as $asociaciones_huilloc)
                                 @foreach($asociaciones_huilloc->actividades as $actividades_huilloc)
                                     @foreach($disponibilidad->where('actividad_id', $actividades_huilloc->id) as $disponibilidades)
@@ -268,195 +270,12 @@
                                     @endforeach
                                 @endforeach
                             @endforeach
-                        @endforeach
+
 
                     </div>
                 </div>
             </section>
-
-            <section class="pb-5 bg-light" id="comunidad-taucca">
-                <div class="container">
-                    <div class="row pt-5">
-                        <div class="col text-center">
-                            <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Taucca</span></h1>
-                            <div class="title-line">
-                                <div class="tl-1"></div>
-                                <div class="tl-2"></div>
-                                <div class="tl-3"></div>
-                            </div>
-                            {{--<div class="line-title"></div>--}}
-                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación Hormiguitas de Taucca</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center mt-4">
-                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
-                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
-                            {{--<img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
-                            {{--</a>--}}
-                            <img src="{{asset('images/queuna.jpg')}}" alt="" class="w-100">
-                        </div>
-                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md">
-                            <h5>ASOCIACIÓN HORMIGUITAS DE TAUCCA</h5>
-                            <p>Ubicado en el distrito de Chincheros en la ciudad del Cusco, la comunidad de Taucca es más
-                                conocida por su actividad agrícola: cosecha de papa, maíz, habas, cebada y trigo ubicada a 20
-                                minutos del centro arqueológico de Chincheros ofrece diversas actividades de turismo rural
-                                comunitario entre ellas el sembrado y/o cosecha de sus productos, elaboración de artesanías,
-                                entre otros. Visita la comunidad de Taucca y vive inolvidables experiencias.</p>
-{{--                            <a href="" class="text-primary font-weight-bold">Saber más de la comunidad <i class="fas fa-chevron-right"></i></a>--}}
-                        </div>
-                    </div>
-                    <div class="row my-4">
-                        <div class="col">
-                            <h5 class="text-secondary m-0 font-weight-bold">@lang('home.actividades_comunidad')</h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="row slider-huilloq">
-                                @foreach($comunidad_taucca as $comunidades_taucca)
-                                    @foreach($comunidades_taucca->asociaciones as $asociacion_taucca)
-                                        @foreach($asociacion_taucca->actividades as $actividades_taucca)
-                                            @foreach($disponibilidad->where('actividad_id', $actividades_taucca->id) as $disponibilidades)
-                                                @if ($disponibilidades->actividad_id == $actividades_taucca->id)
-                                                    {{--<div class="col">--}}
-                                                        {{--@foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)--}}
-                                                            {{--<img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100 rounded shadow">--}}
-                                                        {{--@endforeach--}}
-                                                        {{--<h6 class="my-3 font-weight-bold text-secondary">{{$actividades_taucca->titulo}}</h6>--}}
-                                                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elidfdft.</p>--}}
-                                                        {{--<div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Duración:</b> {{ucwords(strtolower($actividades_taucca->duracion))}}</div>--}}
-                                                        {{--@foreach($actividades_taucca->precios as $precio)--}}
-                                                            {{--@if (isset($precio))--}}
-                                                                {{--<div class="d-block"><i class="fas fa-check "></i> <b class="text-g-grey-light">Precio:</b> <sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small>USD</small></div>--}}
-                                                            {{--@endif--}}
-                                                        {{--@endforeach--}}
-                                                        {{--<a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="font-weight-bold text-info pt-3 d-block stretched-link">View More</a>--}}
-                                                    {{--</div>--}}
-
-                                                    <div class="col mb-4">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="header-img-actividades">
-                                                                    @foreach($actividades_taucca->fotos->where('estado',2)->take(1) as $fotos_taucca)
-                                                                        <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_taucca->imagen}}/actividades" alt="" class="w-100">
-                                                                    @endforeach
-                                                                    <div class="position-absolute-top">
-                                                                        <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_taucca->categoria))}}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="footer-box-actividades row m-0 align-items-center">
-                                                            <div class="col-7">
-                                                                <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_taucca->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividades_taucca->titulo}}</a></h6>
-                                                            </div>
-                                                            <div class="col-5 text-right">
-                                                                @foreach($actividades_taucca->precios as $precio)
-                                                                    @if (isset($precio))
-                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_taucca->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="@lang('home.pp_persona')"><i class="fas fa-user-friends"></i></small></span>
-                                                                    @endif
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                @endif
-                                            @endforeach
-                                        @endforeach
-                                    @endforeach
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="pt-5" id="comunidad-amaru">
-                <div class="container">
-                    <div class="row">
-                        <div class="col text-center">
-                            <h1 class="font-weight-bold text-g-grey-primary">Comunidad <span class="text-g-red-dark">Amaru</span></h1>
-                            <div class="title-line">
-                                <div class="tl-1"></div>
-                                <div class="tl-2"></div>
-                                <div class="tl-3"></div>
-                            </div>
-                            {{--<div class="line-title"></div>--}}
-                            <p class="mt-3 lead font-weight-normal text-secondary">Asociación de Tejedores Tradicionales Laraypas Indígenas de Amaru.</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center mt-4">
-                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
-                            {{--<a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=5HmBmdEiG0k&list=RD5HmBmdEiG0k&start_radio=1">--}}
-                                {{--<img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">--}}
-                            {{--</a>--}}
-                            <img src="{{asset('images/amaru.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
-                        </div>
-                        <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md">
-                            <h5>Laraypas Indígenas de Amaru</h5>
-                            <p>Ubicado en el distrito de Pisac en la ciudad del Cusco, la comunidad de Amaru está conformada
-                                por 200 familias, su actividad principal es la textileria, está ubicado a 20 minutos del centro
-                                arqueológico de Pisac, ofrece diversas actividades de turismo comunitario como la siembra y/o
-                                cosecha de productos, pago a la tierra, proceso de elaboración de textiles, enseñanza de plantas
-                                medicinales. Visita la comunidad de Amaru y vive una experiencia ancestral en la ciudad de los
-                                Incas.</p>
-                        </div>
-                    </div>
-                    <div class="row my-4">
-                        <div class="col">
-                            <h5 class="text-secondary m-0 font-weight-bold">@lang('home.actividades_comunidad')</h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-
-                            <div class="row slider-huilloq">
-                                @foreach($comunidad_amaru as $comunidades_amaru)
-                                    @foreach($comunidades_amaru->asociaciones as $asociacion_amaru)
-                                        @foreach($asociacion_amaru->actividades as $actividades_amaru)
-                                            @foreach($disponibilidad->where('actividad_id', $actividades_amaru->id) as $disponibilidades)
-                                                @if ($disponibilidades->actividad_id == $actividades_amaru->id)
-                                                    <div class="col mb-4">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="header-img-actividades">
-                                                                    @foreach($actividades_amaru->fotos->where('estado',2)->take(1) as $fotos_amaru)
-                                                                        <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_amaru->imagen}}/actividades" alt="" class="w-100">
-                                                                    @endforeach
-                                                                    <div class="position-absolute-top">
-                                                                        <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_amaru->categoria))}}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="footer-box-actividades row m-0 align-items-center">
-                                                            <div class="col-7">
-                                                                <h6><a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_amaru->titulo)))}}" class="text-g-grey-primary font-weight-bold">{{$actividades_amaru->titulo}}</a></h6>
-                                                            </div>
-                                                            <div class="col-5 text-right">
-                                                                @foreach($actividades_amaru->precios as $precio)
-                                                                    @if (isset($precio))
-                                                                        <span class="font-weight-bold text-primary"><sup>$</sup>{{round($precio->precio+($precio->precio*$asociacion_amaru->comision)/100)}}<small class="p-0">USD</small><small data-toggle="tooltip" data-placement="top" title="@lang('home.pp_persona')"><i class="fas fa-user-friends"></i></small></span>
-                                                                    @endif
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            @endforeach
-                                        @endforeach
-                                    @endforeach
-                                @endforeach
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
+            @endforeach
 
         </section>
         <section>

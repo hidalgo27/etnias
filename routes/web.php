@@ -136,6 +136,10 @@ Route::get('/contacto', [
     'as' => 'contact_path',
 ]);
 
+Route::get('/valuation', [
+    'uses' => 'ValuationController@index',
+    'as' => 'valuation_path',
+]);
 
 //client
 Route::get('/client/home', [

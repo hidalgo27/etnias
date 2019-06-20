@@ -1,19 +1,19 @@
-<?php
+﻿<?php
 return [
     'detail_program' => 'Detail Program',
     'itinerary' => 'Itinerary',
-    'servicios_adicionales' => 'Servicios Adicionales',
-    'confirmar_pagar' => 'Confirmar y Pagar',
-    'servicios_adicionales' => 'Servicios Adicionales',
-    'aceptar_continuar' => 'Aceptar y Continuar',
-    'numero_personas' => 'Numero de personas',
-    'total_para' => 'Total para',
-    'ya_terminamos' => 'Ya casi terminamos',
-    'revisa_inf_ac' => 'Revisa la información de su actividad y continúa. Si hay algo que no esté bien, modifica la información en <mark>servicios adicionales</mark> o <mark>detalles del programa</mark>.',
-    'condiciones_generales' => 'CONDICIONES GENERALES',
-    'condiciones_generales_p' => 'Estas son las condiciones generales que se aplicarán a tu reserva. Léelas detenidamente, dado que tendrás la obligación de respetarlas.',
-    'ver_ventana_distinta' => 'Ver en una ventana distinta',
-    'acepto_terminos' => 'Acepto los términos y condiciones anteriores',
-    'pago_seguro' => 'Pago seguro',
-    'personas' => 'Personas'
+    'servicios_adicionales' => 'Adicional Services',
+    'confirmar_pagar' => 'Confirm and pay',
+    'servicios_adicionales' => 'Adicional Services',
+    'aceptar_continuar' => 'Accept and Continue',
+    'numero_personas' => 'Number of people',
+    'total_para' => 'Total for',
+    'ya_terminamos' => 'We are almost done',
+    'revisa_inf_ac' => 'Review your activity information and continue. if there is something that is not right, modify the information in <mark> additional services </mark> o <mark>program details</mark>.',
+    'condiciones_generales' => 'General Condition',
+    'condiciones_generales_p' => 'These are the general conditions that will apply to your reservation. Read them carefully, since you will have an obligation to respect them.',
+    'ver_ventana_distinta' => 'See in a different window',
+    'acepto_terminos' => 'I accept the above terms and conditions',
+    'pago_seguro' => 'Secure payment',
+    'personas' => 'People'
 ];
