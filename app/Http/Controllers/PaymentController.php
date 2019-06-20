@@ -514,8 +514,8 @@ class PaymentController extends Controller
                 // $terminos_condiciones='';
                 unset($_COOKIE["key"]);
                 exit;
-                // return redirect($this->redirectTo);
-                return view('',compact('numero_tarjeta_habiente','fecha_pedido','importe','moneda'));
+                return redirect($this->redirectTo);
+                // return view('',compact('numero_tarjeta_habiente','fecha_pedido','importe','moneda'));
             }
             elseif($objeto){
                 // dd($objeto->data->ACTION_DESCRIPTION);
