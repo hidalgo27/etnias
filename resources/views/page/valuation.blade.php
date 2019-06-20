@@ -42,7 +42,7 @@
                                     <label for="txt_nombre" class="font-weight-bold text-g-grey-light">En general como valoras tu experiencia en la comunidad?</label>
                                     <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
                                         <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                            <input type="radio" name="options" id="option1" autocomplete="off">
                                             <i class="fa fa-star"></i>
                                         </label>
                                         <label class="col-auto btn btn-secondary">
@@ -80,7 +80,7 @@
                                     <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Que le pareció la exposición?</label>
                                     <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
                                         <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                            <input type="radio" name="options" id="option1" autocomplete="off">
                                             <i class="fa fa-star"></i>
                                         </label>
                                         <label class="col-auto btn btn-secondary">
@@ -116,7 +116,7 @@
                                     <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Limpieza de la comunidad?</label>
                                     <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
                                         <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                            <input type="radio" name="options" id="option1" autocomplete="off">
                                             <i class="fa fa-star"></i>
                                         </label>
                                         <label class="col-auto btn btn-secondary">
@@ -153,7 +153,7 @@
                                     <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Calidad de la comida?</label>
                                     <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
                                         <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                            <input type="radio" name="options" id="option1" autocomplete="off">
                                             <i class="fa fa-star"></i>
                                         </label>
                                         <label class="col-auto btn btn-secondary">
