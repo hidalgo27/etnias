@@ -39,7 +39,8 @@ class PaymentController extends Controller
         $fecha_viaje = $request->input('txt_fecha_viaje');
         $personas = $request->input('txt_personas');
         $actividad = Actividad::with('precios','asociacion')->where('id', $id_actividad)->get();
-
+        $total=0;
+        $comision=0;
         foreach ($actividad as $comisiones){
             $comision = $comisiones->asociacion->comision;
         }
@@ -53,6 +54,7 @@ class PaymentController extends Controller
 //        $comida_precio = ComidaPrecio::all();
 //        $comida = $request->input('comida');
         $pre_total=0;
+        $comida_precio=[];
         if ($request->has('comida')){
             $comida_arr = $request->input('comida');
             $i=0;
@@ -63,7 +65,7 @@ class PaymentController extends Controller
                 $i++;
             }
         }
-
+        $transporte_precio=[];
         if ($request->has('transporte')){
             $transporte_arr = $request->input('transporte');
             $j=0;
@@ -74,7 +76,7 @@ class PaymentController extends Controller
                 $j++;
             }
         }
-
+        $hospedaje_precio=[];
         if ($request->has('hospedaje')){
             $hospedaje_arr = $request->input('hospedaje');
             $k=0;
@@ -85,7 +87,7 @@ class PaymentController extends Controller
                 $k++;
             }
         }
-
+        $guia_precio=[];
         if ($request->has('guia')){
             $guia_arr = $request->input('guia');
             $l=0;
