@@ -55,6 +55,7 @@ class PaymentController extends Controller
 //        $comida = $request->input('comida');
         $pre_total=0;
         $comida_precio=[];
+        $comida_arr=[];
         if ($request->has('comida')){
             $comida_arr = $request->input('comida');
             $i=0;
@@ -127,7 +128,11 @@ class PaymentController extends Controller
             // dd("entorno:$entorno,amount:$amount,key:$key");
 
             $sessionToken = $pasarela->create_token($entorno,$amount,$key);
-                if (isset($_POST['nombre'])){
+            $nombre='';
+            $apellido='';
+            $email='';
+            $nombre='';
+            if (isset($_POST['nombre'])){
                     $nombre=$_POST['nombre'];
                 }else{
                     $nombre="";
@@ -142,6 +147,7 @@ class PaymentController extends Controller
                 }else{
                     $email="";
                 }
+                $userTokenId="";
                 if (isset($_POST['userTokenId'])){
                     $userTokenId=$_POST['userTokenId'];
                 }else{
@@ -164,12 +170,11 @@ class PaymentController extends Controller
             // exit;
 
 
-
     //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
 
         $numorden='00001';
         $numorden=$pasarela->contador();
-
+        $urljs="";
         switch ($entorno) {
             case 'dev':
                 $urljs="https://static-content-qas.vnforapps.com/v2/js/checkout.js?qa=true";
