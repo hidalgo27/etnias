@@ -228,7 +228,7 @@ class PaymentController extends Controller
             // $rpt_sd = $data_respuesta['1'];
 
             $objeto=json_decode($data_respuesta['1']);
-            dd($objeto);
+            // dd($objeto);
 
             if($data_respuesta['0']=='200'){
                 $fecha_actual=new Carbon();
