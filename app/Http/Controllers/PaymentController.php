@@ -196,10 +196,11 @@ class PaymentController extends Controller
 
     public function payment_check(Request $request,$entorno,$purchaseNumber,$amount,$titulo,$fecha,$pasajeros)
     {
-
+        // dd($_POST);
         $fecha=str_replace('-','/',$fecha);
         // Auth::login($user, true);
         // dd($request->all());
+        $email=$_POST['customerEmail'];
         if (isset($_POST['transactionToken'])){
             // $key = session('key');
             $key =$_COOKIE["key"];
@@ -239,17 +240,18 @@ class PaymentController extends Controller
                 // dd($objeto->order);
 
 
-                $validator = $request->validate([
-                    'email' => 'required',
-                    'username' => 'required',
-                    'cardNumber' => 'required',
-                    'expiration_m' => 'required',
-                    'expiration_y' => 'required',
-                    'expiration_y' => 'required',
-                    'cvv' => 'required',
-                    'terminos' => 'required',
-                ]);
-                $user = User::where('email', $request->input('email'))->first();
+                // $validator = $request->validate([
+                //     'email' => 'required',
+                //     'username' => 'required',
+                //     'cardNumber' => 'required',
+                //     'expiration_m' => 'required',
+                //     'expiration_y' => 'required',
+                //     'expiration_y' => 'required',
+                //     'cvv' => 'required',
+                //     'terminos' => 'required',
+                // ]);
+                // $user = User::where('email', $request->input('email'))->first();
+                $user = User::where('email', $email)->first();
                 $reservas=null;
                 if (!$user){
                     $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
@@ -507,7 +509,7 @@ class PaymentController extends Controller
 
                 }
                 $numero_pedido=$purchaseNumber;
-                $numero_pedido=$reservas->codigo;
+                // $numero_pedido=$reservas->codigo;
                 // $nombre_tarjeta_habiente='';
                 $numero_tarjeta_habiente=$objeto->dataMap->CARD;
                 $fecha_pedido=$fecha_actual->toDateTimeString();
@@ -515,6 +517,7 @@ class PaymentController extends Controller
                 $moneda=$objeto->order->currency;
                 // $descripción_producto='';
                 // $terminos_condiciones='';
+                dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
                 unset($_COOKIE["key"]);
                 exit;
                 return redirect($this->redirectTo);
