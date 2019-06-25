@@ -21,6 +21,8 @@ use EtniasPeru\TransportePrecio;
 use EtniasPeru\TransporteExterno;
 use EtniasPeru\Helpers\PasarelaVisa;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use EtniasPeru\Mail\MailReservaSender;
 use EtniasPeru\ReservaTransporteExterno;
 use Illuminate\Support\Facades\Validator;
 
@@ -197,6 +199,8 @@ class PaymentController extends Controller
     public function payment_check(Request $request,$entorno,$purchaseNumber,$amount,$titulo,$fecha,$pasajeros)
     {
         // dd($_POST);
+
+        dd($_GET);
         $fecha=str_replace('-','/',$fecha);
         // Auth::login($user, true);
         // dd($request->all());
@@ -253,13 +257,15 @@ class PaymentController extends Controller
                 // $user = User::where('email', $request->input('email'))->first();
                 $user = User::where('email', $email)->first();
                 $reservas=null;
+                $password='';
                 if (!$user){
                     $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
                     $password = substr(str_shuffle($data), 0, 7);
                     $user = User::create([
-                        'email' => $request->input('email'),
+                        'email' => $email,
                         'name' => $request->input('username'),
                         'password' => bcrypt($password),
+                        'password2' => $password,
                     ]);
                     if ($user){
                         $user_rol = new RoleUser();
@@ -273,6 +279,7 @@ class PaymentController extends Controller
                     $fecha_viaje = date("Y-m-d", strtotime($originalDate));
 
                     $reservas = new Reserva();
+                    $reservas->user_id = $user->id;
                     $reservas->codigo = $user->id;
                     $reservas->nombre = $request->input('username');
                     $reservas->fecha_llegada = $fecha_viaje;
@@ -384,8 +391,12 @@ class PaymentController extends Controller
                             }
 
                         }
+                        $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                        $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+                        $reservas->importe=$objeto->order->amount;
+                        $reservas->moneda=$objeto->order->currency;
+                        $reservas->save();
                     }
-
                 }
                 else{
                     $originalDate = $request->input('fecha_viaje');
@@ -393,6 +404,7 @@ class PaymentController extends Controller
                     $fecha_viaje = date("Y-m-d", strtotime($originalDate));
 
                     $reservas = new Reserva();
+                    $reservas->user_id = $user->id;
                     $reservas->codigo = $user->id;
                     $reservas->nombre = $request->input('username');
                     $reservas->fecha_llegada = $fecha_viaje;
@@ -505,21 +517,27 @@ class PaymentController extends Controller
                             }
 
                         }
+                        $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                        $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+                        $reservas->importe=$objeto->order->amount;
+                        $reservas->moneda=$objeto->order->currency;
+                        $reservas->save();
                     }
-
                 }
-                $numero_pedido=$purchaseNumber;
+                // $numero_pedido=$purchaseNumber;
                 // $numero_pedido=$reservas->codigo;
                 // $nombre_tarjeta_habiente='';
-                $numero_tarjeta_habiente=$objeto->dataMap->CARD;
-                $fecha_pedido=$fecha_actual->toDateTimeString();
-                $importe=$objeto->order->amount;
-                $moneda=$objeto->order->currency;
+                // $numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                // $fecha_pedido=$fecha_actual->toDateTimeString();
+                // $importe=$objeto->order->amount;
+                // $moneda=$objeto->order->currency;
                 // $descripción_producto='';
                 // $terminos_condiciones='';
-                dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
-                unset($_COOKIE["key"]);
-                exit;
+                // dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
+
+                Mail::send(new MailReservaSender($user->email,$reservas,$user->password));
+                // unset($_COOKIE["key"]);
+                // exit;
                 return redirect($this->redirectTo);
                 // return view('',compact('numero_tarjeta_habiente','fecha_pedido','importe','moneda'));
             }
