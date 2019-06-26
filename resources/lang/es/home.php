@@ -1,6 +1,7 @@
 <?php
 return [
     'comunidades' => 'Comunidades',
+    'comunidad' => 'Comunidad',
     'actividades' => 'Actividades',
     'nosotros' => 'Sobre Nosotros',
     'contactenos' => 'Contáctenos',
@@ -11,9 +12,7 @@ return [
     'fecha_viaje' => 'FECHA DE VIAJE',
     'nro_pasajeros' => 'NUMERO DE PASAJEROS',
     'buscar' => 'Buscar',
-
-    'turismo' => 'TURISMO',
-    'vivencial' => 'VIVENCIAL',
+    'turismo_vivencial' => 'TURISMO <span class="text-g-red-dark">VIVENCIAL</span>',
     'h1_p' => 'Una experiencia inolvidable y la oportunidad de conocer el interior del <stong class="text-g-grey-dark">país de los Incas.</stong>',
     'h1_alert' => 'Tours y actividades vivenciales en comunidades de la region del Cusco.',
     'escoge_actividad' => 'ESCOGE LA ACTIVIDAD',
@@ -25,9 +24,10 @@ return [
     'actividades_comunidad' => 'Actividades en la comunidad',
     'visite_perú_descubra' => 'Visite Perú y descubra el país de los Incas',
     'ver_actividades' => 'Ver Actividades',
-    'populares' => 'Populares',
+    'comunidades_populares' => 'Comunidades <span class="text-g-red-dark">Populares</span>',
     'ver_mas_comunidades' => 'Ver más Comunidades',
     'mejores_actividades' => 'Las mejores <span class="text-g-red-dark">actividades de este mes</span>',
     'reservar' => 'Reservar',
-    'pp_persona' => 'Precio por persona (basado como mínimo 2 pasajeros)'
+    'pp_persona' => 'Precio por persona (basado como mínimo 2 pasajeros)',
+    'saber_mas_comunidad ' => 'Saber más de la comunidad'
 ];

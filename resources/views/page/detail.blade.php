@@ -240,6 +240,16 @@
                                 {{--<input type="hidden" name="txt_comision" value="{{$asociaciones->comision}}">--}}
                                 <div class="card">
                                     <div class="card-body text-center">
+
+                                       @php
+                                           if (App::isLocale('en')) {
+                                           $img_gif = "etnias-en.gif";
+                                           }else{
+                                           $img_gif = "etnias-es.gif";
+                                           }
+                                       @endphp
+
+                                        <img src="{{asset('images/'.$img_gif.'')}}" alt="sales" class="w-100 shadow-sm rounded-top">
                                         @foreach($actividades->precios as $precio)
                                             <sup>$</sup><span class="font-weight-bold display-4 h1" id="precio_persona">{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}</span><small>USD</small>
                                             <small class="d-block text-muted">@lang('actividades.precio_persona')</small>
