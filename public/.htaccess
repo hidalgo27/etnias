@@ -32,7 +32,7 @@
     </filesmatch>
 </IfModule>
 
-compress text, html, javascript, css, xml:
+#compress text, html, javascript, css, xml:
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/xml
