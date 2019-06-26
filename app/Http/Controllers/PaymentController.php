@@ -535,7 +535,7 @@ class PaymentController extends Controller
                 // $terminos_condiciones='';
                 // dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
 
-                Mail::send(new MailReservaSender($user->email,$reservas,$user->password));
+//                Mail::send(new MailReservaSender($user->email,$reservas,$user->password));
                 // unset($_COOKIE["key"]);
                 // exit;
                 return redirect($this->redirectTo);
