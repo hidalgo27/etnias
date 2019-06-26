@@ -200,7 +200,7 @@ class PaymentController extends Controller
     {
         // dd($_POST);
 
-        dd($_GET);
+//        dd($_GET);
         $fecha=str_replace('-','/',$fecha);
         // Auth::login($user, true);
         // dd($request->all());
