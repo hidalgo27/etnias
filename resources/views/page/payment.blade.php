@@ -233,6 +233,7 @@
                                                             @endphp
                                                             <form role="form" class="text-center" id="form_login12" method="post" action="{{route('payment_check_path',[$entorno,$numorden,$amount,$actividades->titulo,str_replace('/','-',$fecha_viaje),$personas])}}">
                                                                 <input type="hidden" name="entorno" value="{{$entorno}}">
+                                                                <input type="text" name="lobo" value="123">
                                                                 @csrf
                                                                 <script src="{{$urljs}}"
                                                                         data-sessiontoken="{{$sessionToken}}"
