@@ -200,6 +200,8 @@ class PaymentController extends Controller
     {
         // dd($_POST);
 
+        dd($request->input('lobo'));
+
 //        dd($_GET);
         $fecha=str_replace('-','/',$fecha);
         // Auth::login($user, true);
