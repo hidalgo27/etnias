@@ -316,7 +316,7 @@ class PaymentController extends Controller
             // $reservas->importe=$objeto->order->amount;
             // $reservas->moneda=$objeto->order->currency;
             // $reservas->save();
-            dd($reservas);
+            // dd($reservas);
         }
 
         // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
