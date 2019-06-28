@@ -14,7 +14,7 @@
 <p>Numero de operacion:{{ $reserva->codigo }}</p>
 <p>Importe:{{ $reserva->importe }}</p>
 <p>Moneda:{{ $reserva->moneda }}</p>
-<p>Ingrese al siguiente link para ver el detalle de su reserva <a href="#!">Ver mi reserva</a></p>
+<p>Ingrese al siguiente link para ver el detalle de su reserva <a href="{{ route('client_home_path') }}">Ver mi reserva</a></p>
 <p>Usuario:{{ $email }}</p>
 <p>Contraseña:{{ $pw }}</p>
 </body>

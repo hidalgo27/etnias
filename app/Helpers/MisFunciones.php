@@ -28,7 +28,7 @@ class MisFunciones{
             return $fecha1.' '.$hora;
         }
     }
-    
+
     public static function fecha_string($fecha){
         if(trim($fecha)!=''){
             $fecha=explode('-',$fecha);
@@ -49,7 +49,7 @@ class MisFunciones{
     //         $nro_codigo = str_replace($precodigo[$web], "", $codigo_db);
     //     }
     //     // $codigoo=$codigo_db ->last()->pluck('codigo');
-        
+
     //     $nro=intval($nro_codigo)+1;
     //     $codigo=$precodigo[$web].$nro;
     //     return $codigo;
@@ -58,32 +58,35 @@ class MisFunciones{
     {
 
         $reservas=Reserva::all()->sortByDesc("id")->first();
-        $pre='';
-        $codigo=$reservas->codigo;
+        $pre='1';
+
         // // return $codigo;
         $codigo_int=1;
-        if(count($reservas)>0){
+        if(isset($reservas)){
+            $codigo=$reservas->codigo;
             if(strlen(trim($codigo))>0){
                 $codigo_int=intval($codigo);
                 $codigo_int++;
-                $long=strlen($codigo_int);
-                $long_ceros=$nro_ceros_maximo-$long;
-                for($i=1;$i<=$long_ceros;$i++){
-                    $pre.='0';
-                }
+                // $long=strlen($codigo_int);
+                // $long_ceros=$nro_ceros_maximo-$long;
+                // for($i=1;$i<=$long_ceros;$i++){
+                //     $pre.='0';
+                // }
+                return $codigo_int;
             }
             else{
                 for($i=1;$i<$nro_ceros_maximo;$i++){
                     $pre.='0';
                 }
+                return $pre.$codigo_int;
             }
         }
         else{
             for($i=1;$i<$nro_ceros_maximo;$i++){
                 $pre.='0';
             }
+            return $pre.$codigo_int;
         }
-        return $pre.$codigo_int;
         // return $nro_ceros_maximo;
     }
 }
