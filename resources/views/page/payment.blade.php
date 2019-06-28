@@ -238,6 +238,7 @@
                                                                         data-sessiontoken="{{$sessionToken}}"
                                                                         data-merchantid="{{$merchantId}}"
                                                                         data-channel="web"
+                                                                        data-lobo="{{$personas}}"
                                                                         data-buttonsize=""
                                                                         data-buttoncolor=""
                                                                         data-merchantlogo ="{{asset('images/etnias-peru.png')}}"
