@@ -194,10 +194,10 @@ class PaymentController extends Controller
         }
 
         // crearemos un prereserva para obtener el reserva_id y ademas nos servira para hacer el emaqilmarketing o consultar al clinete porque no se hizo el pago
-        $originalDate = $request->input('fecha_viaje');
+        $originalDate = $request->input('txt_fecha_viaje');
         $originalDate = str_replace('/','-', $originalDate);
         $fecha_viaje = date("Y-m-d", strtotime($originalDate));
-
+        // dd($originalDate);
         $reservas = new Reserva();
         $reservas->user_id ='0';
         $reservas->codigo = $numorden;

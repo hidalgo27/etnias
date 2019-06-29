@@ -62,7 +62,7 @@
                                                         <li><b>Fecha:</b> {!! Session::get('fecha_operacion') !!}</li>
                                                         <li><b>Motivo:</b> {!! Session::get('motivo') !!}</li>
                                                     </ul>
-                                                    <p>Por favor vuelva a intentarlo mas tarde.</p>
+                                                    <p>Por favor vuelva a intentarlo.</p>
                                                 </div>
                                             </div>
                                         </div>
