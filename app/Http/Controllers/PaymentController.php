@@ -21,8 +21,11 @@ use EtniasPeru\TransportePrecio;
 use EtniasPeru\TransporteExterno;
 use EtniasPeru\Helpers\PasarelaVisa;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use EtniasPeru\Mail\MailReservaSender;
 use EtniasPeru\ReservaTransporteExterno;
 use Illuminate\Support\Facades\Validator;
+use EtniasPeru\Helpers\MisFunciones;
 
 class PaymentController extends Controller
 {
@@ -175,7 +178,8 @@ class PaymentController extends Controller
     //        return redirect()->route('payment_get_path',compact('actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio'));
 
         $numorden='1';
-        $numorden=$pasarela->contador();
+        // $numorden=$pasarela->contador();
+        $numorden=MisFunciones::nuevo_codigo('11');
         $urljs="";
         $merchantId='';
         switch ($entorno) {
@@ -189,17 +193,153 @@ class PaymentController extends Controller
                 break;
         }
 
-    // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
-            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs','id_actividad'));
+        // crearemos un prereserva para obtener el reserva_id y ademas nos servira para hacer el emaqilmarketing o consultar al clinete porque no se hizo el pago
+        $originalDate = $request->input('txt_fecha_viaje');
+        $originalDate = str_replace('/','-', $originalDate);
+        $fecha_viaje = date("Y-m-d", strtotime($originalDate));
+        // dd($originalDate);
+        $reservas = new Reserva();
+        $reservas->user_id ='0';
+        $reservas->codigo = $numorden;
+        $reservas->nombre ='';/* $request->input('username');*/
+        $reservas->fecha_llegada = $fecha_viaje;
+        $reservas->nro_pax = $personas;
+        $reservas->estado = -1;
+        $reservas->save();
+
+        if ($reservas){
+            $personas = $personas;
+            // $id_actividad = $id_actividad;
+
+            $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->first();
+            $asocicion_id = $precio_actividad->actividad->asociacion_id;
+            $total_actividad = round($precio_actividad->precio+($precio_actividad->precio*$precio_actividad->actividad->asociacion->comision)/100);
+
+            if ($precio_actividad){
+                $reserva_actividad = new ReservaActividad();
+                $reserva_actividad->titulo = $precio_actividad->actividad->titulo;
+                $reserva_actividad->descripcion = $precio_actividad->actividad->descripcion;
+                $reserva_actividad->precio = $total_actividad;
+                $reserva_actividad->estado = 0;
+                $reserva_actividad->asociacion_id = $asocicion_id;
+                $reserva_actividad->reserva_id = $reservas->id;
+                $reserva_actividad->save();
+                // dd($comida_precio);
+                if (count($comida_precio)>0){
+                    for($i=0; $i < count($comida_precio); $i++){
+
+                        // $comida_id = explode('-', $comida_precio[$i]);
+                        // $comida_id = $comida_id[0];
+// dd($comida_precio[$i]->comida_id);
+                        // $precio_comida = ComidaPrecio::where('id', $comida_id)->first();
+
+                        $precio_comida_ = ComidaPrecio::where('id', $comida_precio[$i]->id)->first();
+                        // dd($precio_comida_);
+                        $reserva_comida = new ReservaComida();
+                        $reserva_comida->titulo = $precio_comida_->comida->titulo;
+                        $reserva_comida->descripcion = $precio_comida_->comida->descripcion;
+                        $reserva_comida->categoria = $precio_comida_->categoria;
+                        $reserva_comida->nro_personas = $personas;
+                        $reserva_comida->precio = $precio_comida_->precio;
+                        $reserva_comida->estado = 0;
+                        $reserva_comida->asociacion_id = $asocicion_id;
+                        $reserva_comida->reserva_id = $reservas->id;
+                        $reserva_comida->save();
+                    }
+                }
+
+                if (count($hospedaje_precio)>0){
+                    for($i=0; $i < count($hospedaje_precio); $i++){
+
+                        // $hospedaje_id = explode('-', $hospedaje_precio[$i]);
+                        // $hospedaje_id = $hospedaje_id[0];
+
+                        // $precio_hospedaje = HospedajePrecio::where('id', $hospedaje_id)->first();
+
+                        $precio_hospedaje_ = HospedajePrecio::where('id', $hospedaje_precio[$i]->id)->first();
+                        $reserva_hospedaje = new ReservaHospedaje();
+                        $reserva_hospedaje->titulo = $precio_hospedaje_->hospedaje->titulo;
+                        $reserva_hospedaje->descripcion = $precio_hospedaje_->hospedaje->descripcion;
+                        $reserva_hospedaje->categoria = $precio_hospedaje_->categoria;
+                        $reserva_hospedaje->nro_personas = $personas;
+                        $reserva_hospedaje->precio = $precio_hospedaje_->precio;
+                        $reserva_hospedaje->estado = 0;
+                        $reserva_hospedaje->asociacion_id = $asocicion_id;
+                        $reserva_hospedaje->reserva_id = $reservas->id;
+                        $reserva_hospedaje->save();
+                    }
+                }
+
+                if (count($transporte_precio)>0){
+                    for($i=0; $i < count($transporte_precio); $i++){
+
+                        // $transporte_id = explode('-', $transporte_precio[$i]);
+                        // $transporte_id = $transporte_id[0];
+
+                        // $precio_transporte = TransporteExterno::where('id', $transporte_id)->first();
+                        $precio_transporte_ = TransporteExterno::where('id', $transporte_precio[$i]->id)->first();
+
+                        $reserva_transporte = new ReservaTransporteExterno();
+                        $reserva_transporte->codigo = $precio_transporte_->codigo;
+                        $reserva_transporte->nombre = $precio_transporte_->nombre;
+                        $reserva_transporte->pax = $personas;
+                        $reserva_transporte->precio = $precio_transporte_->precio;
+                        $reserva_transporte->categoria = $precio_transporte_->categoria;
+                        $reserva_transporte->ruta_salida = $precio_transporte_->ruta_salida;
+                        $reserva_transporte->ruta_llegada = $precio_transporte_->ruta_llegada;
+                        $reserva_transporte->estado = 0;
+                        $reserva_transporte->comunidad_id = $precio_transporte_->comunidad_id;
+                        $reserva_transporte->reserva_id = $reservas->id;
+                        $reserva_transporte->save();
+                    }
+                }
+                if (count($guia_precio)>0){
+                    for($i=0; $i < count($guia_precio); $i++){
+
+                        // $guia_id = explode('-', $guia_precio[$i]);
+                        // $guia_id = $guia_id[0];
+
+                        // $precio_guia = Guia::where('id', $guia_id)->first();
+                        $precio_guia_ = Guia::where('id', $guia_precio[$i]->id)->first();
+
+                        $reserva_guia = new ReservaGuia();
+                        $reserva_guia->codigo = $precio_guia_->codigo;
+                        $reserva_guia->nombre = $precio_guia_->nombre;
+                        $reserva_guia->pax = $personas;
+                        $reserva_guia->precio = $precio_guia_->precio;
+                        $reserva_guia->idioma = $precio_guia_->idioma;
+                        $reserva_guia->estado = 0;
+                        $reserva_guia->departamento_id = $precio_guia_->departamento_id;
+                        $reserva_guia->reserva_id = $reservas->id;
+                        $reserva_guia->save();
+                    }
+                }
+
+            }
+            // $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+            // $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+            // $reservas->importe=$objeto->order->amount;
+            // $reservas->moneda=$objeto->order->currency;
+            // $reservas->save();
+            // dd($reservas);
+        }
+        $reserva_id=$reservas->id;
+        // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
+            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs','id_actividad','reserva_id'));
         }
     }
 
-    public function payment_check(Request $request,$entorno,$purchaseNumber,$amount,$titulo,$fecha,$pasajeros)
+    public function payment_check(Request $request,$entorno,$purchaseNumber,$amount,$titulo,$fecha,$pasajeros,$reserva_id)
     {
+        // dd($_POST);
 
+        // dd($request->input('lobo'));
+
+//        dd($_GET);
         $fecha=str_replace('-','/',$fecha);
         // Auth::login($user, true);
         // dd($request->all());
+        $email=$_POST['customerEmail'];
         if (isset($_POST['transactionToken'])){
             // $key = session('key');
             $key =$_COOKIE["key"];
@@ -239,25 +379,28 @@ class PaymentController extends Controller
                 // dd($objeto->order);
 
 
-                $validator = $request->validate([
-                    'email' => 'required',
-                    'username' => 'required',
-                    'cardNumber' => 'required',
-                    'expiration_m' => 'required',
-                    'expiration_y' => 'required',
-                    'expiration_y' => 'required',
-                    'cvv' => 'required',
-                    'terminos' => 'required',
-                ]);
-                $user = User::where('email', $request->input('email'))->first();
+                // $validator = $request->validate([
+                //     'email' => 'required',
+                //     'username' => 'required',
+                //     'cardNumber' => 'required',
+                //     'expiration_m' => 'required',
+                //     'expiration_y' => 'required',
+                //     'expiration_y' => 'required',
+                //     'cvv' => 'required',
+                //     'terminos' => 'required',
+                // ]);
+                // $user = User::where('email', $request->input('email'))->first();
+                $user = User::where('email', $email)->first();
                 $reservas=null;
+                $password='';
                 if (!$user){
                     $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
                     $password = substr(str_shuffle($data), 0, 7);
                     $user = User::create([
-                        'email' => $request->input('email'),
-                        'name' => $request->input('username'),
+                        'email' => $email,
+                        'name' => $email/*$request->input('username')*/,
                         'password' => bcrypt($password),
+                        'password2' => $password,
                     ]);
                     if ($user){
                         $user_rol = new RoleUser();
@@ -265,12 +408,22 @@ class PaymentController extends Controller
                         $user_rol->user_id = $user->id;
                         $user_rol->save();
                     }
+                    $reservas = Reserva::find($reserva_id);
+                    $reservas->user_id = $user->id;
+                    $reservas->nombre = $email;
+                    $reservas->estado = 0;
+                    $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                    $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+                    $reservas->importe=$objeto->order->amount;
+                    $reservas->moneda=$objeto->order->currency;
+                    $reservas->save();
 
-                    $originalDate = $request->input('fecha_viaje');
+                    /*$originalDate = $request->input('fecha_viaje');
                     $originalDate = str_replace('/','-', $originalDate);
                     $fecha_viaje = date("Y-m-d", strtotime($originalDate));
 
                     $reservas = new Reserva();
+                    $reservas->user_id = $user->id;
                     $reservas->codigo = $user->id;
                     $reservas->nombre = $request->input('username');
                     $reservas->fecha_llegada = $fecha_viaje;
@@ -382,15 +535,29 @@ class PaymentController extends Controller
                             }
 
                         }
-                    }
-
+                        $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                        $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+                        $reservas->importe=$objeto->order->amount;
+                        $reservas->moneda=$objeto->order->currency;
+                        $reservas->save();
+                    }*/
                 }
                 else{
-                    $originalDate = $request->input('fecha_viaje');
+                    $reservas = Reserva::find($reserva_id);
+                    $reservas->user_id = $user->id;
+                    $reservas->nombre = $email;
+                    $reservas->estado = 0;
+                    $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                    $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+                    $reservas->importe=$objeto->order->amount;
+                    $reservas->moneda=$objeto->order->currency;
+                    $reservas->save();
+                    /*$originalDate = $request->input('fecha_viaje');
                     $originalDate = str_replace('/','-', $originalDate);
                     $fecha_viaje = date("Y-m-d", strtotime($originalDate));
 
                     $reservas = new Reserva();
+                    $reservas->user_id = $user->id;
                     $reservas->codigo = $user->id;
                     $reservas->nombre = $request->input('username');
                     $reservas->fecha_llegada = $fecha_viaje;
@@ -503,21 +670,31 @@ class PaymentController extends Controller
                             }
 
                         }
-                    }
-
+                        $reservas->numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                        $reservas->fecha_pedido=$fecha_actual->toDateTimeString();
+                        $reservas->importe=$objeto->order->amount;
+                        $reservas->moneda=$objeto->order->currency;
+                        $reservas->save();
+                    }*/
                 }
-                $numero_pedido=$purchaseNumber;
-                $numero_pedido=$reservas->codigo;
+                // $numero_pedido=$purchaseNumber;
+                // $numero_pedido=$reservas->codigo;
                 // $nombre_tarjeta_habiente='';
-                $numero_tarjeta_habiente=$objeto->dataMap->CARD;
-                $fecha_pedido=$fecha_actual->toDateTimeString();
-                $importe=$objeto->order->amount;
-                $moneda=$objeto->order->currency;
+                // $numero_tarjeta_habiente=$objeto->dataMap->CARD;
+                // $fecha_pedido=$fecha_actual->toDateTimeString();
+                // $importe=$objeto->order->amount;
+                // $moneda=$objeto->order->currency;
                 // $descripción_producto='';
                 // $terminos_condiciones='';
-                unset($_COOKIE["key"]);
-                exit;
-                return redirect($this->redirectTo);
+                // dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
+
+               Mail::send(new MailReservaSender($user->email,$reservas,$user->password2));
+                // unset($_COOKIE["key"]);
+                // exit;
+                // return redirect($this->redirectTo);
+                // return view('client.checkout',compact('reservas'));
+
+                return redirect()->route('checkout_path',$reserva_id);
                 // return view('',compact('numero_tarjeta_habiente','fecha_pedido','importe','moneda'));
             }
             elseif($objeto){
@@ -626,6 +803,12 @@ class PaymentController extends Controller
 //        Auth::login($user, true);
 //        return Auth::user()->id;
 
+    }
+
+    public function checkout($reserva_id)
+    {
+        $reservas=Reserva::find($reserva_id);
+        return view('client.checkout',compact('reservas'));
     }
 
     /**
