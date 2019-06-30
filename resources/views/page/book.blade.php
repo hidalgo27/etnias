@@ -99,7 +99,7 @@
                                 <div class="col font-poppins">
                                     <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> Guia ({{$guias->idioma}})
                                         <div class="custom-control custom-checkbox float-right text-primary">
-                                            <input type="checkbox" class="custom-control-input" name="guia[]" id="guia_{{$guias->id}}" value="{{$guias->id}}-{{round($guias->precio)}}-{{$total}}" onclick="if (this.checked) sumar_guia(this.value); else restar_guia(this.value)">
+                                            <input type="checkbox" class="custom-control-input" name="guia[]" id="guia_{{$guias->id}}" value="{{$guias->id}}-{{round($guias->precio)}}-{{$total}}" onclick="if (this.checked) sumar_guia(this.value); else restar_guia(this.value)" checked>
                                             <label class="custom-control-label cursor-pointer" for="guia_{{$guias->id}}"><sup>$</sup>{{round($guias->precio)}}<small class="font-weight-bold">USD</small></label>
                                         </div>
                                     </h5>
