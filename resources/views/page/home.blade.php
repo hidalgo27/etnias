@@ -216,7 +216,7 @@
                     <div class="row mt-4 align-items-center">
                         <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
                             <div class="position-relative w-100">
-                                @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
+                                @foreach($comunidades_huilloc->fotos->where('estado',2)->take(1) as $fotos)
                                     <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 position-relative rounded shadow">
                                 @endforeach
                                 <div class="position-absolute w-100 top-50">
