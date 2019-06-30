@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row font-poppins">
                     <div class="col">
-                        <h4 class="font-weight-bold text-g-grey-light">Etnias Perú <span>Travel</span></h4>
+                        <h4 class="font-weight-bold text-g-grey-light">Mi Etnia</h4>
                         <p>@lang('contact.somos_una')</p>
                     </div>
                     <div class="col">

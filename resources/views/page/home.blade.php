@@ -184,7 +184,7 @@
                     <ul class="nav nav-pills">
                         @foreach($comunidad_huilloc as $comunidades_sticky)
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold" href="#comunidad-{{str_replace(' ','-', strtolower($comunidades_sticky->nombre))}}">@lang('home.comunidad') {{ucwords(strtolower($comunidades_sticky->nombre))}}</a>
+                            <a class="nav-link font-weight-bold" href="#comunidad-{{str_replace(' ','-', strtolower($comunidades_sticky->nombre))}}">{{ucwords(strtolower($comunidades_sticky->nombre))}} @lang('home.comunidad')</a>
                         </li>
 {{--                        <li class="nav-item">--}}
 {{--                            <a class="nav-link font-weight-bold" href="#comunidad-taucca">Comunidad Taucca</a>--}}
@@ -201,7 +201,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col  text-center">
-                            <h1 class="font-weight-bold text-g-grey-primary">@lang('home.comunidad') <span class="text-g-red-dark">{{ucwords(strtolower($comunidades_huilloc->nombre))}}</span></h1>
+                            <h1 class="font-weight-bold text-g-grey-primary"><span class="text-g-red-dark">{{ucwords(strtolower($comunidades_huilloc->nombre))}}</span> @lang('home.comunidad')</h1>
                             <div class="title-line">
                                 <div class="tl-1"></div>
                                 <div class="tl-2"></div>

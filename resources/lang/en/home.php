@@ -24,7 +24,7 @@ return [
     'actividades_comunidad' => 'Activities in the community',
     'visite_perú_descubra' => 'Visit Peru and discover the country of the Incas',
     'ver_actividades' => 'Search Activities',
-    'comunidades_populares' => 'Popular <span class="text-g-red-dark">Activities</span>',
+    'comunidades_populares' => 'Populars <span class="text-g-red-dark">Activities</span>',
     'ver_mas_comunidades' => 'see more communities',
     'mejores_actividades' => 'The best <span class="text-g-red-dark">activities this month</span>',
     'reservar' => 'Book',

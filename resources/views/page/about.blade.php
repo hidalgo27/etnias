@@ -98,7 +98,6 @@
                     </div>
                     <div class="col">
                         <p class="font-weight-normal text-g-grey-light">@lang('about.p_1')</p>
-                        <p class="font-weight-normal text-g-grey-light">@lang('about.p_2')</p>
                     </div>
                 </div>
                 {{--<div class="row mt-5">--}}
