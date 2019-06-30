@@ -237,7 +237,7 @@
                     <div class="row slider-huilloq">
 
                             @foreach($comunidades_huilloc->asociaciones as $asociaciones_huilloc)
-                                @foreach($asociaciones_huilloc->actividades as $actividades_huilloc)
+                                @foreach($asociaciones_huilloc->actividades->where('estado', 1) as $actividades_huilloc)
                                     @foreach($disponibilidad->where('actividad_id', $actividades_huilloc->id) as $disponibilidades)
                                         @if ($disponibilidades->actividad_id == $actividades_huilloc->id)
                                         <div class="col mb-4">
