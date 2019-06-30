@@ -179,7 +179,10 @@ class PaymentController extends Controller
 
         $numorden='1';
         // $numorden=$pasarela->contador();
-        $numorden=MisFunciones::nuevo_codigo('11');
+        // se pondra un codigo inicial de 1000000 para etnias en ingles
+        $numorden=MisFunciones::nuevo_codigo('1','6');
+        // se pondra un codigo inicial de 2000000 para etnias en español
+        // $numorden=MisFunciones::nuevo_codigo('2','6');
         $urljs="";
         $merchantId='';
         switch ($entorno) {
@@ -693,7 +696,7 @@ class PaymentController extends Controller
                 // exit;
                 // return redirect($this->redirectTo);
                 // return view('client.checkout',compact('reservas'));
-
+                $reserva_id=base64_encode($reserva_id);
                 return redirect()->route('checkout_path',$reserva_id);
                 // return view('',compact('numero_tarjeta_habiente','fecha_pedido','importe','moneda'));
             }
@@ -807,6 +810,7 @@ class PaymentController extends Controller
 
     public function checkout($reserva_id)
     {
+        $reserva_id=base64_decode($reserva_id);
         $reservas=Reserva::find($reserva_id);
         return view('client.checkout',compact('reservas'));
     }

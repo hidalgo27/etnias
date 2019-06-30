@@ -54,11 +54,11 @@ class MisFunciones{
     //     $codigo=$precodigo[$web].$nro;
     //     return $codigo;
     // }
-    public static function nuevo_codigo($nro_ceros_maximo)
+    public static function nuevo_codigo($pre,$nro_ceros_maximo)
     {
 
         $reservas=Reserva::all()->sortByDesc("id")->first();
-        $pre='1';
+
 
         // // return $codigo;
         $codigo_int=1;
