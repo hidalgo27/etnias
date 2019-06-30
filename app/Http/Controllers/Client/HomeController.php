@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        $reserva = Reserva::with('actividades')->where('codigo', $request->user()->id)->where('estado',0)->get();
+        $reserva = Reserva::with('actividades')->where('estado',0)->get();
         return view('client.home', compact('reserva','reserva_actividad'));
     }
     /*
