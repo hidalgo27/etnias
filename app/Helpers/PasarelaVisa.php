@@ -319,7 +319,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
     curl_setopt($ch, CURLOPT_POSTFIELDS, $request_body);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
-    var_dump($response);
+    // var_dump($response);
     // $json = json_decode($response);
     // $json = json_encode($json, JSON_PRETTY_PRINT);
     $response = json_decode($response);
