@@ -45,5 +45,6 @@ return [
     'enseñanza_textileria' => 'Enseñanza en Textileria',
     'otros' => 'Otros',
     'enviar_solicitud' => 'Enviar Solicitud',
+    'enviar' => 'Enviar'
 
 ];

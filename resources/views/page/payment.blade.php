@@ -231,13 +231,14 @@
                                                             @php
                                                                 $token=csrf_token();
                                                             @endphp
-                                                            <form role="form" class="text-center" id="form_login12" method="post" action="{{route('payment_check_path',[$entorno,$numorden,$amount,$actividades->titulo,$fecha_viaje,$personas])}}">
+                                                            <form role="form" class="text-center" id="form_login12" method="post" action="{{route('payment_check_path',[$entorno,$numorden,$amount,$actividades->titulo,str_replace('/','-',$fecha_viaje),$personas,$reserva_id])}}">
                                                                 <input type="hidden" name="entorno" value="{{$entorno}}">
                                                                 @csrf
                                                                 <script src="{{$urljs}}"
                                                                         data-sessiontoken="{{$sessionToken}}"
                                                                         data-merchantid="{{$merchantId}}"
                                                                         data-channel="web"
+                                                                        data-lobo="{{$personas}}"
                                                                         data-buttonsize=""
                                                                         data-buttoncolor=""
                                                                         data-merchantlogo ="{{asset('images/etnias-peru.png')}}"
@@ -276,7 +277,7 @@
                                                                         <input type="text" class="form-control" name="cardNumber" placeholder="" id="cardNumber">
                                                                         <div class="input-group-append">
                                                                             <span class="input-group-text text-muted">
-                                                                                <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>  
+                                                                                <i class="fab fa-cc-visa"></i>   <i class="fab fa-cc-amex"></i>
                                                                                 <i class="fab fa-cc-mastercard"></i>
                                                                             </span>
                                                                         </div>

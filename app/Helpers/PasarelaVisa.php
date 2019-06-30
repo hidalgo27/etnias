@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class PasarelaVisa{
-    
+
     protected $Merchant = "";
     protected $AccessKey = "";
     protected $SecretAccessKey = "";
@@ -24,7 +24,7 @@ class PasarelaVisa{
     protected $MerchantPRD = "";
     protected $AccessKeyPRD = "";
     protected $SecretAccessKeyPRD = "";
-    
+
     protected $url = "";
     public function __construct() {
         // $this->Merchant="342062522";
@@ -56,88 +56,88 @@ class PasarelaVisa{
         $this->AccessKeyPRD="AKIAI737YRU5WIQ5W6JQ";
         $this->SecretAccessKeyPRD="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";
     }
-    
+
     public function Merchant()
     {
         return $this->Merchant;
-        
+
     }
-    
+
     public function AccessKey()
     {
         return $this->AccessKey;
-        
+
     }
     public function SecretAccessKey()
     {
         return $this->SecretAccessKey;
-        
+
     }
     public function merchantidtest()
     {
-        return $this->merchantidtest;   
+        return $this->merchantidtest;
     }
     public function usrtest()
     {
-        return $this->usrtest;   
+        return $this->usrtest;
     }
     public function pwdtest()
     {
-        return $this->pwdtest;   
+        return $this->pwdtest;
     }
     public function securityapitest()
     {
-        return $this->securityapitest;   
+        return $this->securityapitest;
     }
     public function sessionapitest()
     {
-        return $this->sessionapitest;   
+        return $this->sessionapitest;
     }
     public function autorizationapitest()
     {
-        return $this->autorizationapitest;   
+        return $this->autorizationapitest;
     }
     public function merchantidprd()
     {
-        return $this->merchantidprd;   
+        return $this->merchantidprd;
     }
     public function usr()
     {
-        return $this->usr;   
+        return $this->usr;
     }
     public function pwd()
     {
-        return $this->pwd;   
+        return $this->pwd;
     }
     public function securityapiprd()
     {
-        return $this->securityapiprd;   
+        return $this->securityapiprd;
     }
     public function sessionapiprd()
     {
-        return $this->sessionapiprd;   
+        return $this->sessionapiprd;
     }
     public function autorizationapiprd()
     {
-        return $this->autorizationapiprd;   
+        return $this->autorizationapiprd;
     }
     public function MerchantPRD()
     {
-        return $this->MerchantPRD;   
+        return $this->MerchantPRD;
     }
     public function AccessKeyPRD()
     {
-        return $this->AccessKeyPRD;   
+        return $this->AccessKeyPRD;
     }
     public function SecretAccessKeyPRD()
     {
-        return $this->SecretAccessKeyPRD;   
+        return $this->SecretAccessKeyPRD;
     }
     public function url()
     {
-        return $this->url;   
+        return $this->url;
     }
-    
+
 public  function getGUID(){
     if (function_exists('com_create_guid')){
         return com_create_guid();
@@ -158,7 +158,7 @@ public  function getGUID(){
 }
 public  function create_json_post($post){
             $request="{";
-            for ($i=0; $i < count($post) ; $i++) { 
+            for ($i=0; $i < count($post) ; $i++) {
                 $llave = key($post);
                 $valor = $post[$llave];
                 if($i==count($post)-1){
@@ -177,25 +177,25 @@ public  function contador(){
 // dd($exists);
 // dd($contents);
 // $archivo = Storage::disk('archivos')->get('contador.txt');
-    // $archivo = "contador.txt"; 
+    // $archivo = "contador.txt";
     // $archivo = 'storage/app/public/archivos/contador.txt';
-    $contador = 0; 
+    $contador = 0;
 
     if($exists){
         // dd($url);
-        // $fp = fopen($archivo,"r"); 
-        
+        // $fp = fopen($archivo,"r");
+
         $archivo = Storage::disk('archivos')->path('contador.txt');
         $contents = File::get($archivo);
-        $contador = (int)$contents; 
-        // $contador = fgets($fp, 26); 
-        // fclose($fp); 
+        $contador = (int)$contents;
+        // $contador = fgets($fp, 26);
+        // fclose($fp);
         ++$contador;
         Storage::disk('archivos')->put('contador.txt', $contador);
-        // $fp = fopen($archivo,"w+"); 
-        // fwrite($fp, $contador, 26); 
+        // $fp = fopen($archivo,"w+");
+        // fwrite($fp, $contador, 26);
         // fclose($fp);
-    } 
+    }
     return $contador;
 }
 
@@ -301,7 +301,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
             \"currency\" : \"PEN\"
         }
     }";
-    
+
     $dds=$this->url ;
     // echo "<hr>";
     // echo $this->url;
@@ -319,7 +319,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
     curl_setopt($ch, CURLOPT_POSTFIELDS, $request_body);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
-    var_dump($response);
+    // var_dump($response);
     // $json = json_decode($response);
     // $json = json_encode($json, JSON_PRETTY_PRINT);
     $response = json_decode($response);
@@ -345,7 +345,7 @@ public  function post_form($array_post,$url_){
     </head>
     <Body onload=\"f1.submit();\">
     <form name=\"f1\" method=\"post\" action=\"{$url_}\">";
-    for ($i=0; $i < count($array_post) ; $i++) { 
+    for ($i=0; $i < count($array_post) ; $i++) {
         $llave = key($array_post);
         $valor = $array_post[$llave];
         $html = $html."<input type=\"hidden\" name=\"$llave\" value=\"$valor\" />";
@@ -357,5 +357,5 @@ public  function post_form($array_post,$url_){
     return $html;
 }
 
-    
+
 }

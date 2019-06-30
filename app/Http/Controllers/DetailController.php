@@ -30,10 +30,10 @@ class DetailController extends Controller
         $comunidad = Comunidad::with([
             'distrito',
             'asociaciones.actividades'=>function ($query) use ($titulo) {$query->where('titulo',$titulo);},
-            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min',$rango_min)->where('max',$rango_max);}
+            'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}
         ])->get();
 
-        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','precio_actividad_ver'));
+        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a'));
     }
 
     public function date($titulo, $fecha, $pasajeros)
@@ -54,7 +54,7 @@ class DetailController extends Controller
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_min);}
         ])->get();
 
-        return view('page.detail-date', compact('comunidad','precio_actividad','disponibilidad_a','precio_actividad_ver','rango_min','fecha'));
+        return view('page.detail-date', compact('comunidad','precio_actividad','disponibilidad_a','rango_min','fecha'));
     }
 
     /**

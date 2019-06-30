@@ -46,7 +46,7 @@ Route::post('/payment', [
     'uses' => 'PaymentController@index',
     'as' => 'payment_path',
 ]);
-Route::post('/payment/payment_check/{entorno}/{purchaseNumber}/{amount}/{titulo}/{fecha_viaje}/{personas}', [
+Route::post('/payment/payment_check/{entorno}/{purchaseNumber}/{amount}/{titulo}/{fecha_viaje}/{personas}/{reserva_id}', [
     'uses' => 'PaymentController@payment_check',
     'as' => 'payment_check_path',
 ]);
@@ -136,6 +136,10 @@ Route::get('/contacto', [
     'as' => 'contact_path',
 ]);
 
+Route::get('/valuation', [
+    'uses' => 'ValuationController@index',
+    'as' => 'valuation_path',
+]);
 
 //client
 Route::get('/client/home', [
@@ -154,4 +158,10 @@ Route::post('/client/order/detail/', [
 Route::get('/client/perfil', [
     'uses' => 'Client\ClientController@index',
     'as' => 'client_perfil_path',
+]);
+
+//fin-checout
+Route::get('/payment/{reserva_id}', [
+    'uses' => 'PaymentController@checkout',
+    'as' => 'checkout_path',
 ]);

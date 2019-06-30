@@ -55,13 +55,18 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="alert alert-danger">
+                                                    <p><b>Opps!</b></p>
                                                     <ul>
-                                                        <li>{!! Session::get('msg') !!}</li>
+                                                        <li><b>Mensaje:</b> {!! Session::get('msg') !!}</li>
+                                                        <li><b>Numero de pedido:</b> {!! Session::get('nro_pedido') !!}</li>
+                                                        <li><b>Fecha:</b> {!! Session::get('fecha_operacion') !!}</li>
+                                                        <li><b>Motivo:</b> {!! Session::get('motivo') !!}</li>
                                                     </ul>
+                                                    <p>Por favor vuelva a intentarlo.</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endif                                 
+                                    @endif
                                     <div class="row">
                                         <div class="col">
                                             <h2 class="font-weight-bold h1 text-g-grey-primary">{{ucwords(strtolower($actividades->titulo))}}

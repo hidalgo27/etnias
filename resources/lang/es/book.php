@@ -1,6 +1,6 @@
 <?php
 return [
-    'detail_program' => 'Detail Program',
+    'detail_program' => 'Detalles del Programa',
     'itinerary' => 'Itinerary',
     'servicios_adicionales' => 'Servicios Adicionales',
     'confirmar_pagar' => 'Confirmar y Pagar',
