@@ -216,7 +216,9 @@
                     <div class="row mt-4 align-items-center">
                         <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
                             <div class="position-relative w-100">
-                                <img src="{{asset('images/home/huilloq.jpg')}}" alt="" class="w-100 position-relative rounded shadow">
+                                @foreach($comunidades_huilloc->fotos->where('estado',2)->take(1) as $fotos)
+                                    <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 position-relative rounded shadow">
+                                @endforeach
                                 <div class="position-absolute w-100 top-50">
                                     <a href="{{route('comunidad_show_path', str_replace(' ','-', strtolower($comunidades_huilloc->nombre)))}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">@lang('home.saber_mas_comunidad ') <i class="fas fa-angle-right"></i></a>
                                 </div>
@@ -237,7 +239,7 @@
                     <div class="row slider-huilloq">
 
                             @foreach($comunidades_huilloc->asociaciones as $asociaciones_huilloc)
-                                @foreach($asociaciones_huilloc->actividades as $actividades_huilloc)
+                                @foreach($asociaciones_huilloc->actividades->where('estado', 1) as $actividades_huilloc)
                                     @foreach($disponibilidad->where('actividad_id', $actividades_huilloc->id) as $disponibilidades)
                                         @if ($disponibilidades->actividad_id == $actividades_huilloc->id)
                                         <div class="col mb-4">

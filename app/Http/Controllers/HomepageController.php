@@ -33,7 +33,7 @@ class HomepageController extends Controller
                 'asociaciones.actividades.fotos',
             'asociaciones.actividades',
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}]
-        )->where('nombre', 'HUILLOC')->get();
+        )->where('mostrar_en_pagina', '1')->get();
 
         $comunidad_taucca = Comunidad::with([
                 'asociaciones.actividades',
