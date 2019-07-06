@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['user', 'admin']);
         $reserva = Reserva::with('actividades')->where('user_id', $request->user()->id)->where('estado',0)->get();
-        return view('client.home', compact('reserva','reserva_actividad'));
+        return view('client.home', compact('reserva'));
     }
     /*
         public function someAdminStuff(Request $request)

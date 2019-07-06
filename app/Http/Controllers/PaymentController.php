@@ -812,7 +812,8 @@ class PaymentController extends Controller
     {
         $reserva_id=base64_decode($reserva_id);
         $reservas=Reserva::find($reserva_id);
-        return view('client.checkout',compact('reservas'));
+        $reserva_actividad = ReservaActividad::where('reserva_id', $reservas->id)->first();
+        return view('client.checkout',compact('reservas', 'reserva_actividad'));
     }
 
     /**

@@ -7,8 +7,8 @@ return [
     'soy_transportista' => 'I am a transportist',
     'soy_guia' => 'I am a Guide',
     'h1_comu_p' => 'Fill out the community form and work with us',
-    'h1_tran_p' => 'Fill out the form <span class="font-weight-bold text-g-red-primary">transportistas</span> and work with us',
-    'h1_guia_p' => 'Fill out the form <span class="font-weight-bold text-g-red-primary">guias</span> and work with us',
+    'h1_tran_p' => 'Fill out the form <span class="font-weight-bold text-g-red-primary">transporters</span> and work with us',
+    'h1_guia_p' => 'Fill out the form <span class="font-weight-bold text-g-red-primary">guides</span> and work with us',
     'etnia_worker' => 'Hello Etnia Worker, if you live in a city where we offer our services and have a vehicle of your own, this service is for you, if you want to be part of our team, leave us your information and we will contact you.',
 
     'departamento' => 'Departament',

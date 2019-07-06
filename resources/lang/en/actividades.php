@@ -9,7 +9,7 @@ return [
     'fecha' => 'Date',
     'resultados' => 'Results',
     'ubicacion' =>'Location',
-    'reservar' => 'Reserve',
+    'reservar' => 'Book',
     'precio_persona' =>'Price per person',
     'categoria' => 'Category'
 ];

@@ -18,17 +18,17 @@
             </div>
             <div class="card">
                 <div class="card-header bg-g-red-primary text-white">
-                    Historial de Pedido
+                    @lang('client.historial_pedido')
                 </div>
                 <div class="card-body">
                     <table id="myTable" class="w-100 table-responsive">
                         <tbody class="small font-weight-bold text-secondary">
                             <tr class="h6 font-weight-bold text-g-grey-primary">
                                 <th class="py-3">#</th>
-                                <th>Nombre Actividad</th>
-                                <th class="e_h1">Fecha de llegada</th>
-                                <th class="e_h1">Pasajeros</th>
-                                <th class="e_h1">Pago</th>
+                                <th>@lang('client.nombre_actividad')</th>
+                                <th class="e_h1">@lang('client.fecha_llegada')</th>
+                                <th class="e_h1">@lang('client.pasajeros')</th>
+                                <th class="e_h1">@lang('client.pago')</th>
                                 <th></th>
                             </tr>
                             @php $i = 1; @endphp
@@ -42,7 +42,7 @@
                                         <td class="text-info"><sup>$</sup>{{$actividades->precio}}<small>USD</small></td>
                                         <td>
                                             <form action="{{route('client_cancel_path')}}">
-                                                <button type="button" class="btn btn-danger btn-sm m-2" data-toggle="modal" data-target="#modal_cancel_{{$reservas->id}}">Cancelar Reserva</button>
+                                                <button type="button" class="btn btn-danger btn-sm m-2" data-toggle="modal" data-target="#modal_cancel_{{$reservas->id}}">@lang('client.cancelar_reserva')</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -52,20 +52,20 @@
                                         <div class="modal-dialog modal-sm" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Cancelar Reserva</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">@lang('client.cancelar_reserva')</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>¿Desea cancelar su actividad?</p>
-                                                    <p>Si cancela ...</p>
+                                                    <p>@lang('client.desea_cancelar_actividad')</p>
+                                                    <p>@lang('client.se_cancelara_todos_servicios')</p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <form action="{{route('client_cancel_path')}}" method="post">
                                                         @csrf
                                                         <input type="hidden" value="{{$reservas->id}}" name="id_reserva">
-                                                        <button type="submit" class="btn btn-danger">Cancelar Reserva</button>
+                                                        <button type="submit" class="btn btn-danger">@lang('client.cancelar_reserva')</button>
                                                     </form>
                                                 </div>
                                             </div>

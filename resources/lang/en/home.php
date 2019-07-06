@@ -29,5 +29,5 @@ return [
     'mejores_actividades' => 'The best <span class="text-g-red-dark">activities this month</span>',
     'reservar' => 'Book',
     'pp_persona' => 'Price per person (based at least two passengers)',
-    'saber_mas_comunidad ' => 'Learn More Community'
+    'saber_mas_comunidad ' => 'Learn more about the community'
 ];

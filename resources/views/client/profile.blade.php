@@ -9,23 +9,23 @@
             <div class="col-12 col-md-9">
                 <div class="card">
                     <div class="card-header bg-g-red-primary text-white">
-                        Perfil
+                        @lang('client.perfil')
                     </div>
                     <div class="card-body">
                         <form>
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="font-weight-bold text-g-grey-light">Nombre Completo</label>
+                                <label for="exampleInputEmail1" class="font-weight-bold text-g-grey-light">@lang('client.nombre_completo')</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su nombre completo" value="{{ Auth::user()->name }}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="font-weight-bold text-g-grey-light">Email</label>
+                                    <label for="exampleInputEmail1" class="font-weight-bold text-g-grey-light">@lang('client.email_address')</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email" value="{{ Auth::user()->email }}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1" class="font-weight-bold text-g-grey-light">Nueva Contraseña</label>
+                                <label for="exampleInputPassword1" class="font-weight-bold text-g-grey-light">@lang('client.nueva_contrasena')</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="">
                             </div>
-                            <button type="submit" class="btn btn-primary">Actualizar datos</button>
+                            <button type="submit" class="btn btn-primary">@lang('client.actualizar_datos')</button>
                         </form>
                     </div>
                 </div>
