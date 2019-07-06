@@ -8,6 +8,10 @@
     <title>Mi Etnia</title>
     <link rel="stylesheet" href="{{mix("css/app.css")}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+
 </head>
 <body>
     @yield('content')

@@ -53,5 +53,5 @@ return [
     'perfil' => 'Profile',
     'nombre_completo' => 'Full Name',
     'nueva_contrasena' => 'New Password',
-    'actualizar_datos' => 'Update information'
+    'actualizar_datos' => 'Update information',
 ];
