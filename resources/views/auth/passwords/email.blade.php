@@ -36,7 +36,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-g-red-primary text-white font-weight-bold">
-                                    @lang('send_password_reset_link')
+                                    @lang('client.send_password_reset_link')
                                 </button>
                             </div>
                         </div>
