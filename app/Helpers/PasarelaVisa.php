@@ -37,9 +37,9 @@ class PasarelaVisa{
         $this->sessionapitest="https://apitestenv.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
         $this->autorizationapitest="https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 
-        $this->merchantidprd="";
-        $this->usr="";
-        $this->pwd='';
+        $this->merchantidprd="650003652";
+        $this->usr="lcolinad@gmail.com";
+        $this->pwd='Mietni@2019';
         $this->securityapiprd="https://apiprod.vnforapps.com/api.security/v1/security";
         $this->sessionapiprd="https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
         $this->autorizationapiprd="https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
@@ -298,7 +298,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
             \"amount\" : \"$amount\",
             \"tokenId\" : \"$transactionToken\",
             \"purchaseNumber\" : \"$purchaseNumber\",
-            \"currency\" : \"PEN\"
+            \"currency\" : \"USD\"
         }
     }";
 
