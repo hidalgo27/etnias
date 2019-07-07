@@ -107,7 +107,7 @@ class PaymentController extends Controller
         if ($total>0){
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
-            $entorno ="prd";
+            $entorno ="dev";
             $usr = '';
             $pwd = '';
 
