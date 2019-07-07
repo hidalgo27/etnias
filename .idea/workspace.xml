@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/book.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/book.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
@@ -140,17 +140,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="119" column="40" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
+            <state relative-caret-position="249">
+              <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Helpers/PasarelaVisa.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+            <state relative-caret-position="319">
+              <caret line="304" column="21" lean-forward="true" selection-start-line="304" selection-start-column="21" selection-end-line="304" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -164,11 +164,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/book.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="54" column="167" selection-start-line="54" selection-start-column="161" selection-end-line="54" selection-end-column="167" />
+            <state relative-caret-position="567">
+              <caret line="101" column="284" selection-start-line="101" selection-start-column="284" selection-end-line="101" selection-end-column="284" />
             </state>
           </provider>
         </entry>
@@ -211,10 +211,10 @@
       <find>Pasajeros</find>
       <find>var_dump</find>
       <find>ten</find>
-      <find>PEN</find>
       <find>ECHO</find>
       <find>galer</find>
       <find>send</find>
+      <find>PEN</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,6 +254,7 @@
         <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
         <option value="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" />
+        <option value="$PROJECT_DIR$/resources/views/page/book.blade.php" />
       </list>
     </option>
   </component>
@@ -585,12 +586,12 @@
       <workItem from="1562196875159" duration="2137000" />
       <workItem from="1562426993766" duration="170000" />
       <workItem from="1562427190735" duration="9860000" />
-      <workItem from="1562453232537" duration="6638000" />
+      <workItem from="1562453232537" duration="6823000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22580000" />
+    <option name="totallyTimeSpent" value="22765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="6" />
@@ -921,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/book.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="54" column="167" selection-start-line="54" selection-start-column="161" selection-end-line="54" selection-end-column="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -944,15 +938,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="119" column="40" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
+        <state relative-caret-position="249">
+          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Helpers/PasarelaVisa.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+        <state relative-caret-position="319">
+          <caret line="304" column="21" lean-forward="true" selection-start-line="304" selection-start-column="21" selection-end-line="304" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/book.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="101" column="284" selection-start-line="101" selection-start-column="284" selection-end-line="101" selection-end-column="284" />
         </state>
       </provider>
     </entry>
