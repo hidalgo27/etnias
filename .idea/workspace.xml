@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/new-reserva.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/new-reserva.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -150,11 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Helpers/PasarelaVisa.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="304" column="21" lean-forward="true" selection-start-line="304" selection-start-column="21" selection-end-line="304" selection-end-column="21" />
+            <state relative-caret-position="235">
+              <caret line="309" column="11" selection-start-line="309" selection-start-column="7" selection-end-line="309" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -177,11 +173,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
+            <state relative-caret-position="360">
+              <caret line="138" column="124" selection-start-line="138" selection-start-column="124" selection-end-line="138" selection-end-column="124" />
             </state>
           </provider>
         </entry>
@@ -218,6 +214,7 @@
       <find>var_dump</find>
       <find>ten</find>
       <find>PEN</find>
+      <find>ECHO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,9 +251,9 @@
         <option value="$PROJECT_DIR$/resources/lang/es/client.php" />
         <option value="$PROJECT_DIR$/resources/views/mail/new-reserva.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/checkout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
         <option value="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" />
+        <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -588,12 +585,12 @@
       <workItem from="1562196875159" duration="2137000" />
       <workItem from="1562426993766" duration="170000" />
       <workItem from="1562427190735" duration="9860000" />
-      <workItem from="1562453232537" duration="5787000" />
+      <workItem from="1562453232537" duration="6023000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21729000" />
+    <option name="totallyTimeSpent" value="21965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="6" />
@@ -938,13 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="135" column="48" selection-start-line="135" selection-start-column="48" selection-end-line="135" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -954,8 +944,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Helpers/PasarelaVisa.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="304" column="21" lean-forward="true" selection-start-line="304" selection-start-column="21" selection-end-line="304" selection-end-column="21" />
+        <state relative-caret-position="235">
+          <caret line="309" column="11" selection-start-line="309" selection-start-column="7" selection-end-line="309" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="138" column="124" selection-start-line="138" selection-start-column="124" selection-end-line="138" selection-end-column="124" />
         </state>
       </provider>
     </entry>
