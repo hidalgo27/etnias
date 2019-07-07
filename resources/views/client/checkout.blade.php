@@ -7,7 +7,7 @@
             <div class="card shadow">
                 <div class="card-header bg-g-green-primary text-white">@lang('client.pago_finalizado_correctamente')</div>
                 <div class="card-body">
-                    <p><b>@lang('imprimir_datos')</b></p>
+                    <p><b>@lang('client.imprimir_datos')</b></p>
                     <p><b>@lang('client.tarjeta'):</b>{{ $reservas->numero_tarjeta_habiente }}</p>
                     <p><b>@lang('client.titular'):</b>{{ $reservas->nombre }}</p>
                     <p><b>@lang('client.titular'):</b>{{ $reservas->fecha_pedido }}</p>

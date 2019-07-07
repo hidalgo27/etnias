@@ -298,7 +298,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
             \"amount\" : \"$amount\",
             \"tokenId\" : \"$transactionToken\",
             \"purchaseNumber\" : \"$purchaseNumber\",
-            \"currency\" : \"PEN\"
+            \"currency\" : \"USD\"
         }
     }";
 
@@ -326,7 +326,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
     $response = json_encode($response);
     //$dato = $json->sessionKey;
     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    echo "<hr>status:".$status."<hr>";
+//    echo "<hr>status:".$status."<hr>";
     // $rpt_json=[];
     $rpt_json=array('0'=>$status,'1'=>$response);
     return json_encode($rpt_json);
