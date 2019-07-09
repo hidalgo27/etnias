@@ -95,7 +95,7 @@
                         <div class="card shadow-sm">
                             <div class="row align-items-center no-gutters">
                                 <div class="col-md-4">
-                                    <img src="{{asset('images/categoria/'.$categorias->imagen.'')}}" alt="" class="w-100 rounded-left">
+                                    <img src="{{asset('http://admin.mietnia.com/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="{{$categorias->nombre}}" class="w-100 rounded-left">
                                 </div>
                                 <div class="col-md position-static p-2">
                                     <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="p-0 m-0 text-decoration-none font-weight-bold text-secondary stretched-link">{{ucwords(strtolower($categorias->nombre))}}</a>
