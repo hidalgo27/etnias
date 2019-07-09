@@ -38,8 +38,8 @@ class PasarelaVisa{
         $this->autorizationapitest="https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
 
         $this->merchantidprd="650003652";
-        $this->usr="lcolinad@gmail.com";
-        $this->pwd='Mietni@2019';
+        $this->usr="freddysilvah@outlook.com";
+        $this->pwd='?skD-7eX';
         $this->securityapiprd="https://apiprod.vnforapps.com/api.security/v1/security";
         $this->sessionapiprd="https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
         $this->autorizationapiprd="https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";

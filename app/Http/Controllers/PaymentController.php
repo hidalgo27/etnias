@@ -181,8 +181,8 @@ class PaymentController extends Controller
         // $numorden=$pasarela->contador();
         // se pondra un codigo inicial de 1000000 para etnias en ingles
         $numorden=MisFunciones::nuevo_codigo('1','6');
-        // se pondra un codigo inicial de 2000000 para etnias en español
-        // $numorden=MisFunciones::nuevo_codigo('2','6');
+        // se pondra un codigo inicial de 5000000 para etnias en español
+        // $numorden=MisFunciones::nuevo_codigo('5','6');
         $urljs="";
         $merchantId='';
         switch ($entorno) {
