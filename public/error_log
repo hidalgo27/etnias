@@ -1,0 +1,24 @@
+[28-Mar-2019 11:37:30 America/Chicago] PHP Warning:  require(/home4/b2u4b3e3/public_html/pandaninja/etniasperu/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/public/index.php on line 24
+[28-Mar-2019 11:37:30 America/Chicago] PHP Warning:  require(/home4/b2u4b3e3/public_html/pandaninja/etniasperu/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/public/index.php on line 24
+[28-Mar-2019 11:37:30 America/Chicago] PHP Fatal error:  require(): Failed opening required '/home4/b2u4b3e3/public_html/pandaninja/etniasperu/public/../vendor/autoload.php' (include_path='.:/opt/php71/lib/php') in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/public/index.php on line 24
+[28-Mar-2019 18:50:40 America/Chicago] PHP Fatal error:  Uncaught ReflectionException: Class EtniasPeru\Http\Kernel does not exist in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php:794
+Stack trace:
+#0 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(794): ReflectionClass->__construct('EtniasPeru\\Http...')
+#1 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(671): Illuminate\Container\Container->build('EtniasPeru\\Http...')
+#2 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('EtniasPeru\\Http...', Array, false)
+#3 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(791): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home4/b2u4b3e3/pu in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 794
+[28-Mar-2019 18:52:09 America/Chicago] PHP Fatal error:  Uncaught ReflectionException: Class EtniasPeru\Http\Kernel does not exist in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php:794
+Stack trace:
+#0 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(794): ReflectionClass->__construct('EtniasPeru\\Http...')
+#1 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(671): Illuminate\Container\Container->build('EtniasPeru\\Http...')
+#2 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('EtniasPeru\\Http...', Array, false)
+#3 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(791): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home4/b2u4b3e3/pu in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 794
+[28-Mar-2019 18:52:14 America/Chicago] PHP Fatal error:  Uncaught ReflectionException: Class EtniasPeru\Http\Kernel does not exist in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php:794
+Stack trace:
+#0 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(794): ReflectionClass->__construct('EtniasPeru\\Http...')
+#1 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(671): Illuminate\Container\Container->build('EtniasPeru\\Http...')
+#2 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(265): Illuminate\Container\Container->resolve('EtniasPeru\\Http...', Array, false)
+#3 /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php(791): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home4/b2u4b3e3/pu in /home4/b2u4b3e3/public_html/pandaninja/etniasperu/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 794
