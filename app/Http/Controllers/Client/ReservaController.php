@@ -27,7 +27,7 @@ class ReservaController extends Controller
     public function cancelar(Request $request){
 //        $id_reserva = Reserva::wh
         $cancelar = Reserva::findOrFail($request->input("id_reserva"));
-        $cancelar->estado = 1;
+        $cancelar->estado = 2;
         $cancelar->save();
         return back()->withInput()->with('status', 'Se cancelo su reserva');
     }
