@@ -82,7 +82,7 @@
                         <div class="row">
                             <div class="col was-validated">
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" name="terminos" id="terminos" required>
+                                    <input type="checkbox" class="custom-control-input" name="terminos" id="terminos" disabled checked>
                                     <label class="custom-control-label" for="terminos">@lang('book.acepto_terminos'):</label>
                                 </div>
                             </div>
@@ -137,10 +137,10 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($comida_precios->precio)}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($comida_precios->precio+($comida_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
-                                                    @php $pc = $pc + round($comida_precios->precio);@endphp
+                                                    @php $pc = $pc + round($comida_precios->precio+($comida_precios->precio*$comision)/100);@endphp
                                                 @endforeach
                                             @endif
                                             @php $ph = 0; @endphp
@@ -154,10 +154,10 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($hospedaje_precios->precio)}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
-                                                    @php $ph = $ph + round($hospedaje_precios->precio);@endphp
+                                                    @php $ph = $ph + round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100);@endphp
                                                 @endforeach
                                             @endif
 
@@ -172,10 +172,10 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{$transporte_precios->precio}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($transporte_precios->precio+($transporte_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
-                                                    @php $pt = $pt + round($transporte_precios->precio);@endphp
+                                                    @php $pt = $pt + round($transporte_precios->precio+($transporte_precios->precio*$comision)/100);@endphp
                                                 @endforeach
                                             @endif
 
@@ -191,10 +191,10 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{$guia_precios->precio}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($guia_precios->precio+($guia_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
-                                                    @php $pg = $pg + round($guia_precios->precio);@endphp
+                                                    @php $pg = $pg + round($guia_precios->precio+($guia_precios->precio*$comision)/100); @endphp
                                                 @endforeach
                                             @endif
                                             {{--<div class="row text-left align-items-center">--}}
