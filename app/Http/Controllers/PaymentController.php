@@ -69,14 +69,17 @@ class PaymentController extends Controller
                 $i++;
             }
         }
+
         $transporte_precio=[];
+        $pre_total_trans_guia=0;
         if ($request->has('transporte')){
             $transporte_arr = $request->input('transporte');
             $j=0;
             foreach ($transporte_arr as $transporte_a){
                 $transporte_id = explode('-', $transporte_a);
                 $transporte_precio[$j] = TransporteExterno::find($transporte_id[0]);
-                $pre_total+=round($transporte_precio[$j]->precio);
+                // $pre_total+=round($transporte_precio[$j]->precio);
+                $pre_total_trans_guia+=round($transporte_precio[$j]->precio);
                 $j++;
             }
         }
@@ -98,7 +101,8 @@ class PaymentController extends Controller
             foreach ($guia_arr as $guia_a){
                 $guia_id = explode('-', $guia_a);
                 $guia_precio[$l] = Guia::find($guia_id[0]);
-                $pre_total+=round($guia_precio[$l]->precio);
+                // $pre_total+=round($guia_precio[$l]->precio);
+                $pre_total_trans_guia+=round($guia_precio[$l]->precio);
                 $l++;
             }
         }
@@ -107,7 +111,7 @@ class PaymentController extends Controller
         if ($total>0){
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
-            $entorno ="dev";
+            $entorno ="prd";
             $usr = '';
             $pwd = '';
 
@@ -124,7 +128,9 @@ class PaymentController extends Controller
             // echo $entorno;
             // $amount = $_POST['amount'];
 
-            $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))) * $personas;
+            // $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))) * $personas;
+            $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))+round($pre_total_trans_guia)) * $personas;
+
 
             // dd("entorno:$entorno,amount:$usr,key:$pwd");
             $key = $pasarela->securitykey($entorno,$usr,$pwd);
@@ -216,7 +222,8 @@ class PaymentController extends Controller
 
             $precio_actividad = ActividadPrecio::where('actividad_id', $id_actividad)->where('min','<=',$personas)->where('max','>=',$personas)->first();
             $asocicion_id = $precio_actividad->actividad->asociacion_id;
-            $total_actividad = round($precio_actividad->precio+($precio_actividad->precio*$precio_actividad->actividad->asociacion->comision)/100);
+            // $total_actividad = round($precio_actividad->precio+($precio_actividad->precio*$precio_actividad->actividad->asociacion->comision)/100);
+            $total_actividad = round($precio_actividad->precio);
 
             if ($precio_actividad){
                 $reserva_actividad = new ReservaActividad();
@@ -286,6 +293,7 @@ class PaymentController extends Controller
                         $reserva_transporte->codigo = $precio_transporte_->codigo;
                         $reserva_transporte->nombre = $precio_transporte_->nombre;
                         $reserva_transporte->pax = $personas;
+                        $reserva_transporte->s_p = $precio_transporte_->s_p;
                         $reserva_transporte->precio = $precio_transporte_->precio;
                         $reserva_transporte->categoria = $precio_transporte_->categoria;
                         $reserva_transporte->ruta_salida = $precio_transporte_->ruta_salida;
@@ -309,6 +317,7 @@ class PaymentController extends Controller
                         $reserva_guia->codigo = $precio_guia_->codigo;
                         $reserva_guia->nombre = $precio_guia_->nombre;
                         $reserva_guia->pax = $personas;
+                        $reserva_guia->s_p = $precio_guia_->s_p;
                         $reserva_guia->precio = $precio_guia_->precio;
                         $reserva_guia->idioma = $precio_guia_->idioma;
                         $reserva_guia->estado = 0;
