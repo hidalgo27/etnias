@@ -124,7 +124,7 @@ class PaymentController extends Controller
             // echo $entorno;
             // $amount = $_POST['amount'];
 
-            $amount = (round($total)+$pre_total) * $personas;
+            $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))) * $personas;
 
             // dd("entorno:$entorno,amount:$usr,key:$pwd");
             $key = $pasarela->securitykey($entorno,$usr,$pwd);
@@ -328,7 +328,7 @@ class PaymentController extends Controller
         }
         $reserva_id=$reservas->id;
         // dd("urljs:$urljs,merchantId:$merchantId,sessionToken:$sessionToken,amount:$amount,numorden:$numorden");
-            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs','id_actividad','reserva_id'));
+            return view('page.payment', compact('total','actividad','fecha_viaje','personas', 'comida_precio','transporte_precio','guia_precio', 'hospedaje_precio','sessionToken','amount','nombre','apellido','email','userTokenId','entorno','key','merchantId','numorden','urljs','id_actividad','reserva_id','comision'));
         }
     }
 

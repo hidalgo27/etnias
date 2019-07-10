@@ -56,7 +56,7 @@ class BookController extends Controller
 
 //        return redirect()->route('book_get_path', compact('actividad','fecha_viaje','total','hospedaje_precio','comidas_precio','transportes','guia','personas'));
 
-        return view('page.book')->with(compact('actividad','fecha_viaje','total','hospedaje_precio','comidas_precio','transportes','guia','personas'));
+        return view('page.book')->with(compact('actividad','fecha_viaje','total','hospedaje_precio','comidas_precio','transportes','guia','personas', 'comision'));
     }
 
     public function index2()
