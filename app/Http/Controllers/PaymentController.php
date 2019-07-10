@@ -107,7 +107,7 @@ class PaymentController extends Controller
         if ($total>0){
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
-            $entorno ="prd";
+            $entorno ="dev";
             $usr = '';
             $pwd = '';
 
@@ -403,7 +403,7 @@ class PaymentController extends Controller
                         'email' => $email,
                         'name' => $email/*$request->input('username')*/,
                         'password' => bcrypt($password),
-                        'password2' => $password,
+                        'password2' => $password
                     ]);
                     if ($user){
                         $user_rol = new RoleUser();
