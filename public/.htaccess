@@ -25,12 +25,12 @@
     RewriteRule ^ index.php [L]
 </IfModule>
 
- <IfModule mod_expires.c>
-     <filesmatch "\.(jpg|JPG|gif|GIF|png|PNG|css|js|woff2|ico|mp4|m4v|webm)$">
-         ExpiresActive on
-         ExpiresDefault "access plus 30 day"
-     </filesmatch>
- </IfModule>
+<IfModule mod_expires.c>
+    <filesmatch "\.(jpg|JPG|gif|GIF|png|PNG|css|js|woff2|ico|mp4|m4v|webm)$">
+        ExpiresActive on
+        ExpiresDefault "access plus 30 day"
+    </filesmatch>
+</IfModule>
 
 
 # compress text, html, javascript, css, xml:

@@ -85,8 +85,8 @@
                                     <div class="col font-poppins">
                                         <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> @lang('join.transporte')
                                             <div class="custom-control custom-checkbox float-right text-primary">
-                                                <input type="checkbox" class="custom-control-input" name="transporte[]" id="transporte_{{$transporte->id}}" value="{{$transporte->id}}-{{round($transporte->precio+($transporte->precio*$comision)/100)}}-{{$total}}" onclick="if (this.checked) sumar_transporte(this.value); else restar_transporte(this.value)">
-                                                <label class="custom-control-label cursor-pointer" for="transporte_{{$transporte->id}}"><sup>$</sup>{{round($transporte->precio+($transporte->precio*$comision)/100)}}<small class="font-weight-bold">USD</small></label>
+                                                <input type="checkbox" class="custom-control-input" name="transporte[]" id="transporte_{{$transporte->id}}" value="{{$transporte->id}}-{{round($transporte->precio)}}-{{$total}}" onclick="if (this.checked) sumar_transporte(this.value); else restar_transporte(this.value)">
+                                                <label class="custom-control-label cursor-pointer" for="transporte_{{$transporte->id}}"><sup>$</sup>{{round($transporte->precio)}}<small class="font-weight-bold">USD</small></label>
                                             </div>
                                         </h5>
                                     </div>
@@ -99,8 +99,8 @@
                                 <div class="col font-poppins">
                                     <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> @lang('client.guia') ({{$guias->idioma}})
                                         <div class="custom-control custom-checkbox float-right text-primary">
-                                            <input type="checkbox" class="custom-control-input" name="guia[]" id="guia_{{$guias->id}}" value="{{$guias->id}}-{{round($guias->precio+($guias->precio*$comision)/100)}}-{{$total}}" onclick="if (this.checked) sumar_guia(this.value); else restar_guia(this.value)" required>
-                                            <label class="custom-control-label cursor-pointer" for="guia_{{$guias->id}}"><sup>$</sup>{{round($guias->precio+($guias->precio*$comision)/100)}}<small class="font-weight-bold">USD</small></label>
+                                            <input type="checkbox" class="custom-control-input" name="guia[]" id="guia_{{$guias->id}}" value="{{$guias->id}}-{{round($guias->precio)}}-{{$total}}" onclick="if (this.checked) sumar_guia(this.value); else restar_guia(this.value)" required>
+                                            <label class="custom-control-label cursor-pointer" for="guia_{{$guias->id}}"><sup>$</sup>{{round($guias->precio)}}<small class="font-weight-bold">USD</small></label>
                                         </div>
                                     </h5>
                                 </div>
