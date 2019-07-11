@@ -39,7 +39,7 @@
                                         <td><a href="{{route('client_order_path', $reservas->id)}}">{{$actividades->titulo}}</a></td>
                                         <td class="e_h1">{{$reservas->fecha_llegada}}</td>
                                         <td>{{$reservas->nro_pax}}</td>
-                                        <td class="text-info"><sup>$</sup>{{$actividades->precio}}<small>USD</small></td>
+                                        <td class="text-info"><sup>$</sup>{{$reservas->importe}}<small>USD</small></td>
                                         <td>
                                             <form action="{{route('client_cancel_path')}}">
                                                 <button type="button" class="btn btn-danger btn-sm m-2" data-toggle="modal" data-target="#modal_cancel_{{$reservas->id}}">@lang('client.cancelar_reserva')</button>

@@ -23,10 +23,10 @@
                                 {{--<td class="font-weight-bold">Duración:</td>--}}
                                 {{--<td class="e_h1">5 horas</td>--}}
                             {{--</tr>--}}
-                            <tr>
-                                <td class="font-weight-bold">@lang('client.precio'):</td>
-                                <td class="e_h1">${{$reserva_actividades->precio}}</td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <td class="font-weight-bold">@lang('client.precio'):</td>--}}
+{{--                                <td class="e_h1">${{$reserva_actividades->precio}}</td>--}}
+{{--                            </tr>--}}
                             <tr>
                                 <td class="font-weight-bold">@lang('client.fecha_llegada')</td>
                                 <td class="e_h1">{{$reserva_actividades->reserva->fecha_llegada}}</td>
@@ -58,10 +58,10 @@
                                     <td class="font-weight-bold">@lang('client.nombre_servicio'):</td>
                                     <td class="e_h1">{{ucwords(strtolower($reserva_comidas->titulo))}}</td>
                                 </tr>
-                                <tr>
-                                    <td class="font-weight-bold">@lang('client.precio'):</td>
-                                    <td class="e_h1">${{$reserva_comidas->precio}}</td>
-                                </tr>
+{{--                                <tr>--}}
+{{--                                    <td class="font-weight-bold">@lang('client.precio'):</td>--}}
+{{--                                    <td class="e_h1">${{$reserva_comidas->precio}}</td>--}}
+{{--                                </tr>--}}
                             @endforeach
                             </tbody>
                         </table>
@@ -81,10 +81,10 @@
                                         <td class="font-weight-bold">@lang('client.nombre_servicio'):</td>
                                         <td class="e_h1">{{ucwords(strtolower($reserva_hospedajes->titulo))}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">@lang('client.precio'):</td>
-                                        <td class="e_h1">${{$reserva_hospedajes->precio}}</td>
-                                    </tr>
+{{--                                    <tr>--}}
+{{--                                        <td class="font-weight-bold">@lang('client.precio'):</td>--}}
+{{--                                        <td class="e_h1">${{$reserva_hospedajes->precio}}</td>--}}
+{{--                                    </tr>--}}
                                 @endforeach
                                 </tbody>
                             </table>
@@ -112,10 +112,10 @@
                                         <td class="font-weight-bold">@lang('client.ruta_llegada'):</td>
                                         <td class="e_h1">{{ucwords(strtolower($reserva_transportes->ruta_llegada))}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">@lang('client.precio'):</td>
-                                        <td class="e_h1">${{$reserva_transportes->precio}}</td>
-                                    </tr>
+{{--                                    <tr>--}}
+{{--                                        <td class="font-weight-bold">@lang('client.precio'):</td>--}}
+{{--                                        <td class="e_h1">${{$reserva_transportes->precio}}</td>--}}
+{{--                                    </tr>--}}
                                 @endforeach
                                 </tbody>
                             </table>
@@ -135,10 +135,10 @@
                                         <td class="font-weight-bold">@lang('client.nombre_servicio'):</td>
                                         <td class="e_h1">{{ucwords(strtolower($reserva_guias->nombre))}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="font-weight-bold">@lang('client.precio'):</td>
-                                        <td class="e_h1">${{$reserva_guias->precio}}</td>
-                                    </tr>
+{{--                                    <tr>--}}
+{{--                                        <td class="font-weight-bold">@lang('client.precio'):</td>--}}
+{{--                                        <td class="e_h1">${{$reserva_guias->precio}}</td>--}}
+{{--                                    </tr>--}}
                                 @endforeach
                                 </tbody>
                             </table>
