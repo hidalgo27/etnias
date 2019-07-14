@@ -78,7 +78,7 @@ class PaymentController extends Controller
             foreach ($transporte_arr as $transporte_a){
                 $transporte_id = explode('-', $transporte_a);
                 $transporte_precio[$j] = TransporteExterno::find($transporte_id[0]);
-                // $pre_total+=round($transporte_precio[$j]->precio);
+                $pre_total+=round($transporte_precio[$j]->precio);
                 $pre_total_trans_guia+=round($transporte_precio[$j]->precio);
                 $j++;
             }
@@ -101,7 +101,7 @@ class PaymentController extends Controller
             foreach ($guia_arr as $guia_a){
                 $guia_id = explode('-', $guia_a);
                 $guia_precio[$l] = Guia::find($guia_id[0]);
-                // $pre_total+=round($guia_precio[$l]->precio);
+                $pre_total+=round($guia_precio[$l]->precio);
                 $pre_total_trans_guia+=round($guia_precio[$l]->precio);
                 $l++;
             }
@@ -128,8 +128,8 @@ class PaymentController extends Controller
             // echo $entorno;
             // $amount = $_POST['amount'];
 
-            // $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))) * $personas;
-            $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))+round($pre_total_trans_guia)) * $personas;
+             $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))) * $personas;
+//            $amount = (round($total) + round($pre_total + (($pre_total*$comision)/100))+round($pre_total_trans_guia)) * $personas;
 
 
             // dd("entorno:$entorno,amount:$usr,key:$pwd");
