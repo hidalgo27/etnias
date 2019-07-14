@@ -172,10 +172,10 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($transporte_precios->precio)}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($transporte_precios->precio+($transporte_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
-                                                    @php $pt = $pt + round($transporte_precios->precio);@endphp
+                                                    @php $pt = $pt + round($transporte_precios->precio+($transporte_precios->precio*$comision)/100);@endphp
                                                 @endforeach
                                             @endif
 
@@ -191,10 +191,10 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($guia_precios->precio)}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($guia_precios->precio+($guia_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
-                                                    @php $pg = $pg + round($guia_precios->precio); @endphp
+                                                    @php $pg = $pg + round($guia_precios->precio+($guia_precios->precio*$comision)/100); @endphp
                                                 @endforeach
                                             @endif
                                             {{--<div class="row text-left align-items-center">--}}

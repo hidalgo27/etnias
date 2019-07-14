@@ -4,6 +4,7 @@ return [
     'registrarse' => 'Registrate',
     'login_with' => 'Iniciar sesión con',
     'login' => 'Iniciar sesión',
+    'logout' => 'Cerrar sesión',
     'email_address' => 'correo electrónico',
     'password' => 'Contraseña',
     'remember_me' => 'Recordarme',

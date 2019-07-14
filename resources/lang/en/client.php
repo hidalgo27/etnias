@@ -3,6 +3,7 @@ return [
 'usuario_nuevo' => 'You are a new user?',
 'registrarse' => 'sign up',
 'login_with' => 'Login With',
+'logout' => 'Logout',
 'login' => 'Login',
 'email_address' => 'E-Mail Address',
 'password' => 'Password',
