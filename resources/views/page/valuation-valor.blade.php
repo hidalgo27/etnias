@@ -33,7 +33,7 @@
 
             <div class="row">
                 <div class="col">
-                    <form action="{{route('join_guia_post_path')}}" method="post">
+                    <form action="{{route('encuesta_save_post_path')}}" method="post">
                         @csrf
                         <h5 class="font-weight-bold text-g-red-primary">@lang('join.informacion_general')</h5>
                         <div class="card mb-4">
