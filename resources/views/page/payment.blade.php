@@ -191,7 +191,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($guia_precios->precio+($guia_precios->precio*$comision)/100))}}<small>USD</small></p>
+                                                            <p class="m-0 d-block mb-1"><sup>$</sup>{{round($guia_precios->precio+($guia_precios->precio*$comision)/100)}}<small>USD</small></p>
                                                         </div>
                                                     </div>
                                                     @php $pg = $pg + round($guia_precios->precio+($guia_precios->precio*$comision)/100); @endphp

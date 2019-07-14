@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/page/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/payment.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -128,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="131" column="80" selection-start-line="131" selection-start-column="71" selection-end-line="131" selection-end-column="80" />
+            <state relative-caret-position="269">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
             </state>
           </provider>
         </entry>
@@ -171,11 +169,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3717">
-              <caret line="177" column="146" selection-start-line="177" selection-start-column="146" selection-end-line="177" selection-end-column="146" />
+            <state relative-caret-position="60">
+              <caret line="177" column="147" selection-start-line="177" selection-start-column="147" selection-end-line="177" selection-end-column="147" />
             </state>
           </provider>
         </entry>
@@ -256,13 +254,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Client/ReservaController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BookController.php" />
         <option value="$PROJECT_DIR$/resources/views/page/book.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
         <option value="$PROJECT_DIR$/resources/views/client/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/client/detail-order.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
         <option value="$PROJECT_DIR$/resources/views/page/payment.blade.php" />
       </list>
     </option>
@@ -639,12 +637,12 @@
       <workItem from="1562453232537" duration="7408000" />
       <workItem from="1562704923928" duration="9607000" />
       <workItem from="1562802882352" duration="1393000" />
-      <workItem from="1563117305883" duration="3609000" />
+      <workItem from="1563117305883" duration="3852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37959000" />
+    <option name="totallyTimeSpent" value="38202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="0" />
@@ -1006,17 +1004,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3717">
-          <caret line="177" column="146" selection-start-line="177" selection-start-column="146" selection-end-line="177" selection-end-column="146" />
+        <state relative-caret-position="269">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="131" column="80" selection-start-line="131" selection-start-column="71" selection-end-line="131" selection-end-column="80" />
+        <state relative-caret-position="60">
+          <caret line="177" column="147" selection-start-line="177" selection-start-column="147" selection-end-line="177" selection-end-column="147" />
         </state>
       </provider>
     </entry>
