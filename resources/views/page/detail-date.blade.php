@@ -119,12 +119,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-2">
+                                    <div class="row mt-2 d-none d-md-block">
                                         <div class="col font-poppins">
                                             <h5 class="font-weight-bold pb-3">@lang('comunidad.disponibilidad'):</h5>
                                         </div>
                                     </div>
-                                    <div class="row justify-content-center">
+                                    <div class="row justify-content-center d-none d-md-block">
                                         <div class="col">
                                             <div  id="custom-cells"></div>
                                         </div>

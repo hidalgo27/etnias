@@ -172,7 +172,7 @@
                                                         @php   $per = 'personas'; @endphp
                                                     @endif
                                                         <sup>$</sup>{{round($precio->precio+($precio->precio*$asociaciones->comision)/100)}}<small>USD</small>
-                                                        <small class="d-block">Precio por persona (basado como mínimo {{$rango_min}} {{$per}})</small>
+                                                        <small class="d-block">@lang('home.pp_persona')</small>
 
                                                 </td>
                                                 <td class="text-center">{{ucwords(strtolower($comunidades->nombre))}}</td>
