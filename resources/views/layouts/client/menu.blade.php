@@ -20,7 +20,7 @@
                 <a class="text-primary small d-block font-weight-bold" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                    {{ __('Cerrar Sesión') }}
+                    @lang('client.logout')
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
