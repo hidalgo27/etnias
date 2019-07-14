@@ -4,6 +4,7 @@ namespace EtniasPeru\Http\Controllers;
 
 use Carbon\Carbon;
 use EtniasPeru\Guia;
+use EtniasPeru\ReservaEncuesta;
 use EtniasPeru\User;
 use EtniasPeru\Comida;
 use EtniasPeru\Reserva;
@@ -699,6 +700,23 @@ class PaymentController extends Controller
                 // $descripción_producto='';
                 // $terminos_condiciones='';
                 // dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
+
+
+                /*$encuesta_modelo=Encuesta::get();
+                foreach ($encuesta_modelo->sortby('pos') as $encuesta_m){
+                    $encuesta=new ReservaEncuesta();
+                    $encuesta->pregunta=$encuesta_m->pregunta;
+                    $encuesta->pos=$encuesta_m->pos;
+                    $encuesta->estado=$encuesta_m->estado;
+                    if($encuesta_m->estado=='0'){
+                        $encuesta->valoracion=0;
+                    }
+                    else{
+                        $encuesta->valoracion='';
+                    }
+                    $encuesta->reserva_id=$reservas->id;
+                    $encuesta->save();
+                }*/
 
                Mail::send(new MailReservaSender($user->email,$reservas,$user->password2));
                 // unset($_COOKIE["key"]);

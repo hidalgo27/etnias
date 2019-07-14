@@ -141,6 +141,16 @@ Route::get('/valuation', [
     'as' => 'valuation_path',
 ]);
 
+Route::get('/valuation/{id}', [
+    'uses' => 'ValuationController@index_id',
+    'as' => 'valuation_id_path',
+]);
+
+Route::post('/valuation/client/save/', [
+    'uses' => 'ValuationController@guardar_encuesta',
+    'as' => 'encuesta_save_post_path',
+]);
+
 //client
 Route::get('/client/home', [
     'uses' => 'Client\HomeController@index',
