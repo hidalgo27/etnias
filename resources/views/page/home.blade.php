@@ -247,7 +247,7 @@
                                                 <div class="col">
                                                     <div class="header-img-actividades">
                                                         @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
-                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100">
+                                                            <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_huilloc->titulo)))}}"><img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100"></a>
                                                         @endforeach
                                                         <div class="position-absolute-top">
                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_huilloc->categoria))}}</span>
