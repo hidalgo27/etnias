@@ -702,7 +702,7 @@ class PaymentController extends Controller
                 // dd("$numero_tarjeta_habiente,$fecha_pedido,$importe,$moneda");
 
 
-                $encuesta_modelo=Encuesta::get();
+                /*$encuesta_modelo=Encuesta::get();
                 foreach ($encuesta_modelo->sortby('pos') as $encuesta_m){
                     $encuesta=new ReservaEncuesta();
                     $encuesta->pregunta=$encuesta_m->pregunta;
@@ -716,7 +716,7 @@ class PaymentController extends Controller
                     }
                     $encuesta->reserva_id=$reservas->id;
                     $encuesta->save();
-                }
+                }*/
 
                Mail::send(new MailReservaSender($user->email,$reservas,$user->password2));
                 // unset($_COOKIE["key"]);
