@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -109,15 +111,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="174" column="103" selection-start-line="174" selection-start-column="103" selection-end-line="174" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/page/book.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-230">
@@ -169,11 +162,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="177" column="147" selection-start-line="177" selection-start-column="147" selection-end-line="177" selection-end-column="147" />
+            <state relative-caret-position="422">
+              <caret line="193" column="168" selection-start-line="193" selection-start-column="168" selection-end-line="193" selection-end-column="168" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="10" column="152" selection-start-line="10" selection-start-column="152" selection-end-line="10" selection-end-column="152" />
             </state>
           </provider>
         </entry>
@@ -262,6 +264,7 @@
         <option value="$PROJECT_DIR$/resources/views/page/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
         <option value="$PROJECT_DIR$/resources/views/page/payment.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" />
       </list>
     </option>
   </component>
@@ -637,12 +640,12 @@
       <workItem from="1562453232537" duration="7408000" />
       <workItem from="1562704923928" duration="9607000" />
       <workItem from="1562802882352" duration="1393000" />
-      <workItem from="1563117305883" duration="3852000" />
+      <workItem from="1563117305883" duration="4094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38202000" />
+    <option name="totallyTimeSpent" value="38444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="0" />
@@ -674,13 +677,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Reserva.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3255">
@@ -1013,8 +1009,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/payment.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="177" column="147" selection-start-line="177" selection-start-column="147" selection-end-line="177" selection-end-column="147" />
+        <state relative-caret-position="422">
+          <caret line="193" column="168" selection-start-line="193" selection-start-column="168" selection-end-line="193" selection-end-column="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="10" column="152" selection-start-line="10" selection-start-column="152" selection-end-line="10" selection-end-column="152" />
         </state>
       </provider>
     </entry>
