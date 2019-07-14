@@ -706,6 +706,7 @@ class PaymentController extends Controller
                 foreach ($encuesta_modelo->sortby('pos') as $encuesta_m){
                     $encuesta=new ReservaEncuesta();
                     $encuesta->pregunta=$encuesta_m->pregunta;
+                    $encuesta->pos=$encuesta_m->pos;
                     $encuesta->estado=$encuesta_m->estado;
                     if($encuesta_m->estado=='0'){
                         $encuesta->valoracion=0;
