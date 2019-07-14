@@ -2,6 +2,7 @@
 
 namespace EtniasPeru;
 
+use App\ReservaEncuesta;
 use Illuminate\Database\Eloquent\Model;
 
 class Reserva extends Model
@@ -39,5 +40,9 @@ class Reserva extends Model
     public function guia()
     {
         return $this->hasMany(ReservaGuia::class, 'reserva_id');
+    }
+    public function encuestas()
+    {
+        return $this->hasMany(ReservaEncuesta::class, 'reserva_id');
     }
 }
