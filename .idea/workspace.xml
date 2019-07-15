@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomepageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomepageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/book.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/book.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
@@ -139,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="329" column="12" selection-start-line="329" selection-start-column="12" selection-end-line="329" selection-end-column="25" />
+            <state relative-caret-position="-1323">
+              <caret line="364" column="32" selection-start-line="364" selection-start-column="32" selection-end-line="364" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -157,11 +155,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomepageController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="30" column="132" selection-start-line="30" selection-start-column="132" selection-end-line="30" selection-end-column="132" />
+              <caret line="30" column="90" lean-forward="true" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -170,7 +168,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/page/detail-date.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="370" column="32" selection-start-line="370" selection-start-column="32" selection-end-line="370" selection-end-column="32" />
+              <caret line="370" column="12" selection-start-line="370" selection-start-column="12" selection-end-line="370" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -241,9 +239,9 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/client/menu.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/book.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomepageController.php" />
+        <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -648,12 +646,12 @@
       <workItem from="1563117305883" duration="4925000" />
       <workItem from="1563130369654" duration="543000" />
       <workItem from="1563205939128" duration="253000" />
-      <workItem from="1563223344896" duration="3522000" />
+      <workItem from="1563223344896" duration="3797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43593000" />
+    <option name="totallyTimeSpent" value="43868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="0" />
@@ -994,20 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/detail-date.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="370" column="32" selection-start-line="370" selection-start-column="32" selection-end-line="370" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="329" column="12" selection-start-line="329" selection-start-column="12" selection-end-line="329" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7211">
@@ -1018,7 +1002,21 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomepageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="30" column="132" selection-start-line="30" selection-start-column="132" selection-end-line="30" selection-end-column="132" />
+          <caret line="30" column="90" lean-forward="true" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/detail-date.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="370" column="12" selection-start-line="370" selection-start-column="12" selection-end-line="370" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1323">
+          <caret line="364" column="32" selection-start-line="364" selection-start-column="32" selection-end-line="364" selection-end-column="32" />
         </state>
       </provider>
     </entry>

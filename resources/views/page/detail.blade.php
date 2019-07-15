@@ -328,6 +328,7 @@
         $picker.datepicker({
             language: 'en',
             inline: true,
+            minDate: new Date(),
             onRenderCell: function (date, cellType) {
                 console.log('recorrido onRenderCell:'+date);
                 var currentDate = date.getDate();
@@ -361,6 +362,7 @@
 
         $picker3.datepicker({
             language: 'en',
+            minDate: new Date(),
             onRenderCell: function (date, cellType) {
                 console.log('recorrido onRenderCell:'+date);
                 var currentDate = date.getDate();
