@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -650,12 +648,12 @@
       <workItem from="1563117305883" duration="4925000" />
       <workItem from="1563130369654" duration="543000" />
       <workItem from="1563205939128" duration="253000" />
-      <workItem from="1563223344896" duration="4195000" />
+      <workItem from="1563223344896" duration="4430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44266000" />
+    <option name="totallyTimeSpent" value="44501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="0" />
