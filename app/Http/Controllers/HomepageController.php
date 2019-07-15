@@ -24,10 +24,11 @@ class HomepageController extends Controller
         $categoria = Categoria::all();
 
         $f_actual = date("m");
+        $f_day = date("d");
 
         $disponibilidad = ActividadDisponible::where('estado',1)->get()->unique('actividad_id');
 
-        $disponibilidad_mes = ActividadDisponible::where('estado',1)->whereMonth('fecha','=',$f_actual)->inRandomOrder()->take(10)->get();
+        $disponibilidad_mes = ActividadDisponible::where('estado',1)->whereMonth('fecha','=',$f_actual)->whereDay('fecha','>=',$f_day)->inRandomOrder()->take(10)->get();
 
         $comunidad_huilloc = Comunidad::with([
                 'asociaciones.actividades.fotos',

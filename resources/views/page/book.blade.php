@@ -69,7 +69,7 @@
                                             <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> {{ucwords(strtolower($hospedaje_precios->hospedaje->titulo))}}
 
                                                 <div class="custom-control custom-checkbox float-right text-primary">
-                                                    <input type="checkbox" class="custom-control-input" name="hospedaje[]" id="hospedaje_{{$hospedaje_precios->id}}" value="{{$hospedaje_precios->id}}-{{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}-{{round($total)}}" onclick="if (this.checked) sumar_hospedaje(this.value); else restar_hospedaje(this.value)">
+                                                    <input type="checkbox" class="custom-control-input" name="hospedaje[]" id="hospedaje_{{$hospedaje_precios->id}}" value="{{$hospedaje_precios->id}}-{{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}-{{round($total)}}" onclick="if (this.checked) sumar_hospedaje({{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}); else restar_hospedaje({{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}})">
                                                     <label class="custom-control-label cursor-pointer" for="hospedaje_{{$hospedaje_precios->id}}"><sup>$</sup>{{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}<small class="font-weight-bold">USD</small></label>
                                                 </div>
                                             </h5>
@@ -142,7 +142,8 @@
                     <div class="col col-md">
                         <div class="card">
                             <div class="card-body text-center">
-                                <sup>$</sup><span class="font-weight-bold display-4 h1" id="d_total" value="{{round($total)}}">{{round($total)}}</span><small>USD</small>
+                                <sup>$</sup><span class="font-weight-bold display-4 h1" id="d_total_text" value="{{round($total)}}">{{round($total)}}</span><small>USD</small>
+                                <input type="hidden" id="d_total" value="{{round($total)}}">
                                 <small class="d-block">@lang('actividades.precio_persona')</small>
                                 <hr>
                                 <div class="row text-left align-items-center">
@@ -202,93 +203,98 @@
     <script>
         function sumar_comida($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
+            $price_t = parseFloat($('#d_total').val());
             $item = $item.split('-');
             $price_c = parseFloat($item[1]);
             $n_total = $price_t + $price_c;
 
             $t_pasajeros = $pasajeros * $n_total;
 
-            document.getElementById('d_total').innerHTML = Math.round($n_total);
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total);
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros);
+            $('#d_total').val(Math.round($n_total));
         }
         function restar_comida($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
+            $price_t = parseFloat($('#d_total').val());
             $item = $item.split('-');
             $price_c = parseFloat($item[1]);
             $n_total = $price_t - $price_c;
             $t_pasajeros = $pasajeros * $n_total;
 
-            document.getElementById('d_total').innerHTML = Math.round($n_total.toFixed(2));
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total.toFixed(2));
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros.toFixed(2));
+            $('#d_total').val(Math.round($n_total));
         }
 
         function sumar_hospedaje($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
-            $item = $item.split('-');
-            $price_c = parseFloat($item[1]);
+            $price_t = parseFloat($('#d_total').val());
+            $price_c = parseFloat($item);
             $n_total = $price_t + $price_c;
 
             $t_pasajeros = $pasajeros * $n_total;
-
-            document.getElementById('d_total').innerHTML = Math.round($n_total);
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total);
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros);
+            $('#d_total').val(Math.round($n_total));
         }
         function restar_hospedaje($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
-            $item = $item.split('-');
-            $price_c = parseFloat($item[1]);
+            $price_t = parseFloat($('#d_total').val());
+            $price_c = parseFloat($item);
             $n_total = $price_t - $price_c;
             $t_pasajeros = $pasajeros * $n_total;
 
-            document.getElementById('d_total').innerHTML = Math.round($n_total.toFixed(2));
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total.toFixed(2));
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros.toFixed(2));
+            $('#d_total').val(Math.round($n_total));
         }
 
         function sumar_transporte($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
+            $price_t = parseFloat($('#d_total').val());
             $item = $item.split('-');
             $price_c = parseFloat($item[1]);
             $n_total = $price_t + $price_c;
             $t_pasajeros = $pasajeros * $n_total;
-            document.getElementById('d_total').innerHTML = Math.round($n_total.toFixed(2));
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total.toFixed(2));
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros.toFixed(2));
+            $('#d_total').val(Math.round($n_total));
         }
         function restar_transporte($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
+            $price_t = parseFloat($('#d_total').val());
             $item = $item.split('-');
             $price_c = parseFloat($item[1]);
             $n_total = $price_t - $price_c;
             $t_pasajeros = $pasajeros * $n_total;
 
-            document.getElementById('d_total').innerHTML = Math.round($n_total.toFixed(2));
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total.toFixed(2));
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros.toFixed(2));
+            $('#d_total').val(Math.round($n_total));
         }
 
         function sumar_guia($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
+            $price_t = parseFloat($('#d_total').val());
             $item = $item.split('-');
             $price_c = parseFloat($item[1]);
             $n_total = $price_t + $price_c;
             $t_pasajeros = $pasajeros * $n_total;
-            document.getElementById('d_total').innerHTML = Math.round($n_total.toFixed(2));
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total.toFixed(2));
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros.toFixed(2));
+            $('#d_total').val(Math.round($n_total));
         }
         function restar_guia($item) {
             $pasajeros = parseFloat("{{$personas}}");
-            $price_t = parseFloat(document.getElementById("d_total").innerHTML);
+            $price_t = parseFloat($('#d_total').val());
             $item = $item.split('-');
             $price_c = parseFloat($item[1]);
             $n_total = $price_t - $price_c;
             $t_pasajeros = $pasajeros * $n_total;
-            document.getElementById('d_total').innerHTML = Math.round($n_total.toFixed(2));
+            document.getElementById('d_total_text').innerHTML = Math.round($n_total.toFixed(2));
             document.getElementById('total_pasajeros').innerHTML = Math.round($t_pasajeros.toFixed(2));
+            $('#d_total').val(Math.round($n_total));
         }
     </script>
 @endpush
