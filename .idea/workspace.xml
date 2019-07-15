@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
@@ -128,16 +128,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/page/default.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+            <state relative-caret-position="348">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/page/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1323">
@@ -237,11 +237,11 @@
         <option value="$PROJECT_DIR$/resources/lang/en/client.php" />
         <option value="$PROJECT_DIR$/resources/lang/es/client.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/client/menu.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/book.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomepageController.php" />
         <option value="$PROJECT_DIR$/resources/views/page/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" />
       </list>
     </option>
   </component>
@@ -646,12 +646,12 @@
       <workItem from="1563117305883" duration="4925000" />
       <workItem from="1563130369654" duration="543000" />
       <workItem from="1563205939128" duration="253000" />
-      <workItem from="1563223344896" duration="3797000" />
+      <workItem from="1563223344896" duration="3959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43868000" />
+    <option name="totallyTimeSpent" value="44030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="0" />
@@ -971,13 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/page/default.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/page/book.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -1017,6 +1010,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1323">
           <caret line="364" column="32" selection-start-line="364" selection-start-column="32" selection-end-line="364" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/page/default.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
         </state>
       </provider>
     </entry>
