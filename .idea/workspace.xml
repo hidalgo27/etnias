@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -131,8 +129,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/page/default.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+            <state relative-caret-position="399">
+              <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
               <folding>
                 <element signature="n#script#2;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#iframe#0;n#noscript#0;n#html#0;n#!!top" expanded="true" />
@@ -650,16 +648,15 @@
       <workItem from="1563117305883" duration="4925000" />
       <workItem from="1563130369654" duration="543000" />
       <workItem from="1563205939128" duration="253000" />
-      <workItem from="1563223344896" duration="4669000" />
+      <workItem from="1563223344896" duration="4788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44740000" />
+    <option name="totallyTimeSpent" value="44859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21316166" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1019,8 +1016,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/page/default.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state relative-caret-position="399">
+          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
           <folding>
             <element signature="n#script#2;n#html#0;n#!!top" />
             <element signature="n#style#0;n#iframe#0;n#noscript#0;n#html#0;n#!!top" expanded="true" />
