@@ -75,7 +75,7 @@
                                         {{--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi iure labore nemo quae quis ratione sequi suscipit. Amet atque blanditiis iure natus quas quidem similique, tenetur. Alias facilis quo veniam.--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
-                                <a href="{{asset('doc/terminos-y-condiciones.pdf')}}" target="_blank" class="btn btn-link font-weight-bold small p-0 mt-2">@lang('book.ver_ventana_distinta') <i class="fas fa-external-link-alt"></i></a>
+                                <a href="{{asset('doc/terms-and-conditions.pdf')}}" target="_blank" class="btn btn-link font-weight-bold small p-0 mt-2">@lang('book.ver_ventana_distinta') <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
 

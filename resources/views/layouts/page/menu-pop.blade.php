@@ -51,7 +51,7 @@
                 <hr>
                 <div class="row mt-4">
                     <div class="col text-center">
-                        <a href="{{asset('doc/terminos-y-condiciones.pdf')}}" target="_blank" class="font-weight-normal h6 d-block text-g-grey-light">@lang('home.terminos')</a>
+                        <a href="{{asset('doc/terms-and-conditions.pdf')}}" target="_blank" class="font-weight-normal h6 d-block text-g-grey-light">@lang('home.terminos')</a>
                     </div>
                 </div>
             </div>
