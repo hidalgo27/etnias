@@ -168,7 +168,7 @@
                                                         <div class="col">
                                                             <p class="m-0 d-block mb-1">
                                                                 <i class="fas fa-car h5 text-g-grey-light pr-2 float-left"></i>
-                                                                Transporte
+                                                                @lang('join.transporte')
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
@@ -187,7 +187,7 @@
                                                         <div class="col">
                                                             <p class="m-0 d-block mb-1">
                                                                 <i class="fas fa-male h5 text-g-grey-light pr-2 float-left"></i>
-                                                                Guia: {{$guia_precios->nombre}}
+                                                                @lang('client.guia'): {{$guia_precios->nombre}}
                                                             </p>
                                                         </div>
                                                         <div class="col text-right">
