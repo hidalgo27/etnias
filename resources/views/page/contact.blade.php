@@ -173,7 +173,7 @@
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <b><strong>THANK YOU</strong> for contacting us, a <strong>MiEtnia</strong></b>
+                                            <b><strong>THANK YOU</strong> for contacting us. <strong>MiEtnia</strong></b>
                                         </div>
                                     </div>
                                 </div>

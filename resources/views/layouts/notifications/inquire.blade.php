@@ -8,9 +8,8 @@
                         <tbody>
                         <tr bgcolor="#ffffff">
                             <td valign="top" style="padding:10px 35px 0 35px;color:#ffffff">
-                                <img class="CToWUd" width="350" alt="logo mietnia" src="{{asset('images/logo-etnias.png')}}" style="vertical-align:top;max-width:220px">
+                                <img class="CToWUd" width="350" alt="logo mietnia" src="{{asset('images/etnias-peru.png')}}" style="vertical-align:top;max-width:220px">
                             </td>
-
                         </tr>
                         @yield('content')
                         </tbody>

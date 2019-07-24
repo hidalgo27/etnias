@@ -19,16 +19,8 @@ class ContactController extends Controller
 
     public function contact_s(Request $request)
     {
-//        if (App::isLocale('en')) {
-            $from = 'hidalgochponce@gmail.com';
-//        }
-//        if (App::isLocale('es')) {
-//            $from = 'info@gotoperu.com.pe';
-//        }
-//        if (App::isLocale('pt')) {
-//            $from = 'contato@gotoperu.com.br';
-//        }
-//        $from2 = 'doriam@gotoperu.com';
+        $from = 'hidalgochponce@gmail.com';
+
         $name = $request->input('c_name');
         $email = $request->input('c_email');
         $phone = $request->input('c_phone');
@@ -37,9 +29,9 @@ class ContactController extends Controller
         try {
             Mail::send(['html' => 'notifications.page.client-form-design'], ['name' => $name], function ($messaje) use ($email, $name) {
                 $messaje->to($email, $name)
-                    ->subject('GotoPeru')
+                    ->subject('MiEtnia')
                     /*->attach('ruta')*/
-                    ->from('info@gotoperu.com', 'GotoPeru');
+                    ->from('atencionalcliente@mietnia.com', 'MiEtnia');
             });
             Mail::send(['html' => 'notifications.page.admin-form-contact'], [
                 'name' => $name,
@@ -48,11 +40,11 @@ class ContactController extends Controller
                 'city' => $city,
                 'comment' => $comment
             ], function ($messaje) use ($from) {
-                $messaje->to($from, 'GotoPeru')
-                    ->subject('GotoPeru')
-//                    ->cc($from2, 'GotoPeru')
+                $messaje->to($from, 'MiEtnia')
+                    ->subject('MiEtnia')
+//                    ->cc($from2, 'MiEtnia')
                     /*->attach('ruta')*/
-                    ->from('info@gotoperu.com', 'GotoPeru');
+                    ->from('atencionalcliente@mietnia.com', 'MiEtnia');
             });
 
             return 'Thank you.';
