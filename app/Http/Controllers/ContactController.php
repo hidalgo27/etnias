@@ -16,69 +16,49 @@ class ContactController extends Controller
         return view('page.contact');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function contact_s(Request $request)
     {
-        //
-    }
+//        if (App::isLocale('en')) {
+            $from = 'hidalgochponce@gmail.com';
+//        }
+//        if (App::isLocale('es')) {
+//            $from = 'info@gotoperu.com.pe';
+//        }
+//        if (App::isLocale('pt')) {
+//            $from = 'contato@gotoperu.com.br';
+//        }
+//        $from2 = 'doriam@gotoperu.com';
+        $name = $request->input('c_name');
+        $email = $request->input('c_email');
+        $phone = $request->input('c_phone');
+        $city = $request->input('c_city');
+        $comment = $request->input('c_comment');
+        try {
+            Mail::send(['html' => 'notifications.page.client-form-design'], ['name' => $name], function ($messaje) use ($email, $name) {
+                $messaje->to($email, $name)
+                    ->subject('GotoPeru')
+                    /*->attach('ruta')*/
+                    ->from('info@gotoperu.com', 'GotoPeru');
+            });
+            Mail::send(['html' => 'notifications.page.admin-form-contact'], [
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'city' => $city,
+                'comment' => $comment
+            ], function ($messaje) use ($from) {
+                $messaje->to($from, 'GotoPeru')
+                    ->subject('GotoPeru')
+//                    ->cc($from2, 'GotoPeru')
+                    /*->attach('ruta')*/
+                    ->from('info@gotoperu.com', 'GotoPeru');
+            });
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return 'Thank you.';
+        }
+        catch (Exception $e){
+            return $e;
+        }
+//        return view('page.itinerary', ['paquete'=>$paquete, 'paquete_destinos'=>$paquete_destinos]);
     }
 }
