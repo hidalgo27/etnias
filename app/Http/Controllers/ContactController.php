@@ -19,7 +19,7 @@ class ContactController extends Controller
 
     public function contact_s(Request $request)
     {
-        $from = 'hidalgochponce@gmail.com';
+        $from = 'atencionalcliente@mietnia.com';
 
         $name = $request->input('c_name');
         $email = $request->input('c_email');
