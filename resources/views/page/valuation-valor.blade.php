@@ -30,7 +30,7 @@
                     @endif
                 </div>
             </div>
-
+            @if($reserva->estado_encuesta=='0')
             <div class="row">
                 <div class="col">
                     <form action="{{route('encuesta_save_post_path')}}" method="post">
@@ -47,167 +47,20 @@
                                             @for($i=1;$i<=5;$i++)
                                                 <label class="col-auto btn btn-secondary">
                                                     <input type="radio" name="options_{{$encuesta->id}}" value="{{$i}}" autocomplete="off">
-                                                    @for($j=1;$i<=$i;$j++)
+                                                    @for($j=1;$j<=$i;$j++)
                                                         <i class="fa fa-star"></i>
                                                     @endfor
                                                 </label>
                                             @endfor
-
-
-                                        <!--<label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option3" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>-->
                                     </div>
                                 </div>
-                                @else
-                                    <div class="form-group">
-                                        <label for="txt_nombre" class="font-weight-bold text-g-grey-light">{{$encuesta->pregunta}}</label>
-                                        <textarea name="pregunta_texto_{{$encuesta->id}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                @endif
+                                    @else
+                                        <div class="form-group">
+                                            <label for="txt_nombre" class="font-weight-bold text-g-grey-light">{{$encuesta->pregunta}}</label>
+                                            <textarea name="pregunta_texto_{{$encuesta->id}}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    @endif
                                 @endforeach
-
-<!--
-                                <div class="form-group">
-                                    <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Que le pareció la exposición?</label>
-                                    <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option3" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Limpieza de la comunidad?</label>
-                                    <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option3" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Calidad de la comida?</label>
-                                    <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option1" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                        <label class="col-auto btn btn-secondary">
-                                            <input type="radio" name="options" id="option3" autocomplete="off">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </label>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="txt_nombre" class="font-weight-bold text-g-grey-light">Déjanos un comentario sobre tu experiencia en la comunidad</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-                                </div>-->
-
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -220,77 +73,7 @@
 
                 </div>
             </div>
+            @endif
         </div>
     </section>
 @endsection
-@push('scripts')
-    <script>
-        function mostrar_provincias(departamento_id){
-            // alert('hola:'+departamento_id);
-            console.log('departamento_id:'+departamento_id);
-            if(departamento_id>0){
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type:'POST',
-                    url:'mostrar-provincias',
-                    data:{departamento_id:departamento_id},
-                    success:function(data){
-                        $("select[name='provincia']").html('');
-                        $("select[name='provincia']").html(data.options);
-                        $("#provincia").focus();
-                    }
-                });
-            }
-        }
-        function mostrar_distritos(provincia_id){
-            // alert('hola:'+departamento_id);
-            console.log('departamento_id:'+provincia_id);
-            if(provincia_id>0){
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type:'POST',
-                    url:'mostrar-distritos',
-                    data:{provincia_id:provincia_id},
-                    success:function(data){
-                        $("select[name='distrito']").html('');
-                        $("select[name='distrito']").html(data.options);
-                        $("#distrito").focus();
-                    }
-                });
-            }
-        }
-        function mostrar_comunidades(distrito_id,asociacion_id){
-            // alert('hola:'+departamento_id);
-            console.log('distrito_id:'+distrito_id);
-            if(distrito_id>0){
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type:'POST',
-                    url:'mostrar-comunidades',
-                    data:{distrito_id:distrito_id},
-                    success:function(data){
-
-                        $("#comunidad_"+asociacion_id).html('');
-                        $("#comunidad_"+asociacion_id).html(data.options);
-
-                        $("#comunidad_0").focus();
-
-                    }
-                });
-            }
-        }
-
-    </script>
-@endpush
