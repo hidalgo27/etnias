@@ -42,6 +42,10 @@
                             <div class="col text-center">
                                 <a href="https://www.instagram.com/mietnia/" target="_blank"><i class="fab fa-instagram fa-2x text-g-grey-light"></i></a>
                             </div>
+
+                            <div class="col text-center">
+                                <a href="https://api.whatsapp.com/send?phone=51917474233" target="_blank"><i class="fab fa-whatsapp fa-2x text-g-grey-light"></i></a>
+                            </div>
 {{--                            <div class="col">--}}
 {{--                                <i class="fab fa-youtube fa-2x text-danger"></i>--}}
 {{--                            </div>--}}
