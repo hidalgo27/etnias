@@ -13,13 +13,23 @@
             </div>
             <div id="home-slider-container">
                 <div id="home-slider">
-                    @foreach($comunidades as $comunidads)
+                    @if (App::isLocale('en'))
+                        @foreach($comunidades as $comunidads)
+                                @foreach($comunidads->fotos->where('estado',1)->take(3) as $foto_portada)
+                                    <div class="slider-item">
+                                        <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                                    </div>
+                                @endforeach
+                        @endforeach
+                    @else
+                        @foreach($comunidades as $comunidads)
                             @foreach($comunidads->fotos->where('estado',1)->take(3) as $foto_portada)
                                 <div class="slider-item">
-                                    <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                                    <img src="http://admin.mietnia.pe/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
                                 </div>
                             @endforeach
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </section>
@@ -46,9 +56,15 @@
                     @foreach($comunidades as $comunidad)
 
                         <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
-                            @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
-                                <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
-                            @endforeach
+                            @if (App::isLocale('en'))
+                                @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
+                                    <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
+                                @endforeach
+                            @else
+                                @foreach($comunidad->fotos->where('estado',2)->take(1) as $fotos)
+                                    <img src="http://admin.mietnia.pe/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 rounded shadow">
+                                @endforeach
+                            @endif
                             <a href="{{route('comunidad_show_path', str_replace(' ','-', strtolower($comunidad->nombre)))}}" class="m-0 d-block mt-3 h3 font-weight-bold text-g-green-light stretched-link">{{ucwords(strtolower($comunidad->nombre))}}</a>
                             <div class="box-comunidad-arrow text-center m-auto"></div>
                             <div class="card bg-light shadow">

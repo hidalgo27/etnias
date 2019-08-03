@@ -16,9 +16,15 @@
             <div id="home-slider-container">
                 <div id="home-slider">
                     <div class="slider-item">
-                        @foreach($comunidades->fotos->where('estado',1)->take(1) as $foto_portada)
-                            <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
-                        @endforeach
+                        @if (App::isLocale('en'))
+                            @foreach($comunidades->fotos->where('estado',1)->take(1) as $foto_portada)
+                                <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                            @endforeach
+                        @else
+                            @foreach($comunidades->fotos->where('estado',1)->take(1) as $foto_portada)
+                                <img src="http://admin.mietnia.pe/admin/comunidad/editar/imagen/{{$foto_portada->imagen}}"/>
+                            @endforeach
+                        @endif
                         {{--<div class="container">--}}
                         {{--<div class="slider-content row align-items-center">--}}
                         {{--<div class="container">--}}
@@ -66,9 +72,15 @@
                                                             <div class="row">
                                                                 <div class="col">
                                                                     <div class="header-img-actividades">
-                                                                        @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
-                                                                            <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="w-100">
-                                                                        @endforeach
+                                                                        @if (App::isLocale('en'))
+                                                                            @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                                <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="w-100">
+                                                                            @endforeach
+                                                                        @else
+                                                                            @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                                <img src="https://admin.mietnia.pe/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="" class="w-100">
+                                                                            @endforeach
+                                                                        @endif
                                                                         <div class="position-absolute-top">
                                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades->categoria))}}</span>
                                                                         </div>
@@ -104,9 +116,15 @@
                                 <div class="row">
                                     @foreach($comunidades->asociaciones as $asociaciones)
                                     <div class="col-12 mb-4 mb-md-0 col-md-4 text-center">
-                                        @foreach($asociaciones->fotos->where('estado',2)->take(1) as $foto_asociacion)
-                                        <img src="http://admin.mietnia.com/admin/asociacion/editar/imagen/{{$foto_asociacion->imagen}}" alt="" width="150" height="150" class="rounded-circle shadow">
-                                        @endforeach
+                                        @if (App::isLocale('en'))
+                                            @foreach($asociaciones->fotos->where('estado',2)->take(1) as $foto_asociacion)
+                                            <img src="http://admin.mietnia.com/admin/asociacion/editar/imagen/{{$foto_asociacion->imagen}}" alt="" width="150" height="150" class="rounded-circle shadow">
+                                            @endforeach
+                                        @else
+                                            @foreach($asociaciones->fotos->where('estado',2)->take(1) as $foto_asociacion)
+                                                <img src="http://admin.mietnia.pe/admin/asociacion/editar/imagen/{{$foto_asociacion->imagen}}" alt="" width="150" height="150" class="rounded-circle shadow">
+                                            @endforeach
+                                        @endif
                                         <h6 class="d-block my-2 font-weight-bold text-g-grey-primary cursor-pointer stretched-link" data-toggle="modal" data-target="#comunidad-{{$asociaciones->id}}">{{$asociaciones->nombre}}</h6>
                                         <!-- Modal -->
                                         <div class="modal fade" id="comunidad-{{$asociaciones->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

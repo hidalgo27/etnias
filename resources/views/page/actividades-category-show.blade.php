@@ -87,12 +87,21 @@
                 <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md-3">
 
                     <ul class="list-group list-group-flush shadow-sm sticky-top">
-                        @foreach($categoria as $categorias)
-                            <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="list-group-item list-group-item-action font-weight-bold text-g-grey-light">
-                                <img src="{{asset('images/categoria/'.$categorias->imagen.'')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
-                                {{ucwords(strtolower($categorias->nombre))}}
-                            </a>
-                        @endforeach
+                        @if (App::isLocale('en'))
+                            @foreach($categoria as $categorias)
+                                <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="list-group-item list-group-item-action font-weight-bold text-g-grey-light">
+                                    <img src="{{asset('http://admin.mietnia.com/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
+                                    {{ucwords(strtolower($categorias->nombre))}}
+                                </a>
+                            @endforeach
+                        @else
+                            @foreach($categoria as $categorias)
+                                <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="list-group-item list-group-item-action font-weight-bold text-g-grey-light">
+                                    <img src="{{asset('http://admin.mietnia.pe/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
+                                    {{ucwords(strtolower($categorias->nombre))}}
+                                </a>
+                            @endforeach
+                        @endif
                     </ul>
 
                 </div>
@@ -115,9 +124,15 @@
                                                 <td class="">
                                                     <div class="row align-items-center">
                                                         <div class="col-auto">
-                                                            @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
-                                                                <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
-                                                            @endforeach
+                                                            @if (App::isLocale('en'))
+                                                                @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                    <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                                @endforeach
+                                                            @else
+                                                                @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                    <img src="https://admin.mietnia.pe/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                                @endforeach
+                                                            @endif
                                                         </div>
                                                         <div class="col text-truncate">
                                                             <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">

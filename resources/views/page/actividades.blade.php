@@ -115,9 +115,15 @@
                                                     <td class="">
                                                         <div class="row align-items-center">
                                                             <div class="col-auto">
-                                                                @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
-                                                                    <img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
-                                                                @endforeach
+                                                                @if (App::isLocale('en'))
+                                                                    @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                        <img src="http://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                                    @endforeach
+                                                                @else
+                                                                    @foreach($actividades->fotos->where('estado',2)->take(1) as $fotos)
+                                                                        <img src="http://admin.mietnia.pe/admin/mostar/imagen/{{$fotos->imagen}}/actividades" alt="">
+                                                                    @endforeach
+                                                                @endif
                                                             </div>
                                                             <div class="col text-truncate">
                                                                 <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades->titulo)))}}" class="events-title font-weight-bold text-g-grey-primary stretched-link">
