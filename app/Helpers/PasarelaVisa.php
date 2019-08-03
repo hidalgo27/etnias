@@ -1,6 +1,7 @@
 <?php
 namespace EtniasPeru\Helpers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,7 +37,7 @@ class PasarelaVisa{
         // $this->AccessKey="AKIAJMS5RZP6ISU4T35Q";
         // $this->SecretAccessKey="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";
         if(App::isLocale('en')){
-            $this->merchantidtest="342062522";
+            $this->merchantidtest="115015006";
             $this->usrtest="integraciones.visanet@necomplus.com";
             $this->pwdtest='d5e7nk$M';
         }
@@ -55,7 +56,7 @@ class PasarelaVisa{
             $this->pwd='?skD-7eX';
         }
         else{
-            $this->merchantidprd="115015006";
+            $this->merchantidprd="650003652";
             $this->usr="freddysilvah@outlook.com";
             $this->pwd='?skD-7eX';
         }
