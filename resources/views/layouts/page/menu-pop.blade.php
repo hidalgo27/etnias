@@ -31,7 +31,7 @@
                 </div>
                 <hr class="my-3">
                 <div class="row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-8">
                         <div class="row">
                             <div class="col text-center">
                                 <a href="https://www.facebook.com/Mietnia/" target="_blank"><i class="fab fa-facebook fa-2x text-primary"></i></a>
