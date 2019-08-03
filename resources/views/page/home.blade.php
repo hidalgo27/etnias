@@ -721,7 +721,7 @@
                                                 </div>
 
                                                 <div class="row justify-content-center py-4">
-                                                    <div class="col-6 text-center">
+                                                    <div class="col-12 text-center">
                                                         <button type="button" class="btn btn-primary btn-block btn-lg" onclick="subscribir()" id="c_submit">@lang('contact.Signup')</button>
                                                         <i class="fas fa-spinner fa-pulse fa-2x text-primary d-none" id="c_load"></i>
                                                         <p>@lang('contact.dont_worry')</p>
