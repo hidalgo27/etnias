@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c53846e4-c8ec-4921-a33e-036f83418ed3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/PasarelaVisa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +17,14 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
