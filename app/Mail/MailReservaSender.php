@@ -36,6 +36,7 @@ class MailReservaSender extends Mailable
         // return $this->view('view.name');
         return $this->view('mail.new-reserva',['reserva'=>$this->reserva,'email'=>$this->email,'pw'=>$this->pw])
             ->to($this->email)
+            ->cc('misreservas@mietnia.com')
             ->from('misreservas@mietnia.com','Reservas')
             ->subject('ENVIO AUTOMATICO - CONSTANCIA DE PAGO DE SERVICIO');
     }
