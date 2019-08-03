@@ -11,7 +11,7 @@ return [
     'subscr_h1' => 'Suscríbete a nuestro boletín',
     'subscr_p' => '¿Quieres recibir una notificación cuando se publique nuestro artículo? Ingrese su dirección de correo electrónico y nombre a continuación para ser el primero en saberlo.',
     'name' => 'NOMBRE',
-    'correo' => 'CORREO ELECTRÓNICO',
+    'email' => 'CORREO ELECTRÓNICO',
     'Signup' => 'Regístrese para recibir el boletín ahora',
     'dont_worry' => 'No te preocupes! No serás spam',
     'thank' => 'Gracias',

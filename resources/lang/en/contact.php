@@ -11,7 +11,7 @@ return [
     'subscr_h1' => 'Subscribe to our newsletter',
     'subscr_p' => 'Want to be notified when our article is published? Enter your email address and name below to be the first to know.',
     'name' => 'NAME',
-    'correo' => 'EMAIL',
+    'email' => 'EMAIL',
     'Signup' => 'Signup for newsletter now',
     'dont_worry' => 'Don\'t Worry ! You will not be spammed',
     'thank' => 'THANK YOU',
