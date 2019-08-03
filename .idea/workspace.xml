@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/notifications/page/subscribe-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +183,7 @@
       <workItem from="1563223344896" duration="4788000" />
       <workItem from="1563395512511" duration="1318000" />
       <workItem from="1563980063561" duration="5373000" />
-      <workItem from="1564853999164" duration="2502000" />
+      <workItem from="1564853999164" duration="5687000" />
     </task>
     <servers />
   </component>
