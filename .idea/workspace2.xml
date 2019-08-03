@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-    </list>
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -138,8 +136,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="718" column="19" selection-start-line="718" selection-start-column="19" selection-end-line="718" selection-end-column="19" />
+            <state relative-caret-position="297">
+              <caret line="718" column="19" lean-forward="true" selection-start-line="718" selection-start-column="19" selection-end-line="718" selection-end-column="19" />
               <folding>
                 <element signature="e#40870#41186#0#PHP" />
                 <element signature="e#40608#40655#0#PHP" />
@@ -488,12 +486,12 @@
       <updated>1561915351807</updated>
       <workItem from="1561915358305" duration="1141000" />
       <workItem from="1562426643287" duration="1200000" />
-      <workItem from="1563119299595" duration="9542000" />
+      <workItem from="1563119299595" duration="10147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13198000" />
+    <option name="totallyTimeSpent" value="13803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -707,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="718" column="19" selection-start-line="718" selection-start-column="19" selection-end-line="718" selection-end-column="19" />
+        <state relative-caret-position="297">
+          <caret line="718" column="19" lean-forward="true" selection-start-line="718" selection-start-column="19" selection-end-line="718" selection-end-column="19" />
           <folding>
             <element signature="e#40870#41186#0#PHP" />
             <element signature="e#40608#40655#0#PHP" />
