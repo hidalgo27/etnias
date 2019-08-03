@@ -54,4 +54,38 @@ class ContactController extends Controller
         }
 //        return view('page.itinerary', ['paquete'=>$paquete, 'paquete_destinos'=>$paquete_destinos]);
     }
+
+
+    public function subscribir_s(Request $request)
+    {
+        $from = 'atencionalcliente@mietnia.com';
+
+        $name = $request->input('s_name');
+        $email = $request->input('s_email');
+        try {
+            Mail::send(['html' => 'notifications.page.client-form-design'], ['name' => $name], function ($messaje) use ($email, $name) {
+                $messaje->to($email, $name)
+                    ->subject('MiEtnia')
+                    /*->attach('ruta')*/
+                    ->from('atencionalcliente@mietnia.com', 'MiEtnia');
+            });
+            Mail::send(['html' => 'notifications.page.subscribe-form'], [
+                'name' => $name,
+                'email' => $email,
+            ], function ($messaje) use ($from) {
+                $messaje->to($from, 'MiEtnia')
+                    ->subject('MiEtnia')
+//                    ->cc($from2, 'MiEtnia')
+                    /*->attach('ruta')*/
+                    ->from('atencionalcliente@mietnia.com', 'MiEtnia');
+            });
+
+            return 'Thank you.';
+        }
+        catch (Exception $e){
+            return $e;
+        }
+//        return view('page.itinerary', ['paquete'=>$paquete, 'paquete_destinos'=>$paquete_destinos]);
+    }
+
 }

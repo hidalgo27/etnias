@@ -657,4 +657,162 @@
                 <img src="{{asset('images/pasto.png')}}" alt="" class="w-100">
             </div>
         </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="subscri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button type="button" class="close position-absolute-top" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="row my-4">
+                                    <div class="col text-center">
+                                        <span class="display-4 font-weight-bold text-g-red-primary">Subscribe to our newsletter</span>
+                                        <p class="font-weight-bold h3 text-muted">Want to be notified when our article is published? Enter your email address and name below to be the first to know.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+
+                                        <form class="card bg-light mb-4" id="s_form" role="form">
+                                            {{csrf_field()}}
+                                            <div class="card-body">
+                                                <div class="row">
+
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <h2 class="text-secondary h5"><strong>EMAIL <span class="text-primary">*</span></strong></h2>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="input-group input-group-lg">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                                                                    </div>
+                                                                    <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Email address" aria-label="Phone" aria-describedby="basic-addon1">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 mt-4">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <h2 class="text-secondary h5"><strong>NAME <span class="text-primary">*</span></strong></h2>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="input-group input-group-lg">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" id="s_name" name="s_name" placeholder="FULL NAME" aria-label="Username" aria-describedby="basic-addon1">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row justify-content-center py-4">
+                                                    <div class="col-6 text-center">
+                                                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="subscribir()" id="c_submit">Signup for newsletter now</button>
+                                                        <i class="fas fa-spinner fa-pulse fa-2x text-primary d-none" id="c_load"></i>
+                                                        <p>Don't Worry ! You will not be spammed</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="footer-social text-center">
+                                                            <ul>
+                                                                {{--                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>--}}
+                                                                <li><a href="https://www.instagram.com/mietnia/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                                <li><a href="https://www.facebook.com/Mietnia/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                                                <li><a href="https://api.whatsapp.com/send?phone=51917474233" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3 justify-content-center d-none" id="c_alert">
+                                                    <div class="col-10">
+                                                        <div class="alert alert-success alert-dismissible" role="alert">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <b><strong>THANK YOU</strong></b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     @endsection
+
+@push('scripts')
+    <script>
+        //formulario design
+        function subscribir(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('[name="_token"]').val()
+                }
+            });
+            $("#c_submit").attr("disabled", true);
+            var filter=/^[A-Za-z][A-Za-z0-9_.]*@[A-Za-z0-9_]+.[A-Za-z0-9_.]+[A-za-z]$/;
+            var s_name = $("#s_name").val();
+            var s_email = $("#s_email").val();
+            if (filter.test(s_email)){
+                sendMail = "true";
+            } else{
+                $('#s_email').css("border-bottom", "2px solid #FF0000");
+                sendMail = "false";
+            }
+            if (s_name.length == 0 ){
+                $('#s_name').css("border-bottom", "2px solid #FF0000");
+                var sendMail = "false";
+            }
+            if(sendMail == "true"){
+                var dataString = $('#s_form').serialize();
+                $.ajax({
+                    data:  dataString,
+                    url:   "{{route('subscribir_s_path')}}",
+                    type:  'post',
+                    beforeSend: function () {
+                        // $('#de_send').removeClass('show');
+                        $("#c_submit").addClass('d-none');
+                        $("#c_load").removeClass('d-none');
+                    },
+                    success:  function (response) {
+                        $('#s_form')[0].reset();
+                        $('#c_submit').removeClass('d-none');
+                        $("#c_load").addClass('d-none');
+                        $('#c_alert').removeClass('d-none');
+                        // $("#h_alert b").html(response);
+                        $("#c_alert").fadeIn('slow');
+                        $("#c_submit").removeAttr("disabled");
+                    }
+                });
+            } else{
+                $("#c_submit").removeAttr("disabled");
+            }
+        }
+    </script>
+    <script !src="">
+        setTimeout(function() {
+            $('#subscri').modal();
+        }, 5000);
+    </script>
+@endpush

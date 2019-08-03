@@ -141,6 +141,11 @@ Route::post('/contact_s', [
     'as' => 'contact_s_path',
 ]);
 
+Route::post('/subscribir_s/post', [
+    'uses' => 'ContactController@subscribir_s',
+    'as' => 'subscribir_s_path',
+]);
+
 Route::get('/valuation', [
     'uses' => 'ValuationController@index',
     'as' => 'valuation_path',
