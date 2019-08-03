@@ -669,8 +669,8 @@
                                 </button>
                                 <div class="row my-4">
                                     <div class="col text-center">
-                                        <span class="display-4 font-weight-bold text-g-red-primary">Subscribe to our newsletter</span>
-                                        <p class="font-weight-bold h3 text-muted">Want to be notified when our article is published? Enter your email address and name below to be the first to know.</p>
+                                        <span class="display-4 font-weight-bold text-g-red-primary">@lang('contact.subscr_h1')</span>
+                                        <p class="font-weight-bold h3 text-muted">@lang('contact.subscr_p')</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -684,7 +684,7 @@
                                                     <div class="col-12">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <h2 class="text-secondary h5"><strong>EMAIL <span class="text-primary">*</span></strong></h2>
+                                                                <h2 class="text-secondary h5"><strong>@lang('contact.email') <span class="text-primary">*</span></strong></h2>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -702,7 +702,7 @@
                                                     <div class="col-12 mt-4">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <h2 class="text-secondary h5"><strong>NAME <span class="text-primary">*</span></strong></h2>
+                                                                <h2 class="text-secondary h5"><strong>@lang('contact.name') <span class="text-primary">*</span></strong></h2>
                                                             </div>
                                                         </div>
 
@@ -712,7 +712,7 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="s_name" name="s_name" placeholder="FULL NAME" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" class="form-control" id="s_name" name="s_name" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -721,10 +721,10 @@
                                                 </div>
 
                                                 <div class="row justify-content-center py-4">
-                                                    <div class="col-6 text-center">
-                                                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="subscribir()" id="c_submit">Signup for newsletter now</button>
+                                                    <div class="col-12 text-center">
+                                                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="subscribir()" id="c_submit">@lang('contact.Signup')</button>
                                                         <i class="fas fa-spinner fa-pulse fa-2x text-primary d-none" id="c_load"></i>
-                                                        <p>Don't Worry ! You will not be spammed</p>
+                                                        <p>@lang('contact.dont_worry')</p>
                                                     </div>
                                                 </div>
 
@@ -746,7 +746,7 @@
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
-                                                            <b><strong>THANK YOU</strong></b>
+                                                            <b><strong>@lang('contact.thank')</strong></b>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -31,7 +31,7 @@
                 </div>
                 <hr class="my-3">
                 <div class="row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-8">
                         <div class="row">
                             <div class="col text-center">
                                 <a href="https://www.facebook.com/Mietnia/" target="_blank"><i class="fab fa-facebook fa-2x text-primary"></i></a>
@@ -41,6 +41,10 @@
 {{--                            </div>--}}
                             <div class="col text-center">
                                 <a href="https://www.instagram.com/mietnia/" target="_blank"><i class="fab fa-instagram fa-2x text-g-grey-light"></i></a>
+                            </div>
+
+                            <div class="col text-center">
+                                <a href="https://api.whatsapp.com/send?phone=51917474233" target="_blank"><i class="fab fa-whatsapp fa-2x text-g-grey-light"></i></a>
                             </div>
 {{--                            <div class="col">--}}
 {{--                                <i class="fab fa-youtube fa-2x text-danger"></i>--}}

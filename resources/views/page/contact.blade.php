@@ -203,8 +203,8 @@
                     </div>
                     <div class="col">
                         <h4 class="font-weight-bold text-g-grey-light">@lang('contact.contacto'):</h4>
-                        <a href="tel://51978365487" class="d-block">@lang('contact.contacto'): +51978365487</a>
-                        <a href="tel://0099999999" class="d-block">@lang('contact.atención_cliente'): +51949586825</a>
+                        <a href="tel://51978365487" class="d-block">@lang('contact.contacto'): +51917474233</a>
+{{--                        <a href="tel://0099999999" class="d-block">@lang('contact.atención_cliente'): +51949586825</a>--}}
                         <a href="mailto:mytestmail@gmail.com" class="d-block">Email: misreservas@mietnia.com</a>
                         <a href="mailto:mytestmail@gmail.com" class="d-block">Email: atencionalcliente@mietnia.com</a>
                     </div>
