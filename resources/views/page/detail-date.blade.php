@@ -8,11 +8,19 @@
                 <section class="position-relative">
                     <div id="home-slider-container" class="detail-slider-container">
                         <div id="home-slider">
-                            @foreach($actividades->fotos->where('estado',1)->take(1) as $fotos)
-                                <div class="slider-item">
-                                    <img src="http://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades"/>
-                                </div>
-                            @endforeach
+                            @if (App::isLocale('en'))
+                                @foreach($actividades->fotos->where('estado',1)->take(1) as $fotos)
+                                    <div class="slider-item">
+                                        <img src="http://admin.mietnia.com/admin/mostar/imagen/{{$fotos->imagen}}/actividades"/>
+                                    </div>
+                                @endforeach
+                            @else
+                                @foreach($actividades->fotos->where('estado',1)->take(1) as $fotos)
+                                    <div class="slider-item">
+                                        <img src="http://admin.mietnia.pe/admin/mostar/imagen/{{$fotos->imagen}}/actividades"/>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="bg-header">
@@ -147,9 +155,15 @@
                                         <div class="col">
                                             <div class="row slider-huilloq mx-4">
                                                 <div class="col">
-                                                    @foreach($actividades->fotos->where('estado',0) as $galeria)
-                                                        <a class="venobox" data-gall="myGallery" href="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades"><img src="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades" class="w-100" /></a>
-                                                    @endforeach
+                                                    @if (App::isLocale('en'))
+                                                        @foreach($actividades->fotos->where('estado',0) as $galeria)
+                                                            <a class="venobox" data-gall="myGallery" href="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades"><img src="http://admin.mietnia.com/admin/mostar/imagen/{{$galeria->imagen}}/actividades" class="w-100" /></a>
+                                                        @endforeach
+                                                    @else
+                                                        @foreach($actividades->fotos->where('estado',0) as $galeria)
+                                                            <a class="venobox" data-gall="myGallery" href="http://admin.mietnia.pe/admin/mostar/imagen/{{$galeria->imagen}}/actividades"><img src="http://admin.mietnia.pe/admin/mostar/imagen/{{$galeria->imagen}}/actividades" class="w-100" /></a>
+                                                        @endforeach
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -334,6 +348,7 @@
         $picker.datepicker({
             language: 'en',
             inline: true,
+            minDate: new Date(),
             onRenderCell: function (date, cellType) {
                 console.log('recorrido onRenderCell:'+date);
                 var currentDate = date.getDate();
@@ -367,6 +382,7 @@
 
         $picker3.datepicker({
             language: 'en',
+            minDate: new Date(),
             onRenderCell: function (date, cellType) {
                 console.log('recorrido onRenderCell:'+date);
                 var currentDate = date.getDate();

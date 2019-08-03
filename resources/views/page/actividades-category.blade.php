@@ -88,7 +88,7 @@
                     <ul class="list-group list-group-flush shadow-sm sticky-top">
                         @foreach($categoria as $categorias)
                             <a href="#" class="list-group-item list-group-item-action font-weight-bold text-g-grey-light">
-                                <img src="{{asset('images/categoria/'.$categorias->imagen.'')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
+                                <img src="{{asset('http://admin.mietnia.com/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="" width="30" height="30" class="t-1 rounded-circle m-auto">
                                 {{ucwords(strtolower($categorias->nombre))}}
                             </a>
                         @endforeach

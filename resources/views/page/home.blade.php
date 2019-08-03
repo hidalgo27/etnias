@@ -95,7 +95,11 @@
                         <div class="card shadow-sm">
                             <div class="row align-items-center no-gutters">
                                 <div class="col-md-4">
-                                    <img src="{{asset('http://admin.mietnia.com/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="{{$categorias->nombre}}" class="w-100 rounded-left">
+                                    @if (App::isLocale('en'))
+                                        <img src="{{asset('http://admin.mietnia.com/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="{{$categorias->nombre}}" class="w-100 rounded-left">
+                                    @else
+                                        <img src="{{asset('http://admin.mietnia.pe/admin/categoria/editar/imagen/'.$categorias->imagen.'')}}" alt="{{$categorias->nombre}}" class="w-100 rounded-left">
+                                    @endif
                                 </div>
                                 <div class="col-md position-static p-2">
                                     <a href="{{route('actividades_category_show_path', str_replace(' ', '-', strtolower($categorias->nombre)))}}" class="p-0 m-0 text-decoration-none font-weight-bold text-secondary stretched-link">{{ucwords(strtolower($categorias->nombre))}}</a>
@@ -216,9 +220,15 @@
                     <div class="row mt-4 align-items-center">
                         <div class="col-12 mb-3 col-sm-12 mb-md-0 col-md text-center">
                             <div class="position-relative w-100">
-                                @foreach($comunidades_huilloc->fotos->where('estado',2)->take(1) as $fotos)
-                                    <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 position-relative rounded shadow">
-                                @endforeach
+                                @if (App::isLocale('en'))
+                                    @foreach($comunidades_huilloc->fotos->where('estado',2)->take(1) as $fotos)
+                                        <img src="http://admin.mietnia.com/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 position-relative rounded shadow">
+                                    @endforeach
+                                @else
+                                    @foreach($comunidades_huilloc->fotos->where('estado',2)->take(1) as $fotos)
+                                        <img src="http://admin.mietnia.pe/admin/comunidad/editar/imagen/{{$fotos->imagen}}" alt="" class="w-100 position-relative rounded shadow">
+                                    @endforeach
+                                @endif
                                 <div class="position-absolute w-100 top-50">
                                     <a href="{{route('comunidad_show_path', str_replace(' ','-', strtolower($comunidades_huilloc->nombre)))}}" class="btn bg-rgba-dark-6 font-weight-bold text-white btn-outline-g-grey-dark shadow">@lang('home.saber_mas_comunidad ') <i class="fas fa-angle-right"></i></a>
                                 </div>
@@ -246,9 +256,15 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="header-img-actividades">
-                                                        @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
-                                                            <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_huilloc->titulo)))}}"><img src="https://admin.mietnia.com/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100"></a>
-                                                        @endforeach
+                                                        @if (App::isLocale('en'))
+                                                            @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
+                                                                <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_huilloc->titulo)))}}"><img src="http://admin.mietnia.com/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100"></a>
+                                                            @endforeach
+                                                        @else
+                                                            @foreach($actividades_huilloc->fotos->where('estado',2) as $fotos_huilloc)
+                                                                <a href="{{route('detail_path', str_replace(' ', '-', strtolower($actividades_huilloc->titulo)))}}"><img src="http://admin.mietnia.pe/admin/mostar/imagen/{{$fotos_huilloc->imagen}}/actividades" alt="" class="w-100"></a>
+                                                            @endforeach
+                                                        @endif
                                                         <div class="position-absolute-top">
                                                             <span class="badge badge-g-red-primary small">{{ucwords(strtolower($actividades_huilloc->categoria))}}</span>
                                                         </div>
