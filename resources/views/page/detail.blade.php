@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="row align-items-end bg-header-body pb-5">
                         <div class="col text-white">
-                            <h1 class="text-white">@lang('comunidad.comunidad') {{ucwords(strtolower($comunidades->nombre))}}</h1>
+                            <h1 class="text-white">{{ucwords(strtolower($comunidades->nombre))}} @lang('comunidad.comunidad')</h1>
                             <p class="lead font-weight-normal d-none d-sm-block"><b>@lang('actividades.ubicacion'):</b> {{ucwords(strtolower($comunidades->distrito->distrito))}}, <b>@lang('comunidad.altura'):</b> {{$comunidades->altura}}, <b>@lang('comunidad.distancia_ciudad'):</b> {{$comunidades->distancia}}</p>
                         </div>
                     </div>
