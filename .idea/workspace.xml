@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades-buscar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades-category-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades-category-show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades-category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/actividades.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/actividades.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/comunidad.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/comunidad.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail-date.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="a983d6ca-a2ee-4814-9b25-864651dc1c6d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +176,7 @@
       <workItem from="1563223344896" duration="4788000" />
       <workItem from="1563395512511" duration="1318000" />
       <workItem from="1563980063561" duration="5373000" />
-      <workItem from="1564853999164" duration="2266000" />
+      <workItem from="1564853999164" duration="2502000" />
     </task>
     <servers />
   </component>
