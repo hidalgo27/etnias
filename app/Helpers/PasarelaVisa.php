@@ -9,15 +9,20 @@ class PasarelaVisa{
     protected $Merchant = "";
     protected $AccessKey = "";
     protected $SecretAccessKey = "";
-    protected $merchantidtest = "";
-    protected $usrtest = "";
-    protected $pwdtest = "";
+
+    protected $merchantidtest_en = "";
+    protected $usrtest_en = "";
+    protected $pwdtest_en = "";
+
+
     protected $securityapitest = "";
     protected $sessionapitest = "";
     protected $autorizationapitest = "";
-    protected $merchantidprd = "";
-    protected $usr = "";
-    protected $pwd = "";
+
+    protected $merchantidprd_es = "";
+    protected $usr_es = "";
+    protected $pwd_es = "";
+
     protected $securityapiprd = "";
     protected $sessionapiprd = "";
     protected $autorizationapiprd = "";
@@ -30,16 +35,30 @@ class PasarelaVisa{
         // $this->Merchant="342062522";
         // $this->AccessKey="AKIAJMS5RZP6ISU4T35Q";
         // $this->SecretAccessKey="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";
-        $this->merchantidtest="342062522";
-        $this->usrtest="integraciones.visanet@necomplus.com";
-        $this->pwdtest='d5e7nk$M';
+        if(App::isLocale('en')){
+            $this->merchantidtest="342062522";
+            $this->usrtest="integraciones.visanet@necomplus.com";
+            $this->pwdtest='d5e7nk$M';
+        }
+        else{
+            $this->merchantidtest="115015006";
+            $this->usrtest="integraciones.visanet@necomplus.com";
+            $this->pwdtest='d5e7nk$M';
+        }
+
         $this->securityapitest="https://apitestenv.vnforapps.com/api.security/v1/security";
         $this->sessionapitest="https://apitestenv.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
         $this->autorizationapitest="https://apitestenv.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
-
-        $this->merchantidprd="650003652";
-        $this->usr="freddysilvah@outlook.com";
-        $this->pwd='?skD-7eX';
+        if(App::isLocale('en')){
+            $this->merchantidprd="650003652";
+            $this->usr="freddysilvah@outlook.com";
+            $this->pwd='?skD-7eX';
+        }
+        else{
+            $this->merchantidprd="115015006";
+            $this->usr="freddysilvah@outlook.com";
+            $this->pwd='?skD-7eX';
+        }
         $this->securityapiprd="https://apiprod.vnforapps.com/api.security/v1/security";
         $this->sessionapiprd="https://apiprod.vnforapps.com/api.ecommerce/v2/ecommerce/token/session/";
         $this->autorizationapiprd="https://apiprod.vnforapps.com/api.authorization/v3/authorization/ecommerce/";
