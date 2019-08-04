@@ -36,7 +36,7 @@ class ValuationController extends Controller
 
         $reserva_id=$request->input('reserva_id');
         $reserva=Reserva::find($reserva_id);
-        $reserva->estado_encuesta;
+        $reserva->estado_encuesta=2;
         $reserva->save();
         /*$preguntas=$request->input('preguntas');
         $pregunta_texto_id=$request->input('pregunta_texto_id');

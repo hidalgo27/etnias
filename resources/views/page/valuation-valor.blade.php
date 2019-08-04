@@ -30,7 +30,7 @@
                     @endif
                 </div>
             </div>
-            @if($reserva->estado_encuesta=='0')
+            @if($reserva->estado_encuesta=='0'||$reserva->estado_encuesta=='1')
             <div class="row">
                 <div class="col">
                     <form action="{{route('encuesta_save_post_path')}}" method="post">
