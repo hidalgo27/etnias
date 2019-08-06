@@ -37,7 +37,7 @@ class PasarelaVisa{
         // $this->AccessKey="AKIAJMS5RZP6ISU4T35Q";
         // $this->SecretAccessKey="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";
         if(App::isLocale('en')){
-            $this->merchantidtest="115015006";
+            $this->merchantidtest="342062522";
             $this->usrtest="integraciones.visanet@necomplus.com";
             $this->pwdtest='d5e7nk$M';
         }
@@ -56,7 +56,7 @@ class PasarelaVisa{
             $this->pwd='?skD-7eX';
         }
         else{
-            $this->merchantidprd="650003652";
+            $this->merchantidprd="650039805";
             $this->usr="freddysilvah@outlook.com";
             $this->pwd='?skD-7eX';
         }

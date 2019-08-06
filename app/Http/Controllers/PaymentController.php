@@ -113,7 +113,8 @@ class PaymentController extends Controller
         if ($total>0){
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
-            $entorno ="prd";
+            // $entorno ="prd";
+            $entorno ="dev";
             $usr = '';
             $pwd = '';
 
@@ -196,7 +197,7 @@ class PaymentController extends Controller
             $numorden=MisFunciones::nuevo_codigo('1','6');
         }
         else{
-            $numorden=MisFunciones::nuevo_codigo('5','6');
+            $numorden=MisFunciones::nuevo_codigo('6','6');
         }
         $urljs="";
         $merchantId='';

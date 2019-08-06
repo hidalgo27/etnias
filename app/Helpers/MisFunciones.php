@@ -56,9 +56,8 @@ class MisFunciones{
     // }
     public static function nuevo_codigo($pre,$nro_ceros_maximo)
     {
-
-        $reservas=Reserva::all()->sortByDesc("id")->first();
-
+        $reservas=Reserva::where('codigo','like',$pre.'%')->get()->sortByDesc("id")->first();
+// dd($reservas);
 
         // // return $codigo;
         $codigo_int=1;
