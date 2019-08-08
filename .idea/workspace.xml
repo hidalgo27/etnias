@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="" />
+    <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/menu-pop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/menu-pop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/payment.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -146,6 +150,8 @@
       <option name="presentableId" value="Default" />
       <updated>1565275680429</updated>
       <workItem from="1565275681918" duration="2504000" />
+      <workItem from="1565280416626" duration="232000" />
+      <workItem from="1565295722140" duration="1894000" />
     </task>
     <servers />
   </component>
@@ -157,7 +163,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
