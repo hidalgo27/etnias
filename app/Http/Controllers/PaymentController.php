@@ -113,7 +113,11 @@ class PaymentController extends Controller
         if ($total>0){
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
-             $entorno ="prd";
+            if(App::isLocale('en')) {
+                $entorno = "prd";
+            }else{
+                $entorno ="dev";
+            }
 //            $entorno ="dev";
             $usr = '';
             $pwd = '';
