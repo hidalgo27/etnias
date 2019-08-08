@@ -738,6 +738,8 @@ class PaymentController extends Controller
             }
             elseif($objeto){
                 // dd($objeto->data->ACTION_DESCRIPTION);
+                // dd($objeto);
+
                 $fecha_actual=new Carbon();
                 $fecha_actual->subHour(5);
                 // $fecha_llegada_ = Carbon::createFromFormat("Y-m-d hh:ii:ss", $item->fecha_llegada);
