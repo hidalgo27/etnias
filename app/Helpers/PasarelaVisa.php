@@ -1,6 +1,6 @@
 <?php
 namespace EtniasPeru\Helpers;
-
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,8 +11,8 @@ class PasarelaVisa{
     protected $SecretAccessKey = "";
 
     protected $merchantidtest_en = "";
-    protected $usrtest_en = "";
-    protected $pwdtest_en = "";
+    protected $usrtest= "";
+    protected $pwdtest= "";
 
 
     protected $securityapitest = "";
@@ -20,8 +20,8 @@ class PasarelaVisa{
     protected $autorizationapitest = "";
 
     protected $merchantidprd_es = "";
-    protected $usr_es = "";
-    protected $pwd_es = "";
+    protected $usr= "";
+    protected $pwd= "";
 
     protected $securityapiprd = "";
     protected $sessionapiprd = "";
@@ -55,7 +55,7 @@ class PasarelaVisa{
             $this->pwd='?skD-7eX';
         }
         else{
-            $this->merchantidprd="115015006";
+            $this->merchantidprd="650039805";
             $this->usr="freddysilvah@outlook.com";
             $this->pwd='?skD-7eX';
         }
@@ -317,7 +317,7 @@ public  function authorization($environment,$key,$amount,$transactionToken,$purc
             \"amount\" : \"$amount\",
             \"tokenId\" : \"$transactionToken\",
             \"purchaseNumber\" : \"$purchaseNumber\",
-            \"currency\" : \"PEN\"
+            \"currency\" : \"USD\"
         }
     }";
 

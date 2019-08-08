@@ -1,7 +1,7 @@
 <?php
 namespace EtniasPeru\Helpers;
 
-class PasarelaVisa{
+class Funciones{
 
     protected $url = "";
     public function __construct() {

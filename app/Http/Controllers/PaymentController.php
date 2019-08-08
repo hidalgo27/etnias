@@ -4,7 +4,6 @@ namespace EtniasPeru\Http\Controllers;
 
 use Carbon\Carbon;
 use EtniasPeru\Guia;
-use EtniasPeru\ReservaEncuesta;
 use EtniasPeru\User;
 use EtniasPeru\Comida;
 use EtniasPeru\Reserva;
@@ -16,17 +15,19 @@ use Illuminate\Http\Request;
 use EtniasPeru\ReservaComida;
 use EtniasPeru\ActividadPrecio;
 use EtniasPeru\HospedajePrecio;
+use EtniasPeru\ReservaEncuesta;
 use EtniasPeru\ReservaActividad;
 use EtniasPeru\ReservaHospedaje;
 use EtniasPeru\TransportePrecio;
 use EtniasPeru\TransporteExterno;
+use Illuminate\Support\Facades\App;
+use EtniasPeru\Helpers\MisFunciones;
 use EtniasPeru\Helpers\PasarelaVisa;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use EtniasPeru\Mail\MailReservaSender;
 use EtniasPeru\ReservaTransporteExterno;
 use Illuminate\Support\Facades\Validator;
-use EtniasPeru\Helpers\MisFunciones;
 
 class PaymentController extends Controller
 {
@@ -112,7 +113,8 @@ class PaymentController extends Controller
         if ($total>0){
             $pasarela=new PasarelaVisa();
             // $entorno = $_POST['entorno'];
-            $entorno ="prd";
+            // $entorno ="prd";
+            $entorno ="dev";
             $usr = '';
             $pwd = '';
 
@@ -187,9 +189,16 @@ class PaymentController extends Controller
         $numorden='1';
         // $numorden=$pasarela->contador();
         // se pondra un codigo inicial de 1000000 para etnias en ingles
-        $numorden=MisFunciones::nuevo_codigo('1','6');
+        // $numorden=MisFunciones::nuevo_codigo('1','6');
         // se pondra un codigo inicial de 5000000 para etnias en español
         // $numorden=MisFunciones::nuevo_codigo('5','6');
+
+        if(App::isLocale('en')){
+            $numorden=MisFunciones::nuevo_codigo('1','6');
+        }
+        else{
+            $numorden=MisFunciones::nuevo_codigo('6','6');
+        }
         $urljs="";
         $merchantId='';
         switch ($entorno) {
@@ -729,6 +738,8 @@ class PaymentController extends Controller
             }
             elseif($objeto){
                 // dd($objeto->data->ACTION_DESCRIPTION);
+                // dd($objeto);
+
                 $fecha_actual=new Carbon();
                 $fecha_actual->subHour(5);
                 // $fecha_llegada_ = Carbon::createFromFormat("Y-m-d hh:ii:ss", $item->fecha_llegada);
