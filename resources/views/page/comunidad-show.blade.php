@@ -8,7 +8,11 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center h-100vh">
                         <div class="col-12 text-center text-truncate">
-                            <h1 class="font-weight-bold display-4 text-white">{{ucwords(strtolower($comunidades->nombre))}} @lang('comunidad.comunidad')</h1>
+                            @if (App::isLocale('en'))
+                                <h1 class="font-weight-bold display-4 text-white">{{ucwords(strtolower($comunidades->nombre))}} @lang('comunidad.comunidad')</h1>
+                            @else
+                                <h1 class="font-weight-bold display-4 text-white">@lang('comunidad.comunidad') {{ucwords(strtolower($comunidades->nombre))}}</h1>
+                            @endif
                         </div>
                     </div>
                 </div>

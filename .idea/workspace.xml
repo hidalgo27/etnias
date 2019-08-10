@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/menu-pop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/menu-pop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/payment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/comunidad-show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +153,8 @@
       <updated>1565275680429</updated>
       <workItem from="1565275681918" duration="2504000" />
       <workItem from="1565280416626" duration="232000" />
-      <workItem from="1565295722140" duration="1894000" />
+      <workItem from="1565295722140" duration="2096000" />
+      <workItem from="1565458152667" duration="517000" />
     </task>
     <servers />
   </component>
