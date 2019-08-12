@@ -701,7 +701,7 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
                                                                     </div>
-                                                                    <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Email address" aria-label="Phone" aria-describedby="basic-addon1">
+                                                                    <input type="email" class="form-control" id="s_email" name="s_email" placeholder="@lang('client.email_address')" aria-label="Phone" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -720,7 +720,7 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control" id="s_name" name="s_name" placeholder="NAME" aria-label="Username" aria-describedby="basic-addon1">
+                                                                    <input type="text" class="form-control" id="s_name" name="s_name" placeholder="@lang('contact.name')" aria-label="Username" aria-describedby="basic-addon1">
                                                                 </div>
                                                             </div>
                                                         </div>
