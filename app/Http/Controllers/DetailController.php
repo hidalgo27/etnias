@@ -6,6 +6,10 @@ use EtniasPeru\Actividad;
 use EtniasPeru\ActividadDisponible;
 use EtniasPeru\ActividadPrecio;
 use EtniasPeru\Comunidad;
+use EtniasPeru\Encuesta;
+use EtniasPeru\Reserva;
+use EtniasPeru\ReservaActividad;
+use EtniasPeru\ReservaEncuesta;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -33,7 +37,11 @@ class DetailController extends Controller
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}
         ])->get();
 
-        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a'));
+        $reserva_actividad = ReservaActividad::where('titulo', $titulo)->get();
+
+        $reserva_encuesta = ReservaEncuesta::all();
+
+        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','reserva_actividad','reserva_encuesta'));
     }
 
     public function date($titulo, $fecha, $pasajeros)

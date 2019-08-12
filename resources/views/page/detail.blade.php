@@ -158,96 +158,102 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-5 d-none">
+                            <div class="row mt-5">
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="font-poppins">
-                                                <h5 class="font-weight-bold pb-2">Califique este paquete</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eos voluptatibus? Itaque iure laudantium minus.</p>
+                                                <h5 class="font-weight-bold pb-2">Valoraciones de esta actividad</h5>
+{{--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eos voluptatibus? Itaque iure laudantium minus.</p>--}}
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">
-                                                        <label class="col-auto btn btn-secondary">
-                                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
-                                                            <i class="fa fa-star"></i>
-                                                        </label>
-                                                        <label class="col-auto btn btn-secondary">
-                                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </label>
-                                                        <label class="col-auto btn btn-secondary">
-                                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </label>
-                                                        <label class="col-auto btn btn-secondary">
-                                                            <input type="radio" name="options" id="option2" autocomplete="off">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </label>
-                                                        <label class="col-auto btn btn-secondary active">
-                                                            <input type="radio" name="options" id="option3" autocomplete="off">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control" placeholder="Nombre">
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control" placeholder="Email">
-                                                </div>
-                                                <div class="col-12 my-3">
-                                                    <textarea class="form-control" placeholder="Comentario"></textarea>
-                                                </div>
-                                                <div class="col-12 mb-4 text-center">
-                                                    <button class="btn btn-g-red-dark">Enviar</button>
-                                                </div>
-                                            </div>
+{{--                                            <div class="row">--}}
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="row btn-group btn-group-toggle w-100 m-0 mb-3" data-toggle="buttons">--}}
+{{--                                                        <label class="col-auto btn btn-secondary">--}}
+{{--                                                            <input type="radio" name="options" id="option1" autocomplete="off" checked>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                        </label>--}}
+{{--                                                        <label class="col-auto btn btn-secondary">--}}
+{{--                                                            <input type="radio" name="options" id="option2" autocomplete="off">--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                        </label>--}}
+{{--                                                        <label class="col-auto btn btn-secondary">--}}
+{{--                                                            <input type="radio" name="options" id="option2" autocomplete="off">--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                        </label>--}}
+{{--                                                        <label class="col-auto btn btn-secondary">--}}
+{{--                                                            <input type="radio" name="options" id="option2" autocomplete="off">--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                        </label>--}}
+{{--                                                        <label class="col-auto btn btn-secondary active">--}}
+{{--                                                            <input type="radio" name="options" id="option3" autocomplete="off">--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                            <i class="fa fa-star"></i>--}}
+{{--                                                        </label>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-6">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="Nombre">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-6">--}}
+{{--                                                    <input type="text" class="form-control" placeholder="Email">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-12 my-3">--}}
+{{--                                                    <textarea class="form-control" placeholder="Comentario"></textarea>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-12 mb-4 text-center">--}}
+{{--                                                    <button class="btn btn-g-red-dark">Enviar</button>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
 
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-4">
-                                                            <div class="row justify-content-center">
-                                                                <div class="col-auto">
-                                                                    <img src="{{asset('images/paquetes/1.jpg')}}" alt="" class="rounded-circle" width="50" height="50">
+                                            @foreach ($reserva_actividad as $reserva_actividades)
+                                                @foreach($reserva_encuesta->where('reserva_id', $reserva_actividades->reserva_id)->where('estado', 1) as $reserva_encuestas)
+
+
+                                                    <div class="card mb-4">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-4">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-auto">
+                                                                            <img src="{{asset('images/paquetes/1.jpg')}}" alt="" class="rounded-circle" width="50" height="50">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col text-center">
+                                                                            <h5 class="m-0 mt-3 font-weight-bold text-g-grey-dark"></h5>
+                                                                            <p class="text-g-grey-light font-weight-bold small">19 enero, 2017</p>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col text-center">
-                                                                    <h5 class="m-0 mt-3 font-weight-bold text-g-grey-dark">Hidalgo Ponce</h5>
-                                                                    <p class="text-g-grey-light font-weight-bold small">19 enero, 2017</p>
+                                                                <div class="col">
+                                                            <span class="text-warning">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>
+                                                                    <div class="d-block font-poppins pt-3">
+                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aspernatur aut consequuntur dolorem dolorum eaque esse exercitationem fugit hic iusto obcaecati officia pariatur quaerat, quod repellat similique ullam voluptatibus!</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col">
-                                                    <span class="text-warning">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                            <div class="d-block font-poppins pt-3">
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aspernatur aut consequuntur dolorem dolorum eaque esse exercitationem fugit hic iusto obcaecati officia pariatur quaerat, quod repellat similique ullam voluptatibus!</p>
-                                                            </div>
-                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                @endforeach
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

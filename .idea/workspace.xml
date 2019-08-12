@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/join.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/join.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comunidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comunidad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DetailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/page/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/detail.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +164,7 @@
       <workItem from="1565562870339" duration="659000" />
       <workItem from="1565567082186" duration="116000" />
       <workItem from="1565567238426" duration="214000" />
-      <workItem from="1565567474892" duration="1055000" />
+      <workItem from="1565567474892" duration="4325000" />
     </task>
     <servers />
   </component>

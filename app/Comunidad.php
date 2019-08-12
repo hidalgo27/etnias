@@ -24,4 +24,5 @@ class Comunidad extends Model
     {
         return $this->hasMany(TransporteExterno::class, 'comunidad_id');
     }
+
 }
