@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/es/passwords.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/about1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/actividades1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/comunidad1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/contact1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/join.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/join.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +162,7 @@
       <workItem from="1565562870339" duration="659000" />
       <workItem from="1565567082186" duration="116000" />
       <workItem from="1565567238426" duration="214000" />
-      <workItem from="1565567474892" duration="739000" />
+      <workItem from="1565567474892" duration="1055000" />
     </task>
     <servers />
   </component>
