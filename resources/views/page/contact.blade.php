@@ -151,7 +151,7 @@
 
 
                                 <div class="form-group mt-4">
-                                    <h2 class="text-secondary h5"><strong>@lang('write_your_message')</strong></h2>
+                                    <h2 class="text-secondary h5"><strong>@lang('contact.write_your')</strong></h2>
                                     <div class="input-group input-group-lg">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-comment"></i></span>

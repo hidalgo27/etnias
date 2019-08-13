@@ -17,5 +17,5 @@ return [
     'thank' => 'THANK YOU',
     'phone' => 'PHONE',
     'city' => 'CITY',
-    'write_your_message' => 'WRITE YOUR MESSAGE'
+    'write_your' => 'WRITE YOUR MESSAGE',
 ];
