@@ -24,4 +24,10 @@ class Actividad extends Model
     {
         return $this->hasMany(ActividadDisponible::class, 'actividad_id');
     }
+
+    public function reserva_actividad()
+    {
+        return $this->hasMany(ReservaActividad::class, 'actividad_id');
+    }
+
 }

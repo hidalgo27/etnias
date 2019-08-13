@@ -68,4 +68,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(RoleUser::class, 'user_id');
     }
+    public function user()
+    {
+        return $this->hasMany(User::class, 'user_id');
+    }
+
+    public function reserva()
+    {
+        return $this->hasMany(Reserva::class, 'user_id');
+    }
+
 }

@@ -10,6 +10,7 @@ use EtniasPeru\Encuesta;
 use EtniasPeru\Reserva;
 use EtniasPeru\ReservaActividad;
 use EtniasPeru\ReservaEncuesta;
+use EtniasPeru\User;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -37,11 +38,18 @@ class DetailController extends Controller
             'asociaciones.actividades.precios'=>function ($query) use ($rango_min, $rango_max) {$query->where('min','<=',$rango_min)->where('max','>=',$rango_max);}
         ])->get();
 
-        $reserva_actividad = ReservaActividad::where('titulo', $titulo)->get();
+//        $reserva_actividad = ReservaActividad::with('actividad',)->where('titulo', $titulo)->get();
 
-        $reserva_encuesta = ReservaEncuesta::all();
+        $encuenta =
 
-        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','reserva_actividad','reserva_encuesta'));
+        $reserva_encuesta = ReservaEncuesta::with(['reserva.user','reserva.actividades.actividad'=>function ($query) use ($titulo) {$query->where('titulo',$titulo);}])->get()->sortBy('created_at');
+        $users = User::all();
+
+//        dd($reserva_encuesta_1);
+//        dd($reserva_encuesta_1);
+//        $reserva_encuesta_0 = ReservaEncuesta::where('estado', 0)->get();
+
+        return view('page.detail', compact('comunidad','precio_actividad','disponibilidad_a','reserva_encuesta', 'users'));
     }
 
     public function date($titulo, $fecha, $pasajeros)

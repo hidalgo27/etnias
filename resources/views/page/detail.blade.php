@@ -163,7 +163,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="font-poppins">
-                                                <h5 class="font-weight-bold pb-2">Valoraciones de esta actividad</h5>
+{{--                                                <h5 class="font-weight-bold pb-2">Valoraciones de esta actividad</h5>--}}
 {{--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, eos voluptatibus? Itaque iure laudantium minus.</p>--}}
                                             </div>
 
@@ -217,9 +217,13 @@
 {{--                                            </div>--}}
 
 
-                                            @foreach ($reserva_actividad as $reserva_actividades)
-                                                @foreach($reserva_encuesta->where('reserva_id', $reserva_actividades->reserva_id)->where('estado', 1) as $reserva_encuestas)
-
+                                            @foreach ($reserva_encuesta->unique('reserva_id') as $reserva_encuestas)
+{{--                                                {{$reserva_encuestas->reserva->actividades}}--}}
+                                                @foreach (($reserva_encuestas->reserva->actividades) as $re)
+{{--                                                @foreach($reserva_encuesta->where('reserva_id', $reserva_actividades->reserva_id)->where('estado', 1) as $reserva_encuestas)--}}
+{{--                                                    {{$reserva_encuestas->valoracion++}}--}}
+{{--                                                @endforeach--}}
+                                                @if (isset($re->actividad))
 
                                                     <div class="card mb-4">
                                                         <div class="card-body">
@@ -232,26 +236,42 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col text-center">
-                                                                            <h5 class="m-0 mt-3 font-weight-bold text-g-grey-dark"></h5>
-                                                                            <p class="text-g-grey-light font-weight-bold small">19 enero, 2017</p>
+
+                                                                            @foreach($users->where('id', $reserva_encuestas->reserva->user_id) as $user)
+                                                                                <h6 class="m-0 mt-3 small font-weight-bold text-g-grey-dark">{{ucwords(strtolower($user->name))}}</h6>
+                                                                            @endforeach
+
+                                                                            <p class="text-g-grey-light font-weight-bold small">{{$reserva_encuestas->created_at}}</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col">
-                                                            <span class="text-warning">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </span>
+                                                                    <span class="text-warning">
+                                                                        @php $j = 0; @endphp
+                                                                        @foreach ($reserva_encuesta->where('reserva_id', $reserva_encuestas->reserva_id) as $estrella)
+                                                                            @if ($estrella->estado == 1)
+                                                                                @php $j = $j + $estrella->valoracion; @endphp
+                                                                            @endif
+                                                                        @endforeach
+
+                                                                        @php $j = round($j/4); @endphp
+
+                                                                        @for ($i = 0; $i < $j; $i++)
+                                                                            <i class="fa fa-star"></i>
+                                                                        @endfor
+                                                                    </span>
                                                                     <div class="d-block font-poppins pt-3">
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aspernatur aut consequuntur dolorem dolorum eaque esse exercitationem fugit hic iusto obcaecati officia pariatur quaerat, quod repellat similique ullam voluptatibus!</p>
+                                                                        @foreach ($reserva_encuesta->where('reserva_id', $reserva_encuestas->reserva_id) as $estrella)
+                                                                            @if ($estrella->estado == 0)
+                                                                                {{$estrella->valoracion}}
+                                                                            @endif
+                                                                        @endforeach
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    @endif
                                                 @endforeach
                                             @endforeach
                                         </div>

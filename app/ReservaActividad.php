@@ -16,4 +16,9 @@ class ReservaActividad extends Model
     {
         return $this->belongsTo(Asociacion::class, 'asociacion_id');
     }
+
+    public function actividad()
+    {
+        return $this->belongsTo(Actividad::class, 'actividad_id');
+    }
 }

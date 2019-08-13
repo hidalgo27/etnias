@@ -246,6 +246,7 @@ class PaymentController extends Controller
                 $reserva_actividad->descripcion = $precio_actividad->actividad->descripcion;
                 $reserva_actividad->precio = $total_actividad;
                 $reserva_actividad->estado = 0;
+                $reserva_actividad->actividad_id = $precio_actividad->actividad->id;
                 $reserva_actividad->asociacion_id = $asocicion_id;
                 $reserva_actividad->reserva_id = $reservas->id;
                 $reserva_actividad->save();
