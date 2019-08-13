@@ -73,7 +73,7 @@
                                     <div class="col-12 col-sm col-md-12 col-lg-6">
                                         <div class="row">
                                             <div class="col">
-                                                <h2 class="text-secondary h5"><strong>NAME <span class="text-primary">*</span></strong></h2>
+                                                <h2 class="text-secondary h5"><strong>@lang('contact.name') <span class="text-primary">*</span></strong></h2>
                                             </div>
                                         </div>
 
@@ -83,7 +83,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="c_name" name="c_name" placeholder="FULL NAME" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" id="c_name" name="c_name" placeholder="@lang('contact.name')" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                         </div>
@@ -91,7 +91,7 @@
                                     <div class="col-12 mt-4 mt-sm-0 col-sm col-md-12 mt-md-4 col-lg-6 mt-lg-0">
                                         <div class="row">
                                             <div class="col">
-                                                <h2 class="text-secondary h5"><strong>EMAIL <span class="text-primary">*</span></strong></h2>
+                                                <h2 class="text-secondary h5"><strong>@lang('contact.email') <span class="text-primary">*</span></strong></h2>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -100,7 +100,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
                                                     </div>
-                                                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="Email address" aria-label="Phone" aria-describedby="basic-addon1">
+                                                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="@lang('contact.email')" aria-label="Phone" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@
                                     <div class="col-12 col-sm col-md-12 col-lg-6">
                                         <div class="row">
                                             <div class="col">
-                                                <h2 class="text-secondary h5"><strong>PHONE</strong></h2>
+                                                <h2 class="text-secondary h5"><strong>@lang('contact.phone')</strong></h2>
                                             </div>
                                         </div>
 
@@ -122,7 +122,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
                                                     </div>
-                                                    <input type="tel" class="form-control" id="c_phone" name="c_phone" placeholder="PHONE NUMBER" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="tel" class="form-control" id="c_phone" name="c_phone" placeholder="@lang('contact.phone')" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                         </div>
@@ -131,7 +131,7 @@
 
                                         <div class="row">
                                             <div class="col">
-                                                <h2 class="text-secondary h5"><strong>CITY</strong></h2>
+                                                <h2 class="text-secondary h5"><strong>@lang('contact.city')</strong></h2>
                                             </div>
                                         </div>
 
@@ -141,7 +141,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-location-arrow"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="c_city" name="c_city" placeholder="CITY" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" id="c_city" name="c_city" placeholder="@lang('contact.city')" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +151,7 @@
 
 
                                 <div class="form-group mt-4">
-                                    <h2 class="text-secondary h5"><strong>WRITE YOUR MESSAGE</strong></h2>
+                                    <h2 class="text-secondary h5"><strong>@lang('write_your_message')</strong></h2>
                                     <div class="input-group input-group-lg">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-comment"></i></span>
@@ -162,7 +162,7 @@
 
                                 <div class="row justify-content-center py-4">
                                     <div class="col-6 text-center">
-                                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="contactus()" id="c_submit">Send</button>
+                                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="contactus()" id="c_submit">@lang('join.enviar')</button>
                                         <i class="fas fa-spinner fa-pulse fa-2x text-primary d-none" id="c_load"></i>
 
                                     </div>
@@ -173,7 +173,7 @@
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <b><strong>THANK YOU</strong> for contacting us. <strong>MiEtnia</strong></b>
+                                            <b><strong>@lang('contact.thank')</strong></b>
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="col">
                         <h4 class="font-weight-bold text-g-grey-light">@lang('contact.direccion')</h4>
-                        <p>AHH Pillcohuasi F-17 Ollantaytambo – cusco</p>
+                        <p>AHH Pillcohuasi F-17 Ollantaytambo – Cusco</p>
                     </div>
                     <div class="col">
                         <h4 class="font-weight-bold text-g-grey-light">@lang('contact.contacto'):</h4>

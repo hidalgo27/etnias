@@ -15,4 +15,7 @@ return [
     'Signup' => 'Signup for newsletter now',
     'dont_worry' => 'Don\'t Worry ! You will not be spammed',
     'thank' => 'THANK YOU',
+    'phone' => 'PHONE',
+    'city' => 'CITY',
+    'write_your_message' => 'WRITE YOUR MESSAGE'
 ];

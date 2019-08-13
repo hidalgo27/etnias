@@ -15,4 +15,7 @@ return [
     'Signup' => 'Regístrese para recibir el boletín ahora',
     'dont_worry' => 'No te preocupes! No serás spam',
     'thank' => 'Gracias',
+    'phone' => 'PHONE',
+    'city' => 'CITY',
+    'write_your_message' => 'WRITE YOUR MESSAGE'
 ];
