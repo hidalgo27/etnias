@@ -218,7 +218,8 @@
 
 
                                             @foreach ($reserva_encuesta->unique('reserva_id') as $reserva_encuestas)
-{{--                                                {{$reserva_encuestas->reserva->actividades}}--}}
+                                                @if ($reserva_encuestas->reserva->mostrar_encuesta == 1)
+
                                                 @foreach (($reserva_encuestas->reserva->actividades) as $re)
 {{--                                                @foreach($reserva_encuesta->where('reserva_id', $reserva_actividades->reserva_id)->where('estado', 1) as $reserva_encuestas)--}}
 {{--                                                    {{$reserva_encuestas->valoracion++}}--}}
@@ -273,6 +274,7 @@
                                                     </div>
                                                     @endif
                                                 @endforeach
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>

@@ -67,7 +67,6 @@
                                     <div class="row my-3">
                                         <div class="col font-poppins">
                                             <h5 class="font-weight-bold text-g-grey-primary pb-2"><i class="fas fa-chevron-right text-g-red-primary"></i> {{ucwords(strtolower($hospedaje_precios->hospedaje->titulo))}}
-
                                                 <div class="custom-control custom-checkbox float-right text-primary">
                                                     <input type="checkbox" class="custom-control-input" name="hospedaje[]" id="hospedaje_{{$hospedaje_precios->id}}" value="{{$hospedaje_precios->id}}-{{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}-{{round($total)}}" onclick="if (this.checked) sumar_hospedaje({{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}); else restar_hospedaje({{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}})">
                                                     <label class="custom-control-label cursor-pointer" for="hospedaje_{{$hospedaje_precios->id}}"><sup>$</sup>{{round($hospedaje_precios->precio+($hospedaje_precios->precio*$comision)/100)}}<small class="font-weight-bold">USD</small></label>
