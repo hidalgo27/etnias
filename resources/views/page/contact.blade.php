@@ -65,7 +65,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h2 class="text-secondary h5"><strong>Contact form:</strong></h2>
+                        <h2 class="text-secondary h5"><strong>@lang('contact.contactenos'):</strong></h2>
                         <form class="card bg-light mb-4" id="c_form" role="form">
                             {{csrf_field()}}
                             <div class="card-body">
