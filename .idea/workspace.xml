@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="" />
+    <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/notifications/page/cancel-reservation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/ReservaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/ReservaController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +168,8 @@
       <workItem from="1565567238426" duration="214000" />
       <workItem from="1565567474892" duration="4558000" />
       <workItem from="1565627613655" duration="2740000" />
-      <workItem from="1565709727010" duration="15637000" />
+      <workItem from="1565709727010" duration="16485000" />
+      <workItem from="1565816720384" duration="861000" />
     </task>
     <servers />
   </component>

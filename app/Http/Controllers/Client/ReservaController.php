@@ -10,6 +10,7 @@ use EtniasPeru\ReservaHospedaje;
 use EtniasPeru\ReservaTransporteExterno;
 use Illuminate\Http\Request;
 use EtniasPeru\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ReservaController extends Controller
 {
@@ -29,6 +30,21 @@ class ReservaController extends Controller
         $cancelar = Reserva::findOrFail($request->input("id_reserva"));
         $cancelar->estado = 2;
         $cancelar->save();
+
+        $name = 'Administrador';
+        $email = 'atencionalcliente@mietnia.com';
+
+        Mail::send(['html' => 'notifications.page.cancel-reservation'], [
+            'name' => $name,
+            'email' => $email
+        ], function ($messaje) use ($email) {
+            $messaje->to($email, 'MiEtnia')
+                ->subject('MiEtnia')
+//                    ->cc($from2, 'MiEtnia')
+                /*->attach('ruta')*/
+                ->from('atencionalcliente@mietnia.com', 'MiEtnia');
+        });
+
         return back()->withInput()->with('status', 'Se cancelo su reserva');
     }
 }
