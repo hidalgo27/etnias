@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27006fed-99b8-475f-addb-d350ff008916" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/notifications/page/cancel-reservation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/ReservaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/ReservaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/page/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/page/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/notifications/page/cancel-reservation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/notifications/page/cancel-reservation.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +169,9 @@
       <workItem from="1565567474892" duration="4558000" />
       <workItem from="1565627613655" duration="2740000" />
       <workItem from="1565709727010" duration="16485000" />
-      <workItem from="1565816720384" duration="861000" />
+      <workItem from="1565816720384" duration="1131000" />
+      <workItem from="1565817899062" duration="337000" />
+      <workItem from="1565828808741" duration="223000" />
     </task>
     <servers />
   </component>
