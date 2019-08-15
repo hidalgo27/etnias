@@ -19,6 +19,7 @@
                     <div class="col text-right">
                         <a href="{{route('comunidad_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.comunidades')</a>
                         <a href="{{route('actividades_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.actividades')</a>
+                        <a href="https://blog.mietnia.com" class="font-weight-bold h5 d-block text-g-grey-dark">Blog</a>
 {{--                        <a href="{{route('packages_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Paquetes</a>--}}
                         <a href="{{route('about_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">@lang('home.nosotros')</a>
 {{--                        <a href="{{route('blog_path')}}" class="font-weight-bold h5 d-block text-g-grey-dark">Nuestro Blog</a>--}}
@@ -46,6 +47,7 @@
                             <div class="col text-center">
                                 <a href="https://api.whatsapp.com/send?phone=51917474233" target="_blank"><i class="fab fa-whatsapp fa-2x text-g-grey-light"></i></a>
                             </div>
+
 {{--                            <div class="col">--}}
 {{--                                <i class="fab fa-youtube fa-2x text-danger"></i>--}}
 {{--                            </div>--}}

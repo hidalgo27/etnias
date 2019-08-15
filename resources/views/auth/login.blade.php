@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center mt-2 mb-5">
         <div class="col-md-8">
-            <h5 class="font-weight-bold text-center display-4 text-g-grey-primary">Log <span class="text-g-red-dark">in</span></h5>
+            <h5 class="font-weight-bold text-center display-4 text-g-grey-primary">@lang('home.inicio_sesion')</h5>
             <span class="d-block mb-2 font-weight-bold text-g-grey-light text-center">@lang('client.usuario_nuevo') <a href="{{ route('register') }}">@lang('client.registrarse')</a></span>
             <div class="card shadow">
                 <div class="card-header bg-g-red-primary text-white">@lang('client.login')</div>
