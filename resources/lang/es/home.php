@@ -18,7 +18,7 @@ return [
     'escoge_actividad' => 'ESCOGE LA ACTIVIDAD',
     'escoge_actividad_p' => 'Escoge la actividad (es) que te gustaría realizar en una comunidad nativa en una fecha disponible.',
     'crea_usuario' => 'CREA TU USUARIO',
-    'crea_usuario_p' => 'Crea tu usuario en Etnias y reserva con un método de pago aceptado.',
+    'crea_usuario_p' => 'Crea tu usuario en Mi Etnia y reserva con un método de pago aceptado.',
     'disfruta_experiencia' => 'DISFRUTA DE TU EXPERIENCIA',
     'disfruta_experiencia_p' => 'Disfruta de tu experiencia ancestral en una comunidad nativa en el país de los incas.',
     'actividades_comunidad' => 'Actividades en la comunidad',
